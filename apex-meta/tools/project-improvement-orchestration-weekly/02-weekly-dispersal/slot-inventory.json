@@ -1,0 +1,2947 @@
+{
+  "schema_version": "1.0",
+  "id": "MOA-SEQ-SLOT-INVENTORY",
+  "as_of": "2026-11-09",
+  "status": "working",
+  "week_span": "monday_to_sunday",
+  "regimes": {
+    "weekday_project": {
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday"
+      ],
+      "flows_per_day": 4,
+      "evening": {
+        "label": "Project night",
+        "start": "20:00",
+        "end": "20:30",
+        "minutes": 30,
+        "time_status": "READ FROM 'from 8 to 2030' - CONFIRM (DD-33)"
+      }
+    },
+    "weekday_plain": {
+      "days": [
+        "Thursday",
+        "Friday"
+      ],
+      "flows_per_day": 4,
+      "evening": null
+    },
+    "weekend": {
+      "days": [
+        "Saturday",
+        "Sunday"
+      ],
+      "flows_per_day": 2,
+      "evening": null
+    }
+  },
+  "status_merge_day": {
+    "value": "Saturday_or_Sunday",
+    "note": "operator ruling: either is acceptable; propagate everywhere that hard-codes Saturday (A-12 closed)"
+  },
+  "flow_template": {
+    "pattern": "3x3",
+    "pattern_meaning": "3 slots per iteration x 3 iterations",
+    "slots_per_iteration": 3,
+    "iterations": 3,
+    "branch_cycle": [
+      "P",
+      "M",
+      "C"
+    ],
+    "closing_branch": "R",
+    "minutes": {
+      "P": 2,
+      "M": 3,
+      "craft_standard": 30,
+      "recap": 1,
+      "break": 12
+    },
+    "fixed_overhead_min": 30,
+    "flex_rule": "only the craft block absorbs a flow's residual time",
+    "grounding": [
+      "qmd #1a447e:47-57",
+      "qmd #46ebe0:17-27,48-49",
+      "OD-29"
+    ]
+  },
+  "anchors": [
+    {
+      "anchor": "morning",
+      "start": "08:00",
+      "end": "09:00",
+      "minutes": 60,
+      "label": "Morning Routine, Meditation & Setup",
+      "branch_hint": "M"
+    },
+    {
+      "anchor": "midday",
+      "start": "12:30",
+      "end": "13:30",
+      "minutes": 60,
+      "label": "Midday Reset, Healthy Lunch & Fresh Air Walk",
+      "branch_hint": "R"
+    },
+    {
+      "anchor": "shutdown",
+      "start": "21:00",
+      "end": "21:30",
+      "minutes": 30,
+      "label": "Daily Shutdown: Outro, Day Evidence Commit & Workspace Reset",
+      "branch_hint": null,
+      "bindable": false
+    },
+    {
+      "anchor": "night",
+      "start": "21:30",
+      "end": "24:00",
+      "minutes": 150,
+      "label": "Evening Regeneration, Rest, Reading & Night Recovery",
+      "branch_hint": "R",
+      "bindable": false,
+      "note": "not a slot source. R is an ordinary branch (OD-41); its slots are the 24 in-flow breaks, which carry R content such as Yoga Nidra or reading. This window is life, not schedule."
+    }
+  ],
+  "flows": [
+    {
+      "day": "Monday",
+      "regime": "weekday",
+      "flow": "F1",
+      "start": "09:00",
+      "end": "11:00",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_MON_F1_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F1_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F1_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_MON_F1_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F1_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F1_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_MON_F1_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F1_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F1_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_MON_F1_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ]
+    },
+    {
+      "day": "Monday",
+      "regime": "weekday",
+      "flow": "F2",
+      "start": "11:15",
+      "end": "13:15",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_MON_F2_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F2_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F2_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_MON_F2_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F2_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F2_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_MON_F2_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F2_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F2_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_MON_F2_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ],
+      "span_status": "re-cut from 11:15-12:30, pending DD-32"
+    },
+    {
+      "day": "Monday",
+      "regime": "weekday",
+      "flow": "F3",
+      "start": "14:15",
+      "end": "16:15",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_MON_F3_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F3_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F3_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_MON_F3_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F3_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F3_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_MON_F3_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F3_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F3_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_MON_F3_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ],
+      "span_status": "re-cut from 13:30-15:30, pending DD-32"
+    },
+    {
+      "day": "Monday",
+      "regime": "weekday",
+      "flow": "F4",
+      "start": "16:30",
+      "end": "18:30",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_MON_F4_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F4_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F4_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_MON_F4_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F4_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F4_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_MON_F4_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F4_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_MON_F4_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_MON_F4_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ],
+      "span_status": "re-cut from 16:00-17:45, pending DD-32"
+    },
+    {
+      "day": "Tuesday",
+      "regime": "weekday",
+      "flow": "F1",
+      "start": "09:00",
+      "end": "11:00",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_TUE_F1_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F1_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F1_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_TUE_F1_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F1_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F1_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_TUE_F1_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F1_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F1_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_TUE_F1_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ]
+    },
+    {
+      "day": "Tuesday",
+      "regime": "weekday",
+      "flow": "F2",
+      "start": "11:15",
+      "end": "13:15",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_TUE_F2_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F2_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F2_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_TUE_F2_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F2_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F2_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_TUE_F2_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F2_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F2_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_TUE_F2_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ],
+      "span_status": "re-cut from 11:15-12:30, pending DD-32"
+    },
+    {
+      "day": "Tuesday",
+      "regime": "weekday",
+      "flow": "F3",
+      "start": "14:15",
+      "end": "16:15",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_TUE_F3_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F3_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F3_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_TUE_F3_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F3_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F3_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_TUE_F3_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F3_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F3_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_TUE_F3_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ],
+      "span_status": "re-cut from 13:30-15:30, pending DD-32"
+    },
+    {
+      "day": "Tuesday",
+      "regime": "weekday",
+      "flow": "F4",
+      "start": "16:30",
+      "end": "18:30",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_TUE_F4_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F4_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F4_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_TUE_F4_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F4_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F4_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_TUE_F4_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F4_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_TUE_F4_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_TUE_F4_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ],
+      "span_status": "re-cut from 16:00-17:45, pending DD-32"
+    },
+    {
+      "day": "Wednesday",
+      "regime": "weekday",
+      "flow": "F1",
+      "start": "09:00",
+      "end": "11:00",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_WED_F1_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F1_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F1_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_WED_F1_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F1_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F1_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_WED_F1_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F1_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F1_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_WED_F1_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "regime": "weekday",
+      "flow": "F2",
+      "start": "11:15",
+      "end": "13:15",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_WED_F2_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F2_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F2_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_WED_F2_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F2_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F2_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_WED_F2_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F2_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F2_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_WED_F2_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ],
+      "span_status": "re-cut from 11:15-12:30, pending DD-32"
+    },
+    {
+      "day": "Wednesday",
+      "regime": "weekday",
+      "flow": "F3",
+      "start": "14:15",
+      "end": "16:15",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_WED_F3_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F3_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F3_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_WED_F3_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F3_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F3_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_WED_F3_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F3_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F3_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_WED_F3_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ],
+      "span_status": "re-cut from 13:30-15:30, pending DD-32"
+    },
+    {
+      "day": "Wednesday",
+      "regime": "weekday",
+      "flow": "F4",
+      "start": "16:30",
+      "end": "18:30",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_WED_F4_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F4_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F4_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_WED_F4_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F4_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F4_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_WED_F4_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F4_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_WED_F4_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_WED_F4_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ],
+      "span_status": "re-cut from 16:00-17:45, pending DD-32"
+    },
+    {
+      "day": "Thursday",
+      "regime": "weekday",
+      "flow": "F1",
+      "start": "09:00",
+      "end": "11:00",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_THU_F1_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F1_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F1_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_THU_F1_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F1_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F1_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_THU_F1_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F1_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F1_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_THU_F1_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ]
+    },
+    {
+      "day": "Thursday",
+      "regime": "weekday",
+      "flow": "F2",
+      "start": "11:15",
+      "end": "13:15",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_THU_F2_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F2_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F2_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_THU_F2_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F2_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F2_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_THU_F2_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F2_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F2_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_THU_F2_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ],
+      "span_status": "re-cut from 11:15-12:30, pending DD-32"
+    },
+    {
+      "day": "Thursday",
+      "regime": "weekday",
+      "flow": "F3",
+      "start": "14:15",
+      "end": "16:15",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_THU_F3_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F3_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F3_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_THU_F3_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F3_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F3_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_THU_F3_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F3_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F3_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_THU_F3_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ],
+      "span_status": "re-cut from 13:30-15:30, pending DD-32"
+    },
+    {
+      "day": "Thursday",
+      "regime": "weekday",
+      "flow": "F4",
+      "start": "16:30",
+      "end": "18:30",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_THU_F4_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F4_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F4_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_THU_F4_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F4_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F4_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_THU_F4_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F4_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_THU_F4_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_THU_F4_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ],
+      "span_status": "re-cut from 16:00-17:45, pending DD-32"
+    },
+    {
+      "day": "Friday",
+      "regime": "weekday",
+      "flow": "F1",
+      "start": "09:00",
+      "end": "11:00",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_FRI_F1_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F1_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F1_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_FRI_F1_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F1_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F1_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_FRI_F1_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F1_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F1_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_FRI_F1_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ]
+    },
+    {
+      "day": "Friday",
+      "regime": "weekday",
+      "flow": "F2",
+      "start": "11:15",
+      "end": "13:15",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_FRI_F2_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F2_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F2_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_FRI_F2_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F2_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F2_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_FRI_F2_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F2_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F2_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_FRI_F2_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ],
+      "span_status": "re-cut from 11:15-12:30, pending DD-32"
+    },
+    {
+      "day": "Friday",
+      "regime": "weekday",
+      "flow": "F3",
+      "start": "14:15",
+      "end": "16:15",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_FRI_F3_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F3_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F3_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_FRI_F3_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F3_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F3_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_FRI_F3_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F3_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F3_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_FRI_F3_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ],
+      "span_status": "re-cut from 13:30-15:30, pending DD-32"
+    },
+    {
+      "day": "Friday",
+      "regime": "weekday",
+      "flow": "F4",
+      "start": "16:30",
+      "end": "18:30",
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_FRI_F4_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F4_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F4_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_FRI_F4_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F4_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F4_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_FRI_F4_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F4_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_FRI_F4_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_FRI_F4_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ],
+      "span_status": "re-cut from 16:00-17:45, pending DD-32"
+    },
+    {
+      "day": "Saturday",
+      "regime": "weekend",
+      "flow": "F1",
+      "start": null,
+      "end": null,
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_SAT_F1_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SAT_F1_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SAT_F1_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_SAT_F1_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SAT_F1_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SAT_F1_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_SAT_F1_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SAT_F1_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SAT_F1_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_SAT_F1_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ],
+      "span_status": "assumed_pending_DD-30"
+    },
+    {
+      "day": "Saturday",
+      "regime": "weekend",
+      "flow": "F2",
+      "start": null,
+      "end": null,
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_SAT_F2_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SAT_F2_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SAT_F2_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_SAT_F2_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SAT_F2_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SAT_F2_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_SAT_F2_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SAT_F2_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SAT_F2_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_SAT_F2_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ],
+      "span_status": "assumed_pending_DD-30"
+    },
+    {
+      "day": "Sunday",
+      "regime": "weekend",
+      "flow": "F1",
+      "start": null,
+      "end": null,
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_SUN_F1_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SUN_F1_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SUN_F1_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_SUN_F1_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SUN_F1_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SUN_F1_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_SUN_F1_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SUN_F1_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SUN_F1_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_SUN_F1_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ],
+      "span_status": "assumed_pending_DD-30"
+    },
+    {
+      "day": "Sunday",
+      "regime": "weekend",
+      "flow": "F2",
+      "start": null,
+      "end": null,
+      "duration_min": 120,
+      "craft_block_min": 30,
+      "fixed_overhead_min": 30,
+      "slot_occurrences": [
+        {
+          "slot_id": "SO_SUN_F2_I1_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "precap",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SUN_F2_I1_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SUN_F2_I1_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 1,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_SUN_F2_I2_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SUN_F2_I2_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SUN_F2_I2_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 2,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_SUN_F2_I3_P",
+          "branch": "P",
+          "role": "physical_micro",
+          "minutes": 2,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SUN_F2_I3_M",
+          "branch": "M",
+          "role": "mental_micro",
+          "minutes": 3,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": true
+        },
+        {
+          "slot_id": "SO_SUN_F2_I3_C",
+          "branch": "C",
+          "role": "craft_block",
+          "minutes": 30,
+          "lp_role": "main",
+          "iteration": 3,
+          "quota_bearing": false,
+          "binds": "openproject_work_package",
+          "recap_min": 1,
+          "recap_note": "trailing minute of this block, lp_role=recap; not a separate slot (DD-29)"
+        },
+        {
+          "slot_id": "SO_SUN_F2_BREAK",
+          "branch": "R",
+          "role": "flow_break",
+          "minutes": 12,
+          "lp_role": "recap",
+          "iteration": null,
+          "quota_bearing": false,
+          "note": "corpus annotates this slot 'Light snack & audiobook'"
+        }
+      ],
+      "span_status": "assumed_pending_DD-30"
+    }
+  ],
+  "totals": {
+    "slots_per_week": {
+      "P": 72,
+      "M": 72,
+      "C": 72,
+      "R": 24
+    },
+    "minutes_per_week": {
+      "P": 144,
+      "M": 216,
+      "C": 2160,
+      "R": 288
+    },
+    "flows_per_week": 24,
+    "weekday_slots_per_day": {
+      "P": 12,
+      "M": 12,
+      "C": 12,
+      "R": 4
+    },
+    "weekend_slots_per_day": {
+      "P": 6,
+      "M": 6,
+      "C": 6,
+      "R": 2
+    }
+  },
+  "quota": {
+    "basis": "slot occurrences, not minutes (A-03, DD-02)",
+    "note": "shares are operator dials and will change; the mechanism is identical for both branches (OD-40)",
+    "mental": {
+      "epics": [
+        "Intention",
+        "ACIM",
+        "Surrender",
+        "Breathing"
+      ],
+      "denominator": 72,
+      "declared_shares": {
+        "Intention": 0.4,
+        "ACIM": 0.2,
+        "Surrender": 0.2,
+        "Breathing": 0.2
+      },
+      "raw": {
+        "Intention": 28.8,
+        "ACIM": 14.4,
+        "Surrender": 14.4,
+        "Breathing": 14.4
+      },
+      "allocated": {
+        "Intention": 29,
+        "ACIM": 15,
+        "Surrender": 14,
+        "Breathing": 14
+      },
+      "realized_share": {
+        "Intention": 0.4028,
+        "ACIM": 0.2083,
+        "Surrender": 0.1944,
+        "Breathing": 0.1944
+      },
+      "rounding_rule": "largest remainder at the week (DD-27); ties to the Epic with the least focus-day capacity",
+      "tie_capacity": {
+        "Intention": 36,
+        "Surrender": 12,
+        "Breathing": 12,
+        "ACIM": 6
+      }
+    },
+    "physical": {
+      "epics": [
+        "Martial Arts",
+        "Dance",
+        "S/BJJ",
+        "General",
+        "Knee"
+      ],
+      "week_table_mapping": {
+        "Strikes": "Martial Arts",
+        "Kicks": "Martial Arts",
+        "Dance": "Dance",
+        "Moves": "Dance",
+        "S/BJJ": "S/BJJ",
+        "Running": "General",
+        "Stretch": "General",
+        "EFX": null
+      },
+      "dropped": [
+        "EFX"
+      ],
+      "shares_status": "DERIVED from week-table day frequency, NOT declared by the operator - confirm or replace (DD-34)",
+      "denominator": 72,
+      "declared_shares": {
+        "Martial Arts": 0.4286,
+        "Dance": 0.2857,
+        "S/BJJ": 0.1429,
+        "General": 0.1429,
+        "Knee": 0.0
+      },
+      "raw": {
+        "Martial Arts": 30.86,
+        "Dance": 20.57,
+        "S/BJJ": 10.29,
+        "General": 10.29,
+        "Knee": 0.0
+      },
+      "allocated": {
+        "Martial Arts": 31,
+        "Dance": 21,
+        "S/BJJ": 10,
+        "General": 10,
+        "Knee": 0
+      },
+      "realized_share": {
+        "Martial Arts": 0.4306,
+        "Dance": 0.2917,
+        "S/BJJ": 0.1389,
+        "General": 0.1389,
+        "Knee": 0.0
+      },
+      "rounding_rule": "largest remainder at the week (DD-27); ties to the Epic with the least focus-day capacity",
+      "tie_capacity": {
+        "Martial Arts": 36,
+        "Dance": 24,
+        "S/BJJ": 6,
+        "General": 6,
+        "Knee": 0
+      }
+    }
+  }
+}

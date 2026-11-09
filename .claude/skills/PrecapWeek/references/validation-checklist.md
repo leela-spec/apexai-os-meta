@@ -23,26 +23,33 @@ purpose:
 
 ```yaml
 scope_validation:
-  weekday_scope:
+  week_scope:
     allowed_days:
       - Monday
       - Tuesday
       - Wednesday
       - Thursday
       - Friday
-    excluded_days:
       - Saturday
-      - Sunday_regular_day_planning
+      - Sunday
+    excluded_days: []
+    weekday_regime_days:
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+    weekend_regime_days:
+      - Saturday
+      - Sunday
     allowed_sunday_exception:
       - Sunday_weekly_precap_session
   required_checks:
-    monday_to_friday_scope_only: true
-    saturday_excluded: true
-    sunday_regular_planning_excluded: true
+    monday_to_sunday_scope: true
+    saturday_weekend_regime_applied: true
+    sunday_weekend_regime_applied: true
     sunday_weekly_precap_session_allowed: true
   forbidden_scope_items:
-    - Saturday_planning
-    - Sunday_regular_day_planning
     - detailed_next_day_plan_creation
     - prompt_packet_generation
     - project_execution
@@ -282,7 +289,7 @@ failure_modes:
     trigger: required_or_high_impact_input_unavailable
     correction: mark_missing_input_and_surface_operator_review_flag
   invalid_scope:
-    trigger: request_extends_beyond_monday_to_friday_or_sunday_weekly_precap_exception
+    trigger: request_extends_beyond_monday_to_sunday_planning_scope
     correction: remove_out_of_scope_content_and_mark_scope_drift
   calendar_action_drift:
     trigger: output_creates_or_claims_to_create_calendar_events

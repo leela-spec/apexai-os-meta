@@ -9,8 +9,8 @@ purpose:
     - capacity_reduction_rules
     - residual_deferral_rules
   goal: >
-    Define how the precap-week skill adapts standard weekday planning when
-    meetings or fixed commitments reduce realistic work capacity.
+    Define how the precap-week skill adapts standard Monday through Sunday
+    planning when meetings or fixed commitments reduce realistic work capacity.
   reference_role:
     is_standard_blueprint: false
     is_constrained_week_reference: true
@@ -39,16 +39,25 @@ scope:
     - weekly_blueprint_standard
     - calendar_planning_guidance
     - weekly_command_brief_template
-  weekday_scope:
+  week_scope:
     included:
       - Monday
       - Tuesday
       - Wednesday
       - Thursday
       - Friday
-    excluded:
       - Saturday
-      - Sunday_regular_day_planning
+      - Sunday
+    excluded: []
+    weekday_regime_days:
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+    weekend_regime_days:
+      - Saturday
+      - Sunday
     allowed_exception:
       - Sunday_weekly_precap_session
   use_condition: >

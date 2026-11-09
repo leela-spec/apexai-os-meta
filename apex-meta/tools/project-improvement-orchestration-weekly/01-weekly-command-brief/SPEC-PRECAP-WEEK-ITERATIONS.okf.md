@@ -21,7 +21,7 @@ This specification is the **canonical source of truth** for authoring, evaluatin
 - [P0 | I97/E94/R06] **Three-Part Sequential Building**:
   1. **Part 1: Operator Decision Brief (`Standard` / `New` / `Ongoing`)**: Compact variable labels with expandable dropdowns and `(i)` info toggles replacing verbose prose blocks (`HANDOVER-04`). Highlights weekly flow routing, Special Project Days (Mon/Wed evenings), OpenProject overrides, and ongoing calendar holds.
   2. **Part 2: Matrix 1 — Goal-Cube Tree & Project Overview (Non-Temporal)**: Single stacked column of repository rows. **Top `L1: Priority Goals` strip is always visible** under each repo header as side-by-side clickable Goal Cubes (1–2 operator goals/project; arrows drawn *only* if major goals strictly depend on each other). Levels use **compact left-rail vertical labels (`L1` / `L2` / `L3`)**; **`L2: Nice-to-Haves`** (cube-cards side-by-side) and **`L3: Other Work Packages`** start **folded**. Clicking any cube fans out child sub-cubes and/or reveals its inline **`G-I-P-S-O`** Task Specification (`HANDOVER-03`). **Zero sprints in Matrix 1.**
-  3. **Part 3: Matrix 2 — Calendar Snapshot & Visualization (Temporal)**: Full-width Monday–Saturday hourly table mapping F1–F4 and 30m sprints across `08:00–24:00` with `21:00` Daily Shutdown (unchanged and validated).
+  3. **Part 3: Matrix 2 — Calendar Snapshot & Visualization (Temporal)**: Full-width **Monday–Sunday** hourly table mapping F1–F4 and 30m sprints across `08:00–24:00` with `21:00` Daily Shutdown. **Monday–Friday run the weekday regime; Saturday and Sunday run the weekend regime** — the same mechanism under a reduced slot count and distinct standing content, never a second mechanism.
 - [P0 | I96/E94/R08] **Five Repository Boundaries**:
   1. **Master of Arts** (`MasterOfArts` / OP #14, #6, #7): Website content draft, content production week (7 videos), and business operations (invoicing engine & automated PDF billing).
   2. **Leela** (`Leela-Cloud-2026` / OP #10): Focused **strictly on the Skill Tree** (spatial node contracts, Chunk library, durable placement identity). Path & Sequencing paused this week.
@@ -64,7 +64,7 @@ Grounding from [`01_RESEARCH_FINDINGS.md`](file:///c:/GitDev/apexai-os-meta/apex
 ### 3.1 Primary Operator Mission
 The operator needs **calm, grounded clarity** and **tangible momentum**. Rather than wading through database IDs, verbose validation logs, or abstract multi-agent chatter, the operator must see:
 * Exactly where each project stands in reality.
-* What meaningful progress will be achieved by Saturday close.
+* What meaningful progress will be achieved by Sunday close.
 * What decisions or approvals require human intervention.
 * How the week fits realistically into the physical calendar without burnout.
 
@@ -72,7 +72,7 @@ The operator needs **calm, grounded clarity** and **tangible momentum**. Rather 
 The head of the brief must immediately communicate:
 1. **Strategic Leverage & Excitement:** Clear, inspiring headlines stating what the week will accomplish.
 2. **Current Grounded Baseline:** Verified truth from source commits and OpenProject.
-3. **Weekly Direction:** The primary milestones to celebrate upon Saturday review.
+3. **Weekly Direction:** The primary milestones to celebrate upon Sunday review.
 4. **Immediate Human Action:** The single choice or confirmation required to unlock execution.
 
 ### 3.3 Core Presentation Principles
@@ -110,7 +110,7 @@ Every governance parameter is rendered as a slim single-line control:
 3. **`Standard` — Standing Operating Baselines** *(Folded/compact by default)*:
    - **Priority Intake Engine:** OpenProject Priority List decides default ordering unless overridden in `New`.
    - **Flow & Sequencing System:** 4 Flows/day; Sequencing 3×3 standard cadence (flex 3×2 or 3×1).
-   - **Time Window Anchor:** `08:00–24:00` span, `21:00` Daily Shutdown, Sunday OFF by default.
+   - **Time Window Anchor:** `08:00–24:00` span, `21:00` Daily Shutdown on every day. **Sunday is planned**, under the weekend regime rather than the weekday regime; it is no longer OFF by default.
 
 ---
 
@@ -197,21 +197,22 @@ Matrix 2 maps the selected work packages from Matrix 1 across the calendar days,
 
 ### 6.3 Full-Width Responsive HTML Calendar Specification
 
-Matrix 2 is rendered using a full-width, horizontally scrollable HTML table spanning Monday through Saturday. All four flows are explicitly displayed, with sprint slots containing **at least three distinct actionable items**:
+Matrix 2 is rendered using a full-width, horizontally scrollable HTML table spanning **Monday through Sunday**. All four flows are explicitly displayed, with sprint slots containing **at least three distinct actionable items**. Saturday and Sunday columns render under the weekend regime: the same flow and sprint structure at a reduced slot count.
 
 ```html
 <div class="calendar-viewport" style="width:100%; overflow-x:auto; margin:20px 0;">
-  <table style="width:100%; min-width:1150px; border-collapse:collapse; font-size:12px; border:1px solid #dce4e8; background:#fffdf8;">
+  <table style="width:100%; min-width:1300px; border-collapse:collapse; font-size:12px; border:1px solid #dce4e8; background:#fffdf8;">
     <thead>
       <tr style="background:#162642; color:#fff;">
         <th style="width:12%; padding:10px; border:1px solid #2a3e5c;">Window / Flow</th>
         <th style="width:6%; padding:10px; border:1px solid #2a3e5c;">Sprint</th>
-        <th style="width:13.6%; padding:10px; border:1px solid #2a3e5c;">Monday</th>
-        <th style="width:13.6%; padding:10px; border:1px solid #2a3e5c;">Tuesday</th>
-        <th style="width:13.6%; padding:10px; border:1px solid #2a3e5c;">Wednesday</th>
-        <th style="width:13.6%; padding:10px; border:1px solid #2a3e5c;">Thursday</th>
-        <th style="width:13.6%; padding:10px; border:1px solid #2a3e5c;">Friday</th>
-        <th style="width:13.6%; padding:10px; border:1px solid #2a3e5c;">Saturday</th>
+        <th style="width:11.7%; padding:10px; border:1px solid #2a3e5c;">Monday</th>
+        <th style="width:11.7%; padding:10px; border:1px solid #2a3e5c;">Tuesday</th>
+        <th style="width:11.7%; padding:10px; border:1px solid #2a3e5c;">Wednesday</th>
+        <th style="width:11.7%; padding:10px; border:1px solid #2a3e5c;">Thursday</th>
+        <th style="width:11.7%; padding:10px; border:1px solid #2a3e5c;">Friday</th>
+        <th style="width:11.7%; padding:10px; border:1px solid #2a3e5c;">Saturday</th>
+        <th style="width:11.7%; padding:10px; border:1px solid #2a3e5c;">Sunday</th>
       </tr>
     </thead>
     <tbody>
@@ -219,7 +220,7 @@ Matrix 2 is rendered using a full-width, horizontally scrollable HTML table span
       <!-- Protected Routine Anchor: Morning -->
       <tr style="background:#f4f1ea; color:#687b8b;">
         <td style="padding:6px; text-align:center; font-family:monospace;">08:00–09:00</td>
-        <td colspan="7" style="padding:6px; text-align:center;">🔒 Protected Anchor: Morning Routine, Meditation & Setup</td>
+        <td colspan="8" style="padding:6px; text-align:center;">🔒 Protected Anchor: Morning Routine, Meditation & Setup</td>
       </tr>
 
       <!-- Focus Flow Block 1 -->
@@ -238,19 +239,19 @@ Matrix 2 is rendered using a full-width, horizontally scrollable HTML table span
             <li>3. {{ITEM_3}}</li>
           </ul>
         </td>
-        <td colspan="5" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
+        <td colspan="6" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
           <em>Sprint allocations dynamically populated per day</em>
         </td>
       </tr>
       <tr>
         <td style="padding:6px; text-align:center; font-weight:700; border-bottom:1px solid #eef1f4;">Sprint 2</td>
-        <td colspan="6" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
+        <td colspan="7" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
           <em>Sprint 2 items (minimum 3 actionable subtasks)</em>
         </td>
       </tr>
       <tr style="border-bottom:2px solid #507967;">
         <td style="padding:6px; text-align:center; font-weight:700;">Sprint 3</td>
-        <td colspan="6" style="padding:6px; vertical-align:top;">
+        <td colspan="7" style="padding:6px; vertical-align:top;">
           <em>Sprint 3 items (minimum 3 actionable subtasks)</em>
         </td>
       </tr>
@@ -263,19 +264,19 @@ Matrix 2 is rendered using a full-width, horizontally scrollable HTML table span
           <span style="font-size:11px; font-weight:700;">MoA: Website/Invoicing</span>
         </td>
         <td style="padding:6px; text-align:center; font-weight:700; border-bottom:1px solid #eef1f4;">Sprint 1</td>
-        <td colspan="6" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
+        <td colspan="7" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
           <em>Website content draft & invoicing schema sprints</em>
         </td>
       </tr>
       <tr>
         <td style="padding:6px; text-align:center; font-weight:700; border-bottom:1px solid #eef1f4;">Sprint 2</td>
-        <td colspan="6" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
+        <td colspan="7" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
           <em>PDF template & tax calculation unit tests</em>
         </td>
       </tr>
       <tr style="border-bottom:2px solid #355570;">
         <td style="padding:6px; text-align:center; font-weight:700;">Sprint 3</td>
-        <td colspan="6" style="padding:6px; vertical-align:top;">
+        <td colspan="7" style="padding:6px; vertical-align:top;">
           <em>Staging validation & client billing test run</em>
         </td>
       </tr>
@@ -283,7 +284,7 @@ Matrix 2 is rendered using a full-width, horizontally scrollable HTML table span
       <!-- Protected Routine Anchor: Lunch -->
       <tr style="background:#f4f1ea; color:#687b8b;">
         <td style="padding:6px; text-align:center; font-family:monospace;">12:30–13:30</td>
-        <td colspan="7" style="padding:6px; text-align:center;">🔒 Protected Anchor: Midday Reset, Healthy Lunch & Fresh Air Walk</td>
+        <td colspan="8" style="padding:6px; text-align:center;">🔒 Protected Anchor: Midday Reset, Healthy Lunch & Fresh Air Walk</td>
       </tr>
 
       <!-- Flow 3: IPOS Pipeline Recheck -->
@@ -294,19 +295,19 @@ Matrix 2 is rendered using a full-width, horizontally scrollable HTML table span
           <span style="font-size:11px; font-weight:700;">IPOS: Pipeline Recheck</span>
         </td>
         <td style="padding:6px; text-align:center; font-weight:700; border-bottom:1px solid #eef1f4;">Sprint 1</td>
-        <td colspan="6" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
+        <td colspan="7" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
           <em>Pipeline architecture audit & external ingestion possibilities</em>
         </td>
       </tr>
       <tr>
         <td style="padding:6px; text-align:center; font-weight:700; border-bottom:1px solid #eef1f4;">Sprint 2</td>
-        <td colspan="6" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
+        <td colspan="7" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
           <em>Data visualization over time modularization</em>
         </td>
       </tr>
       <tr style="border-bottom:2px solid #b08445;">
         <td style="padding:6px; text-align:center; font-weight:700;">Sprint 3</td>
-        <td colspan="6" style="padding:6px; vertical-align:top;">
+        <td colspan="7" style="padding:6px; vertical-align:top;">
           <em>Test harness & sovereign JSON schema benchmarks</em>
         </td>
       </tr>
@@ -319,19 +320,19 @@ Matrix 2 is rendered using a full-width, horizontally scrollable HTML table span
           <span style="font-size:11px; font-weight:700;">Residual Life Flows</span>
         </td>
         <td style="padding:6px; text-align:center; font-weight:700; border-bottom:1px solid #eef1f4;">Sprint 1</td>
-        <td colspan="6" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
+        <td colspan="7" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
           <b>Apartment & Studio Art:</b> Workspace acoustic tuning, studio clean room, canvas stretching, painting.
         </td>
       </tr>
       <tr>
         <td style="padding:6px; text-align:center; font-weight:700; border-bottom:1px solid #eef1f4;">Sprint 2</td>
-        <td colspan="6" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
+        <td colspan="7" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
           <b>Sexy Content:</b> Aesthetic moodboards, photoshoot lighting, high-resolution portrait capture, color grading.
         </td>
       </tr>
       <tr style="border-bottom:2px solid #806655;">
         <td style="padding:6px; text-align:center; font-weight:700;">Sprint 3</td>
-        <td colspan="6" style="padding:6px; vertical-align:top;">
+        <td colspan="7" style="padding:6px; vertical-align:top;">
           <b>Community & Traveling:</b> Peer network outreach, community dinner sync, travel route planning, logistics.
         </td>
       </tr>
@@ -339,13 +340,13 @@ Matrix 2 is rendered using a full-width, horizontally scrollable HTML table span
       <!-- Protected Routine Anchor: Daily Shutdown at 21:00 -->
       <tr style="background:#eef2f7; color:#355570; font-weight:700; border-top:2px solid #304e86;">
         <td style="padding:8px; text-align:center; font-family:monospace;">21:00–21:30</td>
-        <td colspan="7" style="padding:8px; text-align:center;">🔒 Daily Shutdown (21:00): Outro, Day Evidence Commit & Workspace Reset</td>
+        <td colspan="8" style="padding:8px; text-align:center;">🔒 Daily Shutdown (21:00): Outro, Day Evidence Commit & Workspace Reset</td>
       </tr>
 
       <!-- Evening Regeneration Window: 21:30 to 24:00 -->
       <tr style="background:#f9f8f5; color:#788b99;">
         <td style="padding:8px; text-align:center; font-family:monospace;">21:30–24:00</td>
-        <td colspan="7" style="padding:8px; text-align:center;">Evening Regeneration, Rest, Reading & Night Recovery</td>
+        <td colspan="8" style="padding:8px; text-align:center;">Evening Regeneration, Rest, Reading & Night Recovery</td>
       </tr>
 
     </tbody>

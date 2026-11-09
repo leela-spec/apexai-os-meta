@@ -7,12 +7,13 @@ purpose:
     - weekly_blueprint_standard
     - fixed_blocks
     - planned_blocks
-    - weekday_scope
+    - week_scope
     - default_time_precision_rule
   goal: >
-    Define the standard Monday through Friday weekday blueprint used by the
+    Define the standard Monday through Sunday blueprint used by the
     precap-week skill when the week has normal capacity and does not require
-    meeting-heavy deformation rules.
+    meeting-heavy deformation rules. Monday through Friday run the weekday
+    regime; Saturday and Sunday run the weekend regime.
   blueprint_role:
     provides_default_structure: true
     guides_weekday_direction: true
@@ -24,24 +25,33 @@ purpose:
 ## Scope
 
 ```yaml
-weekday_scope:
+week_scope:
   included_days:
     - Monday
     - Tuesday
     - Wednesday
     - Thursday
     - Friday
-  excluded_days:
     - Saturday
-    - Sunday_regular_day_planning
+    - Sunday
+  excluded_days: []
+  weekday_regime_days:
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+  weekend_regime_days:
+    - Saturday
+    - Sunday
   allowed_sunday_exception:
     - Sunday_weekly_precap_session
   scope_rules:
-    monday_to_friday_only: true
-    saturday_planning_excluded: true
-    sunday_regular_planning_excluded: true
+    monday_to_sunday_only: true
+    saturday_weekend_regime_applied: true
+    sunday_weekend_regime_applied: true
     sunday_weekly_precap_session_allowed: true
-    no_weekend_recovery_or_life_planning_in_this_file: true
+    weekend_regime_content_defined_elsewhere: true
 ```
 
 ## Time Precision Rule
@@ -256,7 +266,7 @@ use_rules:
     - operator_requests_normal_weekly_planning
     - calendar_constraints_allow_regular_block_structure
   how_to_apply:
-    1: confirm_weekday_scope
+    1: confirm_week_scope
     2: preserve_fixed_blocks
     3: place_known_calendar_constraints_around_fixed_blocks
     4: identify_remaining_capacity_windows
