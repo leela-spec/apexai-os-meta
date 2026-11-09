@@ -78,13 +78,21 @@ Companion artifacts: [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DEC
   four Flows plus a project night), `weekday_plain` (Thursday, Friday — four Flows), `weekend`
   (Saturday, Sunday — two Flows). Both weekday regimes carry identical slot counts; the regimes
   differ only in the evening.
-- **WD-13 [P2 | I85/E80/R10] Project Night Is Not A Flow**: The Monday-to-Wednesday project night is
-  an evening block, not a Flow, and contributes no slot occurrences. Its clock times are unresolved
-  (`DD-33`).
-- **WD-14 [P1 | I90/E85/R08] Weekday Re-Cut Required**: Four 120-minute Flows plus two 60-minute
-  anchors do not fit the inherited Precap Week geometry, whose Flow 2 runs 75 minutes and Flow 4 runs
-  105. The proposed re-cut moves the midday anchor to `13:15-14:15` and sets Flows at
-  `09:00-11:00 / 11:15-13:15 / 14:15-16:15 / 16:30-18:30`. Unconfirmed (`DD-32`).
+- **WD-13 [P2 | I85/E88/R07] Project Night Is Not A Flow**: The Monday-to-Wednesday project night
+  runs `20:00-21:30` and is an evening block, not a Flow; it contributes no slot occurrences
+  (`DD-33` closed).
+- **WD-14 [P1 | I90/E90/R06] The Declared Weekday Cut**: The morning anchor runs 30 minutes
+  (`08:00-08:30`) and everything after it moves 30 minutes earlier against the inherited geometry.
+  Flows run `08:30-10:30 / 10:30-12:30 / 13:45-15:45 / 16:00-18:00`, the midday anchor
+  `12:30-13:30`, the evening block `19:00-20:00`, shutdown `21:30-22:00`. `DD-32` closed.
+- **WD-14a [P2 | I84/E92/R05] Flows 1 And 2 Are Adjacent**: No turnaround separates Flow 1 from
+  Flow 2. Each Flow already closes on its own 12-minute `R` break, so adjacency removes the
+  inter-Flow gap only and never the break.
+- **WD-14b [P2 | I82/E90/R06] Weekend Flows Start At Noon**: The two weekend Flows run `12:00-14:00`
+  and `14:00-16:00`, back-to-back with no pause between them.
+- **WD-14c [P1 | I88/E94/R04] Day Geometry Is Overlap-Checked**: The generator sorts every placed
+  element per regime and rejects any overlap. The operator shifts these times by voice, and the
+  first such shift drove the midday anchor into Flow 2.
 
 ---
 
@@ -174,6 +182,15 @@ Companion artifacts: [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DEC
 - **WD-36 [P2 | I84/E88/R08] Visualise The Effect, Not The Syntax**: Present every rule beside the
   slots it lights up, with the count it claims and the count left to the solver. Rendering the
   grammar as boxes teaches the syntax and hides the meaning.
+- **WD-36a [P1 | I88/E90/R06] The Per-Day Band Renders Into Matrix 2**: The resolved day reaches the
+  operator as a read-only band inside Precap Week Matrix 2, not as a separate surface. It shows the
+  `P`, `M` and `R` bindings only; craft is omitted because the work package is authored in
+  OpenProject and repeating it here would create a second authoring surface (`WD-06`). `DD-22`
+  option A.
+- **WD-36b [P0 | I94/E90/R05] Every Operator View Is Generated From The Inventory**: Human-facing
+  renderings of the week are produced from `slot-inventory.json`, never hand-authored. A
+  hand-built page is a drawing of a week, not a reading of one, and drifts from the contract the
+  moment a time changes.
 
 ---
 
@@ -204,7 +221,11 @@ Companion artifacts: [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DEC
 | DD-25 | Which BP the chip shows | Withdrawn; there is only one BP |
 | DD-27 | Quota rounding | Largest remainder at the week |
 | DD-29 | Recap branch | Craft (`WD-10`) |
-| DD-30 | Weekend Flow shape | The same 120-minute standard |
+| DD-30 | Weekend Flow shape | The same 120-minute standard; `12:00-14:00` and `14:00-16:00`, adjacent |
+| DD-22 | The per-day band | **Option A.** A read-only readout rendered into Precap Week Matrix 2. Craft is omitted — it is authored in the work-package surface (`WD-06`) |
+| DD-32 | Weekday re-cut | Declared: 30-minute morning anchor, everything after it 30 minutes earlier, Flows 1 and 2 adjacent (`WD-14`) |
+| DD-33 | Project-night times | `20:00-21:30` |
+| DD-34 | Physical shares | Knee raised to 15%; the remaining 85% keeps the week-table proportions `3:2:1:1` |
 | DD-31 | Week table to Epics | Five physical Epics; EFX dropped |
 | A-09 | Wednesday Special Project Day | Doubles: project night and slot share both |
 | A-10 | Night window | Withdrawn as malformed; `R` is an ordinary branch (`WD-19`) |
@@ -218,14 +239,13 @@ Companion artifacts: [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DEC
 | DD-16 | BP floor values | Per-component minima; values follow the slot inventory |
 | DD-17 | Which Epic owns `R` content | One `Regeneration` Epic with Blocks, not one per activity |
 | DD-18 | Weekend regime content | Reduced slot count under the same algorithm — settled at two Flows |
-| DD-22 | The per-day band | A read-only readout, not an editable surface (`WD-06`) |
 | DD-23 | "Path and Sequencing paused" | Qualify: the Leela feature is paused, the dispersal slice is active |
 | DD-24 | Stale weekend text in Handovers 04, 05 | Fix now, before ratification reintroduces `Sun OFF` |
 | DD-26 | Dependency-view choice | No recommendation; its own DoD requires an unrun OpenProject edge count |
 | DD-28 | HANDOVER-05 XP chip amendment | Amend now; the definition is already a `[P0]` spec invariant |
-| DD-32 | Weekday re-cut | The arrangement in `WD-14`, awaiting confirmation |
-| DD-33 | Project-night times | Read as `20:00-20:30`; may mean `18:00-20:30` |
-| DD-34 | Physical shares | Derived from week-table day frequency, not declared. Gives Knee zero |
+| DD-35 | "Optimized to 5-minute iterations" | Not applied. Two readings: (a) declared shares round to 5-percentage-point steps, giving `35/25/10/15/15`; (b) the `P`+`M` pair is the 5-minute iteration unit and allocations must fill whole pairs. Reading (b) is already true of the Flow — 2 + 3 = 5 — which makes (a) the likelier ask |
+| DD-36 | Evening block content | `19:00-20:00` is declared but unnamed. Not yet a slot source |
+| DD-37 | Thursday and Friday evening | Those days have `18:00-19:00` and `20:00-21:30` unallocated, since only Monday to Wednesday carry a project night |
 
 ---
 

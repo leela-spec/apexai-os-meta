@@ -31,6 +31,8 @@ TRACKED = [
     "PRECAP-INTEGRATION-ANALYSIS.md",
     "slot-inventory.json",
     "build_slot_inventory.py",
+    "render_blueprint.py",
+    "week-blueprint.html",
     "sync_dispersal.py",
 ]
 

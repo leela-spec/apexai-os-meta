@@ -10,6 +10,12 @@ Grounding:
   Weekday flow spans    SPEC-PRECAP-WEEK-ITERATIONS.okf.md (live Matrix 2)
   Operator minutes      OD-29  (M 3, P 2, C 30 standard, recap 1, break 12)
   Weekend flow count    OD-33  (two flows)
+  Weekday re-cut        OD-45..OD-48  (declared 2026-11-09, DD-32/DD-33 closed)
+  Weekend spans         OD-47  (12:00-16:00 back-to-back, DD-30 closed)
+  Knee share            OD-49  (15%, DD-34 closed)
+
+Spans marked DERIVED in span_status were computed from the operator's
+"everything else half an hour earlier" rule, not declared one by one (WD-46).
 """
 
 import json
@@ -23,9 +29,9 @@ REGIMES = {
     "weekday_project": {
         "days": ["Monday", "Tuesday", "Wednesday"],
         "flows_per_day": 4,
-        "evening": {"label": "Project night", "start": "20:00", "end": "20:30",
-                    "minutes": 30,
-                    "time_status": "READ FROM 'from 8 to 2030' - CONFIRM (DD-33)"},
+        "evening": {"label": "Project night", "start": "20:00", "end": "21:30",
+                    "minutes": 90,
+                    "time_status": "DECLARED by the operator 2026-11-09 (DD-33 closed)"},
     },
     "weekday_plain": {
         "days": ["Thursday", "Friday"],
@@ -48,26 +54,32 @@ P_MIN, M_MIN, RECAP_MIN, BREAK_MIN = 2, 3, 1, 12
 FIXED_OVERHEAD = ITERATIONS * (P_MIN + M_MIN + RECAP_MIN) + BREAK_MIN  # 30
 
 # OD-34: EVERY flow is 120 minutes. One standard, no per-flow variation.
-# The live Matrix 2 spans (F2 75 min, F4 105 min) are non-conformant and the
-# day must be re-cut; the proposed re-cut is below. See DD-32.
+# The live Matrix 2 spans (F2 75 min, F4 105 min) were non-conformant; the
+# operator declared the re-cut on 2026-11-09 and DD-32 is closed.
 FLOW_MIN = 120
 
+# OD-45: the operator re-cut the weekday on 2026-11-09. The morning anchor loses
+# 30 minutes and everything after it moves 30 minutes earlier. F1 and F2 run
+# back-to-back with no turnaround between them; the 12-minute in-flow break
+# closes each flow regardless, so adjacency removes only the inter-flow gap.
 WEEKDAY_FLOWS = [
-    {"flow": "F1", "start": "09:00", "end": "11:00", "duration_min": FLOW_MIN},
-    {"flow": "F2", "start": "11:15", "end": "13:15", "duration_min": FLOW_MIN,
-     "span_status": "re-cut from 11:15-12:30, pending DD-32"},
-    {"flow": "F3", "start": "14:15", "end": "16:15", "duration_min": FLOW_MIN,
-     "span_status": "re-cut from 13:30-15:30, pending DD-32"},
-    {"flow": "F4", "start": "16:30", "end": "18:30", "duration_min": FLOW_MIN,
-     "span_status": "re-cut from 16:00-17:45, pending DD-32"},
+    {"flow": "F1", "start": "08:30", "end": "10:30", "duration_min": FLOW_MIN,
+     "span_status": "declared: morning anchor shortened to 30 min (OD-45)"},
+    {"flow": "F2", "start": "10:30", "end": "12:30", "duration_min": FLOW_MIN,
+     "span_status": "declared: adjacent to F1, no turnaround (OD-46)"},
+    {"flow": "F3", "start": "13:45", "end": "15:45", "duration_min": FLOW_MIN,
+     "span_status": "DERIVED: prior 14:15 shifted 30 min earlier (OD-45); the "
+                    "15-min turnaround after the midday anchor is preserved"},
+    {"flow": "F4", "start": "16:00", "end": "18:00", "duration_min": FLOW_MIN,
+     "span_status": "DERIVED: prior 16:30 shifted 30 min earlier (OD-45)"},
 ]
 
-# OD-33 two flows; OD-34 the same 120-minute standard. Spans not established.
+# OD-47: weekend flows start at noon and run back-to-back, no pause between.
 WEEKEND_FLOWS = [
-    {"flow": "F1", "start": None, "end": None, "duration_min": FLOW_MIN,
-     "span_status": "assumed_pending_DD-30"},
-    {"flow": "F2", "start": None, "end": None, "duration_min": FLOW_MIN,
-     "span_status": "assumed_pending_DD-30"},
+    {"flow": "F1", "start": "12:00", "end": "14:00", "duration_min": FLOW_MIN,
+     "span_status": "declared 2026-11-09 (DD-30 closed)"},
+    {"flow": "F2", "start": "14:00", "end": "16:00", "duration_min": FLOW_MIN,
+     "span_status": "declared: adjacent to F1, no pause (DD-30 closed)"},
 ]
 
 # OD-35: the physical Epic set and the week-table mapping.
@@ -87,31 +99,41 @@ MENTAL_EPICS = ["Intention", "ACIM", "Surrender", "Breathing"]
 MENTAL_SHARES = {"Intention": 0.40, "ACIM": 0.20, "Surrender": 0.20, "Breathing": 0.20}
 
 # OD-40: physical uses the same share mechanism as mental, superseding A-06's
-# pattern-driven reading. Shares below are DERIVED from the operator week table's
-# day frequency, not declared by the operator - see DD-34.
-PHYSICAL_SHARES = {
-    "Martial Arts": 3 / 7,   # Strikes Mon, Kicks Tue + Fri
-    "Dance": 2 / 7,          # Dance Wed, Moves Thu
-    "S/BJJ": 1 / 7,          # Sat
-    "General": 1 / 7,        # Running + Stretch Sun
-    "Knee": 0.0,             # no week-table entry at all
-}
+# pattern-driven reading.
+# OD-49 (DD-34 closed): the operator raised Knee to 15% and said to reduce the
+# others. The remaining 85% keeps the week-table day-frequency proportions
+# 3:2:1:1, so one declared number drives the whole table and no second
+# transformation is invented on top of the operator's instruction.
+KNEE_SHARE = 0.15
+_REST = {"Martial Arts": 3 / 7, "Dance": 2 / 7, "S/BJJ": 1 / 7, "General": 1 / 7}
+PHYSICAL_SHARES = {k: v * (1 - KNEE_SHARE) for k, v in _REST.items()}
+PHYSICAL_SHARES["Knee"] = KNEE_SHARE
 
 # Focus-day mental capacity, used only to break quota ties deterministically.
 MENTAL_FOCUS_CAPACITY = {"Intention": 36, "Surrender": 12, "Breathing": 12, "ACIM": 6}
+# Knee stays at 0 capacity: it has no focus day in the week table, so it holds
+# no concentrated block and wins quota ties, which is the intended compensation.
 PHYSICAL_FOCUS_CAPACITY = {"Martial Arts": 36, "Dance": 24,
                            "S/BJJ": 6, "General": 6, "Knee": 0}
 
 # Practice surface outside the flows. Not quota-bearing (A-08).
 ANCHORS = [
-    {"anchor": "morning", "start": "08:00", "end": "09:00", "minutes": 60,
-     "label": "Morning Routine, Meditation & Setup", "branch_hint": "M"},
+    {"anchor": "morning", "start": "08:00", "end": "08:30", "minutes": 30,
+     "label": "Morning Routine, Meditation & Setup", "branch_hint": "M",
+     "span_status": "declared: reduced from 60 min (OD-45)"},
     {"anchor": "midday", "start": "12:30", "end": "13:30", "minutes": 60,
-     "label": "Midday Reset, Healthy Lunch & Fresh Air Walk", "branch_hint": "R"},
-    {"anchor": "shutdown", "start": "21:00", "end": "21:30", "minutes": 30,
+     "label": "Midday Reset, Healthy Lunch & Fresh Air Walk", "branch_hint": "R",
+     "span_status": "DERIVED: held at 12:30 because F2 now ends there. The "
+                    "30-minute shift would have put it at 12:00, inside F2 "
+                    "(OD-46 adjacency wins)"},
+    {"anchor": "evening", "start": "19:00", "end": "20:00", "minutes": 60,
+     "label": "Evening Block", "branch_hint": None, "bindable": False,
+     "span_status": "declared 2026-11-09 (OD-48); content not yet specified"},
+    {"anchor": "shutdown", "start": "21:30", "end": "22:00", "minutes": 30,
      "label": "Daily Shutdown: Outro, Day Evidence Commit & Workspace Reset",
-     "branch_hint": None, "bindable": False},
-    {"anchor": "night", "start": "21:30", "end": "24:00", "minutes": 150,
+     "branch_hint": None, "bindable": False,
+     "span_status": "DERIVED: follows the 20:00-21:30 project night (DD-33)"},
+    {"anchor": "night", "start": "22:00", "end": "24:00", "minutes": 120,
      "label": "Evening Regeneration, Rest, Reading & Night Recovery",
      "branch_hint": "R", "bindable": False,
      "note": "not a slot source. R is an ordinary branch (OD-41); its slots are "
@@ -202,7 +224,39 @@ def build_flow(day, regime, spec):
     return out
 
 
+def _min_of_day(hhmm):
+    h, m = hhmm.split(":")
+    return int(h) * 60 + int(m)
+
+
+def check_day_geometry(regime_key):
+    """Fail loudly if two placed day elements overlap.
+
+    The operator moves these times by voice ("half an hour earlier"), and the
+    first such shift already drove the midday anchor into F2. Without this the
+    inventory would generate a day that cannot be lived, and nothing downstream
+    would notice.
+    """
+    regime = REGIMES[regime_key]
+    specs = WEEKEND_FLOWS if regime_key == "weekend" else WEEKDAY_FLOWS
+    spans = [(s["start"], s["end"], s["flow"]) for s in specs if s.get("start")]
+    if regime_key != "weekend":
+        spans += [(a["start"], a["end"], a["anchor"]) for a in ANCHORS]
+    if regime["evening"]:
+        e = regime["evening"]
+        spans.append((e["start"], e["end"], e["label"]))
+
+    spans.sort(key=lambda s: _min_of_day(s[0]))
+    for (s1, e1, n1), (s2, e2, n2) in zip(spans, spans[1:]):
+        if _min_of_day(s2) < _min_of_day(e1):
+            raise ValueError(
+                f"{regime_key}: '{n1}' ({s1}-{e1}) overlaps '{n2}' ({s2}-{e2})"
+            )
+    return [{"start": s, "end": e, "element": n} for s, e, n in spans]
+
+
 def build():
+    timeline = {k: check_day_geometry(k) for k in REGIMES}
     flows = []
     for day in WEEKDAYS:
         for spec in WEEKDAY_FLOWS:
@@ -247,6 +301,12 @@ def build():
             "grounding": ["qmd #1a447e:47-57", "qmd #46ebe0:17-27,48-49", "OD-29"],
         },
         "anchors": ANCHORS,
+        "day_timeline": {
+            "note": "every placed element per regime in clock order; generated "
+                    "and overlap-checked, so a shifted time cannot silently "
+                    "collide with a flow",
+            **timeline,
+        },
         "flows": flows,
         "totals": {
             "slots_per_week": counts,
@@ -264,8 +324,12 @@ def build():
                 epics=PHYSICAL_EPICS,
                 week_table_mapping=WEEK_TABLE_MAP,
                 dropped=["EFX"],
-                shares_status="DERIVED from week-table day frequency, NOT declared "
-                              "by the operator - confirm or replace (DD-34)",
+                shares_status="Knee 15% DECLARED by the operator 2026-11-09 "
+                              "(DD-34 closed); the remaining 85% keeps the "
+                              "week-table proportions 3:2:1:1 (OD-49)",
+                open_question="DD-35: 'optimized to 5-minute iterations' is not "
+                              "yet applied - see the spec ledger for the two "
+                              "candidate readings",
                 **physical,
             ),
         },
