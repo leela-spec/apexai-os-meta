@@ -1,57 +1,59 @@
 ---
 type: specification
-id: SPEC-PRECAP-WEEK-ITERATIONS-v1.2
-title: "Precap Week Iterations Specification — Three-Level Process Flow, Critical Path & Calendar Execution"
-description: "Canonical layout, epistemology, and execution specification for Precap Week iterations: Header Metrics, Operator Decision Brief, Matrix 1 (Stacked, 3-Level Output & Critical Path: MoA, Leela Skill Tree, IPOS, ApexOS, Residuals), and Matrix 2 (Calendar Flows 08:00–24:00, Shutdown 21:00)."
-status: approved_specification
-date: 2026-11-08
-scope: [weekly-orchestration, precap-week, matrix-1, matrix-2, critical-path, process-flows]
-tags: [weekly-orchestration, precap-week, specification, matrix-1, matrix-2, critical-path, process-flows]
+id: SPEC-PRECAP-WEEK-ITERATIONS-v2.0
+title: "Precap Week Iterations Specification — Cube-Tree Matrix 1, G-I-P-S-O Task Specs, Variable Brief & Leela Stats"
+description: "Canonical specification for Precap Week v2.0: Leela-grounded Header Metrics, Variable-Dropdown Operator Decision Brief (Standard/New/Ongoing), Matrix 1 (Always-On L1 Goal Cubes, Left-Rail Levels, Foldable L2 Nice-to-Have Cubes, L3 Work Packages, G-I-P-S-O Drill-Down), and Matrix 2 (Calendar Flows 08:00–24:00, Shutdown 21:00)."
+status: operator_review_pending
+date: 2026-11-09
+scope: [weekly-orchestration, precap-week, matrix-1, matrix-2, task-spec, g-i-p-s-o, leela-stats, process-trees]
+tags: [weekly-orchestration, precap-week, specification, matrix-1, matrix-2, g-i-p-s-o, leela-stats]
 ---
 
-# Precap Week Iterations Specification — Three-Level Process Flow, Critical Path & Calendar Execution
+# Precap Week Iterations Specification — Cube-Tree Matrix 1, G-I-P-S-O Task Specs & Variable Brief
 
 ## 1. Executive Summary & Core Architectural Invariants
 
-This specification is the **canonical source of truth** for authoring, evaluating, and running the **Precap Week** iteration artifact (the *Weekly Command Brief*). It consolidates historical repository research, verified operator decisions (`D001`–`D017`, `Q01`–`Q14`), and the dual-matrix design architecture.
+This specification is the **canonical source of truth** for authoring, evaluating, and running the **Precap Week** iteration artifact (the *Weekly Command Brief*). Version `v2.0` supersedes `v1.2`'s bulky Level-1 prose banner, card-prose decision grid, and mandatory bottom Mermaid deck, establishing the Goal-Cube Tree, standardized `G-I-P-S-O` Task Specification, and `Standard`/`New`/`Ongoing` Variable Decision Brief.
 
 ### Core Architectural Invariants
 
-- [P0 | I98/E95/R05] **Header Framing & Identity**: The artifact title is strictly **Precap Week** followed by the specific calendar date range (e.g. `Precap Week · 09 – 15 November 2026`). Abstract slogans are prohibited. The header features high-density portfolio statistics: total planned focus hours, total flow blocks, sprint units, and target key deliverables.
-- [P0 | I97/E94/R06] **Three-Part Sequential Building**: Every Precap Week artifact strictly follows a three-part sequential building structure:
-  1. **Part 1: Operator Decision Brief**: Governance decisions, sequence and flow allocation choices, meeting decisions, and critical path gates.
-  2. **Part 2: Matrix 1 — Project Overview & Critical Path (Non-Temporal)**: Full-width stacked project views (one underneath the other, never multi-column) structured into **three distinct levels**: High-Level Strategic Intent, Mid-Level Process & Output Pipeline, and Detail-Level Tasks & Deliverables. **Matrix 1 contains zero sprint allocations**.
-  3. **Part 3: Matrix 2 — Calendar Snapshot & Visualization (Temporal)**: Hourly timeline mapping all four daily focus flows and their 30-minute sprint units across Monday through Saturday, within the `08:00–24:00` operating window, anchoring daily shutdown at `21:00`.
-- [P0 | I96/E94/R08] **Five Repository Boundaries**: All portfolio initiatives are organized into five distinct repository frontiers:
+- [P0 | I98/E95/R05] **Header Framing & Leela-Grounded Stats**: Title is strictly `Precap Week` followed by the ISO date span (e.g. `Precap Week · 09 – 15 November 2026`). Abstract taglines remain prohibited. Header telemetry follows Leela's Stat-Chip Laws (`HANDOVER-05`): separating basis (`○ Planned` vs `● Realized` vs `◇ Forecast`), enforcing Coverage accounting (`Target / Placed / Realized`), `XP/TP/BP` balance, and `Testing vs Application` ratio.
+- [P0 | I97/E94/R06] **Three-Part Sequential Building**:
+  1. **Part 1: Operator Decision Brief (`Standard` / `New` / `Ongoing`)**: Compact variable labels with expandable dropdowns and `(i)` info toggles replacing verbose prose blocks (`HANDOVER-04`). Highlights weekly flow routing, Special Project Days (Mon/Wed evenings), OpenProject overrides, and ongoing calendar holds.
+  2. **Part 2: Matrix 1 — Goal-Cube Tree & Project Overview (Non-Temporal)**: Single stacked column of repository rows. **Top `L1: Priority Goals` strip is always visible** under each repo header as side-by-side clickable Goal Cubes (1–2 operator goals/project; arrows drawn *only* if major goals strictly depend on each other). Levels use **compact left-rail vertical labels (`L1` / `L2` / `L3`)**; **`L2: Nice-to-Haves`** (cube-cards side-by-side) and **`L3: Other Work Packages`** start **folded**. Clicking any cube fans out child sub-cubes and/or reveals its inline **`G-I-P-S-O`** Task Specification (`HANDOVER-03`). **Zero sprints in Matrix 1.**
+  3. **Part 3: Matrix 2 — Calendar Snapshot & Visualization (Temporal)**: Full-width Monday–Saturday hourly table mapping F1–F4 and 30m sprints across `08:00–24:00` with `21:00` Daily Shutdown (unchanged and validated).
+- [P0 | I96/E94/R08] **Five Repository Boundaries**:
   1. **Master of Arts** (`MasterOfArts` / OP #14, #6, #7): Website content draft, content production week (7 videos), and business operations (invoicing engine & automated PDF billing).
-  2. **Leela** (`Leela-Cloud-2026` / OP #10): Focused **strictly on the Skill Tree** (spatial node contracts, Chunk library, and durable placement identity). Path and Sequencing are explicitly paused for this weekly iteration.
-  3. **Investment / IPOS** (`investment-ipos` / OP #16): Complete recheck of the whole pipeline and external possibilities, modularizing and establishing sovereign data visualization over time.
-  4. **Apex OS** (`apexai-os-meta` / OP #8): Dedicated standalone systems repo covering OpenMouse kernel bindings, mindful repo orchestration, and dark factory integration.
-  5. **Residuals** (Holding personal creative sprints & auxiliary infrastructure): Studio fine art & apartment setup (Sprint 1), Sexy Content creation (Sprint 2), Community & Travel logistics (Sprint 3), and PM Infrastructure.
-- [P0 | I95/E95/R05] **OpenProject Default vs Operator Decision State**: OpenProject provides the default intake and priority proposals. The operator exercises sovereign governance by overriding, reprioritizing, or restructuring flows for the specific week. These choices are explicitly recorded in Part 1 as the active operator state.
-- [P0 | I94/E92/R10] **Matrix 2 Operating Window & Shutdown Times**: Matrix 2 operates on a fixed daily time geometry:
-  - **Operating Window:** `08:00 – 24:00` daily.
-  - **Daily Shutdown:** `21:00` sharp.
-- [P0 | I93/E90/R08] **Universal Specification Invariant**: This document is a **universal specification**. It defines schemas, rules, structural slots, and abstract templates (`{{PROJECT_NAME}}`, `[OP-WP#<id>]`). Concrete task names, specific calendar events, or momentary week assignments appear strictly as illustrative examples and must never be treated as immutable specification rules.
+  2. **Leela** (`Leela-Cloud-2026` / OP #10): Focused **strictly on the Skill Tree** (spatial node contracts, Chunk library, durable placement identity). Path & Sequencing paused this week.
+  3. **Investment / IPOS** (`investment-ipos` / OP #16): Complete pipeline recheck, external ingestion possibilities, and sovereign data visualization over time.
+  4. **Apex OS** (`apexai-os-meta` / OP #8): Standalone systems repo covering OpenMouse kernel bindings, mindful repo orchestration, and dark factory integration.
+  5. **Residuals** (Personal creative sprints & auxiliary infrastructure): Studio art & apartment setup (Sprint 1), Sexy Content (Sprint 2), Community & Travel (Sprint 3), PM Infrastructure.
+- [P0 | I95/E95/R05] **OpenProject Default vs Operator Decision State**: OpenProject supplies the default priority baseline (`Standard`). When the operator assigns weekly topic themes or Special Project Days, Part 1 flags them under **`New`** with explicit **`OPERATOR OVERRIDE`** markers.
+- [P0 | I94/E92/R10] **Matrix 2 Operating Window & Shutdown**: `08:00 – 24:00` daily span; `21:00` sharp Daily Shutdown.
+- [P0 | I93/E90/R08] **Universal Specification Invariant**: This specification governs schemas, structural slots, variable syntax, and interaction contracts (`{{Goal}}`, `[OP-WP#<id>]`). Week 45 items illustrate structure only.
 
 ---
 
-## 2. Linked Canonical Specifications & Authoritative Sources
+## 2. Linked Canonical Specifications & Authoritative Handovers
 
-This specification incorporates and links the following canonical system documents as the definitive authorities for weekly orchestration:
+### Active v2.0 Extension & Research Handovers
+1. **Task Spec Variable System, Symbols & OpenProject Sync (`2do`):**
+   [`HANDOVER-03-TASK-SPEC-VARIABLE-SYSTEM-AND-SYMBOL-GRAMMAR.okf.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-03-TASK-SPEC-VARIABLE-SYSTEM-AND-SYMBOL-GRAMMAR.okf.md) (`G-I-P-S-O` variable system, conditional omission in parent Goal cubes, Leela cube grammar, fractal tree click expansion, OpenProject task-creation alignment).
+2. **Operator Decision Brief UX Redesign:**
+   [`HANDOVER-04-OPERATOR-DECISION-BRIEF-VARIABLE-DROPDOWN-REDESIGN.okf.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-04-OPERATOR-DECISION-BRIEF-VARIABLE-DROPDOWN-REDESIGN.okf.md) (`Standard`/`New`/`Ongoing` variable-dropdown strips, Mon/Wed Special Project Evenings, `WC Meister`/`Munich Dance` ambient holds, `(i)` info toggles).
+3. **Header & Orchestration Stats Research (`2do` Grounded in Leela):**
+   [`HANDOVER-05-PRECAP-STATS-SYSTEM-LEELA-INSPIRED.okf.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-05-PRECAP-STATS-SYSTEM-LEELA-INSPIRED.okf.md) (Adapts Leela `00-MACRO.md` & `10-STATS-FEATURE.md` stat-chip laws, Coverage Triple, `XP/TP/BP`, Testing-vs-Application).
+4. **Cross-Project Consolidated Dependency Research:**
+   [`HANDOVER-06-CROSS-PROJECT-DEPENDENCY-VIEW-RESEARCH.okf.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-06-CROSS-PROJECT-DEPENDENCY-VIEW-RESEARCH.okf.md) (Comparative bake-off evaluating dropping vs replacing the bottom Consolidated Process Dependency DAG).
 
-1. **Matrix 1 Architectural Specification:**
-   [`HANDOVER-01-PROJECT-MATRIX-EPICS-CRITICAL-PATH.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-01-PROJECT-MATRIX-EPICS-CRITICAL-PATH.md) (`HANDOVER-01-PROJECT-MATRIX-EPICS-CRITICAL-PATH-v1.0`). Defines project/epic decomposition, subtasks, and non-temporal critical path topological DAGs.
-2. **Matrix 2 Architectural Specification:**
-   [`HANDOVER-02-TIMELINE-CALENDAR-SEQUENCE-SPRINT-VIEW.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-02-TIMELINE-CALENDAR-SEQUENCE-SPRINT-VIEW.md) (`HANDOVER-02-TIMELINE-CALENDAR-SEQUENCE-SPRINT-VIEW-v1.0`). Defines full-width responsive HTML calendar views, sprint slot depth (minimum 3 items per sprint), routine anchors, and calendar placement algorithms.
-3. **Master Dual-Matrix Layout Specification:**
-   [`SPEC-DUAL-VIEW-WEEKLY-PRECAP.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-DUAL-VIEW-WEEKLY-PRECAP.md) (`SPEC-WEEKLY-COMMAND-BRIEF-DUAL-MATRIX-v1.0`). Governs the dual-matrix separation invariant and OpenProject tool integration protocols (`opCall.js`).
-4. **Macro Orchestration Spine & Decision Gates:**
-   [`02-MACRO-INTERFACES-AND-DECISION-GATES.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/00-orchestration-spine/02-MACRO-INTERFACES-AND-DECISION-GATES.md). Governs producer/consumer contracts across PrecapWeek (G1), PrecapNextDay (G2), Execution (G3), FlowRecap (G4), and StatusMerge (G5).
-5. **Master Information Flow Critical Path:**
-   [`MASTER-INFORMATION-FLOW-AND-DESIGN-CRITICAL-PATH-20261106.okf.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/MASTER-INFORMATION-FLOW-AND-DESIGN-CRITICAL-PATH-20261106.okf.md) (`WEEKLY-MASTER-MACRO-MESO-20261106`). Traces source truth from OpenProject, Git, and Calendar into weekly and daily execution.
-6. **Governance Decisions Register:**
-   [`DECISIONS.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/DECISIONS.md). Canonical ledger of accepted operator decisions `D001`–`D017`.
+### Foundation Specifications & Prior Handovers
+5. **P1 OpenProject Dependency Intake Gate:** [`HANDOVER-20261106.okf.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/00-openproject-dependency-intake/HANDOVER-20261106.okf.md) (Read-only OpenProject verification gate preceding live DAGs).
+6. **Matrix 1 Foundation Handover (`v1.0`):** [`HANDOVER-01-PROJECT-MATRIX-EPICS-CRITICAL-PATH.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-01-PROJECT-MATRIX-EPICS-CRITICAL-PATH.md).
+7. **Matrix 2 Calendar Handover (`v1.0` — Validated):** [`HANDOVER-02-TIMELINE-CALENDAR-SEQUENCE-SPRINT-VIEW.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-02-TIMELINE-CALENDAR-SEQUENCE-SPRINT-VIEW.md).
+8. **Master Dual-Matrix Spec:** [`SPEC-DUAL-VIEW-WEEKLY-PRECAP.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-DUAL-VIEW-WEEKLY-PRECAP.md).
+9. **Macro Orchestration Spine & Decision Gates:** [`02-MACRO-INTERFACES-AND-DECISION-GATES.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/00-orchestration-spine/02-MACRO-INTERFACES-AND-DECISION-GATES.md).
+10. **Master Information Flow Critical Path:** [`MASTER-INFORMATION-FLOW-AND-DESIGN-CRITICAL-PATH-20261106.okf.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/MASTER-INFORMATION-FLOW-AND-DESIGN-CRITICAL-PATH-20261106.okf.md).
+11. **Governance Decisions Register:** [`DECISIONS.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/DECISIONS.md).
 
 ---
 
@@ -81,132 +83,91 @@ The head of the brief must immediately communicate:
 
 ---
 
-## 4. Part 1 Specification: Operator Decision Brief
+## 4. Part 1 Specification: Operator Decision Brief (`Standard` / `New` / `Ongoing`)
 
-The Operator Decision Brief anchors the weekly artifact. It enforces human sovereignty over weekly scope, tradeoffs, meeting participations, and critical path locks.
+The Operator Decision Brief acts as a calm executive control panel rather than a wall of decision essays. Detailed specification lives in [`HANDOVER-04`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-04-OPERATOR-DECISION-BRIEF-VARIABLE-DROPDOWN-REDESIGN.okf.md) and stats rules live in [`HANDOVER-05`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-05-PRECAP-STATS-SYSTEM-LEELA-INSPIRED.okf.md).
 
-### 4.1 Header & Metric Strap Standards
-* **Visual Anchor:** Clean title `"Precap Week"` followed by the exact date span (e.g. `09 – 15 November 2026`).
-* **Portfolio Metrics Strap:** Four high-density metric cards:
-  1. Total Planned Focus Working Time (e.g. `38.5h Focus`).
-  2. Total Focus Flows (e.g. `24 Flows`).
-  3. Planned Sprint Units (e.g. `72 Sprints · 3x3 Standard`).
-  4. Major Milestone Outputs (e.g. `7 Videos · Invoicing · Skill Tree`).
-* **Source Note:** Explicit timestamp, live tool read receipts, and authenticated account markers.
+### 4.1 Header & Leela-Grounded Metric Strap
+* **Visual Anchor:** Clean title `"Precap Week"` followed by the exact date span (e.g. `09 – 15 November 2026 · ISO Week 45`).
+* **Portfolio Metrics Strap (Leela Stat-Chip Grammar):** Five non-blending KPI cards separating basis marks (`○` planned · `●` trailing realized · `◇` forecast):
+  1. **`○ TP · Capacity Placed`** — Planned focus hours & minutes across F1–F4 (e.g. `○ 38.5h · 2,310 min`).
+  2. **`🎯 Coverage Triple`** — `Target / Placed / Lag` check proving every `L1 Priority Goal` fits in Matrix 2 (`Target 9 · Placed 9`).
+  3. **`⚡ XP · Priority Focus Ratio`** — Percentage of weekly capacity allocated directly to `L1 Priority Goals` vs nice-to-haves/maintenance.
+  4. **`⚖ BP · Week Balance Index`** — Adapted 0–100 health score blending branch diversity (50%), `21:00` shutdown preservation (25%), and Mon/Wed Special-Day alternation (25%).
+  5. **`⚗ Testing vs Application`** — Split between exploratory R&D (`Testing`: IPOS recheck, Apex OpenMouse) and deterministic production (`Application`: 7 Videos, PDF billing).
 
-### 4.2 Decision Block Schema
-Every decision must follow structured bullet nesting and carry informatics tagging `[P0–P3 | I<impact>/E<effort>/R<risk>]`:
+### 4.2 Decision Classification & Variable-Dropdown Model (`Standard` / `New` / `Ongoing`)
 
-```markdown
-### Decision ID: [P# | I#/E#/R#] — {{DECISION_TITLE}}
-- **Context:** The underlying architectural constraint, dependency join, capacity tradeoff, or calendar collision.
-- **OpenProject Anchor:** Associated work package link (`[OP-WP#<id>]`) or repository container.
-- **Action Required:** Explicit choice required from the operator (e.g. *"Approve 4-flow structure"*, *"Decline external meeting"*, *"Lock critical path"*).
-- **Status:** `[PROPOSED | APPROVED | REJECTED | DEFERRED]`
-```
+Every governance parameter is rendered as a slim single-line control:
+`[Category Tag] Variable Label : Active Summary Chip [▾ Dropdown] [(i) Info]`
+
+1. **`New` — Weekly Topic Selections & Operator Overrides** *(Visibly badged `OPERATOR OVERRIDE` where diverging from OP default)*:
+   - **Flow Topic Routing (`F1–F4`):** Maps weekly focus streams (e.g. `F1–F2 MoA · F3 IPOS · F4 Residuals`).
+   - **Special Project Days (Mon & Wed Evenings):** Assigns the operator's Monday & Wednesday special-project themes (e.g. Mon: *Sexy Content*, Wed: *Dance & Martial Arts*).
+   - **Weekly Scope Locks / Pauses:** e.g., `Leela = Skill Tree ONLY` (Path & Sequencing paused).
+2. **`Ongoing` — Background Calendar Fixtures & Carried States**:
+   - External calendar bookings present on the calendar grid without actively driving focus sprints (e.g. `WC Meister`: Declined/Ignored; `Munich Dance`: Thu 18:45 fixed social anchor), plus multi-week carried engineering threads.
+3. **`Standard` — Standing Operating Baselines** *(Folded/compact by default)*:
+   - **Priority Intake Engine:** OpenProject Priority List decides default ordering unless overridden in `New`.
+   - **Flow & Sequencing System:** 4 Flows/day; Sequencing 3×3 standard cadence (flex 3×2 or 3×1).
+   - **Time Window Anchor:** `08:00–24:00` span, `21:00` Daily Shutdown, Sunday OFF by default.
 
 ---
 
-## 5. Part 2 Specification: Matrix 1 (Project Overview & Critical Path — Non-Temporal)
+## 5. Part 2 Specification: Matrix 1 (Goal-Cube Tree & Project Overview — Non-Temporal)
 
-Matrix 1 visualizes *how* each project evolves mechanically from its current baseline to the target milestone, without calendar dates or clock hours.
+Matrix 1 gives the operator fast **goal-to-goal comprehension across projects**, backed by recursive click-to-drill-down Task Specifications (`G-I-P-S-O`, [`HANDOVER-03`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-03-TASK-SPEC-VARIABLE-SYSTEM-AND-SYMBOL-GRAMMAR.okf.md)). Matrix 1 contains **zero calendar times and zero sprints**.
 
-### 5.1 Presentation Layout: Stacked Full-Width Containers
-All project sections must render in a **single full-width stacked column** (one project underneath the other). Multi-column grid layouts (such as two projects side-by-side) are strictly prohibited.
+### 5.1 Structural Layout & Core Rules
+1. **Single Stacked Column:** Repositories stack vertically full-width (`1. MoA`, `2. Leela`, `3. IPOS`, `4. Apex OS`, `5. Residuals`). Multi-column project grids remain prohibited.
+2. **1–2 Operator Goals Rule:** At week start, the operator identifies **1 (at most 2) concrete Weekly Goals** per active repository.
+3. **Remove Bulky Outcome Banner:** Fat top-of-card prose paragraphs (`Level 1 High Level Strategic Outcome`) are **explicitly removed**.
+4. **Always-On `L1: Priority Goals` + Folded `L2`/`L3`:** Directly underneath each project header, **`Level 1: Priority Goals`** is **always open and visible**. **`Level 2: Nice-to-Haves`** and **`Level 3: Other Work Packages`** start **folded**.
+5. **Left-Bar Vertical Level Rail:** Each layer is labeled cleanly on a narrow left-side vertical rail (`L1`, `L2`, `L3`) rather than burning vertical height with top strip headers.
 
-### 5.2 The Three-Level Project Decomposition Standard
+### 5.2 Three-Layer Cube & Tree-Click Specification
 
-Every repository container in Matrix 1 must present three distinct, progressive levels of detail:
+1. **Left Rail `L1 · Priority Goals` *(Always Visible)***
+   - Renders compact side-by-side **square/cube buttons** showing *what will be reached* for the week's priority goals.
+   - **Conditional Critical Path:** Dependency arrows (`➔`) appear **only** if major goals strictly block/depend on each other. Independent parallel goals render side-by-side without forced arrows.
+   - **Click Behavior (Tree Fan-Out + `I-P-S-O`):** Clicking any `L1` Goal cube drops down:
+     - *(a)* A **branching tree bus** (`|` ➔ horizontal bar ➔ downward ticks) fanning out side-by-side **child sub-output / sub-process cubes** (click again recursively for deeper granularity), AND/OR
+     - *(b)* An inline **`Task Specification`** drawer showing **`Input (Sources by Priority)` | `Process (Framework/Logical Path)` | `Skills (Priority)` | `Output (Files / Header Skeleton Draft)`** — omitting redundant parent `Goal` wording since the clicked Goal cube already names it.
+2. **Left Rail `L2 · Nice-to-Haves` *(Foldable, Cube-Card Grid)***
+   - Folded immediately beneath `L1`. Uses the **exact same horizontal side-by-side clickable cube-card style** (never fat full-width bars stacked vertically). Clicking any cube opens its tree breakdown / `I-P-S-O` specification.
+3. **Left Rail `L3 · Other Work Packages` *(Foldable, Dense Task List)***
+   - Folded at the bottom of the project card. Holds the remaining OpenProject backlog/secondary tasks as a compact list; clicking any row expands its full **`G-I-P-S-O`** Task Specification (`Goal > Task > Subtask` + `I` + `P` + `S` + `O`).
 
-1. **Level 1: High Level — Strategic Intent & Milestone Output**
-   - A bold, motivating headline summarizing the project's primary deliverable for the week.
-   - The verified baseline state and the core problem being solved.
-2. **Level 2: Mid Level — Process & Output Pipeline Flow**
-   - A visual milestone sequence / process pipeline of concrete outputs:
-     `[Current Baseline]` ➔ `[Intermediate Output A]` ➔ `[Intermediate Output B]` ➔ `[Final Milestone Deliverable]`
-   - Clearly flags which output is on the **CRITICAL PATH** and which outputs can proceed in parallel.
-   - Identifies the handshakes between outputs ("Output A unblocks Output B").
-3. **Level 3: Detail Level — Tasks, Deliverables & Evidence (NO SPRINTS)**
-   - Concrete work packages producing each output in the pipeline.
-   - OpenProject identifiers, dependencies ("Depends on", "Unblocks"), expected artifact paths, and definition of done.
-   - Shortlist (Weekly Commitments) vs. Longlist (Backlog / Deferred Work with explicit triggers).
-
-### 5.3 Repository Scope Mapping (Five Frontiers)
+### 5.3 Visual Architecture Sketch (Per Project Card)
 
 ```text
-1. Master of Arts (MasterOfArts)
-   ├── Level 1: Launch public reading experience, produce 7 thesis videos, automate PDF invoicing.
-   ├── Level 2: [Static Layout] ➔ [Flexbox & Drawer Output] ➔ [7 Mastered Videos] ➔ [Validated PDF Engine].
-   └── Level 3:
-       ├── moa-website: Content draft, responsive navigation, dynamic reading routes.
-       ├── moa-content: Content production week (7 videos scripted, voiced, edited, captioned).
-       └── moa-business: Invoicing calculation engine, line-item JSON schema, automated PDF billing.
-
-2. Leela (Leela-Cloud-2026)
-   ├── Level 1: Solidify Skill Tree node contracts and durable placement identities (Path & Sequencing PAUSED).
-   ├── Level 2: [Pure Projection Node] ➔ [Durable Placement ID] ➔ [Chunk Library Schema Freeze].
-   └── Level 3:
-       └── Skill Tree: Spatial node hierarchy, Chunk library identity, durable placement contracts.
-
-3. Investment / IPOS (investment-ipos)
-   ├── Level 1: Complete pipeline recheck & sovereign data visualization over time.
-   ├── Level 2: [Legacy Karakeep Audit] ➔ [Modular Ingestion Seam] ➔ [Time-Series Charting Engine].
-   └── Level 3:
-       ├── Ingestion Pipeline: Trafilatura cleaner, Docling extractor, modular adapter recheck.
-       └── Data Operations: Financial research intake, multi-tier dashboard, telegram export.
-
-4. Apex OS (apexai-os-meta)
-   ├── Level 1: Establish low-latency OpenMouse kernel input interception and mindful repo orchestration.
-   ├── Level 2: [Raw HID Parser] ➔ [Kernel Interrupt Hook] ➔ [Userland IPC Dispatcher] ➔ [Dark Factory Gate].
-   └── Level 3:
-       ├── Hardware Drivers: USB HID polling hooks, raw input table parsers, debounce filters.
-       └── Systems Architecture: Mindful repo orchestration, dark factory automated integration.
-
-5. Residuals (Personal Creative Sprints & Auxiliary Infrastructure)
-   ├── Level 1: Maintain environmental harmony, fine art creation, aesthetic assets, and network sync.
-   ├── Level 2: [Studio Acoustics] ➔ [Stretched Canvas / Paintings] ➔ [Aesthetic Visuals] ➔ [Travel Logistics].
-   └── Level 3:
-       ├── Apartment & Studio Art: Workspace acoustic tuning, organization, canvas stretching, painting.
-       ├── Sexy Content: Moodboarding, lighting setup, photoshoots, color grading.
-       ├── Community & Traveling: Peer sync, community dinners, travel routes, accommodation verification.
-       └── System Infrastructure: PM Infrastructure maintenance, Rhythm pilot, QMD indexing.
++---------------------------------------------------------------------------------------------------+
+| [Repo Header]  1. Master of Arts (Website, Content Week & Invoicing)     [OP #14, #6, #7]        |
++-------+-------------------------------------------------------------------------------------------+
+| L1    | [ ▣ Website Content Draft ]   ➔   [ ▣ 7 Produced Videos ]     [ ⚡ Automated PDF Billing ] |
+| Goal  |         │                                    (Arrows drawn ONLY when major goals depend)  |
+| Cubes |         ├──┬────────────┬────────────┐                                                    |
+| Always|         ▼  ▼            ▼            ▼                                                    |
+| On    |       [Nav Grid]   [Essay Copy]  [Reading Drawer]                                         |
+|       |       └─ Drawer on click: [Input: P1/P2] | [Process: Framework] | [Skills] | [Output]     |
++-------+-------------------------------------------------------------------------------------------+
+| ▸ L2  | [Folded Bar] Level 2: Nice-to-Haves (expands to side-by-side clickable cube cards)        |
++-------+-------------------------------------------------------------------------------------------+
+| ▸ L3  | [Folded Bar] Level 3: Other Work Packages (expands to clickable OP task list + G-I-P-S-O) |
++-------+-------------------------------------------------------------------------------------------+
 ```
 
-### 5.4 Topological Critical Path Representation
+### 5.4 Repository Scope Mapping (Five Frontiers)
 
-Matrix 1 must conclude with a Mermaid topological diagram highlighting the critical paths across all five repositories:
+- **1. Master of Arts (`MasterOfArts`):** Website content draft, Content Week (7 videos), Business Invoicing & automated PDF billing. *(Studio fine art assigned to Residuals).*
+- **2. Leela (`Leela-Cloud-2026`):** **Skill Tree ONLY** (node contracts, durable placement IDs, Chunk schema). Path & Sequencing explicitly paused this week.
+- **3. Investment / IPOS (`investment-ipos`):** Full pipeline recheck, external ingestion evaluation, and modularizing sovereign data visualization over time.
+- **4. Apex OS (`apexai-os-meta`):** Dedicated standalone systems project: OpenMouse kernel HID hooks, mindful repo orchestration, dark factory pipeline.
+- **5. Residuals:** Mon/Wed Special Project Evenings & personal sprints — Studio Art & Apartment, Sexy Content, Community & Travel, PM Infrastructure.
 
-```mermaid
-flowchart TD
-  subgraph MoA["Master of Arts (Content, Website & Invoicing)"]
-    M1["Content Draft<br/><b>CRITICAL PATH</b>"] --> M2["7 Videos Produced<br/><b>CRITICAL PATH</b>"]
-    M3["Nav Flexbox Drawer"] --> M4["Public Reading Live"]
-    M5["Invoice Schema<br/><b>CRITICAL PATH</b>"] --> M6["PDF Billing Engine"]
-  end
+### 5.5 Cross-Project Consolidated Dependency Deck — `DEPRECATED_UNDER_RESEARCH`
 
-  subgraph Leela["Leela (Skill Tree ONLY)"]
-    L1["Node Contract<br/><b>CRITICAL PATH</b>"] --> L2["Durable Placement ID"]
-    L2 --> L3["Skill Tree Freeze Gate"]
-  end
-
-  subgraph IPOS["Investment / IPOS (Pipeline Recheck)"]
-    I1["Pipeline Recheck<br/><b>CRITICAL PATH</b>"] --> I2["Modular Ingestion Seam"]
-    I2 --> I3["Data Viz Over Time<br/><b>CRITICAL PATH</b>"]
-  end
-
-  subgraph Apex["Apex OS (OpenMouse & Systems)"]
-    A1["HID Kernel Hook<br/><b>CRITICAL PATH</b>"] --> A2["Button Interceptor"]
-    A2 --> A3["Dark Factory Gate"]
-  end
-
-  subgraph Residuals["Residuals (Life & Art Sprints)"]
-    R1["Studio Art Painting"]
-    R2["Sexy Content Shoots"]
-    R3["Travel & Community"]
-  end
-
-  M5 -.->|Unblocks Billing| I2
-```
+The bottom standalone Mermaid `Consolidated Cross-Repo Critical Path & Process Dependency DAG` from `v1.2` is **deprecated pending research** per [`HANDOVER-06`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-06-CROSS-PROJECT-DEPENDENCY-VIEW-RESEARCH.okf.md). Do not auto-render multi-subgraph bottom Mermaid charts unless [`HANDOVER-06`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-06-CROSS-PROJECT-DEPENDENCY-VIEW-RESEARCH.okf.md) ratifies an inline or milestone-only replacement.
 
 ---
 
@@ -399,39 +360,38 @@ Matrix 2 is rendered using a full-width, horizontally scrollable HTML table span
 Precap Week concludes with an embedded YAML `presentation_handoff` block consumed with zero token waste by `PrecapNextDay`:
 
 ```yaml
-```yaml
 presentation_handoff:
-  specification: "SPEC-PRECAP-WEEK-ITERATIONS-v1.2"
-  produced_at: "2026-11-08T21:00:00Z"
-  operator_governance_status: "APPROVED_FOR_EXECUTION"
+  specification: "SPEC-PRECAP-WEEK-ITERATIONS-v2.0"
+  produced_at: "2026-11-09T10:45:00Z"
+  operator_governance_status: "OPERATOR_SPEC_VERIFICATION_PENDING"
   active_week: "{{ACTIVE_ISO_WEEK}}"
   timezone: "Europe/Berlin"
   
   repository_priorities:
     master_of_arts:
-      weekly_outcome: "7 videos produced, website content draft complete, PDF invoicing engine deployed"
+      priority_goals: ["Website Content Draft", "7 Produced Videos", "Automated PDF Billing"]
       active_workstreams: ["website_content", "content_week_7_videos", "business_invoicing"]
     leela:
-      weekly_outcome: "Skill tree spatial node contracts and durable placement frozen (Path/Seq paused)"
+      priority_goals: ["Skill Tree Spatial Node Contracts & Freeze Gate"]
       active_workstreams: ["skill_tree_contracts"]
     investment_ipos:
-      weekly_outcome: "Full pipeline recheck and data visualization over time modularized"
+      priority_goals: ["Full Pipeline Recheck & Sovereign Data Visualization Over Time"]
       active_workstreams: ["pipeline_recheck", "data_viz_over_time"]
     apex_os:
-      weekly_outcome: "Kernel HID polling hook bound and dark factory pipeline verified"
+      priority_goals: ["OpenMouse Kernel HID Binding", "Mindful Repo Orchestration & Dark Factory Gate"]
       active_workstreams: ["openmouse_integration", "mindful_repo_orchestration", "dark_factory"]
     residuals:
-      weekly_outcome: "Acoustic studio setup, physical art painting, sexy content photoshoots, travel sync"
+      priority_goals: ["Mon/Wed Special Project Evenings (Sexy Content, Dance/Martial Arts)", "Studio Art & Travel Sync"]
       active_workstreams: ["apartment_studio_art", "sexy_content", "community_travel"]
 
   operating_geometry:
     daily_window: "08:00-24:00"
     daily_shutdown: "21:00"
+    special_project_evenings: ["Monday", "Wednesday"]
     reconciled_calendar_events: []
 
   next_consumer: "PrecapNextDay"
-  next_action: "Generate Flow Execution Cards for Monday F1–F4"
-```
+  next_action: "Verify v2.0 spec & Handovers 03–06 before regenerating Precap HTML"
 ```
 
 ---
@@ -439,7 +399,8 @@ presentation_handoff:
 ## 8. Failure Guards & Anti-Drift Gates
 
 - [ ] **FG-01 (No Sprints in Matrix 1):** Matrix 1 must **never** contain sprint allocations or 30-minute breakdown units. Sprints belong strictly in Matrix 2.
-- [ ] **FG-02 (Stacked Layout Conformance):** Matrix 1 repositories render in a single full-width column, one underneath the other. Multi-column grids are prohibited.
-- [ ] **FG-03 (Three-Level Decomposition):** Every repository in Matrix 1 must present Level 1 Strategic Intent, Level 2 Process & Output Pipeline, and Level 3 Actionable Tasks.
-- [ ] **FG-04 (Calendar Operating Window):** Matrix 2 timeline spans `08:00–24:00` with daily shutdown at `21:00`. Schedulable focus flows explicitly display all four daily flows.
-- [ ] **FG-05 (No Synthetic IDs):** All cited work packages must reference verified numeric OpenProject IDs (`[OP-WP#<id>]`). Unassigned or offline tasks use `[OP-UNRESOLVED: <label>]`.
+- [ ] **FG-02 (Stacked Layout & Cube Grid):** Matrix 1 repositories stack in a single full-width column; `L1 Priority Goals` and `L2 Nice-to-Haves` render items as side-by-side clickable cubes, never full-width fat stacked task rows.
+- [ ] **FG-03 (Always-On L1 & Left-Rail Folding):** Under each repo header, `L1: Priority Goals` is always visible (bulky prose green banner prohibited; arrows only on dependent major goals). `L2: Nice-to-Haves` and `L3: Other Work Packages` start folded with vertical left-rail labels.
+- [ ] **FG-04 (Universal `G-I-P-S-O` & Conditional Omission):** Every task defines `Goal > Task > Subtask`, `Input` (Sources by Priority), `Process` (Framework), `Skills` (Prioritized), and `Output` (Files/Headers). Child cubes omit redundant parent Goal headers inline.
+- [ ] **FG-05 (Calendar Operating Window):** Matrix 2 timeline spans `08:00–24:00` with daily shutdown at `21:00`. All four daily flows remain explicitly visible.
+- [ ] **FG-06 (No Synthetic IDs & Deferred Dag Research):** Cited work packages carry verified OpenProject IDs (`[OP-WP#<id>]`) or `[OP-UNRESOLVED]`. Bottom Consolidated DAG remains suppressed under `HANDOVER-06` research.
