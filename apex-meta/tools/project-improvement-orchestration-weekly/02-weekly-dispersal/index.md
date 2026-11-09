@@ -34,7 +34,8 @@ of which day, and how that reaches Precap Week Matrix 2.
 
 The specification carries `status: operator_review_pending`. The three blockers are closed: the
 operator declared the weekday re-cut (`DD-32`), the project night at `20:00-21:30` (`DD-33`) and
-**Knee** at 15% (`DD-34`, now 11 slots a week). Ten decisions remain open
+**Knee** at 15% (`DD-34`, now 11 slots a week). The weekday geometry is read from the operator's
+own calendar and the declared shares sit on the 5% ladder (`DD-35`). Nine decisions remain open
 (`SPEC-WEEKLY-DISPERSAL.okf.md` §7.2); none blocks the calendar.
 
 Next in the product, not yet built: the slot-filling algorithm, the Epic database, and
