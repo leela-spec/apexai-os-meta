@@ -1,0 +1,1 @@
+Marktanalyse: Odoo vs. ERPNext als Betriebssystem für Mindful Bar

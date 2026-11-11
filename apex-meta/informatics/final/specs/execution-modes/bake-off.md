@@ -19,7 +19,7 @@ status: current
    - Identify ~3–5 viable candidates.
    - Screen each candidate against non-negotiable hard filters; disqualify failing candidates before scoring.
 2. **Phase 2: Multi-Metric Evaluation Matrix**:
-   - Score surviving candidates on a 1–5 scale across weighted criteria.
+   - Score surviving candidates on a 1–100 scale across weighted criteria.
    - Record trade-offs in a structured Markdown comparison table including a `Primary Failure Mode` column.
 3. **Phase 3: Ranked Verdicts**:
    - Rank candidates from highest to lowest and state a one-sentence placement verdict per candidate.
@@ -32,8 +32,8 @@ status: current
 ### 3.2 Canonical Comparison Matrix Format
 | Candidate | Velocity (40%) | Scalability (35%) | Ecosystem (25%) | Weighted Total | Primary Failure Mode |
 |---|---|---|---|---|---|
-| Candidate A | 4 | 5 | 5 | 4.60 | Steep onboarding learning curve |
-| Candidate B | 5 | 3 | 4 | 4.05 | Memory degradation under heavy throughput |
-| Candidate C | 2 | 4 | 3 | 2.95 | Lack of community plugins and active maintenance |
+| Candidate A | 82 | 94 | 96 | 89.70 | Steep onboarding learning curve |
+| Candidate B | 92 | 64 | 80 | 79.20 | Memory degradation under heavy throughput |
+| Candidate C | 44 | 78 | 62 | 60.40 | Lack of community plugins and active maintenance |
 
 ---

@@ -1,0 +1,22 @@
+# Pre-registered rubric (written before any agent ran)
+
+Design: 9 tasks x 2 arms. Arm A = scratch repo whose AGENTS.md has the APEX contract triggers only (no blueprint, blueprint file removed). Arm B = scratch repo as committed at HEAD: contract plus the one-sentence pointer to systems/authoring-blueprint.md, blueprint file present. Same model (haiku), same agent type (Explore, which receives no auto-loaded instructions), same task text, same fixture.
+
+Metrics per agent:
+R1 = opened a governed-authoring spec before answering: systems/apex/specs/writing-profile.md OR file-architecture.md (transcript Read calls)
+R2 = opened systems/design/02-INFORMATION-ARCHITECTURE.md (domain map)
+R3 = opened the task-specific module named by the contract (patch-discipline, handover, bake-off/qa-decision-matrix, task-specification) where the task needs it
+Quality score = rubric items below (1 point each), scored from the delivered output.
+
+T1 brand names: path under brand-and-sales/identity/; frontmatter has type,id,title,description,tags,status; labelled blocks (Summary/Status/Sources/Rule or equivalent); does not claim a name is chosen or cleared; domain index updated.
+T2 allergen note: path in compliance/ (obligations-register.md or labeling-and-claims/); no regulatory conclusion invented; frontmatter complete; links to existing owners (G7 / D-04); labelled Alex direction/proposed.
+T3 interview: path under customers/research/; consent reference marked missing, not invented; observation separated from interpretation; frontmatter complete; customers/index.md statement 'no research yet' corrected.
+T4 decision record: in company/decisions/ with status proposed and approval not given for both founders; labelled Alex direction, not joint; does not invent which two variants; frontmatter complete; D-20 row edit is an exact-line edit.
+T5 handover: has input ledger, process, output, definition of done (handover contract); correct location and type; defers no resolvable work; frontmatter complete; links sources.
+T6 surgical edit: exact-match single replacement, old line copied character for character; no whole-file regeneration; one change only; checks other occurrences; opened patch-discipline.md.
+T7 OpenProject: opened the openproject skill or systems/skills/README.md; read-only or dry-run first; no mutation without --confirmed and operator authorization; notes A12/A17 open or T16/T17; record placed in projects/project-management/.
+T8 trade-off: each option has mechanism, grounding and raw I/E/R estimates; recommendation; one-line rejection per other option; no invented evidence; opened bake-off.md or qa-decision-matrix.md.
+T9 ingest: original copied byte-exact (cp) with SHA-256 recorded in systems/migration/external-source-records.md; ledger per source in knowledge/source-coverage/; domain placement from the design (products/cacao-bar/packaging/); no invented content; provenance labelled.
+
+Self-reported access logs are used only as a cross-check; R1-R3 come from transcript Read calls.
+Known limits: scorer is not blind to arm; n=1 per cell; Explore agents carry a search-oriented system prompt; agents cannot write, so the deliverable stands in for the write.

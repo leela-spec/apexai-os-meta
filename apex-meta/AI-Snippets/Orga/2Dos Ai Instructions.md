@@ -1,7 +1,17 @@
 
-not included
+# not included?
 - synch = push and pull, no deletion (if not explicitly marked as such) or not inclusion into push and pull just ebcause it is out of scope of the task, create different commits if other files are presetn
-- 
+- iterative work & context amangemnet?
+- linking in files, as done in specs leela
+- continuation proposal
+- working in live files in the repo to save reasoing, intermediate steos and such as also to not loose focus
+	- alsways beginn with intend, input, process, output, dod & examples/Drafts
+- prompting and handovers
+	- Fails:
+		- Wrong blockers:
+			- I have not touched any files. The handover’s stop condition blocks the run as things stand, so I need your decision first. **Blocker:** `git status --porcelain` prints `M .claude/settings.json`. The handover requires a clean tree before starting, and this change was already there when the session began. I will not stash, discard, or commit it without your say-so. **Base check:** `git grep -l "^decision_id:" -- docs/ssot/decisions | wc -l` prints `74`, which matches the expected count. *Restatement (EM-13), from the handover:** 
+- deterministc first: 
+	- specifically with linking file content (dont rewrite, link the file and cahpter/line), dont rewrite reasoning, copy existing research, dont rewrite, move through scripts 
 
 
 

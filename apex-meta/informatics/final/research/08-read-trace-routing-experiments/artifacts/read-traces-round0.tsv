@@ -1,0 +1,128 @@
+agent_id	arm	task	seq	tool	target
+a05c31a1364a315cb	R0	supplier-quotation	1	mcp__ccd_turn__update_plan	
+a05c31a1364a315cb	R0	supplier-quotation	2	Glob	C:\GitDev\mindful-bar
+a05c31a1364a315cb	R0	supplier-quotation	3	Glob	C:\GitDev\mindful-bar
+a05c31a1364a315cb	R0	supplier-quotation	4	Read	C:\GitDev\mindful-bar\README.md
+a05c31a1364a315cb	R0	supplier-quotation	5	Read	C:\GitDev\mindful-bar\products\cacao-bar\index.md
+a05c31a1364a315cb	R0	supplier-quotation	6	Read	C:\GitDev\mindful-bar\systems\authoring-blueprint.md
+a05c31a1364a315cb	R0	supplier-quotation	7	Glob	C:\GitDev\mindful-bar
+a05c31a1364a315cb	R0	supplier-quotation	8	Read	C:\GitDev\mindful-bar\knowledge\index.md
+a05c31a1364a315cb	R0	supplier-quotation	9	Read	C:\GitDev\mindful-bar\finance\index.md
+a05c31a1364a315cb	R0	supplier-quotation	10	SubagentHandback	
+a42fb7dc0bb89d15b	R0	interview-record	1	Read	C:\GitDev\mindful-bar\README.md
+a42fb7dc0bb89d15b	R0	interview-record	2	Glob	C:\GitDev\mindful-bar\customers
+a42fb7dc0bb89d15b	R0	interview-record	3	Glob	C:\GitDev\mindful-bar\projects\first-product-test
+a42fb7dc0bb89d15b	R0	interview-record	4	Read	C:\GitDev\mindful-bar\customers\index.md
+a42fb7dc0bb89d15b	R0	interview-record	5	Read	C:\GitDev\mindful-bar\customers\segments\company-and-coach-segments.md
+a42fb7dc0bb89d15b	R0	interview-record	6	Read	C:\GitDev\mindful-bar\projects\first-product-test\test-design.md
+a42fb7dc0bb89d15b	R0	interview-record	7	Grep	C:\GitDev\mindful-bar
+a42fb7dc0bb89d15b	R0	interview-record	8	Read	C:\GitDev\mindful-bar\projects\first-product-test\brief.md
+a42fb7dc0bb89d15b	R0	interview-record	9	Grep	C:\GitDev\mindful-bar\products
+a42fb7dc0bb89d15b	R0	interview-record	10	Glob	C:\GitDev\mindful-bar
+a42fb7dc0bb89d15b	R0	interview-record	11	Grep	C:\GitDev\mindful-bar
+a42fb7dc0bb89d15b	R0	interview-record	12	Read	C:\GitDev\mindful-bar\products\cacao-bar\validation\plan.md
+a42fb7dc0bb89d15b	R0	interview-record	13	SubagentHandback	
+a1ab5a3b4f715efc6	R0	decision-record	1	Read	C:\GitDev\mindful-bar\README.md
+a1ab5a3b4f715efc6	R0	decision-record	2	Read	C:\GitDev\mindful-bar\company\decisions\product-open-decisions.md
+a1ab5a3b4f715efc6	R0	decision-record	3	Grep	C:\GitDev\mindful-bar
+a1ab5a3b4f715efc6	R0	decision-record	4	Glob	C:\GitDev\mindful-bar
+a1ab5a3b4f715efc6	R0	decision-record	5	Read	C:\GitDev\mindful-bar\projects\first-product-test\brief.md
+a1ab5a3b4f715efc6	R0	decision-record	6	Read	C:\GitDev\mindful-bar\projects\first-product-test\development-stages.md
+a1ab5a3b4f715efc6	R0	decision-record	7	Read	C:\GitDev\mindful-bar\company\decisions\MB-DEC-AGENTS-004-alex-directions-approval-model-and-task-system.md
+a1ab5a3b4f715efc6	R0	decision-record	8	SubagentHandback	
+a2e593367bc35deb0	R0	validation-gate-G8	1	Grep	C:\GitDev\mindful-bar
+a2e593367bc35deb0	R0	validation-gate-G8	2	Read	C:\GitDev\mindful-bar\README.md
+a2e593367bc35deb0	R0	validation-gate-G8	3	Read	C:\GitDev\mindful-bar\products\cacao-bar\index.md
+a2e593367bc35deb0	R0	validation-gate-G8	4	Read	C:\GitDev\mindful-bar\products\cacao-bar\validation\plan.md
+a2e593367bc35deb0	R0	validation-gate-G8	5	Read	C:\GitDev\mindful-bar\systems\authoring-blueprint.md
+a2e593367bc35deb0	R0	validation-gate-G8	6	Grep	C:\GitDev\mindful-bar
+a2e593367bc35deb0	R0	validation-gate-G8	7	Grep	C:\GitDev\mindful-bar\projects
+a2e593367bc35deb0	R0	validation-gate-G8	8	Grep	C:\GitDev\mindful-bar\projects
+a2e593367bc35deb0	R0	validation-gate-G8	9	Read	C:\GitDev\mindful-bar\company\decisions\product-open-decisions.md
+a2e593367bc35deb0	R0	validation-gate-G8	10	SubagentHandback	
+aa89ac8760e1f695a	R0	handover	1	mcp__ccd_turn__update_plan	
+aa89ac8760e1f695a	R0	handover	2	Read	C:\GitDev\mindful-bar\README.md
+aa89ac8760e1f695a	R0	handover	3	Grep	C:\GitDev\mindful-bar
+aa89ac8760e1f695a	R0	handover	4	Glob	C:\GitDev\mindful-bar
+aa89ac8760e1f695a	R0	handover	5	Read	C:\GitDev\mindful-bar\systems\authoring-blueprint.md
+aa89ac8760e1f695a	R0	handover	6	Read	C:\GitDev\mindful-bar\products\cacao-bar\index.md
+aa89ac8760e1f695a	R0	handover	7	Grep	C:\GitDev\mindful-bar
+aa89ac8760e1f695a	R0	handover	8	Read	C:\GitDev\mindful-bar\projects\agents-and-readme\handover-1-agent-introduction-and-readme.md
+aa89ac8760e1f695a	R0	handover	9	Read	C:\GitDev\mindful-bar\projects\index.md
+aa89ac8760e1f695a	R0	handover	10	Read	C:\GitDev\mindful-bar\projects\first-product-test\brief.md
+aa89ac8760e1f695a	R0	handover	11	Glob	C:\GitDev\mindful-bar
+aa89ac8760e1f695a	R0	handover	12	Read	C:\GitDev\mindful-bar\systems\apex\specs\execution-modes\handover.md
+aa89ac8760e1f695a	R0	handover	13	Read	C:\GitDev\mindful-bar\projects\first-product-test\development-stages.md
+aa89ac8760e1f695a	R0	handover	14	Read	C:\GitDev\mindful-bar\projects\project-management\index.md
+aa89ac8760e1f695a	R0	handover	15	Read	C:\GitDev\mindful-bar\projects\agents-and-readme\index.md
+aa89ac8760e1f695a	R0	handover	16	mcp__ccd_session_mgmt__get_session	
+aa89ac8760e1f695a	R0	handover	17	SubagentHandback	
+aba192e3ead3d1909	R0	brand-names	1	Read	C:\GitDev\mindful-bar\README.md
+aba192e3ead3d1909	R0	brand-names	2	Glob	C:\GitDev\mindful-bar
+aba192e3ead3d1909	R0	brand-names	3	Read	C:\GitDev\mindful-bar\brand-and-sales\index.md
+aba192e3ead3d1909	R0	brand-names	4	Read	C:\GitDev\mindful-bar\brand-and-sales\positioning\positioning-and-signaling.md
+aba192e3ead3d1909	R0	brand-names	5	Grep	C:\GitDev\mindful-bar
+aba192e3ead3d1909	R0	brand-names	6	Grep	C:\GitDev\mindful-bar
+aba192e3ead3d1909	R0	brand-names	7	Grep	C:\GitDev\mindful-bar\company\decisions\product-open-decisions.md
+aba192e3ead3d1909	R0	brand-names	8	SubagentHandback	
+a14d2126c8723983a	R0	pricing-hypothesis	1	Read	C:\GitDev\mindful-bar\README.md
+a14d2126c8723983a	R0	pricing-hypothesis	2	Read	C:\GitDev\mindful-bar\systems\authoring-blueprint.md
+a14d2126c8723983a	R0	pricing-hypothesis	3	Grep	C:\GitDev\mindful-bar
+a14d2126c8723983a	R0	pricing-hypothesis	4	Read	C:\GitDev\mindful-bar\products\cacao-bar\index.md
+a14d2126c8723983a	R0	pricing-hypothesis	5	Read	C:\GitDev\mindful-bar\products\cacao-bar\experience\ritual.md
+a14d2126c8723983a	R0	pricing-hypothesis	6	Grep	C:\GitDev\mindful-bar\company\decisions
+a14d2126c8723983a	R0	pricing-hypothesis	7	Read	C:\GitDev\mindful-bar\company\decisions\product-open-decisions.md
+a14d2126c8723983a	R0	pricing-hypothesis	8	Read	C:\GitDev\mindful-bar\finance\index.md
+a14d2126c8723983a	R0	pricing-hypothesis	9	Grep	C:\GitDev\mindful-bar
+a14d2126c8723983a	R0	pricing-hypothesis	10	Read	C:\GitDev\mindful-bar\company\partnership-and-rights\business-intent.md
+a14d2126c8723983a	R0	pricing-hypothesis	11	SubagentHandback	
+a2c2b3f8e501b0ff5	R0	ingest-notion-export	1	Glob	C:\GitDev\mindful-bar
+a2c2b3f8e501b0ff5	R0	ingest-notion-export	2	Read	C:\GitDev\mindful-bar\README.md
+a2c2b3f8e501b0ff5	R0	ingest-notion-export	3	Read	C:\GitDev\mindful-bar\products\cacao-bar\index.md
+a2c2b3f8e501b0ff5	R0	ingest-notion-export	4	Read	C:\GitDev\mindful-bar\systems\authoring-blueprint.md
+a2c2b3f8e501b0ff5	R0	ingest-notion-export	5	Grep	C:\GitDev\mindful-bar
+a2c2b3f8e501b0ff5	R0	ingest-notion-export	6	Read	C:\GitDev\mindful-bar\knowledge\index.md
+a2c2b3f8e501b0ff5	R0	ingest-notion-export	7	Grep	C:\GitDev\mindful-bar\products\cacao-bar\specification.md
+a2c2b3f8e501b0ff5	R0	ingest-notion-export	8	Grep	C:\GitDev\mindful-bar\knowledge\original-source-documents\notion-mindfulness-bar.md
+a2c2b3f8e501b0ff5	R0	ingest-notion-export	9	Read	C:\GitDev\mindful-bar\knowledge\source-coverage\README.md
+a2c2b3f8e501b0ff5	R0	ingest-notion-export	10	Read	C:\GitDev\mindful-bar\knowledge\original-source-documents\README.md
+a2c2b3f8e501b0ff5	R0	ingest-notion-export	11	Read	C:\GitDev\mindful-bar\products\cacao-bar\specification.md
+a2c2b3f8e501b0ff5	R0	ingest-notion-export	12	SubagentHandback	
+a79d15e070f3da3a5	R0	typo-edit	1	Grep	C:\GitDev\mindful-bar
+a79d15e070f3da3a5	R0	typo-edit	2	Glob	C:\GitDev\mindful-bar
+a79d15e070f3da3a5	R0	typo-edit	3	Glob	C:\GitDev\mindful-bar
+a79d15e070f3da3a5	R0	typo-edit	4	Read	C:\GitDev\mindful-bar\README.md
+a79d15e070f3da3a5	R0	typo-edit	5	Read	C:\GitDev\mindful-bar\products\cacao-bar\index.md
+a79d15e070f3da3a5	R0	typo-edit	6	Read	C:\GitDev\mindful-bar\products\cacao-bar\specification.md
+a79d15e070f3da3a5	R0	typo-edit	7	SubagentHandback	
+a83bfd0a464ce6835	R0	compliance-obligation	1	Grep	C:\GitDev\mindful-bar
+a83bfd0a464ce6835	R0	compliance-obligation	2	Glob	C:\GitDev\mindful-bar
+a83bfd0a464ce6835	R0	compliance-obligation	3	Read	C:\GitDev\mindful-bar\README.md
+a83bfd0a464ce6835	R0	compliance-obligation	4	Read	C:\GitDev\mindful-bar\products\cacao-bar\index.md
+a83bfd0a464ce6835	R0	compliance-obligation	5	Grep	C:\GitDev\mindful-bar
+a83bfd0a464ce6835	R0	compliance-obligation	6	Grep	C:\GitDev\mindful-bar\products\cacao-bar
+a83bfd0a464ce6835	R0	compliance-obligation	7	Grep	C:\GitDev\mindful-bar\company\decisions\product-open-decisions.md
+a83bfd0a464ce6835	R0	compliance-obligation	8	Read	C:\GitDev\mindful-bar\products\cacao-bar\validation\plan.md
+a83bfd0a464ce6835	R0	compliance-obligation	9	Read	C:\GitDev\mindful-bar\company\decisions\product-open-decisions.md
+a83bfd0a464ce6835	R0	compliance-obligation	10	Read	C:\GitDev\mindful-bar\systems\authoring-blueprint.md
+a83bfd0a464ce6835	R0	compliance-obligation	11	Grep	C:\GitDev\mindful-bar\products\cacao-bar\specification.md
+a83bfd0a464ce6835	R0	compliance-obligation	12	Grep	C:\GitDev\mindful-bar\projects\first-product-test\brief.md
+a83bfd0a464ce6835	R0	compliance-obligation	13	Grep	C:\GitDev\mindful-bar\company\charter-and-strategy\working-context.md
+a83bfd0a464ce6835	R0	compliance-obligation	14	SubagentHandback	
+a781e66eb9109283b	R0	status-summary-control	1	Read	C:\GitDev\mindful-bar\README.md
+a781e66eb9109283b	R0	status-summary-control	2	Glob	C:\GitDev\mindful-bar
+a781e66eb9109283b	R0	status-summary-control	3	Read	C:\GitDev\mindful-bar\knowledge\index.md
+a781e66eb9109283b	R0	status-summary-control	4	Read	C:\GitDev\mindful-bar\products\cacao-bar\index.md
+a781e66eb9109283b	R0	status-summary-control	5	Read	C:\GitDev\mindful-bar\company\index.md
+a781e66eb9109283b	R0	status-summary-control	6	Read	C:\GitDev\mindful-bar\company\decisions\product-open-decisions.md
+a781e66eb9109283b	R0	status-summary-control	7	Read	C:\GitDev\mindful-bar\products\cacao-bar\specification.md
+a781e66eb9109283b	R0	status-summary-control	8	Read	C:\GitDev\mindful-bar\projects\first-product-test\brief.md
+a781e66eb9109283b	R0	status-summary-control	9	Read	C:\GitDev\mindful-bar\company\charter-and-strategy\working-context.md
+a781e66eb9109283b	R0	status-summary-control	10	SubagentHandback	
+ab38f010a9ab7ed50	R0	openproject-task	1	Read	C:\GitDev\mindful-bar\README.md
+ab38f010a9ab7ed50	R0	openproject-task	2	Grep	C:\GitDev\mindful-bar
+ab38f010a9ab7ed50	R0	openproject-task	3	Read	C:\GitDev\mindful-bar\projects\project-management\index.md
+ab38f010a9ab7ed50	R0	openproject-task	4	Read	C:\GitDev\mindful-bar\projects\project-management\first-test-weekly-plan.md
+ab38f010a9ab7ed50	R0	openproject-task	5	Read	C:\GitDev\mindful-bar\projects\index.md
+ab38f010a9ab7ed50	R0	openproject-task	6	Grep	C:\GitDev\mindful-bar\projects
+ab38f010a9ab7ed50	R0	openproject-task	7	SubagentHandback	

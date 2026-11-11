@@ -1,5 +1,14 @@
 # Apex Informatics Standard — Change Log
 
+## 2026-11-10 (Bake-Off scale unified to 1–100)
+
+**Unify Bake-Off scoring scale with Q&A / ranking scale (`EM-07`)** — Updated `specs/execution-modes/bake-off.md` (§3.1 phase 2 and §3.2 canonical comparison matrix) from a `1–5` scale (`4.60` / `4.05` / `2.95`) to `1–100` (`89.70` / `79.20` / `60.40`), aligning with `qa-decision-matrix.md` (`EM-06`) and `writing-profile.md` (`WP-07`). Mirror copies in `Leela-Cloud-2026/docs/apex/specs/execution-modes/bake-off.md` and `mindful-bar/systems/apex/specs/execution-modes/bake-off.md` await commit on `main` + `check_vendor_drift.py --write`.
+
+## 2026-11-07 (Mindful Bar routing experiment recorded)
+
+**Read-trace routing experiment filed as a to-do research record** — `research/08-read-trace-routing-experiments/01-findings-and-protocol.md` records 18 Haiku agents on 9 Mindful Bar tasks, contract triggers alone against a project routing blueprint (40 against 37 of 45 rubric points, n=1 per cell, no clear effect). It disagrees with `operations/17` on `<handover>` and `<trade_off>` and lists four hypotheses. Artifacts, including a byte-exact copy of the tested blueprint, are in `research/08-read-trace-routing-experiments/artifacts/`. The folder also holds a retrospective (what went well, what was learned, what to change) and a design review. Everything was moved there from `operations/` with hashes in `MOVE-MANIFEST.tsv`. Protocol v2 and the to-do register are in the record. No decision, rule or spec changed.
+- **Stage 1 run (same day):** 72 headless cells, 3 arms, 8 tasks, 3 repetitions, Haiku, pre-registered by hash. The blueprint pointer was opened in 1 of 24 cells. Two placement sentences inside `AGENTS.md` gave correct placement in 12 of 12 against 6 and 4 of 12. Contract gates were followed mostly for `<handover>` (9 of 9) and rarely otherwise. Two scorer defects were corrected after the run and reported as deviations. Artifacts are in `research/08-read-trace-routing-experiments/artifacts/stage1/`, and the stage 1 transcripts and per-cell patches are in `artifacts/archives/`.
+
 ## 2026-11-07 (orchestrator batch 1)
 
 **T6 and T7 measured** — `HANDOVER-11` ledger rows T6 and T7 now hold numbers: 20 failing verification tests (4 stale against candidate 16, 4 path-dependent on sibling repos missing from the short-path clone, 12 stale from the monolith split or archiving) and OKF validator counts at `5a316e6b` and `main` (profile errors 13 and 17). No tests or validator output were changed. Details under `## Orchestrator report`, Batch 1.

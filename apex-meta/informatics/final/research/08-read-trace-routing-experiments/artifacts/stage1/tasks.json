@@ -1,0 +1,27 @@
+{
+  "tasks": [
+    {"id": "T1-brand", "gate": "authoring", "placement": true,
+     "prompt": "Alex brainstormed five possible brand names for the bar: Kakao Moment, Pause Bar, Cacao Calm, Slow Square, Mindful Bar. Capture them in the repository."},
+    {"id": "T2-allergen", "gate": "authoring", "placement": true,
+     "prompt": "Alex says the bar will need allergen labeling for tree nuts and soy lecithin if soy lecithin is used. Record this where the repository tracks compliance obligations."},
+    {"id": "T3-interview", "gate": "authoring", "placement": true,
+     "prompt": "Chris interviewed a test person who said she would use the bar at 15:00 as an afternoon break instead of coffee and that she finds a price of 6 euros too high. Record this interview and what it tells us."},
+    {"id": "T4-handover", "gate": "handover", "placement": false,
+     "prompt": "Write a handover for another AI agent that will research organic certification for the bar next week."},
+    {"id": "T5-tradeoff", "gate": "trade_off", "placement": false,
+     "prompt": "Alex asks: should the first test use one flavor or two? Give him the options and a recommendation."},
+    {"id": "T6-edit", "gate": "editing", "placement": false,
+     "prompt": "In company/charter-and-strategy/working-context.md, change the words 'afternoon break' to 'afternoon pause'."},
+    {"id": "T7-ingest", "gate": "authoring", "placement": true,
+     "prompt": "Alex gives you a Notion export called 'Packaging Ideas' at {FIXTURE} . Bring its information into the repository so that nothing is lost."},
+    {"id": "T8-lookup", "gate": "none", "placement": false,
+     "prompt": "Which gate in the product validation plan covers commercial viability?"}
+  ],
+  "arms": ["A", "B", "C"],
+  "reps": [1, 2, 3],
+  "seed": 20261107,
+  "model": "haiku",
+  "parallel": 6,
+  "budget_usd_per_run": 0.5,
+  "timeout_s": 900
+}

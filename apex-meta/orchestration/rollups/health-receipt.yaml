@@ -1,8 +1,6 @@
-timestamp: '2026-11-07T08:26:56.934402+00:00'
+timestamp: '2026-11-10T08:04:30.089671+00:00'
 status: DEGRADED_PUBLICATION_BLOCKED
 errors:
-- '[apex] Branch mismatch in /mnt/c/GitDev/apexai-os-meta: expected ''main'', found
-  ''codex/ki-basis-amd64-features'''
 - '[investment] Branch mismatch in /root/workspaces/Investment: expected ''main'',
   found ''ipos-modular-rebuild-2026-08-28'''
 last_known_good_preserved: true

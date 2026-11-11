@@ -1,0 +1,37 @@
+---
+type: Reference
+id: MB-AUTHORING-BLUEPRINT-001
+title: Agent and Authoring Blueprint
+description: Routes Mindful Bar agents and authors to reused design, quality, and maintenance guidance.
+status: current
+tags: [agents, authoring, informatics, maintenance]
+---
+
+# Agent and authoring blueprint
+
+Use the existing domain-first company design and the copied APEX profiles in [apex/](apex/README.md). Load the guidance for the current task rather than the whole library. Preserve founder directions and item-level product states. A copied standard does not approve company decisions or authorize external actions.
+
+## Task routing
+
+| Task | Read |
+|---|---|
+| Start agent work | [Operating contract (inline block in AGENTS.md)](../AGENTS.md), then the relevant domain index |
+| Define a specification, file home, or domain boundary | [Domain design](design/02-INFORMATION-ARCHITECTURE.md) and [file architecture](apex/specs/file-architecture.md) |
+| Write or review governed knowledge | [Writing profile](apex/specs/writing-profile.md) |
+| Preserve identity, provenance, and document states | [Company filing and identity](design/03-FILING-AND-IDENTITY.md) |
+| Define procedures, records, or system authority | [Custody design](design/04-AUTHORITY-AND-CUSTODY.md) and [current custody boundaries](authority-and-record-custody.md) |
+| Edit existing files | [Patch discipline](apex/specs/execution-modes/patch-discipline.md) |
+| Plan work across several files | [Iterative execution](apex/specs/execution-modes/iterative-execution.md) |
+| Prepare a handover | [Handover contract](apex/specs/execution-modes/handover.md) |
+| Compare material alternatives | [Decision matrix](apex/specs/execution-modes/qa-decision-matrix.md) |
+| Check output quality | [Company verification design](design/07-VERIFICATION.md) and [governance diagnostics](apex/specs/governance-schemas.md) |
+
+The supplied company design remains subject to the recorded founder decisions. A09/A10 are deferred. Silence is not consent. These project boundaries override conflicting generic examples in the copied references.
+
+## When to apply
+
+Apply the profiles when defining, writing, reviewing, or maintaining company specifications, curated knowledge, agent instructions, and procedures. Keep native formats for code, binaries, raw records, and historical snapshots. Before adding an artifact, define its owning domain, purpose, source, status, and acceptance evidence; the domain design and filing rules above decide where it lives.
+
+## Maintenance
+
+The APEX copy, its provenance and its drift check are described in [apex/README.md](apex/README.md). A file being present is not proof an agent read it.

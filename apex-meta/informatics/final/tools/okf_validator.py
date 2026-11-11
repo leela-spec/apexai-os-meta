@@ -87,9 +87,12 @@ def parse_frontmatter(content: str) -> Tuple[Optional[Dict[str, Any]], str, Opti
 
 def extract_links(markdown_text: str) -> List[str]:
     """Extracts relative Markdown links [text](target.md) from text, ignoring URLs."""
+    # Strip fenced code blocks and inline code so code examples are not treated as governed links
+    text_clean = re.sub(r"```[\s\S]*?```", "", markdown_text)
+    text_clean = re.sub(r"`.*?`", "", text_clean)
     links = []
     # Match markdown link target [text](link)
-    matches = re.findall(r"\[.*?\]\((.*?)\)", markdown_text)
+    matches = re.findall(r"\[.*?\]\((.*?)\)", text_clean)
     for m in matches:
         link = m.split("#")[0].strip()
         if link and not link.startswith(("http://", "https://", "mailto:", "#")):

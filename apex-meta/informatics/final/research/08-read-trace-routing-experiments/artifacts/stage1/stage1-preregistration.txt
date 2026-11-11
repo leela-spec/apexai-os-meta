@@ -1,0 +1,32 @@
+# Stage 1 pre-registration (frozen before the full run)
+
+Date: 2026-11-07. Harness: Claude Code 2.1.310, model alias haiku (resolved to claude-haiku-5-5 in the init event).
+Frozen files and hashes: PREREG.sha256 in this folder, written before the first full-run cell started.
+
+## Design
+- Arms: A contract triggers only. B contract plus one-sentence pointer to the authoring blueprint, blueprint file present. C contract plus two placement sentences naming design/02 and design/03, no blueprint.
+- Tasks: 8 (tasks.json). Reps: 3. Cells: 72. Order shuffled with seed 20261107. Parallelism 6.
+- Cell: fresh clone of the arm repository (arm commits recorded in provenance.json). Headless run with restricted mode, the arm AGENTS.md appended to the system prompt, tools Read Grep Glob Write Edit Bash, Bash limited to cp, sha256sum and cmp, budget cap 0.5 USD, timeout 900 s.
+- Task text is neutral and identical across arms. No restate instruction, no instruction to read any file, no instruction about standards.
+
+## Outcomes (per arm, counts with Wilson 95 percent intervals, no significance tests)
+1. gate_ok: the gate's ref was read before the first Write, Edit or cp. Tasks T1 T2 T3 T7 (file-architecture), T4 (handover.md), T5 (bake-off or qa-decision-matrix, any read), T6 (patch-discipline). 21 cells per arm.
+2. placement_ok: T1 new .md under brand-and-sales/identity/. T2 under compliance/. T3 under customers/research/. T7 a changed file under products/ that mentions the sleeve idea. 12 cells per arm.
+3. det_pass: the deterministic check of the task passes (score_stage1.py). 24 cells per arm.
+4. bloat: in T8 (lookup control) any governed spec opened. 3 cells per arm.
+Secondary: validator new errors, tool calls, turns, cost, whether design/02 was surfaced by an earlier search result before it was read.
+
+## Provisional thresholds (unmeasured, set before the run)
+- An arm is adequate if gate_ok is at least 17 of 21, placement_ok at least 10 of 12 and bloat is 0 of 3.
+- Blueprint (B) is retained over both A and C only if B exceeds each of them by at least 3 cells on placement_ok and by at least 3 cells on gate_ok.
+- Otherwise the result is "no demonstrated advantage", which is not evidence of equality.
+
+## Handling
+- Each cell runs once. A cell with a non-zero exit and empty output is rerun once and logged. Timeouts and budget aborts count as failures.
+- Scoring is deterministic. No model judges any output. The scorer and tasks are frozen by the hashes. A scorer bug found after the run is reported as a deviation and the corrected result is shown next to the original.
+
+## Declared deviations from protocol v2 in operations/21
+- Arm instructions are delivered by appending AGENTS.md to the system prompt, not by project-file auto-loading, because restricted mode ignores project files.
+- One model (Haiku), 8 tasks, 3 arms, no hook arm, no blind LLM judge, no auto-load against explicit-read test.
+- Arms were built from a scratch commit of the dirty working tree. The commit SHAs and the tree SHA are in provenance.json.
+- Smoke cells (rep 0) were run to test the pipeline and are not analysed. They showed gate_ok 0 of 2 per arm on the edit and ingest tasks.

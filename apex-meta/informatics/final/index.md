@@ -56,7 +56,9 @@ research/
 ├── 04-finalization-dossier/             <- Step-by-step audit dossier (00-research-critique through 08-complete-comparison)
 ├── 05-analysis-after-research/          <- Post-research analysis notes
 ├── 06-layered-rule-kb/                  <- Layered Rule Knowledge Base (all 22 rules, 5 module audits, index.md)
-└── 07-ultra-style-audit/                <- Style audit of the ultra block (handover and findings)
+├── 07-ultra-style-audit/                <- Style audit of the ultra block (handover and findings)
+├── 08-read-trace-routing-experiments/   <- Three routing experiments on 2026-11-07 (findings, retrospective, design review, artifacts); marked to-do
+└── 09-ultra-contract-and-layers-synthesis/ <- 7-topic synthesis, EVAL-APEX-JIT-GATE-V3 test protocol, and step-by-step change ledger (C01..C12)
 ```
 
 ### 2.1 Research Directory Index
@@ -70,6 +72,8 @@ research/
 | [**`05-analysis-after-research/`**](research/05-analysis-after-research/) | `NextIteration/v2-always-on-architecture/AnalysisAfterResearch/` | Working analysis and synthesis logs. |
 | [**`06-layered-rule-kb/`**](research/06-layered-rule-kb/index.md) | `apex-meta/informatics/final/research/06-layered-rule-kb/` | **Layered Rule Knowledge Base:** Complete 22-rule semantic block decomposition ([`rule-01`](research/06-layered-rule-kb/rule-01-target.md)..`22`), 5 Plane 4 infrastructure module audits ([`audit-module-01`](research/06-layered-rule-kb/audit-module-01-writing-profile.md)..`05`), WP-23 ownership ledgers, and Option B surgical recomposition rollup. |
 | [**`07-ultra-style-audit/`**](research/07-ultra-style-audit/research-handover-ultra-style-audit.md) | moved from `Leela-Cloud-2026/docs/ssot/architecture/spec-organization/` (2026-11-07) | **Ultra block style audit:** the deferred handover and the findings file (prose vs signal-bullet clauses, token measurements, rewrite proposals). |
+| [**`08-read-trace-routing-experiments/`**](research/08-read-trace-routing-experiments/index.md) | created 2026-11-07 in the Mindful Bar routing work; the record and artifacts were moved here from `operations/` | **Routing experiments (to-do):** 12-agent round, 18-agent contract-versus-blueprint comparison and a 72-cell headless stage 1; findings, retrospective (went well, learned, change), design review and hashed artifacts. |
+| [**`09-ultra-contract-and-layers-synthesis/`**](research/09-ultra-contract-and-layers-synthesis/index.md) | created 2026-11-08 in `apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/` | **Ultra Contract & Layers Synthesis:** 7-topic architecture synthesis, `EVAL-APEX-JIT-GATE-V3` 4-arm test protocol, and step-by-step change ledger ([`01-step-by-step-change-ledger.md`](research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md)). |
 
 ---
 
