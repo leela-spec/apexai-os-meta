@@ -24,6 +24,19 @@ from pathlib import Path
 from typing import Any
 
 RESIDUE_MARKERS = ("~~", "Legacy Script X", "run_legacy.py", "pending confirmation")
+READ_TOOLS = {
+    "Read", "Glob", "Grep",
+    "read_file", "read_many_files", "glob", "grep_search", "list_directory",
+    "google_web_search", "web_fetch",
+}
+SHELL_TOOLS = {"Bash", "PowerShell", "run_shell_command"}
+SHELL_CLAUSE_SPLIT_RE = re.compile(r"\r?\n|&&|\|\||;|\|")
+BENIGN_REDIR_RE = re.compile(r"(?:^|\s)[12]?>&\s*[12](?=\s|$)|(?:^|\s)[12]?>>?\s*(?:/dev/null|\$null)\b", re.IGNORECASE)
+SHELL_READ_VERB_RE = re.compile(
+    r"(?:\b(?:cat|head|tail|sed|awk|more|less|rg|grep|Get-Content|gc|Select-String|sls|type)\b|open\(|read_text\()",
+    re.IGNORECASE,
+)
+SHELL_READ_PATH_RE = re.compile(r"(?:^|[\s\"'=(])([A-Za-z0-9_./\\:-]*(?:\.md|\.py|\.json|\.txt))")
 
 
 def _norm(p: str) -> str:
@@ -86,8 +99,37 @@ def _turn_key(event: dict[str, Any], ledger: dict[str, Any]) -> str:
     return f"w{len(ledger.get('writes') or [])}-r{len(ledger.get('reads') or [])}"
 
 
+def _extract_shell_reads(cmd: str) -> list[str]:
+    hits: list[str] = []
+    for raw_clause in SHELL_CLAUSE_SPLIT_RE.split(_norm(cmd)):
+        cleaned = BENIGN_REDIR_RE.sub(" ", raw_clause)
+        if not SHELL_READ_VERB_RE.search(cleaned):
+            continue
+        for m in SHELL_READ_PATH_RE.finditer(cleaned):
+            hits.append(m.group(1))
+    return hits
+
+
 def _all_reads(event: dict[str, Any], ledger: dict[str, Any]) -> set[str]:
     reads = set(ledger.get("reads") or [])
+
+    def _collect(name: str, inp: dict[str, Any]) -> None:
+        if name in READ_TOOLS:
+            for k in ("file_path", "path", "dir_path", "target_file", "pattern"):
+                v = inp.get(k)
+                if isinstance(v, str) and v.strip():
+                    reads.add(_norm(v))
+            paths = inp.get("paths")
+            if isinstance(paths, list):
+                for item_p in paths:
+                    if isinstance(item_p, str) and item_p.strip():
+                        reads.add(_norm(item_p))
+        elif name in SHELL_TOOLS:
+            cmd = inp.get("command")
+            if isinstance(cmd, str):
+                for hit in _extract_shell_reads(cmd):
+                    reads.add(hit)
+
     tp = str(event.get("transcript_path") or "")
     if tp and Path(tp).is_file():
         for ln in Path(tp).read_text(encoding="utf-8", errors="replace").splitlines():
@@ -99,15 +141,9 @@ def _all_reads(event: dict[str, Any], ledger: dict[str, Any]) -> set[str]:
             if isinstance(msg, dict) and isinstance(msg.get("content"), list):
                 for c in msg["content"]:
                     if isinstance(c, dict) and c.get("type") == "tool_use":
-                        inp = c.get("input") or {}
-                        for k in ("file_path", "path", "command"):
-                            if isinstance(inp.get(k), str):
-                                reads.add(_norm(inp[k]))
+                        _collect(str(c.get("name") or ""), c.get("input") or {})
             if obj.get("type") == "tool_use":
-                params = obj.get("parameters") or {}
-                for k in ("file_path", "path", "command"):
-                    if isinstance(params.get(k), str):
-                        reads.add(_norm(params[k]))
+                _collect(str(obj.get("tool_name") or obj.get("name") or ""), obj.get("parameters") or obj.get("input") or {})
     return reads
 
 
@@ -147,7 +183,7 @@ def main() -> int:
                 touched_final.append(rel[len("apex-meta/informatics/final/") :])
 
     if touched_final:
-        if not any("index.md" in r for r in reads):
+        if not any(r.endswith("final/index.md") or r == "index.md" for r in reads):
             issues.append(
                 "Governed files were modified under apex-meta/informatics/final/ without reading "
                 "apex-meta/informatics/final/index.md."
@@ -156,7 +192,7 @@ def main() -> int:
         bundle = Path(cwd) / "apex-meta" / "informatics" / "final"
         if validator.is_file():
             vr = subprocess.run(
-                [sys.executable, str(validator), "--target", str(bundle), "--json"],
+                [sys.executable, "-B", str(validator), "--target", str(bundle), "--json"],
                 cwd=cwd,
                 capture_output=True,
                 text=True,

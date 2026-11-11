@@ -1,12 +1,12 @@
 # initial_locked_utc: 2026-11-11T15:46:24Z (commit 1da186c0)
-# addendum_r0_calibration_utc: 2026-11-11T16:17:49Z (pre-Phase-2 parser & hook telemetry calibration; zero task/arm wording edits)
+# pre_phase2_audit_lock_utc: 2026-11-11T16:33:32Z (Arm B hook 2>&1/read-write fix, Gemini 0.66.0 tool names, shell/T1/T3 scorer fixes before fresh r0 calibration)
 # experiment: EVAL-APEX-ULTRA-V1-UPGRADE (base a4cb2b6a)
 979f44b9710b33a90887195e9e748dd3b7f4c4c6cd956d17f826be454fa7cf9e  fixtures/armA-contract.txt
 0792c6d7c1d36332ddb2ba13bcb6b0689cd445f298996f6944ea20686322a5ea  fixtures/armB-rule-closeout.txt
 f6b4a71d0b86105e16a456ab55808885d6b5c4a5559edf47d6d649f7aa8670a1  fixtures/armB-rule-informatics.txt
 0ed856aa7e493f20c310643ae3a36e0d33402a5daff5872a71d3b50aa577a0d6  fixtures/armB-slim-contract.txt
-e688c4872da4e1e11c2c7ed1bf3d2b90964c0b4deb961b7c64cd0e4b96cd1b8a  fixtures/armB_hook_pretool.py
-7bd8fce6711228ed5e26cf9685f13439c28a1bcf9e199f59027eb2b8f1434fb5  fixtures/armB_hook_stop.py
+a01c7b95e7633a2aa437868b599420ac246b5fd1aed9f10c7ef061a69ef7b191  fixtures/armB_hook_pretool.py
+5b6730179c23ee925e25e533349eace611795acd271ce14e64d8fa63c6a4b1b4  fixtures/armB_hook_stop.py
 1de73eec0418c8b7a7e621c42e46380513af9061c51bf29343ec8a840fa16616  fixtures/armC-gemini-routing.txt
 f148f8376c0d30b1a8aa3e4ea0563c96debb4bd1cbd93b2249499a337c1885c4  fixtures/armC-lean-contract.txt
 b32e5971271993161cc403b766e8cd9e4076a5256a2b964df39ec603bd527ae4  fixtures/armD-delib-contract.txt
@@ -21,5 +21,5 @@ e2fdb519c8a19ee6d076e276e1a1688c71c564568ad3bd8c4f2459e02791039e  fixtures/t6-pr
 b61c0ffe79373e5836835861f09e6f4f1327c96e697dd98fcf251b7296e956ad  fixtures/t6-target.md.txt
 283f4d043317d391b026a7153f1fd7126c44b9b096309ca27d3b96ec821fda8d  index.md
 ef778c7b3ef52e71c95ca2bb6bcbefd979d25fa79463faacf022a6b3a9fa6485  preregistration.md
-2d941865d0bb1a51386b89e6e63ec72f0c7534fd20fa5ee178ee32861a8aa93b  score_eval.py
+a01161896aa0d1d36006cef4dc22c99a12ae47fcd23cb7d0d96b443faa4a219a  score_eval.py
 a15812e525e0b1ff8737ac3ad63cde2484b52a74ebdc2c41b000995aee237e32  tasks.json

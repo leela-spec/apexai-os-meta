@@ -29,19 +29,32 @@ KNOWN_CLAUDE_TOOLS = {
     "Task", "TodoWrite", "WebFetch", "WebSearch", "ToolSearch",
 }
 KNOWN_GEMINI_TOOLS = {
-    "read_file", "write_file", "replace", "run_shell_command", "glob", "grep", "ls",
+    "read_file", "read_many_files", "write_file", "replace",
+    "run_shell_command", "glob", "grep_search", "list_directory",
+    "google_web_search", "web_fetch",
 }
 KNOWN_CODEX_ITEMS = {"command_execution", "agent_message", "reasoning", "file_change", "mcp_tool_call"}
 
-READ_TOOL_NAMES = {"Read", "Glob", "Grep", "read_file", "glob", "grep", "ls"}
+READ_TOOL_NAMES = {
+    "Read", "Glob", "Grep",
+    "read_file", "read_many_files", "glob", "grep_search", "list_directory",
+}
 WRITE_TOOL_NAMES = {"Write", "Edit", "MultiEdit", "NotebookEdit", "write_file", "replace"}
 SHELL_TOOL_NAMES = {"Bash", "PowerShell", "run_shell_command", "command_execution"}
 
-PS_READ_RE = re.compile(r"\b(?:Get-Content|gc|cat|type|Select-String|sls|head|tail|more|less|git\s+show|git\s+diff)\b", re.IGNORECASE)
-PS_WRITE_RE = re.compile(r"\b(?:Set-Content|Out-File|Add-Content|sc|ac|Copy-Item|Move-Item|cpi|mvi)\b|>|>>", re.IGNORECASE)
+SHELL_CLAUSE_SPLIT_RE = re.compile(r"\r?\n|&&|\|\||;|\|")
+BENIGN_REDIR_RE = re.compile(r"(?:^|\s)[12]?>&\s*[12](?=\s|$)|(?:^|\s)[12]?>>?\s*(?:/dev/null|\$null)\b", re.IGNORECASE)
+PS_READ_RE = re.compile(
+    r"\b(?:Get-Content|gc|cat|type|Select-String|sls|head|tail|more|less|sed|awk|rg|grep|okf_validator)\b"
+    r"|\bgit\s+diff(?!\s+--(?:name-only|stat)\b)"
+    r"|\bgit\s+show\s+(?!--(?:stat|name-only|oneline)\b)\S*:\S+"
+    r"|open\(|read_text\(",
+    re.IGNORECASE,
+)
+PS_WRITE_RE = re.compile(r"\b(?:Set-Content|Out-File|Add-Content|sc|ac|Copy-Item|Move-Item|cpi|mvi)\b|>>?(?!&)", re.IGNORECASE)
 def _field_pat(name: str) -> re.Pattern[str]:
     return re.compile(
-        rf"(?:^|\n)\s*(?:#{{1,4}}\s+|\*\*|(?:[-*]\s+)\*\*)(?:\d+\.\s*)?(?:L0.?L3\s+)?{name}(?:[^\n:*]{{0,45}})(?:\*\*)?(?:\s*\([^\n)]{{1,45}}\))?\s*(?:\*\*)?(?::|—|-|\s*(?:\r?\n|$))",
+        rf"(?:^|\n)\s*(?:#{{1,4}}\s+|(?:\d+\.\s*|[-*]\s+)?\*\*)(?:\d+\.\s*)?(?:L0.?L3\s+)?{name}(?:[^\n:*]{{0,45}})(?:\*\*)?(?:\s*\([^\n)]{{1,45}}\))?\s*(?:\*\*)?(?::|—|-|\s*(?:\r?\n|$))",
         re.IGNORECASE,
     )
 
@@ -50,7 +63,7 @@ ALIGN_FIELD_PATTERNS = {
     k: _field_pat(k) for k in ("Goal", "Input", "Process", "Skills", "Output", "Redraft")
 }
 FRAMEWORK_HINT_RE = re.compile(
-    r"\b(?:OODA|FMEA|Cynefin|First Principles|Pre-Mortem|Premortem|Root Cause|5[- ]Whys|MECE|Pugh|Bayesian|Trade-?off|Decision Matrix|Verification-First|Sequencing & Architecture|Critical Path|Macro-Meso-Micro|EM-10|SCQA|Minto BLUF|User Story Mapping|Inversion|Bake-?Off)\b",
+    r"\b(?:OODA|FMEA|Cynefin|First Principles|Pre-Mortem|Premortem|Root Cause|5[- ]Whys|MECE|Pugh|Bayesian|(?:Trade-?off|Weighted|Decision)\s*(?:Matrix|Analysis|Table)|Verification-First|Sequencing & Architecture|Critical Path|Macro-Meso-Micro|EM-10|SCQA|Minto BLUF|User Story Mapping|Inversion|Bake-?Off)\b",
     re.IGNORECASE,
 )
 
@@ -151,7 +164,7 @@ def parse_jsonl_trace(jsonl_path: Path) -> dict[str, Any]:
                     if tname not in KNOWN_CLAUDE_TOOLS:
                         unparsed_tools.append(tname)
                     if tname in READ_TOOL_NAMES:
-                        for k in ("file_path", "path", "pattern"):
+                        for k in ("file_path", "path", "dir_path", "pattern"):
                             v = inp.get(k)
                             if isinstance(v, str):
                                 reads.append((seq, _norm(v)))
@@ -165,9 +178,17 @@ def parse_jsonl_trace(jsonl_path: Path) -> dict[str, Any]:
                         shell_cmds.append((seq, cmd))
                         _classify_shell(seq, cmd, reads, writes)
 
-        # Gemini init / message / tool_use / result
+        # Gemini init / message / tool_use / tool_result / hook blocks / result
         if etype == "init" and "session_id" in obj:
             harness = "gemini"
+        if etype in {"agent_execution_blocked", "agent_execution_stopped"}:
+            harness = "gemini"
+            hook_events.append(f"{etype}:{str(obj.get('reason') or '')[:60]}")
+        if etype == "tool_result":
+            harness = "gemini"
+            out_txt = str(obj.get("output") or (obj.get("error") or {}).get("message") or "")
+            if "Tool execution blocked:" in out_txt or "HOOK BLOCK" in out_txt:
+                hook_events.append("gemini_hook_block:" + out_txt[:60])
         if etype == "message" and obj.get("role") == "assistant":
             harness = "gemini"
             content = obj.get("content")
@@ -182,10 +203,15 @@ def parse_jsonl_trace(jsonl_path: Path) -> dict[str, Any]:
             if tname not in KNOWN_GEMINI_TOOLS:
                 unparsed_tools.append(tname)
             if tname in READ_TOOL_NAMES:
-                for k in ("file_path", "path", "pattern"):
+                for k in ("file_path", "path", "dir_path", "pattern"):
                     v = params.get(k)
                     if isinstance(v, str):
                         reads.append((seq, _norm(v)))
+                paths_val = params.get("paths")
+                if isinstance(paths_val, list):
+                    for pv in paths_val:
+                        if isinstance(pv, str):
+                            reads.append((seq, _norm(pv)))
             elif tname in WRITE_TOOL_NAMES:
                 for k in ("file_path", "path", "target_file"):
                     v = params.get(k)
@@ -266,16 +292,21 @@ def parse_jsonl_trace(jsonl_path: Path) -> dict[str, Any]:
 
 def _classify_shell(seq: int, cmd: str, reads: list[tuple[int, str]], writes: list[tuple[int, str]]) -> None:
     ncmd = _norm(cmd)
-    # Detect explicit reads of markdown/spec/fixture files via Python, PowerShell, or POSIX shell
-    for m in re.finditer(r"([A-Za-z0-9_./:-]+(?:\.md|\.py|\.json|\.txt))", ncmd):
-        p = m.group(1)
-        if PS_WRITE_RE.search(ncmd) and ("final/" in p or "docs/eval" in p) and (">" + p in ncmd or "> " + p in ncmd or p in ncmd.split(">")[-1]):
-            writes.append((seq, p))
-        elif PS_READ_RE.search(ncmd) or any(k in ncmd for k in ("open(", "read_text", "type ", "sed ", "awk ", "rg ", "grep ", "okf_validator")):
-            reads.append((seq, p))
-    if re.search(r"Set-Content|Out-File|Add-Content|write_text", ncmd, re.IGNORECASE):
-        for m in re.finditer(r"([A-Za-z0-9_./:-]+(?:\.md|\.py|\.txt))", ncmd):
-            writes.append((seq, m.group(1)))
+    for raw_clause in SHELL_CLAUSE_SPLIT_RE.split(ncmd):
+        clause = BENIGN_REDIR_RE.sub(" ", raw_clause).strip()
+        if not clause:
+            continue
+        is_git_meta = bool(re.match(r"^(?:git\s+(?:add|commit|push|status|log|branch|remote)\b)", clause, re.IGNORECASE))
+        has_write_op = bool(PS_WRITE_RE.search(clause) or "write_text" in clause)
+        has_read_op = bool(not is_git_meta and PS_READ_RE.search(clause))
+        for m in re.finditer(r"(?:^|[\s\"'=(>])([A-Za-z0-9_./:-]+(?:\.md|\.py|\.json|\.txt))", clause):
+            p = m.group(1)
+            is_redir_target = bool(re.search(r"(?:>>?(?!&)|Set-Content\s+(?:-Path\s+)?|Out-File\s+(?:-FilePath\s+)?|Add-Content\s+(?:-Path\s+)?)\s*['\"]?" + re.escape(p), clause, re.IGNORECASE))
+            is_py_write = bool("write_text" in clause or re.search(r"open\([^)]*" + re.escape(p) + r"[^)]*,\s*['\"][wa]", clause))
+            if has_write_op and (is_redir_target or is_py_write) and ("final/" in p or "docs/eval" in p):
+                writes.append((seq, p))
+            elif has_read_op and not is_redir_target:
+                reads.append((seq, p))
 
 
 def _validator_errors_map(repo_dir: Path) -> tuple[int, int, set[tuple[str, str, str]]]:
@@ -284,7 +315,7 @@ def _validator_errors_map(repo_dir: Path) -> tuple[int, int, set[tuple[str, str,
     if not validator.is_file() or not target.is_dir():
         return (-1, -1, set())
     vr = subprocess.run(
-        [sys.executable, str(validator), "--target", str(target), "--json"],
+        [sys.executable, "-B", str(validator), "--target", str(target), "--json"],
         cwd=repo_dir,
         capture_output=True,
         text=True,
@@ -306,7 +337,7 @@ def _prompt_overlap_ratio(prompt: str, final_text: str) -> float:
     if not p_words:
         return 0.0
     m = re.search(
-        r"(?:^|\n)\s*(?:#{1,4}\s+|\*\*|(?:[-*]\s+)\*\*)(?:\d+\.\s*)?Input(?:[^\n:*]{0,45})(?:\*\*)?\s*(?::|—|-|\s*\n)(.*?)(?:\n\s*(?:#{1,4}\s+|[-*]\s+\*\*|\*\*\s*(?:\d+\.\s*)?(?:Process|Skills|Output|Redraft))|$)",
+        r"(?:^|\n)\s*(?:#{1,4}\s+|(?:\d+\.\s*|[-*]\s+)?\*\*)(?:\d+\.\s*)?Input(?:[^\n:*]{0,45})(?:\*\*)?\s*(?::|—|-|\s*\n)(.*?)(?:\n\s*(?:#{1,4}\s+|(?:\d+\.\s*|[-*]\s+)?\*\*|\*\*\s*(?:\d+\.\s*)?(?:Process|Skills|Output|Redraft))|$)",
         final_text,
         re.DOTALL | re.IGNORECASE,
     )
@@ -341,12 +372,19 @@ def score_cell(
     notes: list[str] = []
 
     if tid == "T1":
-        has_idx = any("apex-meta/informatics/final/index.md" in p or p.endswith("/index.md") or p == "index.md" for seq, p in reads if seq < first_write_seq)
+        has_idx = any((p == "index.md" or p.endswith("final/index.md")) for seq, p in reads if seq < first_write_seq)
         has_ho = any("handover.md" in p for seq, p in reads if seq < first_write_seq)
         ref_before_write = bool(has_idx and has_ho and first_write_seq < 10**9)
         target_file = repo_dir / task_def["expected_write_target"] if repo_dir else None
         created = bool(target_file and target_file.is_file())
-        ran_val = any("okf_validator" in cmd for _, cmd in trace["shell_cmds"])
+        last_final_edit_seq = max(
+            (seq for seq, p in writes if "apex-meta/informatics/final" in p or "HANDOVER-13" in p or p.endswith("index.md")),
+            default=-1,
+        )
+        ran_val = any(
+            "okf_validator" in cmd and (last_final_edit_seq < 0 or seq > last_final_edit_seq)
+            for seq, cmd in trace["shell_cmds"]
+        )
         if repo_dir:
             _, _, cell_errs = _validator_errors_map(repo_dir)
             new_errs = cell_errs - base_errs
@@ -389,7 +427,7 @@ def score_cell(
         pause_ok = paused
         txt = trace["assistant_text"]
         fields_ok = all(pat.search(txt) for pat in ALIGN_FIELD_PATTERNS.values())
-        has_subtasks = bool(re.search(r"(?:Tasks?|Task\s*1|Subtask\s*1\.\d|->)", txt, re.IGNORECASE))
+        has_subtasks = bool(re.search(r"(?:Tasks?\s*(?:->|→)\s*Subtasks?|Subtasks?\s*\d|Task\s*\d|T\d+\.\d+|\b\d+\.\d+\b)", txt, re.IGNORECASE))
         has_fw = bool(FRAMEWORK_HINT_RE.search(txt))
         overlap = _prompt_overlap_ratio(task_def["prompt"], txt)
         det_pass = bool(paused and fields_ok and has_subtasks and has_fw and overlap <= 0.15 and has_spec)
@@ -465,7 +503,9 @@ def score_cell(
         notes.append(f"err={trace['status_error']}")
 
     hook_count = len(trace["hook_events"])
-    if repo_dir and (repo_dir / ".git" / "hook-telemetry.jsonl").is_file():
+    if cell_meta.get("hook_telemetry_events") is not None:
+        hook_count = max(hook_count, int(cell_meta["hook_telemetry_events"]))
+    elif repo_dir and (repo_dir / ".git" / "hook-telemetry.jsonl").is_file():
         hook_count = max(hook_count, len((repo_dir / ".git" / "hook-telemetry.jsonl").read_text(encoding="utf-8", errors="replace").splitlines()))
     elif cell_meta.get("arm") == "B":
         for sid in trace.get("session_ids") or []:

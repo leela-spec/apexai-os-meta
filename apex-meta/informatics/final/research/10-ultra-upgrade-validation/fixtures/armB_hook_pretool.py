@@ -23,22 +23,35 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
-READ_TOOLS = {"Read", "Glob", "Grep", "read_file", "glob", "grep", "ls"}
+READ_TOOLS = {
+    "Read", "Glob", "Grep",
+    "read_file", "read_many_files", "glob", "grep_search", "list_directory",
+    "google_web_search", "web_fetch",
+}
 WRITE_TOOLS = {"Write", "Edit", "MultiEdit", "NotebookEdit", "write_file", "replace"}
 SHELL_TOOLS = {"Bash", "PowerShell", "run_shell_command"}
 
 RESIDUE_MARKERS = ("~~", "Legacy Script X", "run_legacy.py", "pending confirmation")
 DIRTY_EXCLUSIONS = ("docs/eval-t6/dirty1.md", "docs/eval-t6/dirty2.md")
 BLANKET_GIT_RE = re.compile(
-    r"\bgit\s+(?:add\s+(?:-A|--all|\.(?:\s|$))|commit\s+[^#\n]*\s(?:-a|--all)\b)",
+    r"\bgit\s+(?:"
+    r"add\s+(?:--\s+)?(?:-A|--all|-u|--update|\.(?=\s|;|&|\||$))"
+    r"|commit\b[^#;&|\n]*?\s(?:-(?!-)[A-Za-z]*a[A-Za-z]*(?=\s|$|[\"'])|--all\b)"
+    r")",
     re.IGNORECASE,
 )
 GIT_COMMIT_RE = re.compile(r"\bgit\s+commit\b", re.IGNORECASE)
-SHELL_WRITE_FINAL_RE = re.compile(
-    r"(?:>|>>|Set-Content|Out-File|Add-Content|tee|open\([^)]*['\"]w)"
-    r"[^\n]*apex-meta[/\\]informatics[/\\]final",
+SHELL_CLAUSE_SPLIT_RE = re.compile(r"\r?\n|&&|\|\||;|\|")
+BENIGN_REDIR_RE = re.compile(r"(?:^|\s)[12]?>&\s*[12](?=\s|$)|(?:^|\s)[12]?>>?\s*(?:/dev/null|\$null)\b", re.IGNORECASE)
+SHELL_WRITE_CMD_RE = re.compile(
+    r"(?:>>?(?!&)|Set-Content|Out-File|Add-Content|\btee\b|write_text\s*\(|open\([^)]*['\"]w|\b(?:cp|mv|Copy-Item|Move-Item)\b)",
     re.IGNORECASE,
 )
+SHELL_READ_VERB_RE = re.compile(
+    r"(?:\b(?:cat|head|tail|sed|awk|more|less|rg|grep|Get-Content|gc|Select-String|sls|type)\b|open\(|read_text\()",
+    re.IGNORECASE,
+)
+SHELL_READ_PATH_RE = re.compile(r"(?:^|[\s\"'=(])([A-Za-z0-9_./\\:-]*(?:\.md|\.py|\.json|\.txt))")
 
 
 def _norm(p: str) -> str:
@@ -97,11 +110,21 @@ def _reads_from_transcript(transcript_path: str) -> set[str]:
         return found
 
     def _scan_inp(name: str, inp: dict[str, Any]) -> None:
-        if name in READ_TOOLS or name in SHELL_TOOLS:
-            for k in ("file_path", "path", "target_file", "command", "pattern"):
+        if name in READ_TOOLS:
+            for k in ("file_path", "path", "dir_path", "target_file", "pattern"):
                 v = inp.get(k)
                 if isinstance(v, str) and v.strip():
                     found.add(_norm(v))
+            paths = inp.get("paths")
+            if isinstance(paths, list):
+                for item_p in paths:
+                    if isinstance(item_p, str) and item_p.strip():
+                        found.add(_norm(item_p))
+        elif name in SHELL_TOOLS:
+            cmd = inp.get("command")
+            if isinstance(cmd, str):
+                for hit in _extract_shell_reads(cmd):
+                    found.add(hit)
 
     for line in raw.splitlines():
         line = line.strip()
@@ -122,7 +145,8 @@ def _reads_from_transcript(transcript_path: str) -> set[str]:
         if isinstance(item, dict) and item.get("type") == "command_execution":
             cmd = item.get("command")
             if isinstance(cmd, str):
-                found.add(_norm(cmd))
+                for hit in _extract_shell_reads(cmd):
+                    found.add(hit)
     return found
 
 
@@ -132,9 +156,39 @@ def _has_ref(reads: set[str], needle: str) -> bool:
 
 def _extract_shell_reads(cmd: str) -> list[str]:
     hits: list[str] = []
-    for m in re.finditer(r"([A-Za-z0-9_./\\:-]+(?:index\.md|handover\.md|patch-discipline\.md|task-specification\.md|decision-notes\.md|operating-rules\.md))", cmd):
-        hits.append(_norm(m.group(1)))
+    for raw_clause in SHELL_CLAUSE_SPLIT_RE.split(_norm(cmd)):
+        cleaned = BENIGN_REDIR_RE.sub(" ", raw_clause)
+        if not SHELL_READ_VERB_RE.search(cleaned):
+            continue
+        for m in SHELL_READ_PATH_RE.finditer(cleaned):
+            hits.append(m.group(1))
     return hits
+
+
+def _shell_writes_final(cmd: str) -> bool:
+    for raw_clause in SHELL_CLAUSE_SPLIT_RE.split(_norm(cmd)):
+        cleaned = BENIGN_REDIR_RE.sub(" ", raw_clause)
+        if "apex-meta/informatics/final" not in cleaned:
+            continue
+        if re.search(
+            r"(?:>>?(?!&)|Set-Content\s+(?:-Path\s+)?|Out-File\s+(?:-FilePath\s+)?|Add-Content\s+(?:-Path\s+)?|\btee\s+(?:-a\s+)?)\s*['\"]?[^\s;|&\"']*apex-meta/informatics/final",
+            cleaned,
+            re.IGNORECASE,
+        ):
+            return True
+        if re.search(
+            r"\b(?:cp|mv|Copy-Item|Move-Item)\s+[^;|&]*\s+['\"]?[^\s;|&\"']*apex-meta/informatics/final",
+            cleaned,
+            re.IGNORECASE,
+        ):
+            return True
+        if re.search(
+            r"(?:open\([^)]*apex-meta/informatics/final[^)]*,\s*['\"][wa]|Path\([^)]*apex-meta/informatics/final[^)]*\)\.write_)",
+            cleaned,
+            re.IGNORECASE,
+        ):
+            return True
+    return False
 
 
 def _deny(msg: str) -> int:
@@ -161,12 +215,19 @@ def main() -> int:
     ledger = _load_ledger(lpath)
 
     if tool_name in READ_TOOLS:
-        for k in ("file_path", "path", "target_file", "pattern"):
+        for k in ("file_path", "path", "dir_path", "target_file", "pattern"):
             v = tool_input.get(k)
             if isinstance(v, str) and v.strip():
                 nv = _norm(v)
                 if nv not in ledger["reads"]:
                     ledger["reads"].append(nv)
+        paths = tool_input.get("paths")
+        if isinstance(paths, list):
+            for p_item in paths:
+                if isinstance(p_item, str) and p_item.strip():
+                    nv = _norm(p_item)
+                    if nv not in ledger["reads"]:
+                        ledger["reads"].append(nv)
         _save_ledger(lpath, ledger)
         _append_git_telemetry(cwd, str(event.get("hook_event_name") or "PreToolUse"), tool_name, "allow")
         return 0
@@ -178,18 +239,19 @@ def main() -> int:
                 ledger["reads"].append(hit)
         _save_ledger(lpath, ledger)
 
-        if BLANKET_GIT_RE.search(cmd):
+        cmd_unquoted = re.sub(r'"[^"]*"|\'[^\']*\'', ' "" ', cmd)
+        if BLANKET_GIT_RE.search(cmd_unquoted):
             st = subprocess.run(["git", "status", "--porcelain"], cwd=cwd, capture_output=True, text=True)
             dirty = [ln for ln in st.stdout.splitlines() if ln.strip()]
             if dirty:
                 _append_git_telemetry(cwd, str(event.get("hook_event_name") or "PreToolUse"), tool_name, "deny", "blanket_git")
                 return _deny(
                     "HOOK BLOCK (<sync>/<handover> EM-14): Refusing blanket git staging/commit "
-                    "(-A / --all / . / -a) in a dirty working tree. Leave unrelated dirty files "
+                    "(-A / --all / -u / . / -a) in a dirty working tree. Leave unrelated dirty files "
                     "untouched and stage ONLY explicit scoped paths via `git add -- <path>`."
                 )
 
-        if GIT_COMMIT_RE.search(cmd):
+        if GIT_COMMIT_RE.search(cmd_unquoted):
             staged = subprocess.run(["git", "diff", "--cached", "--name-only"], cwd=cwd, capture_output=True, text=True)
             staged_files = [_norm(s) for s in staged.stdout.splitlines() if s.strip()]
             bad_staged = [s for s in staged_files if s in DIRTY_EXCLUSIONS]
@@ -200,9 +262,9 @@ def main() -> int:
                     f"are staged: {bad_staged}. Unstage them with `git reset HEAD -- ...`."
                 )
 
-        if SHELL_WRITE_FINAL_RE.search(cmd):
+        if _shell_writes_final(cmd):
             all_reads = set(ledger["reads"]) | _reads_from_transcript(str(event.get("transcript_path") or ""))
-            if not _has_ref(all_reads, "apex-meta/informatics/final/index.md"):
+            if not _has_ref(all_reads, "apex-meta/informatics/final/index.md") and not _has_ref(all_reads, "final/index.md"):
                 _append_git_telemetry(cwd, str(event.get("hook_event_name") or "PreToolUse"), tool_name, "deny", "shell_write_final_no_index")
                 return _deny(
                     "HOOK BLOCK (<authoring>): Shell write targeting apex-meta/informatics/final/ "
