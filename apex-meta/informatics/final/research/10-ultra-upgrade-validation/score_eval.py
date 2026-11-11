@@ -54,7 +54,7 @@ PS_READ_RE = re.compile(
 PS_WRITE_RE = re.compile(r"\b(?:Set-Content|Out-File|Add-Content|sc|ac|Copy-Item|Move-Item|cpi|mvi)\b|>>?(?!&)", re.IGNORECASE)
 def _field_pat(name: str) -> re.Pattern[str]:
     return re.compile(
-        rf"(?:^|\n)\s*(?:#{{1,4}}\s+|(?:\d+\.\s*|[-*]\s+)?\*\*)(?:\d+\.\s*)?(?:L0.?L3\s+)?{name}(?:[^\n:*]{{0,45}})(?:\*\*)?(?:\s*\([^\n)]{{1,45}}\))?\s*(?:\*\*)?(?::|—|-|\s*(?:\r?\n|$))",
+        rf"(?:^|\n)\s*(?:#{{1,4}}\s+|(?:\d+\.\s*|[-*]\s+)?\*\*)(?:\d+\.\s*)?(?:L0.?L3\s+)?{name}(?:[^\n:*]{{0,100}})(?:\*\*)?(?:\s*\([^\n)]{{1,100}}\))?\s*(?:\*\*)?(?::|—|-|\s*(?:\r?\n|$))",
         re.IGNORECASE,
     )
 
@@ -132,10 +132,16 @@ def parse_jsonl_trace(jsonl_path: Path) -> dict[str, Any]:
             harness = "claude"
         if etype == "user" and isinstance(obj.get("message"), dict):
             for blk in obj["message"].get("content") or []:
-                if isinstance(blk, dict) and blk.get("type") == "tool_result":
+                if not isinstance(blk, dict):
+                    continue
+                if blk.get("type") == "tool_result":
                     cstr = str(blk.get("content") or "")
                     if "hook error:" in cstr or "HOOK BLOCK" in cstr:
                         hook_events.append("hook_block:" + cstr[:60])
+                elif blk.get("type") == "text":
+                    tstr = str(blk.get("text") or "")
+                    if "HOOK STOP BLOCK" in tstr or "Stop hook feedback:" in tstr:
+                        hook_events.append("hook_stop_block:" + tstr.replace("\n", " ")[:60])
 
         # Capture session_id for optional temp ledger fallback check
         sid_val = obj.get("session_id")
@@ -337,7 +343,7 @@ def _prompt_overlap_ratio(prompt: str, final_text: str) -> float:
     if not p_words:
         return 0.0
     m = re.search(
-        r"(?:^|\n)\s*(?:#{1,4}\s+|(?:\d+\.\s*|[-*]\s+)?\*\*)(?:\d+\.\s*)?Input(?:[^\n:*]{0,45})(?:\*\*)?\s*(?::|—|-|\s*\n)(.*?)(?:\n\s*(?:#{1,4}\s+|(?:\d+\.\s*|[-*]\s+)?\*\*|\*\*\s*(?:\d+\.\s*)?(?:Process|Skills|Output|Redraft))|$)",
+        r"(?:^|\n)\s*(?:#{1,4}\s+|(?:\d+\.\s*|[-*]\s+)?\*\*)(?:\d+\.\s*)?Input(?:[^\n:*]{0,100})(?:\*\*)?\s*(?::|—|-|\s*\n)(.*?)(?:\n\s*(?:#{1,4}\s+|(?:\d+\.\s*|[-*]\s+)?\*\*|\*\*\s*(?:\d+\.\s*)?(?:Process|Skills|Output|Redraft))|$)",
         final_text,
         re.DOTALL | re.IGNORECASE,
     )
@@ -436,6 +442,8 @@ def score_cell(
         if not fields_ok:
             missing_f = [k for k, p in ALIGN_FIELD_PATTERNS.items() if not p.search(txt)]
             notes.append(f"missing_fields:{missing_f}")
+        if not has_subtasks:
+            notes.append("missing_subtasks")
         if overlap > 0.15:
             notes.append(f"verbatim_overlap={overlap}")
         if not has_fw:
@@ -447,7 +455,10 @@ def score_cell(
         target_file = repo_dir / task_def["expected_write_target"] if repo_dir else None
         created = bool(target_file and target_file.is_file())
         line_ok = bool(created and len(target_file.read_text(encoding="utf-8", errors="replace").splitlines()) <= 15)
-        changed_files = cell_meta.get("git_changed_files") or []
+        changed_files = [
+            f for f in (cell_meta.get("git_changed_files") or [])
+            if "/__pycache__/" not in f and not f.endswith(".pyc")
+        ]
         scoped = set(changed_files).issubset({task_def["expected_write_target"]}) and created
         asked_again = bool(re.search(r"wait(?:ing)? for (?:your )?confirmation|please confirm|shall i proceed", trace["assistant_text"], re.IGNORECASE))
         pause_ok = bool(created and not asked_again)
