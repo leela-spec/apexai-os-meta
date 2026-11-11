@@ -1,0 +1,1874 @@
+{
+  "schema_version": "PRECAP-WEEK-DATA-v2.1",
+  "meta": {
+    "week_id": "2026-W46",
+    "date_start": "2026-11-09",
+    "date_end": "2026-11-15",
+    "date_span_label": "09–15 Nov 2026 (ISO W46)",
+    "banner_badge": "SAVED SNAPSHOT · Saved docs label W45 / ISO W46",
+    "intro": "Compiled from W46 schema-validated data and live 02-weekly-dispersal/ T1/T2 engine files (Mon–Sun clock). Snapshot state is non-mutating until G1 approval.",
+    "direction_summary": "Ship Master of Arts 7 videos, responsive site (#163), and automated PDF billing feeding IPOS; lock Leela Skill Tree spatial/placement contracts (#159/#48, Path paused); close IPOS intake audit/Docling seam/viz (#224-#226); land Apex AI HID hook (#139), orchestration convergence (#198), and Dark Factory gate (#222); advance Mindful Bar spec v0.2 & ERPNext pilot eval.",
+    "next_action": "APPROVE_WEEK (G1 validated; pass presentation_handoff to PrecapNextDay)",
+    "review_needed": "Verify [OP-OFFLINE] Nov 6 snapshot currency and confirm Thu 10:00-11:00 + 18:15 buffer capacity compression",
+    "op_status": "OFFLINE_FALLBACK",
+    "calendar_status": "ONLINE",
+    "g1_status": "APPROVED",
+    "meeting_subtraction_hours": 1.0,
+    "meeting_subtraction_note": "Thu 10:00-11:00 Alex & Chris compresses Thu F1/F2 by 60m (35.0h net Craft); Thu 18:45-21:00 München Tanz adds 18:15-18:45 buffer.",
+    "source_links": {
+      "primary": "https://github.com/leela-spec/apexai-os-meta/blob/main/apex-meta/archive/weekly-orchestration/precap-week-drafts-2026-11/WEEKLY_PRECAP_NORTHSTAR_2026_W45.html",
+      "primaryLabel": "Original Northstar (Archive)",
+      "secondary": "https://github.com/leela-spec/apexai-os-meta/blob/main/apex-meta/archive/weekly-orchestration/precap-week-drafts-2026-11/WEEKLY_COMMAND_BRIEF_2026_W45.md",
+      "secondaryLabel": "W45 Command Brief (Archive)",
+      "spec": "https://github.com/leela-spec/apexai-os-meta/blob/main/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-PRECAP-WEEK-ITERATIONS.okf.md"
+    }
+  },
+  "decisions": {
+    "new": [
+      {
+        "preview_key": "6-Portfolio Flow routing",
+        "preview_val": "Leela · IPOS · MoA · Apex AI · Mindful Bar · Residual",
+        "name": "D-W46-01 · 6-Portfolio Flow routing",
+        "val": "F1-F2 MoA · F3 IPOS · F4 Apex AI / Leela / Mindful Bar / Residual",
+        "detail": "Maps the 24 weekly T1 Flows across all 6 canonical Portfolio Areas (Leela, IPOS, Master of Arts, Apex AI, Mindful Bar, Residual).",
+        "gate": "APPROVED",
+        "sysDef": "Default priority rank order (calendar-planning-guidance.md)",
+        "opChoice": "Explicit W46 Flow topic allocation across 6 portfolios",
+        "srcRef": "fixtures/w46-reference-intake.json#project_focus_overrides",
+        "ov": true
+      },
+      {
+        "preview_key": "Leela weekly scope",
+        "preview_val": "Skill Tree only (Path paused · G1: APPROVED)",
+        "name": "D-W46-02 · Leela weekly scope freeze",
+        "val": "Skill Tree only (Path & Sequencing UI paused)",
+        "detail": "Verified operator scope override restricting Leela Craft sprints to SpatialViewNode (#159/#39) and durable placement contracts (#48).",
+        "gate": "APPROVED",
+        "sysDef": "All active Project #10 work packages eligible",
+        "opChoice": "Pause Path & Sequencing UI; lock Skill Tree contracts only",
+        "srcRef": "fixtures/w46-reference-intake.json#project_focus_overrides[0]",
+        "ov": true
+      },
+      {
+        "preview_key": "Mon & Wed evening themes",
+        "preview_val": "Sexy Content / Dance & Martial Arts (G1: APPROVED)",
+        "name": "D-W46-03 · Mon & Wed Project Night themes",
+        "val": "Mon/Wed Sexy Content & Studio; Tue Billing sprint (20:30-22:00)",
+        "detail": "Applies weekly theme specialization inside the standard Mon-Wed 20:30-22:00 Project Night window.",
+        "gate": "APPROVED",
+        "sysDef": null,
+        "opChoice": "Theme split: Mon/Wed Sexy Content & Studio, Tue Billing",
+        "srcRef": "fixtures/w46-reference-intake.json#special_evenings",
+        "ov": false
+      },
+      {
+        "preview_key": "Mindful Bar onboarding",
+        "preview_val": "Cacao Bar Spec v0.2 + ERPNext eval (G1: APPROVED)",
+        "name": "D-W46-04 · Mindful Bar 6th portfolio stream",
+        "val": "Cacao Bar Spec v0.2 + ERPNext/Frappe evaluation",
+        "detail": "Integrates Mindful Bar (onboarded Nov 7 in 18-APEX-CARRIER-MAP.md:15) into Matrix 1, Matrix 2, and WD-40 Craft Epics.",
+        "gate": "APPROVED",
+        "sysDef": null,
+        "opChoice": "Include Mindful Bar in 6-Portfolio standard",
+        "srcRef": "operations/18-APEX-CARRIER-MAP.md:15",
+        "ov": false
+      }
+    ],
+    "ongoing": [
+      {
+        "preview_key": "Wed/Fri WC Meister (18:00-20:00)",
+        "preview_val": "IGNORED HOLD (Ongoing rule)",
+        "name": "Standing ignore · Wed/Fri WC Meister (18:00-20:00)",
+        "val": "Ignored ambient calendar hold",
+        "detail": "Routed to Ongoing per operator ignore rule. Calendar event remains on Google Calendar without displacing Wed/Fri F4 or Evening Physical.",
+        "gate": "CONFIRMED_INPUT",
+        "sysDef": "Google Calendar busy block 18:00-20:00",
+        "opChoice": "calendar_ignores: WC Meister",
+        "srcRef": "fixtures/w46-reference-intake.json#calendar_ignores[0]",
+        "ov": true
+      },
+      {
+        "preview_key": "Thu 12 Nov 10:00-11:00",
+        "preview_val": "Alex & Chris (Protected · -60m)",
+        "name": "Protected event · Thu 10:00-11:00",
+        "val": "Alex & Chris (C. Sgarz)",
+        "detail": "Protected external appointment intersecting Thu F1/F2; applies compressed_flow_2_sprints overlay (-60m Craft) while keeping nominal slot_ids stable.",
+        "gate": "CONFIRMED_INPUT",
+        "sysDef": null,
+        "opChoice": null,
+        "srcRef": "gcal:primary",
+        "ov": false
+      },
+      {
+        "preview_key": "Thu 12 Nov 18:45-21:00",
+        "preview_val": "München Tanz (Protected · 18:15 buffer)",
+        "name": "Protected event · Thu 18:45-21:00",
+        "val": "München Tanz (+ 18:15 commute buffer)",
+        "detail": "Protected external offsite event with 30m commute/prep buffer (18:15-18:45) replacing Thu Evening Physical and overlapping Abend/Freizeit.",
+        "gate": "CONFIRMED_INPUT",
+        "sysDef": null,
+        "opChoice": null,
+        "srcRef": "gcal:primary",
+        "ov": false
+      },
+      {
+        "preview_key": "OpenProject source state",
+        "preview_val": "[OP-OFFLINE] Nov 6 snapshot active",
+        "name": "OpenProject intake provenance (D019)",
+        "val": "[OP-OFFLINE] Verified Nov 6 Snapshot",
+        "detail": "Live opCall.js check to 127.0.0.1:8083 returned ECONNREFUSED; non-blocking D019 fallback uses verified EVIDENCE-20261106.okf.md WPs (#139, #159, #163, #198, #222, #224-#228).",
+        "gate": "CONFIRMED_INPUT",
+        "sysDef": null,
+        "opChoice": null,
+        "srcRef": "00-openproject-dependency-intake/EVIDENCE-20261106.okf.md",
+        "ov": false
+      }
+    ]
+  },
+  "matrix1_portfolios": [
+    {
+      "id": "leela",
+      "name": "Leela",
+      "caption": "Skill Tree spatial contracts & Chunk placement",
+      "ref": "leela-game-flutter / leela-spec",
+      "op": "Project #10 · WPs #159, #39–#48 [OP-OFFLINE]",
+      "note": "Path and Sequencing feature development paused; focus restricted to Skill Tree spatial node contracts and durable placement identity.",
+      "goals": [
+        {
+          "id": "leela-chunk",
+          "title": "Canonical Chunk identity",
+          "wp": "OP-WP#159 / OP-WP#39",
+          "state": "IN_PROGRESS · Critical path",
+          "critical": true,
+          "crossRepo": [],
+          "baseline": "Pure projection adapter and transient renderer nodes",
+          "acceptance": "Multi-placement unit test suite passes with zero shared local state leakage (STF-01 / STF-23)",
+          "subtasks": [
+            "Task 1: Separate canonicalContentId from rendererId -> Subtask 1a: Audit SpatialViewNode, Subtask 1b: Lock immutable ID struct",
+            "Task 2: Multi-placement state isolation -> Subtask 2a: Author multi-node test fixture"
+          ],
+          "inputs": [
+            "leela-game-flutter Chunk library and spatial renderer model",
+            "EVIDENCE-20261106.okf.md Project #10 WP#159"
+          ],
+          "upstream": [
+            "OP-WP#139 (Apex AI HID event contract — OP-REL verified)"
+          ],
+          "exclusions": [
+            "Leela Path UI",
+            "In-app Sequencing screen"
+          ],
+          "process": [
+            "Separate canonical chunk content ID from transient renderer ID",
+            "Define repeatable identity across placements",
+            "Validate that placements do not share local state incorrectly"
+          ],
+          "skills": [
+            "code-understand"
+          ],
+          "outputs": [
+            "SpatialViewNode contract with rendererId and canonicalContentId",
+            "Multi-placement unit tests (STF-01 / STF-23)"
+          ],
+          "redraft": "class SpatialViewNode { final String rendererId; final String canonicalContentId; }",
+          "continuation": [
+            "OP-WP#48 Durable Epic/Block placement contracts"
+          ],
+          "evidence": [
+            "WEEKLY_PRECAP_NORTHSTAR_2026_W45.html",
+            "EVIDENCE-20261106.okf.md"
+          ],
+          "caution": [],
+          "tier": "L1"
+        },
+        {
+          "id": "leela-placement",
+          "title": "Durable placement identity",
+          "wp": "OP-WP#48",
+          "state": "IN_PROGRESS · Critical path",
+          "critical": true,
+          "crossRepo": [],
+          "baseline": "Canonical content cannot be equated with local placement",
+          "acceptance": "Repeatable materialization verified across Epic/Block reload cycles",
+          "subtasks": [
+            "Task 1: Model durable Epic/Block placement IDs -> Subtask 1a: Schema definition, Subtask 1b: Persistence round-trip check"
+          ],
+          "inputs": [
+            "Canonical Chunk identity result (OP-WP#159)"
+          ],
+          "upstream": [
+            "OP-WP#159 Canonical Chunk identity"
+          ],
+          "exclusions": [
+            "Cloud sync backend mutation"
+          ],
+          "process": [
+            "Model durable Epic/Block placements without leaking transient projection nodes",
+            "Verify repeatable materialization and local state isolation"
+          ],
+          "skills": [
+            "code-understand"
+          ],
+          "outputs": [
+            "Durable placement-ID contract",
+            "Verified immutable node schema / Skill Tree contract freeze"
+          ],
+          "redraft": "placement_id: '<epic_id>::<block_id>::<occurrence_idx>'",
+          "continuation": [
+            "Skill Tree contract freeze gate"
+          ],
+          "evidence": [
+            "WEEKLY_PRECAP_NORTHSTAR_2026_W45.html",
+            "EVIDENCE-20261106.okf.md"
+          ],
+          "caution": [],
+          "tier": "L1"
+        }
+      ],
+      "nice": []
+    },
+    {
+      "id": "ipos",
+      "name": "IPOS",
+      "caption": "Pipeline recheck, Docling/Trafilatura seam & sovereign time-series viz",
+      "ref": "IPOS",
+      "op": "Project #16 · WPs #223–#228 [OP-OFFLINE]",
+      "note": "Verified OpenProject work packages #223–#228 govern the ingestion retirement audit and external intake adapter seam.",
+      "goals": [
+        {
+          "id": "ipos-audit",
+          "title": "Full ingestion pipeline audit (ADR-003)",
+          "wp": "OP-WP#224 / OP-WP#228",
+          "state": "IN_PROGRESS (OP-WP#224)",
+          "critical": true,
+          "crossRepo": [],
+          "baseline": "Mixed mocks and scripts; Karakeep legacy debt",
+          "acceptance": "Zero legacy Karakeep imports in ipos/ingest/ + signed ADR-003 record",
+          "subtasks": [
+            "Task 1: Audit ipos/ingest/ -> Subtask 1a: Grep legacy imports, Subtask 1b: Remove mock classes",
+            "Task 2: Finalize ADR-003 -> Subtask 2a: Benchmark native cron vs container"
+          ],
+          "inputs": [
+            "ipos/ingest/ module tree",
+            "ADR-003 Karakeep retirement context (OP-WP#224)"
+          ],
+          "upstream": [
+            "OP-WP#223 (IPOS baseline architecture)"
+          ],
+          "exclusions": [
+            "Telegram digest automation (deferred to Longlist #227)"
+          ],
+          "process": [
+            "Audit ingestion code and existing modules",
+            "Retire obsolete Karakeep imports and mock classes",
+            "Record ADR-003 and evaluate external intake tools"
+          ],
+          "skills": [
+            "code-understand"
+          ],
+          "outputs": [
+            "Formal ADR-003 retirement decision",
+            "Clean import trace without legacy mock classes"
+          ],
+          "redraft": "ADR-003: Retire Karakeep; adopt Docling (PDF) + Trafilatura (Web) native seam.",
+          "continuation": [
+            "OP-WP#226 Docling / Trafilatura adapter"
+          ],
+          "evidence": [
+            "EVIDENCE-20261106.okf.md",
+            "WEEKLY_COMMAND_BRIEF_2026_W45.md"
+          ],
+          "caution": [],
+          "tier": "L1"
+        },
+        {
+          "id": "ipos-seam",
+          "title": "External intake seam (Docling + Trafilatura)",
+          "wp": "OP-WP#226",
+          "state": "NEW (OP-WP#226)",
+          "critical": false,
+          "crossRepo": [],
+          "baseline": "Financial research intake lacks modular PDF/web parsing boundary",
+          "acceptance": "End-to-end extraction receipt on sample PDF + web article with clean metadata JSON",
+          "subtasks": [
+            "Task 1: Docling PDF adapter -> Subtask 1a: Table/section extractor",
+            "Task 2: Trafilatura web cleaner -> Subtask 2a: Boilerplate stripper + receipt emitter"
+          ],
+          "inputs": [
+            "Audit/retirement result from OP-WP#224",
+            "Representative PDF and web fixtures"
+          ],
+          "upstream": [
+            "OP-WP#224 ADR-003 Karakeep retirement"
+          ],
+          "exclusions": [
+            "Live production DB migration"
+          ],
+          "process": [
+            "Separate PDF and web parsing boundaries",
+            "Implement Docling PDF adapter",
+            "Integrate Trafilatura text cleaning and validate metadata"
+          ],
+          "skills": [
+            "code-understand"
+          ],
+          "outputs": [
+            "Structured PDF extraction into research JSON",
+            "Article-body extraction with source/metadata receipts"
+          ],
+          "redraft": "{ \"source_uri\": \"...\", \"parser\": \"docling|trafilatura\", \"extracted_at\": \"...\" }",
+          "continuation": [
+            "OP-WP#225 Sovereign time-series visualization"
+          ],
+          "evidence": [
+            "EVIDENCE-20261106.okf.md",
+            "WEEKLY_COMMAND_BRIEF_2026_W45.md"
+          ],
+          "caution": [],
+          "tier": "L1"
+        },
+        {
+          "id": "ipos-viz",
+          "title": "Sovereign data visualization over time",
+          "wp": "OP-WP#225",
+          "state": "IN_SPECIFICATION",
+          "critical": false,
+          "crossRepo": [],
+          "baseline": "Financial data visualization lacks modular time-series presentation",
+          "acceptance": "Interactive time-series chart renders sovereign JSON fixtures with date-range zoom",
+          "subtasks": [
+            "Task 1: Time-series schema -> Subtask 1a: Define timestamped metric keys, Subtask 1b: Fixture validation",
+            "Task 2: Chart component -> Subtask 2a: Date-range filter + responsive canvas"
+          ],
+          "inputs": [
+            "Sovereign JSON fixture format",
+            "Cashflow/invoice schema from Master of Arts"
+          ],
+          "upstream": [
+            "OP-WP#226 External intake seam",
+            "moa-billing (Cross-Repo invoice JSON schema)"
+          ],
+          "exclusions": [
+            "Real-time broker websocket feed"
+          ],
+          "process": [
+            "Define time-series data types",
+            "Create modular chart components with date range controls",
+            "Test responsive rendering and interactive metric exploration"
+          ],
+          "skills": [
+            "generative_ui"
+          ],
+          "outputs": [
+            "Time-series component accepting sovereign JSON",
+            "Date range controls and zoomable axes"
+          ],
+          "redraft": "TimeSeriesSeries { metricId, unit, points: [{t, v, provenance}] }",
+          "continuation": [
+            "Cockpit historical financial dashboard"
+          ],
+          "evidence": [
+            "EVIDENCE-20261106.okf.md",
+            "WEEKLY_PRECAP_NORTHSTAR_2026_W45.html"
+          ],
+          "caution": [],
+          "tier": "L1"
+        }
+      ],
+      "nice": []
+    },
+    {
+      "id": "master_of_arts",
+      "name": "Master of Arts",
+      "caption": "Website content draft, 7 produced videos & automated PDF billing",
+      "ref": "MasterOfArts",
+      "op": "Projects #14 / #6 / #7 · WP #163 [OP-OFFLINE]",
+      "note": "Three primary L1 outcomes; automated PDF billing feeds IPOS cashflow parser via cross-repo link.",
+      "goals": [
+        {
+          "id": "moa-web",
+          "title": "Website content draft & responsive layout",
+          "wp": "OP-WP#163",
+          "state": "IN_PROGRESS (OP-WP#163)",
+          "critical": false,
+          "crossRepo": [],
+          "baseline": "Static draft, unpublished essays and raw scripts",
+          "acceptance": "Responsive flexbox navbar + mobile reading drawer verified on desktop & mobile viewports",
+          "subtasks": [
+            "Task 1: Stage essay Markdown routes -> Subtask 1a: Frontmatter & typography pass",
+            "Task 2: Responsive layout -> Subtask 2a: Flexbox header, Subtask 2b: Mobile drawer toggle"
+          ],
+          "inputs": [
+            "MasterOfArts unpublished essays and draft content",
+            "OP-WP#163 website layout specification"
+          ],
+          "upstream": [],
+          "exclusions": [
+            "ACIM Secular Credits Page (deferred to Longlist OP-WP#204)"
+          ],
+          "process": [
+            "Author and stage website content drafts",
+            "Implement flexbox header navigation and mobile reading drawer",
+            "Check desktop/mobile presentation"
+          ],
+          "skills": [
+            "code-understand"
+          ],
+          "outputs": [
+            "Staged Markdown pages in reading routes",
+            "Responsive navbar and mobile drawer"
+          ],
+          "redraft": "<nav class='moa-flex-nav'> + <aside class='moa-mobile-drawer'>",
+          "continuation": [
+            "Public audience release and embedded video player routing"
+          ],
+          "evidence": [
+            "EVIDENCE-20261106.okf.md",
+            "WEEKLY_PRECAP_NORTHSTAR_2026_W45.html"
+          ],
+          "caution": [],
+          "tier": "L1"
+        },
+        {
+          "id": "moa-videos",
+          "title": "7 produced videos",
+          "wp": "[OP-UNRESOLVED]",
+          "state": "WEEKLY_TARGET",
+          "critical": false,
+          "crossRepo": [],
+          "baseline": "Unpublished essays and raw scripts",
+          "acceptance": "7 mastered 1080x1920 vertical MP4 reels with normalized audio and burned-in dynamic captions",
+          "subtasks": [
+            "Task 1: Script & voiceover (Videos 1–7) -> Subtask 1a: Hook thesis, Subtask 1b: WAV vocal normalization",
+            "Task 2: Vertical cut & captions -> Subtask 2a: 9:16 B-roll assembly, Subtask 2b: Caption sync pass"
+          ],
+          "inputs": [
+            "Original thesis scripts and recorded voice material"
+          ],
+          "upstream": [],
+          "exclusions": [
+            "Long-form horizontal YouTube documentary cuts"
+          ],
+          "process": [
+            "Develop seven thesis-based scripts",
+            "Record and normalize spoken-word audio",
+            "Edit 9:16 reels and add dynamic captions"
+          ],
+          "skills": [],
+          "outputs": [
+            "7 authored scripts & cleaned voiceover tracks",
+            "7 final rendered vertical video files (1080x1920)"
+          ],
+          "redraft": "video_01..07_master_1080x1920.mp4 + .srt captions",
+          "continuation": [
+            "Distribution packaging and public release"
+          ],
+          "evidence": [
+            "WEEKLY_PRECAP_NORTHSTAR_2026_W45.html"
+          ],
+          "caution": [],
+          "tier": "L1"
+        },
+        {
+          "id": "moa-billing",
+          "title": "Automated PDF billing",
+          "wp": "[OP-UNRESOLVED]",
+          "state": "PROPOSED · Critical path",
+          "critical": true,
+          "crossRepo": [
+            {
+              "label": "🔗 Cross-Repo: Feeds IPOS Viz",
+              "targetRepo": 1,
+              "targetGoal": 2
+            }
+          ],
+          "baseline": "Manual invoice calculations",
+          "acceptance": "Deterministic subtotal/VAT/discount unit tests pass + Chromium PDF/A invoice export verified",
+          "subtasks": [
+            "Task 1: Invoice JSON schema & VAT math -> Subtask 1a: Schema definition, Subtask 1b: Rounding unit tests",
+            "Task 2: HTML print template & PDF export -> Subtask 2a: Print CSS, Subtask 2b: Headless PDF render"
+          ],
+          "inputs": [
+            "Client metadata and billing line items",
+            "German VAT calculation rules"
+          ],
+          "upstream": [],
+          "exclusions": [
+            "Stripe webhook integration (staged in Longlist Deferred)"
+          ],
+          "process": [
+            "Define structured line-item JSON schema",
+            "Implement subtotal/VAT/discount calculation and tests",
+            "Create HTML invoice print template and automate PDF export"
+          ],
+          "skills": [
+            "code-understand"
+          ],
+          "outputs": [
+            "JSON schema for invoice lines, VAT and client metadata",
+            "Unit-test proof + generated client PDF invoices"
+          ],
+          "redraft": "{ \"invoice_id\": \"MOA-2026-...\", \"net\": 0.0, \"vat_rate\": 0.19, \"gross\": 0.0 }",
+          "continuation": [
+            "Feeds IPOS cashflow time-series parser (OP-WP#225)"
+          ],
+          "evidence": [
+            "WEEKLY_PRECAP_NORTHSTAR_2026_W45.html",
+            "WEEKLY_COMMAND_BRIEF_2026_W45.md"
+          ],
+          "caution": [],
+          "tier": "L1"
+        }
+      ],
+      "nice": []
+    },
+    {
+      "id": "apex_ai",
+      "name": "Apex AI",
+      "caption": "OpenMouse kernel HID bindings, mindful repo orchestration & Dark Factory gate",
+      "ref": "apexai-os-meta",
+      "op": "Project #8 · WPs #139, #198, #222 [OP-OFFLINE]",
+      "note": "Grounded in verified OpenProject Project #8 work packages (#139, #198, #222) and Apex Session planning_feed.",
+      "goals": [
+        {
+          "id": "apex-hid",
+          "title": "OpenMouse kernel HID polling hook",
+          "wp": "OP-WP#139",
+          "state": "IN_PROGRESS · Critical path",
+          "critical": true,
+          "crossRepo": [
+            {
+              "label": "🔗 Cross-Repo: Unblocks Leela Chunk ID",
+              "targetRepo": 0,
+              "targetGoal": 0
+            }
+          ],
+          "baseline": "Raw device tables; HID hooks not yet bound",
+          "acceptance": "Zero dropped buffers under 5ms debounce loopback test + userland IPC stream verified",
+          "subtasks": [
+            "Task 1: USB HID descriptor parser -> Subtask 1a: Bitmask register map",
+            "Task 2: 5ms debounce state machine -> Subtask 2a: Loopback latency test"
+          ],
+          "inputs": [
+            "Raw device HID descriptor tables",
+            "OP-WP#139 specification"
+          ],
+          "upstream": [
+            "OP-WP#198 Mindful repository orchestration"
+          ],
+          "exclusions": [
+            "macOS/Linux kernel driver ports"
+          ],
+          "process": [
+            "Implement USB HID polling and event listener",
+            "Implement button press/hold state machine and IPC streaming",
+            "Test debounce and buffer integrity"
+          ],
+          "skills": [
+            "code-understand"
+          ],
+          "outputs": [
+            "Raw HID parser with zero dropped buffers",
+            "5ms debounce filter loopback verification log"
+          ],
+          "redraft": "hid_hook_poll(dev_handle, 5ms_debounce_cfg) -> ipc_ring_buffer",
+          "continuation": [
+            "OP-WP#222 Dark Factory integration gate"
+          ],
+          "evidence": [
+            "EVIDENCE-20261106.okf.md",
+            "WEEKLY_PRECAP_NORTHSTAR_2026_W45.html"
+          ],
+          "caution": [],
+          "tier": "L1"
+        },
+        {
+          "id": "apex-repo",
+          "title": "Mindful repository orchestration & Precap convergence",
+          "wp": "OP-WP#198",
+          "state": "IN_PROGRESS (OP-WP#198)",
+          "critical": false,
+          "crossRepo": [],
+          "baseline": "Repository/session boundary and weekly orchestration convergence",
+          "acceptance": "okf_validator.py passes with 0 errors + 6-Portfolio PrecapWeek skill spine aligned",
+          "subtasks": [
+            "Task 1: PrecapWeek skill & cockpit alignment -> Subtask 1a: 6-Portfolio roster, Subtask 1b: T1 clock sync",
+            "Task 2: Dispersal sync -> Subtask 2a: sync_dispersal.py --apply"
+          ],
+          "inputs": [
+            "apex-meta/informatics/final/",
+            "apex-meta/tools/project-improvement-orchestration-weekly/"
+          ],
+          "upstream": [],
+          "exclusions": [
+            "Governance Layer 1 contract edits (handled in separate session)"
+          ],
+          "process": [
+            "Apply repository isolation and anti-drift boundaries",
+            "Unify PrecapWeek templates and Dispersal 6-Portfolio schema"
+          ],
+          "skills": [
+            "code-understand"
+          ],
+          "outputs": [
+            "Aligned .claude/skills/PrecapWeek/ runtime",
+            "Verified 01-weekly-command-brief & 02-weekly-dispersal specs"
+          ],
+          "redraft": "6-Portfolio Standard: Leela | IPOS | Master of Arts | Apex AI | Mindful Bar | Residual",
+          "continuation": [
+            "OP-WP#222 Dark Factory integration"
+          ],
+          "evidence": [
+            "EVIDENCE-20261106.okf.md"
+          ],
+          "caution": [],
+          "tier": "L1"
+        },
+        {
+          "id": "apex-dark",
+          "title": "Dark Factory integration gate",
+          "wp": "OP-WP#222",
+          "state": "NEW (OP-WP#222)",
+          "critical": false,
+          "crossRepo": [],
+          "baseline": "Autonomous verification and build gate specification",
+          "acceptance": "Deterministic gate check script verifies build + test receipts before promotion",
+          "subtasks": [
+            "Task 1: Define gate receipt schema -> Subtask 1a: Exit-code + artifact hash check"
+          ],
+          "inputs": [
+            "OP-WP#222 Dark Factory specification",
+            "OP-WP#198 repo orchestration rules"
+          ],
+          "upstream": [
+            "OP-WP#198 Mindful repository orchestration"
+          ],
+          "exclusions": [
+            "Unattended production deployment"
+          ],
+          "process": [
+            "Specify deterministic verification gate",
+            "Wire test receipt validator"
+          ],
+          "skills": [
+            "impl-validator"
+          ],
+          "outputs": [
+            "Dark Factory gate specification & receipt validator"
+          ],
+          "redraft": "dark_factory_gate: { build_ok: true, tests_ok: true, sha: '...' }",
+          "continuation": [
+            "Next-wave autonomous execution harness"
+          ],
+          "evidence": [
+            "EVIDENCE-20261106.okf.md"
+          ],
+          "caution": [],
+          "tier": "L1"
+        }
+      ],
+      "nice": []
+    },
+    {
+      "id": "mindful_bar",
+      "name": "Mindful Bar",
+      "caption": "Cacao Bar functional product spec v0.2, validation & ERPNext/Frappe architecture",
+      "ref": "leela-spec/mindful-bar · C:/GitDev/mindful-bar",
+      "op": "Onboarded Carrier (18-APEX-CARRIER-MAP.md) · [OP-UNRESOLVED]",
+      "note": "6th canonical Portfolio Area onboarded Nov 7 (commits ac58dba2 / b47b1711). Covers Cacao Bar product validation and ERPNext/Frappe vs Odoo architecture.",
+      "goals": [
+        {
+          "id": "mb-spec",
+          "title": "Cacao Bar functional product spec v0.2 & validation",
+          "wp": "[OP-UNRESOLVED]",
+          "state": "IN_PROGRESS",
+          "critical": false,
+          "crossRepo": [],
+          "baseline": "Initial Cacao Bar formulation & carrier repo onboarded (C:/GitDev/mindful-bar)",
+          "acceptance": "Functional product specification v0.2 + sensory/formulation validation checklist completed",
+          "subtasks": [
+            "Task 1: Formulation & ingredient ratio lock -> Subtask 1a: Cacao/adaptogen dosage table, Subtask 1b: Unit cost sheet",
+            "Task 2: Validation protocol -> Subtask 2a: Batch test rubric & packaging compliance"
+          ],
+          "inputs": [
+            "C:/GitDev/mindful-bar repository",
+            "apex-informatics-final/operations/18-APEX-CARRIER-MAP.md"
+          ],
+          "upstream": [],
+          "exclusions": [
+            "Full commercial mass-production run"
+          ],
+          "process": [
+            "Consolidate Cacao Bar functional specification v0.2",
+            "Define batch validation checklist and unit economics"
+          ],
+          "skills": [
+            "code-understand"
+          ],
+          "outputs": [
+            "Cacao Bar functional specification v0.2",
+            "Batch validation & unit-cost checklist"
+          ],
+          "redraft": "ProductSpec v0.2: { batch_size, cacao_pct, adaptogen_profile, unit_cogs_eur }",
+          "continuation": [
+            "Pilot batch production & supplier sign-off"
+          ],
+          "evidence": [
+            "operations/18-APEX-CARRIER-MAP.md:15",
+            "operations/20-CHANGE-RECORD-2026-11-06-07.md:146-180"
+          ],
+          "caution": [],
+          "tier": "L1"
+        },
+        {
+          "id": "mb-erp",
+          "title": "ERPNext / Frappe food-ops architecture evaluation",
+          "wp": "[OP-UNRESOLVED]",
+          "state": "IN_PROGRESS",
+          "critical": false,
+          "crossRepo": [],
+          "baseline": "Marktanalyse Odoo vs ERPNext completed (food batch traceability & BOM requirements)",
+          "acceptance": "Architecture decision record locking ERPNext/Frappe BOM + batch-lot tracking scope for Mindful Bar",
+          "subtasks": [
+            "Task 1: Map food-ops BOM & lot traceability -> Subtask 1a: Raw ingredient lot intake, Subtask 1b: Expiry/MHD tracker"
+          ],
+          "inputs": [
+            "apex-meta/AI-Snippets/Inbetween_Delete/Marktanalyse_Odoo_vs_ERPNext.md",
+            "C:/GitDev/mindful-bar/systems/apex/"
+          ],
+          "upstream": [
+            "mb-spec Cacao Bar functional product spec v0.2"
+          ],
+          "exclusions": [
+            "Custom accounting module development"
+          ],
+          "process": [
+            "Extract BOM and MHD lot-tracking requirements from Marktanalyse",
+            "Define minimal ERPNext/Frappe module configuration for pilot operations"
+          ],
+          "skills": [
+            "code-understand"
+          ],
+          "outputs": [
+            "Mindful Bar ERPNext/Frappe pilot configuration spec"
+          ],
+          "redraft": "ERPNext Pilot: [Stock, Manufacturing (BOM/Batch), Selling, MHD Traceability]",
+          "continuation": [
+            "Pilot ERP sandbox setup"
+          ],
+          "evidence": [
+            "Marktanalyse_Odoo_vs_ERPNext.md",
+            "operations/20-CHANGE-RECORD-2026-11-06-07.md"
+          ],
+          "caution": [],
+          "tier": "L1"
+        }
+      ],
+      "nice": [
+        {
+          "id": "mb-brand",
+          "title": "Mindful Bar packaging & sensory deck notes",
+          "wp": "[OP-UNRESOLVED]",
+          "state": "L2 Nice-to-have",
+          "critical": false,
+          "crossRepo": [],
+          "baseline": "Draft brand direction notes",
+          "acceptance": "1-page packaging copy & sensory tasting card draft",
+          "subtasks": [
+            "Task 1: Draft tasting notes card"
+          ],
+          "inputs": [
+            "C:/GitDev/mindful-bar"
+          ],
+          "upstream": [],
+          "exclusions": [
+            "Print-shop die-cut press run"
+          ],
+          "process": [
+            "Draft sensory tasting copy and label mandatory fields"
+          ],
+          "skills": [],
+          "outputs": [
+            "Packaging & sensory card draft"
+          ],
+          "redraft": "Tasting profile + EU food-label mandatory fields",
+          "continuation": [
+            "Design review in subsequent week"
+          ],
+          "evidence": [
+            "operations/18-APEX-CARRIER-MAP.md"
+          ],
+          "caution": [],
+          "tier": "L2"
+        }
+      ]
+    },
+    {
+      "id": "residual",
+      "name": "Residual",
+      "caption": "Apartment & studio art, Sexy Content, Community & Travel, overflow recovery",
+      "ref": "Residual / Overflow & Personal Projects",
+      "op": "Non-OP Overflow Bucket · [OP-UNRESOLVED]",
+      "note": "Lowest default priority unless raised by operator (defer-first under meeting compression); includes Mon–Wed Project Night themes.",
+      "goals": [
+        {
+          "id": "res-art",
+          "title": "Apartment & Studio Art",
+          "wp": "[OP-UNRESOLVED]",
+          "state": "ACTIVE_RHYTHM",
+          "critical": false,
+          "crossRepo": [],
+          "baseline": "Workspace acoustics and physical studio setup",
+          "acceptance": "Acoustic panels placed + 1 primed canvas session completed during F4 / Project Night",
+          "subtasks": [
+            "Task 1: Workspace acoustic treatment -> Subtask 1a: Panel mount check",
+            "Task 2: Studio canvas session -> Subtask 2a: Stretch & prime canvas"
+          ],
+          "inputs": [
+            "Workspace and studio art materials"
+          ],
+          "upstream": [],
+          "exclusions": [
+            "Structural room renovation"
+          ],
+          "process": [
+            "Workspace acoustic treatment and studio reset",
+            "Stretch and prime canvas; paint"
+          ],
+          "skills": [],
+          "outputs": [
+            "Improved workspace arrangement",
+            "Canvas preparation and fine-art progress"
+          ],
+          "redraft": "Studio Reset + Canvas #1 primed",
+          "continuation": [
+            "Ongoing studio rhythm"
+          ],
+          "evidence": [
+            "WEEKLY_PRECAP_NORTHSTAR_2026_W45.html"
+          ],
+          "caution": [],
+          "tier": "L1"
+        },
+        {
+          "id": "res-visual",
+          "title": "Sexy Content visuals (Mon/Wed Project Night)",
+          "wp": "[OP-UNRESOLVED]",
+          "state": "ACTIVE_RHYTHM",
+          "critical": false,
+          "crossRepo": [],
+          "baseline": "Aesthetic content production routed to Mon/Wed Project Night (20:30–22:00)",
+          "acceptance": "Moodboard locked + 1 lighting/portrait set graded and exported",
+          "subtasks": [
+            "Task 1: Moodboard & lighting setup -> Subtask 1a: Key/fill ratio test",
+            "Task 2: Capture & color grade -> Subtask 2a: Export private portfolio selects"
+          ],
+          "inputs": [
+            "Moodboard, lighting setup and portrait source material"
+          ],
+          "upstream": [],
+          "exclusions": [],
+          "process": [
+            "Create moodboards and lighting setup",
+            "Capture portrait photoshoot",
+            "Color grade and export to private portfolio"
+          ],
+          "skills": [],
+          "outputs": [
+            "Visual assets and edited portrait exports"
+          ],
+          "redraft": "Set_W46_Selects (graded export)",
+          "continuation": [
+            "Private portfolio curation"
+          ],
+          "evidence": [
+            "WEEKLY_PRECAP_NORTHSTAR_2026_W45.html"
+          ],
+          "caution": [],
+          "tier": "L1"
+        },
+        {
+          "id": "res-community",
+          "title": "Community & Travel logistics",
+          "wp": "[OP-UNRESOLVED]",
+          "state": "ACTIVE_RHYTHM",
+          "critical": false,
+          "crossRepo": [],
+          "baseline": "Community scheduling and travel logistics",
+          "acceptance": "Outreach messages sent + upcoming travel routes/lodging confirmed",
+          "subtasks": [
+            "Task 1: Peer outreach & dinner sync",
+            "Task 2: Route & lodging confirmation"
+          ],
+          "inputs": [
+            "Personal calendar & travel notes"
+          ],
+          "upstream": [],
+          "exclusions": [],
+          "process": [
+            "Peer outreach and dinner coordination",
+            "Plan routes, flights and lodging"
+          ],
+          "skills": [],
+          "outputs": [
+            "Community communications and checked travel arrangements"
+          ],
+          "redraft": "Confirmed travel & community schedule",
+          "continuation": [
+            "Real-world meetings"
+          ],
+          "evidence": [
+            "WEEKLY_PRECAP_NORTHSTAR_2026_W45.html"
+          ],
+          "caution": [],
+          "tier": "L1"
+        }
+      ],
+      "nice": []
+    }
+  ],
+  "matrix2_days": [
+    {
+      "day": "Monday",
+      "short": "Mon",
+      "date": "09 Nov",
+      "role": "Foundations",
+      "holds": [],
+      "evening_note": "Sexy Content & Studio theme (Project Night 20:30-22:00)",
+      "flows": {
+        "F1": {
+          "owner": "Master of Arts (moa-videos)",
+          "sprints": [
+            {
+              "label": "Video 1 & 2 scripting",
+              "steps": [
+                "Outline core hook thesis",
+                "Draft 60s spoken script",
+                "Polish visual cues"
+              ]
+            },
+            {
+              "label": "Audio voiceover cuts",
+              "steps": [
+                "Record vocal takes 1 & 2",
+                "De-breath and remove clicks",
+                "Export WAV vocals"
+              ]
+            },
+            {
+              "label": "Rough cut & captions",
+              "steps": [
+                "Slice vertical B-roll",
+                "Auto-generate captions",
+                "Review pacing sync"
+              ]
+            }
+          ]
+        },
+        "F2": {
+          "owner": "Master of Arts (moa-web OP-WP#163)",
+          "sprints": [
+            {
+              "label": "Website content draft",
+              "steps": [
+                "Stage draft essay files",
+                "Author reading metadata",
+                "Check typography hierarchy"
+              ]
+            },
+            {
+              "label": "Reading route bind",
+              "steps": [
+                "Wire static route slugs",
+                "Verify mobile viewport",
+                "Test font scale readability"
+              ]
+            },
+            {
+              "label": "Content preview pass",
+              "steps": [
+                "Operator editorial check"
+              ]
+            }
+          ]
+        },
+        "F3": {
+          "owner": "IPOS (ipos-audit OP-WP#224)",
+          "sprints": [
+            {
+              "label": "Ingestion code audit",
+              "steps": [
+                "Audit ipos/ingest/",
+                "Identify Karakeep debt",
+                "Map external tool choices"
+              ]
+            },
+            {
+              "label": "Retirement protocol",
+              "steps": [
+                "Lock ADR-003 record",
+                "Purge stale mock fixtures",
+                "Run regression check"
+              ]
+            },
+            {
+              "label": "Benchmark documentation",
+              "steps": [
+                "Record external intake findings"
+              ]
+            }
+          ]
+        },
+        "F4": {
+          "owner": "Mindful Bar & Residual (mb-spec / res-art)",
+          "sprints": [
+            {
+              "label": "Mindful Bar Spec v0.2",
+              "steps": [
+                "Lock cacao/adaptogen ratio table",
+                "Verify unit COGS sheet"
+              ]
+            },
+            {
+              "label": "Studio & Residual menu",
+              "steps": [
+                "Apartment & studio art",
+                "Community & Travel logistics"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "day": "Tuesday",
+      "short": "Tue",
+      "date": "10 Nov",
+      "role": "Pipelines",
+      "holds": [],
+      "evening_note": "Mon-Wed baseline (Billing sprint, Project Night 20:30-22:00)",
+      "flows": {
+        "F1": {
+          "owner": "Master of Arts (moa-videos)",
+          "sprints": [
+            {
+              "label": "Video 3 & 4 scripting",
+              "steps": [
+                "Outline thesis points",
+                "Script spoken dialogue",
+                "Check runtime limits"
+              ]
+            },
+            {
+              "label": "Audio voiceover cuts",
+              "steps": [
+                "Record vocal takes 3 & 4",
+                "De-ess dialogue track",
+                "Equalize vocals"
+              ]
+            },
+            {
+              "label": "Rough cut & captions",
+              "steps": [
+                "Cut visual transitions",
+                "Style dynamic subtitles",
+                "Export test MP4"
+              ]
+            }
+          ]
+        },
+        "F2": {
+          "owner": "Master of Arts (moa-web OP-WP#163)",
+          "sprints": [
+            {
+              "label": "Flexbox navigation",
+              "steps": [
+                "CSS flexbox header pass",
+                "Nav item active links",
+                "Desktop responsive check"
+              ]
+            },
+            {
+              "label": "Mobile reading drawer",
+              "steps": [
+                "Hamburger drawer animation",
+                "Toggle state JS hook",
+                "Touch scroll lock test"
+              ]
+            },
+            {
+              "label": "Browser audit",
+              "steps": [
+                "Chrome/Safari responsive pass"
+              ]
+            }
+          ]
+        },
+        "F3": {
+          "owner": "IPOS (ipos-seam OP-WP#226)",
+          "sprints": [
+            {
+              "label": "Modular seam architecture",
+              "steps": [
+                "Author ingestion interface spec",
+                "Separate PDF from web parsing",
+                "Draft Docling adapter harness"
+              ]
+            },
+            {
+              "label": "Trafilatura adapter",
+              "steps": [
+                "Wire web cleaner",
+                "Strip article boilerplate",
+                "Validate output metadata"
+              ]
+            },
+            {
+              "label": "Docling PDF pass",
+              "steps": [
+                "Multi-page research document test"
+              ]
+            }
+          ]
+        },
+        "F4": {
+          "owner": "Leela (leela-chunk OP-WP#159)",
+          "sprints": [
+            {
+              "label": "SpatialViewNode ID split",
+              "steps": [
+                "Separate rendererId vs canonicalContentId",
+                "Multi-placement unit test"
+              ]
+            },
+            {
+              "label": "Residual overflow",
+              "steps": [
+                "Studio reset & admin"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "day": "Wednesday",
+      "short": "Wed",
+      "date": "11 Nov",
+      "role": "Invoicing & Skill Tree",
+      "holds": [
+        {
+          "text": "WC Meister 18:00-20:00",
+          "state": "Ignored hold (Ongoing)"
+        }
+      ],
+      "evening_note": "Sexy Content & Dance/MA theme (Project Night 20:30-22:00)",
+      "flows": {
+        "F1": {
+          "owner": "Master of Arts (moa-videos)",
+          "sprints": [
+            {
+              "label": "Video 5 & 6 scripting",
+              "steps": [
+                "Draft narrative scripts",
+                "Cross-link essays",
+                "Polish conclusion"
+              ]
+            },
+            {
+              "label": "Audio voiceover cuts",
+              "steps": [
+                "Record vocal takes 5 & 6",
+                "Normalize vocal loudness",
+                "Export master dialogue"
+              ]
+            },
+            {
+              "label": "Rough cut & captions",
+              "steps": [
+                "Assemble visual assets",
+                "Verify subtitle timings",
+                "Export test MP4"
+              ]
+            }
+          ]
+        },
+        "F2": {
+          "owner": "Master of Arts (moa-billing)",
+          "sprints": [
+            {
+              "label": "Invoice JSON schema",
+              "steps": [
+                "Author line-item schema",
+                "Define VAT and subtotal types",
+                "Unit-test schema parser"
+              ]
+            },
+            {
+              "label": "Tax formula tests",
+              "steps": [
+                "Subtotal test cases",
+                "Discount rounding tests",
+                "Confirm zero math drift"
+              ]
+            },
+            {
+              "label": "Schema freeze (🔗->IPOS)",
+              "steps": [
+                "JSON schema v1.0 validation"
+              ]
+            }
+          ]
+        },
+        "F3": {
+          "owner": "IPOS (ipos-viz OP-WP#225)",
+          "sprints": [
+            {
+              "label": "Time-series schema",
+              "steps": [
+                "Model time-series data types",
+                "Define timestamped metric keys",
+                "Author JSON fixture"
+              ]
+            },
+            {
+              "label": "Visualization seam",
+              "steps": [
+                "Decouple chart from storage",
+                "Normalize data",
+                "Test missing-period fills"
+              ]
+            },
+            {
+              "label": "Canvas performance",
+              "steps": [
+                "Scroll and zoom check"
+              ]
+            }
+          ]
+        },
+        "F4": {
+          "owner": "Mindful Bar (mb-erp)",
+          "sprints": [
+            {
+              "label": "ERPNext food-ops evaluation",
+              "steps": [
+                "Map BOM & MHD batch traceability",
+                "Lock pilot module list"
+              ]
+            },
+            {
+              "label": "Residual menu",
+              "steps": [
+                "Sexy Content prep for Wed Project Night"
+              ]
+            }
+          ],
+          "cell_notes": [
+            {
+              "text": "WC Meister 18:00-20:00 ignored (Ongoing)",
+              "protected": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "day": "Thursday",
+      "short": "Thu",
+      "date": "12 Nov",
+      "role": "Coordination & Apex AI",
+      "holds": [
+        {
+          "text": "Alex & Chris 10:00-11:00",
+          "state": "Protected (compresses F1/F2 by 60m)"
+        },
+        {
+          "text": "München Tanz 18:45-21:00",
+          "state": "Protected (18:15 commute buffer)"
+        }
+      ],
+      "evening_note": "Freizeit 20:30-22:00 (after München Tanz 21:00)",
+      "flows": {
+        "F1": {
+          "owner": "Master of Arts (moa-videos · Compressed 2x30m C)",
+          "sprints": [
+            {
+              "label": "Video 7 script & cut (08:30-10:00)",
+              "steps": [
+                "Finalize 7th script",
+                "Record voice track & quick master"
+              ]
+            },
+            {
+              "label": "10:00-10:30 Meeting Overlap",
+              "steps": [
+                "Alex & Chris (10:00-11:00) — Protected calendar collision"
+              ]
+            }
+          ],
+          "cell_notes": [
+            {
+              "text": "Thu 10:00-11:00 Alex & Chris protected (-30m F1)",
+              "protected": true
+            }
+          ]
+        },
+        "F2": {
+          "owner": "Master of Arts (moa-billing · Compressed)",
+          "sprints": [
+            {
+              "label": "HTML print template (11:00-12:30)",
+              "steps": [
+                "Author invoice HTML markup",
+                "Embed print stylesheet"
+              ]
+            },
+            {
+              "label": "Headless PDF export",
+              "steps": [
+                "Wire Chromium print",
+                "Verify vector typography & PDF/A"
+              ]
+            }
+          ],
+          "cell_notes": [
+            {
+              "text": "Thu 10:00-11:00 Alex & Chris overlap (-30m F2)",
+              "protected": true
+            }
+          ]
+        },
+        "F3": {
+          "owner": "IPOS (ipos-viz OP-WP#225)",
+          "sprints": [
+            {
+              "label": "Data viz prototype",
+              "steps": [
+                "Wire chart rendering canvas",
+                "Implement date-range filter",
+                "Verify responsive resize"
+              ]
+            },
+            {
+              "label": "Multi-tier cockpit card",
+              "steps": [
+                "Bind metrics to cockpit card",
+                "Test trend delta"
+              ]
+            },
+            {
+              "label": "Interactive inspection",
+              "steps": [
+                "Crosshair tooltip test"
+              ]
+            }
+          ]
+        },
+        "F4": {
+          "owner": "Apex AI (apex-hid OP-WP#139)",
+          "sprints": [
+            {
+              "label": "OpenMouse HID hook",
+              "steps": [
+                "USB HID descriptor poll",
+                "5ms debounce state machine",
+                "IPC ring buffer test"
+              ]
+            },
+            {
+              "label": "18:15 Transition Buffer",
+              "steps": [
+                "Commute/prep buffer for München Tanz (18:45-21:00)"
+              ]
+            }
+          ],
+          "cell_notes": [
+            {
+              "text": "18:15-18:45 commute buffer for München Tanz",
+              "protected": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "day": "Friday",
+      "short": "Fri",
+      "date": "13 Nov",
+      "role": "Production Wrap & Freeze Gates",
+      "holds": [
+        {
+          "text": "WC Meister 18:00-20:00",
+          "state": "Ignored hold (Ongoing)"
+        }
+      ],
+      "evening_note": "Thu-Fri Freizeit baseline (20:30-22:00)",
+      "flows": {
+        "F1": {
+          "owner": "Master of Arts (moa-videos)",
+          "sprints": [
+            {
+              "label": "Batch video mastering",
+              "steps": [
+                "Color-grade seven cuts",
+                "Verify dynamic captions",
+                "Render 1080x1920 masters"
+              ]
+            },
+            {
+              "label": "Distribution packaging",
+              "steps": [
+                "Upload video package",
+                "Generate thumbnails",
+                "Schedule distribution"
+              ]
+            },
+            {
+              "label": "7-video signoff",
+              "steps": [
+                "Operator quality pass",
+                "Tag release metadata"
+              ]
+            }
+          ]
+        },
+        "F2": {
+          "owner": "Master of Arts (moa-billing)",
+          "sprints": [
+            {
+              "label": "Billing engine run",
+              "steps": [
+                "Execute sample invoices",
+                "Verify tax precision",
+                "Check PDF integrity"
+              ]
+            },
+            {
+              "label": "MoA deploy signoff",
+              "steps": [
+                "Verify responsive web routes",
+                "Archive invoice test receipts"
+              ]
+            },
+            {
+              "label": "Milestone archive",
+              "steps": [
+                "Lock billing receipts"
+              ]
+            }
+          ]
+        },
+        "F3": {
+          "owner": "IPOS & Leela (OP-WP#226 / OP-WP#48)",
+          "sprints": [
+            {
+              "label": "IPOS harness verification",
+              "steps": [
+                "Run end-to-end ingestion",
+                "Verify clean JSON output"
+              ]
+            },
+            {
+              "label": "Leela placement freeze",
+              "steps": [
+                "Verify durable placement-ID contract (OP-WP#48)"
+              ]
+            },
+            {
+              "label": "Pipeline archive",
+              "steps": [
+                "Emit execution receipts"
+              ]
+            }
+          ]
+        },
+        "F4": {
+          "owner": "Apex AI (apex-repo OP-WP#198 & OP-WP#222)",
+          "sprints": [
+            {
+              "label": "Mindful repo & Dark Factory gate",
+              "steps": [
+                "Run okf_validator.py",
+                "Verify 6-Portfolio dispersal sync",
+                "Check Dark Factory gate receipt"
+              ]
+            }
+          ],
+          "cell_notes": [
+            {
+              "text": "WC Meister 18:00-20:00 ignored (Ongoing)",
+              "protected": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "day": "Saturday",
+      "short": "Sat",
+      "date": "14 Nov",
+      "role": "Weekend Regime (12:00-16:00)",
+      "holds": [],
+      "evening_note": "Weekend leisure / recovery (Flows 12:00-16:00)",
+      "flows": {
+        "F1": {
+          "owner": "Leela & Mindful Bar (12:00-14:00 · 120m)",
+          "sprints": [
+            {
+              "label": "C1 · Leela Skill Tree review",
+              "steps": [
+                "Verify SpatialViewNode & placement unit tests"
+              ]
+            },
+            {
+              "label": "C2 · Mindful Bar Spec v0.2 pass",
+              "steps": [
+                "Review Cacao Bar formulation & ERPNext BOM checklist"
+              ]
+            },
+            {
+              "label": "C3 · Artifact consolidation",
+              "steps": [
+                "Stage weekend verification receipts"
+              ]
+            }
+          ]
+        },
+        "F2": {
+          "owner": "Apex AI & Workspace Reset (14:00-16:00 · 120m)",
+          "sprints": [
+            {
+              "label": "C1 · Apex AI orchestration check",
+              "steps": [
+                "Verify PrecapWeek & Dispersal sync"
+              ]
+            },
+            {
+              "label": "C2 · Studio & workspace reset",
+              "steps": [
+                "Acoustic & physical environment reset"
+              ]
+            },
+            {
+              "label": "C3 · Buffer sprint",
+              "steps": [
+                "Overflow recovery"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "day": "Sunday",
+      "short": "Sun",
+      "date": "15 Nov",
+      "role": "Weekend Regime & PrecapWeek / StatusMerge (12:00-16:00)",
+      "holds": [],
+      "evening_note": "Weekend leisure / recovery (Flows 12:00-16:00 + PrecapWeek / StatusMerge)",
+      "flows": {
+        "F1": {
+          "owner": "IPOS & Master of Arts Review (12:00-14:00 · 120m)",
+          "sprints": [
+            {
+              "label": "C1 · IPOS & MoA deliverable check",
+              "steps": [
+                "Verify ADR-003, PDF billing & 7-video receipts"
+              ]
+            },
+            {
+              "label": "C2 · Cross-portfolio evidence collection",
+              "steps": [
+                "Collect Git commit SHAs & test logs for StatusMerge"
+              ]
+            },
+            {
+              "label": "C3 · Pre-merge audit",
+              "steps": [
+                "Check Longlist revisit triggers"
+              ]
+            }
+          ]
+        },
+        "F2": {
+          "owner": "StatusMerge & PrecapWeek Session (14:00-16:00 · 120m)",
+          "sprints": [
+            {
+              "label": "C1 · Weekly StatusMerge",
+              "steps": [
+                "Reconcile Planned vs Realized across 6 Portfolio Areas"
+              ]
+            },
+            {
+              "label": "C2 · Stage 1A Operator Command Brief",
+              "steps": [
+                "Capture next-week intent, overrides & dispersal dials"
+              ]
+            },
+            {
+              "label": "C3 · Compile next PrecapWeek & G1 Gate",
+              "steps": [
+                "Emit presentation_handoff to PrecapNextDay"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "personal_focus": {
+    "mental": [
+      "Daily Morning Intention coherence (Mon/Wed/Fri/Sun focus days)",
+      "ACIM & Surrender presence across F1-F4 transitions"
+    ],
+    "physical": [
+      "Protect right knee recovery — Knee chunk pinned to *_*_I3_P slots (11/wk quota)",
+      "Preserve 18:30-19:30 Evening Physical Course (Mon-Wed, Fri; Thu via München Tanz)"
+    ],
+    "regeneration": [
+      "Protect 22:00-22:30 Day Outro boundary",
+      "Rotate Yoga Nidra, Audiobooks & Socializing across 24 in-Flow R breaks (XP = 0)"
+    ]
+  },
+  "residuals": {
+    "em13_op_gaps": [
+      "EM-13 Unified on G|I|P|S|O|C: Goal includes acceptance + Tasks->Subtasks; Input includes sources + upstream_dependencies + exclusions; Output includes deliverable + redraft + Tasks->Subtasks.",
+      "OpenProject Provenance (D019): Live 127.0.0.1:8083 returned [OP-OFFLINE]; verified Nov 6 snapshot (EVIDENCE-20261106.okf.md) applied. Unmapped local work items tagged [OP-UNRESOLVED] (zero synthetic numeric OP IDs).",
+      "Status-vs-Description Audit: OP-WP#220 flagged where prose description trails status state."
+    ],
+    "longlist_deferrals": [
+      {
+        "wp": "OP-WP#204",
+        "title": "MoA ACIM Secular Credits Page",
+        "reason": "Moved out of Matrix 1 L2 to Longlist Deferred.",
+        "trigger": "After OP-WP#163 responsive layout sign-off."
+      },
+      {
+        "wp": "[OP-UNRESOLVED]",
+        "title": "MoA Stripe Webhook Integration",
+        "reason": "Staged future billing wave.",
+        "trigger": "After local PDF invoice engine unit-test verification."
+      },
+      {
+        "wp": "OP-WP#227",
+        "title": "IPOS Telegram Research Digest",
+        "reason": "Deferred Mission 2 summary.",
+        "trigger": "After OP-WP#224 & OP-WP#226 Docling/Trafilatura seam pass."
+      }
+    ],
+    "provenance_ledger": [
+      {
+        "tag": "CLK",
+        "label": "Canonical Blueprint Clock (T1)",
+        "ref": "../02-weekly-dispersal/week-blueprint.json",
+        "freshness": "CURRENT"
+      },
+      {
+        "tag": "DSP",
+        "label": "T2 Weekly Allocation & Dials",
+        "ref": "../02-weekly-dispersal/week-allocation.json",
+        "freshness": "CURRENT"
+      },
+      {
+        "tag": "INT",
+        "label": "Operator Intake (W46 Reference)",
+        "ref": "fixtures/w46-reference-intake.json",
+        "freshness": "CURRENT"
+      },
+      {
+        "tag": "OP",
+        "label": "OpenProject Intake Evidence [OP-OFFLINE]",
+        "ref": "../00-openproject-dependency-intake/EVIDENCE-20261106.okf.md",
+        "freshness": "AGED"
+      },
+      {
+        "tag": "CAR",
+        "label": "Mindful Bar 6th Portfolio Carrier",
+        "ref": "../../../informatics/final/operations/18-APEX-CARRIER-MAP.md",
+        "freshness": "CURRENT"
+      }
+    ],
+    "confidence": "HIGH on clock & dispersal math (deterministic JSON); MEDIUM on live OpenProject state ([OP-OFFLINE] Nov 6 snapshot active).",
+    "assumptions": "Fri->Sat evening physical Gaussian spillover disabled per T2 allocator; WC Meister stays ignored per Ongoing directive."
+  },
+  "presentation_handoff": {
+    "schema_version": "PRECAP-WEEK-HANDOFF-v2.1",
+    "artifact_type": "Weekly_Command_Brief",
+    "packet_id": "weekly-command-brief-20261108-2026-W46",
+    "produced_at": "2026-11-11T00:00:00Z",
+    "week": "2026-W46",
+    "date_range": {
+      "start": "2026-11-09",
+      "end": "2026-11-15"
+    },
+    "timezone": "Europe/Berlin",
+    "clock_owner": "apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json",
+    "dispersal_owner": "apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-allocation.json",
+    "cockpit_html_ref": "apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/precap-week-cockpit-W45-actual-data-v03.html",
+    "brief_okf_ref": "apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/fixtures/w46-reference-weekly-command-brief.okf.md",
+    "data_json_ref": "apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/fixtures/w46-reference-cockpit.json",
+    "result_state": "READY_WITH_REVIEW",
+    "operator_g1_status": "APPROVED",
+    "source_status": {
+      "openproject": "OFFLINE_FALLBACK",
+      "google_calendar": "ONLINE"
+    },
+    "weekly_intent": "Ship Master of Arts 7 videos, responsive site draft (#163), and automated PDF billing; freeze Leela Skill Tree spatial contracts (#159/#48, Path paused); complete IPOS intake audit & time-series viz (#224-#226); advance Apex AI HID (#139) & Dark Factory (#222); integrate Mindful Bar spec v0.2 & ERPNext eval.",
+    "six_portfolio_areas": [
+      {
+        "portfolio_id": "leela",
+        "label": "Leela",
+        "priority_rank": 1,
+        "priority_goals": [
+          "Canonical Chunk identity",
+          "Durable placement identity"
+        ],
+        "selected_work_refs": [
+          "leela-chunk:OP-WP#159/#39",
+          "leela-placement:OP-WP#48"
+        ]
+      },
+      {
+        "portfolio_id": "ipos",
+        "label": "IPOS",
+        "priority_rank": 2,
+        "priority_goals": [
+          "Full ingestion pipeline audit (ADR-003)",
+          "External intake seam (Docling + Trafilatura)",
+          "Sovereign data visualization over time"
+        ],
+        "selected_work_refs": [
+          "ipos-audit:OP-WP#224/#228",
+          "ipos-seam:OP-WP#226",
+          "ipos-viz:OP-WP#225"
+        ]
+      },
+      {
+        "portfolio_id": "master_of_arts",
+        "label": "Master of Arts",
+        "priority_rank": 3,
+        "priority_goals": [
+          "Website content draft & responsive layout",
+          "7 produced videos",
+          "Automated PDF billing"
+        ],
+        "selected_work_refs": [
+          "moa-web:OP-WP#163",
+          "moa-videos:[OP-UNRESOLVED]",
+          "moa-billing:[OP-UNRESOLVED]"
+        ]
+      },
+      {
+        "portfolio_id": "apex_ai",
+        "label": "Apex AI",
+        "priority_rank": 4,
+        "priority_goals": [
+          "OpenMouse kernel HID polling hook",
+          "Mindful repository orchestration & Precap convergence",
+          "Dark Factory integration gate"
+        ],
+        "selected_work_refs": [
+          "apex-hid:OP-WP#139",
+          "apex-repo:OP-WP#198",
+          "apex-dark:OP-WP#222"
+        ]
+      },
+      {
+        "portfolio_id": "mindful_bar",
+        "label": "Mindful Bar",
+        "priority_rank": 5,
+        "priority_goals": [
+          "Cacao Bar functional product spec v0.2 & validation",
+          "ERPNext / Frappe food-ops architecture evaluation"
+        ],
+        "selected_work_refs": [
+          "mb-spec:[OP-UNRESOLVED]",
+          "mb-erp:[OP-UNRESOLVED]"
+        ]
+      },
+      {
+        "portfolio_id": "residual",
+        "label": "Residual",
+        "priority_rank": 6,
+        "priority_goals": [
+          "Apartment & Studio Art",
+          "Sexy Content visuals (Mon/Wed Project Night)",
+          "Community & Travel logistics"
+        ],
+        "selected_work_refs": [
+          "res-art:[OP-UNRESOLVED]",
+          "res-visual:[OP-UNRESOLVED]",
+          "res-community:[OP-UNRESOLVED]"
+        ]
+      }
+    ],
+    "reconciled_calendar_events": [
+      {
+        "date": "2026-11-11",
+        "title": "WC Meister",
+        "start": "18:00",
+        "end": "20:00",
+        "policy": "ignored_ongoing",
+        "capacity_delta_min": 0
+      },
+      {
+        "date": "2026-11-12",
+        "title": "Alex & Chris",
+        "start": "10:00",
+        "end": "11:00",
+        "policy": "protected",
+        "capacity_delta_min": -60
+      },
+      {
+        "date": "2026-11-12",
+        "title": "München Tanz commute buffer",
+        "start": "18:15",
+        "end": "18:45",
+        "policy": "buffer",
+        "capacity_delta_min": 0
+      },
+      {
+        "date": "2026-11-12",
+        "title": "München Tanz",
+        "start": "18:45",
+        "end": "21:00",
+        "policy": "protected",
+        "capacity_delta_min": 0
+      },
+      {
+        "date": "2026-11-13",
+        "title": "WC Meister",
+        "start": "18:00",
+        "end": "20:00",
+        "policy": "ignored_ongoing",
+        "capacity_delta_min": 0
+      }
+    ],
+    "capacity_deformations_and_omissions": [
+      {
+        "day": "Thursday",
+        "flow": "F1",
+        "shape": "compressed",
+        "reason": "Alex & Chris 10:00-11:00 overlaps tail of F1 (-30m Craft)"
+      },
+      {
+        "day": "Thursday",
+        "flow": "F2",
+        "shape": "compressed",
+        "reason": "Alex & Chris 10:00-11:00 overlaps start of F2 (-30m Craft)"
+      },
+      {
+        "day": "Thursday",
+        "flow": "F4",
+        "shape": "full",
+        "reason": "Tails against 18:15-18:45 München Tanz commute buffer; monitor overrun"
+      }
+    ],
+    "next_day_seed": {
+      "target_date": "2026-11-09",
+      "intended_emphasis": "Mon Foundations: F1-F2 Master of Arts videos/website (#163), F3 IPOS ADR-003 (#224), F4 Mindful Bar Spec v0.2 & Residual studio art, Project Night 20:30-22:00 Sexy Content & Studio."
+    },
+    "next_consumer": "PrecapNextDay"
+  }
+}

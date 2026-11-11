@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apexai-os-meta/schemas/operator-weekly-command-brief.schema.json",
+  "title": "Operator Weekly Command Brief (Stage 1A Intake)",
+  "description": "Lightweight pre-compile operator intake for PrecapWeek. Captures weekly intent, 6-portfolio focus overrides, ignored calendar holds, evening themes, personal M/P/R priorities, and optional pointer to week-demand.json dispersal dials. Never duplicates week-blueprint.json defaults or OpenProject state.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "week_id",
+    "run_date",
+    "weekly_intent",
+    "project_focus_overrides",
+    "calendar_ignores",
+    "personal_focus_priorities"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "OPERATOR-COMMAND-BRIEF-v1.0"
+    },
+    "week_id": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-W[0-9]{2}$"
+    },
+    "run_date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "weekly_intent": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_focus_overrides": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["portfolio_id", "directive", "gate_status"],
+        "properties": {
+          "portfolio_id": {
+            "type": "string",
+            "enum": ["leela", "ipos", "master_of_arts", "apex_ai", "mindful_bar", "residual"]
+          },
+          "directive": {
+            "type": "string",
+            "minLength": 1
+          },
+          "gate_status": {
+            "type": "string",
+            "enum": ["PROPOSED_FOR_G1", "APPROVED", "CONFIRMED_INPUT"]
+          },
+          "system_default": {
+            "type": ["string", "null"]
+          }
+        }
+      }
+    },
+    "calendar_ignores": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["match", "bucket", "reason"],
+        "properties": {
+          "match": {
+            "type": "string",
+            "minLength": 1
+          },
+          "bucket": {
+            "type": "string",
+            "enum": ["Ongoing", "New"]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "special_evenings": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mon_tue_wed_project_night_theme": {
+          "type": ["string", "null"]
+        },
+        "day_themes": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "Monday": { "type": "string" },
+            "Tuesday": { "type": "string" },
+            "Wednesday": { "type": "string" }
+          }
+        }
+      }
+    },
+    "personal_focus_priorities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mental", "physical", "regeneration"],
+      "properties": {
+        "mental": {
+          "type": "array",
+          "maxItems": 3,
+          "items": { "type": "string" }
+        },
+        "physical": {
+          "type": "array",
+          "maxItems": 3,
+          "items": { "type": "string" }
+        },
+        "regeneration": {
+          "type": "array",
+          "maxItems": 3,
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "dispersal_dials_override": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_ref"],
+      "properties": {
+        "source_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

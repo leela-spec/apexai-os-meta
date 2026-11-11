@@ -1,0 +1,77 @@
+{
+  "schema_version": "OPERATOR-COMMAND-BRIEF-v1.0",
+  "week_id": "2026-W46",
+  "run_date": "2026-11-08",
+  "weekly_intent": "Ship Master of Arts 7 videos, responsive site draft, and automated PDF billing; freeze Leela Skill Tree spatial contracts (Path paused); complete IPOS intake audit and sovereign time-series viz; land Apex AI HID hook and orchestration convergence; advance Mindful Bar spec v0.2 and ERPNext pilot evaluation.",
+  "project_focus_overrides": [
+    {
+      "portfolio_id": "leela",
+      "directive": "Skill Tree spatial contracts ONLY (OP-WP#159, #39, #48); Path UI & in-app Sequencing paused.",
+      "gate_status": "APPROVED",
+      "system_default": "All active Project #10 work packages eligible"
+    },
+    {
+      "portfolio_id": "ipos",
+      "directive": "Complete ADR-003 ingestion audit (#224), Docling/Trafilatura seam (#226), and sovereign time-series viz (#225); defer Telegram digest (#227).",
+      "gate_status": "APPROVED",
+      "system_default": "Balanced Mission 1-3 intake"
+    },
+    {
+      "portfolio_id": "master_of_arts",
+      "directive": "Route F1/F2 primarily to 7 produced videos, responsive website draft (#163), and automated PDF billing feeding IPOS.",
+      "gate_status": "APPROVED",
+      "system_default": "Default priority rank order"
+    },
+    {
+      "portfolio_id": "apex_ai",
+      "directive": "Advance OpenMouse HID polling (#139), mindful orchestration convergence (#198), and Dark Factory gate (#222).",
+      "gate_status": "APPROVED",
+      "system_default": null
+    },
+    {
+      "portfolio_id": "mindful_bar",
+      "directive": "Integrate Mindful Bar as 6th canonical Portfolio Area: Cacao Bar spec v0.2 & ERPNext food-ops evaluation.",
+      "gate_status": "APPROVED",
+      "system_default": null
+    },
+    {
+      "portfolio_id": "residual",
+      "directive": "Run studio reset, Sexy Content prep in Mon/Wed Project Night, and Community & Travel logistics; defer-first under meeting compression.",
+      "gate_status": "APPROVED",
+      "system_default": "Lowest default priority unless raised by operator"
+    }
+  ],
+  "calendar_ignores": [
+    {
+      "match": "WC Meister",
+      "bucket": "Ongoing",
+      "reason": "Ignored ambient calendar hold on Wed/Fri 18:00-20:00 so F4 and Evening Physical remain intact."
+    }
+  ],
+  "special_evenings": {
+    "mon_tue_wed_project_night_theme": "Mon/Wed Sexy Content & Studio; Tue Billing sprint (20:30-22:00)",
+    "day_themes": {
+      "Monday": "Sexy Content & Studio theme",
+      "Tuesday": "Billing sprint (Mon-Wed Project Night baseline)",
+      "Wednesday": "Sexy Content & Dance/MA theme"
+    }
+  },
+  "personal_focus_priorities": {
+    "mental": [
+      "Daily Morning Intention coherence (Mon/Wed/Fri/Intention focus days)",
+      "ACIM & Surrender presence across F1-F4 transitions"
+    ],
+    "physical": [
+      "Protect right knee recovery — Knee chunk pinned to every I3_P slot (11/wk)",
+      "Preserve 18:30-19:30 Evening Physical Course (Mon-Wed, Fri; Thu compensated via München Tanz)"
+    ],
+    "regeneration": [
+      "Protect 22:00-22:30 Day Outro boundary",
+      "Rotate Yoga Nidra, Audiobooks & Socializing across 24 in-Flow R breaks (XP = 0)"
+    ]
+  },
+  "dispersal_dials_override": {
+    "source_ref": "apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-demand.json",
+    "notes": "Standard T1/T2 shares active across 4 branches and 6 Craft Portfolio Epics."
+  }
+}

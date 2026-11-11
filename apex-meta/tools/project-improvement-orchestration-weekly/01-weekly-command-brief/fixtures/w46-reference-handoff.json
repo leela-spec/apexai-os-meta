@@ -1,0 +1,179 @@
+{
+  "schema_version": "PRECAP-WEEK-HANDOFF-v2.1",
+  "artifact_type": "Weekly_Command_Brief",
+  "packet_id": "weekly-command-brief-20261108-2026-W46",
+  "produced_at": "2026-11-11T00:00:00Z",
+  "week": "2026-W46",
+  "date_range": {
+    "start": "2026-11-09",
+    "end": "2026-11-15"
+  },
+  "timezone": "Europe/Berlin",
+  "clock_owner": "apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json",
+  "dispersal_owner": "apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-allocation.json",
+  "cockpit_html_ref": "apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/precap-week-cockpit-W45-actual-data-v03.html",
+  "brief_okf_ref": "apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/fixtures/w46-reference-weekly-command-brief.okf.md",
+  "data_json_ref": "apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/fixtures/w46-reference-cockpit.json",
+  "result_state": "READY_WITH_REVIEW",
+  "operator_g1_status": "APPROVED",
+  "source_status": {
+    "openproject": "OFFLINE_FALLBACK",
+    "google_calendar": "ONLINE"
+  },
+  "weekly_intent": "Ship Master of Arts 7 videos, responsive site draft (#163), and automated PDF billing; freeze Leela Skill Tree spatial contracts (#159/#48, Path paused); complete IPOS intake audit & time-series viz (#224-#226); advance Apex AI HID (#139) & Dark Factory (#222); integrate Mindful Bar spec v0.2 & ERPNext eval.",
+  "six_portfolio_areas": [
+    {
+      "portfolio_id": "leela",
+      "label": "Leela",
+      "priority_rank": 1,
+      "priority_goals": [
+        "Canonical Chunk identity",
+        "Durable placement identity"
+      ],
+      "selected_work_refs": [
+        "leela-chunk:OP-WP#159/#39",
+        "leela-placement:OP-WP#48"
+      ]
+    },
+    {
+      "portfolio_id": "ipos",
+      "label": "IPOS",
+      "priority_rank": 2,
+      "priority_goals": [
+        "Full ingestion pipeline audit (ADR-003)",
+        "External intake seam (Docling + Trafilatura)",
+        "Sovereign data visualization over time"
+      ],
+      "selected_work_refs": [
+        "ipos-audit:OP-WP#224/#228",
+        "ipos-seam:OP-WP#226",
+        "ipos-viz:OP-WP#225"
+      ]
+    },
+    {
+      "portfolio_id": "master_of_arts",
+      "label": "Master of Arts",
+      "priority_rank": 3,
+      "priority_goals": [
+        "Website content draft & responsive layout",
+        "7 produced videos",
+        "Automated PDF billing"
+      ],
+      "selected_work_refs": [
+        "moa-web:OP-WP#163",
+        "moa-videos:[OP-UNRESOLVED]",
+        "moa-billing:[OP-UNRESOLVED]"
+      ]
+    },
+    {
+      "portfolio_id": "apex_ai",
+      "label": "Apex AI",
+      "priority_rank": 4,
+      "priority_goals": [
+        "OpenMouse kernel HID polling hook",
+        "Mindful repository orchestration & Precap convergence",
+        "Dark Factory integration gate"
+      ],
+      "selected_work_refs": [
+        "apex-hid:OP-WP#139",
+        "apex-repo:OP-WP#198",
+        "apex-dark:OP-WP#222"
+      ]
+    },
+    {
+      "portfolio_id": "mindful_bar",
+      "label": "Mindful Bar",
+      "priority_rank": 5,
+      "priority_goals": [
+        "Cacao Bar functional product spec v0.2 & validation",
+        "ERPNext / Frappe food-ops architecture evaluation"
+      ],
+      "selected_work_refs": [
+        "mb-spec:[OP-UNRESOLVED]",
+        "mb-erp:[OP-UNRESOLVED]"
+      ]
+    },
+    {
+      "portfolio_id": "residual",
+      "label": "Residual",
+      "priority_rank": 6,
+      "priority_goals": [
+        "Apartment & Studio Art",
+        "Sexy Content visuals (Mon/Wed Project Night)",
+        "Community & Travel logistics"
+      ],
+      "selected_work_refs": [
+        "res-art:[OP-UNRESOLVED]",
+        "res-visual:[OP-UNRESOLVED]",
+        "res-community:[OP-UNRESOLVED]"
+      ]
+    }
+  ],
+  "reconciled_calendar_events": [
+    {
+      "date": "2026-11-11",
+      "title": "WC Meister",
+      "start": "18:00",
+      "end": "20:00",
+      "policy": "ignored_ongoing",
+      "capacity_delta_min": 0
+    },
+    {
+      "date": "2026-11-12",
+      "title": "Alex & Chris",
+      "start": "10:00",
+      "end": "11:00",
+      "policy": "protected",
+      "capacity_delta_min": -60
+    },
+    {
+      "date": "2026-11-12",
+      "title": "München Tanz commute buffer",
+      "start": "18:15",
+      "end": "18:45",
+      "policy": "buffer",
+      "capacity_delta_min": 0
+    },
+    {
+      "date": "2026-11-12",
+      "title": "München Tanz",
+      "start": "18:45",
+      "end": "21:00",
+      "policy": "protected",
+      "capacity_delta_min": 0
+    },
+    {
+      "date": "2026-11-13",
+      "title": "WC Meister",
+      "start": "18:00",
+      "end": "20:00",
+      "policy": "ignored_ongoing",
+      "capacity_delta_min": 0
+    }
+  ],
+  "capacity_deformations_and_omissions": [
+    {
+      "day": "Thursday",
+      "flow": "F1",
+      "shape": "compressed",
+      "reason": "Alex & Chris 10:00-11:00 overlaps tail of F1 (-30m Craft)"
+    },
+    {
+      "day": "Thursday",
+      "flow": "F2",
+      "shape": "compressed",
+      "reason": "Alex & Chris 10:00-11:00 overlaps start of F2 (-30m Craft)"
+    },
+    {
+      "day": "Thursday",
+      "flow": "F4",
+      "shape": "full",
+      "reason": "Tails against 18:15-18:45 München Tanz commute buffer; monitor overrun"
+    }
+  ],
+  "next_day_seed": {
+    "target_date": "2026-11-09",
+    "intended_emphasis": "Mon Foundations: F1-F2 Master of Arts videos/website (#163), F3 IPOS ADR-003 (#224), F4 Mindful Bar Spec v0.2 & Residual studio art, Project Night 20:30-22:00 Sexy Content & Studio."
+  },
+  "next_consumer": "PrecapNextDay"
+}

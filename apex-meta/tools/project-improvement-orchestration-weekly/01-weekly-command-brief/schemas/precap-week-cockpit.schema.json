@@ -1,0 +1,296 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apexai-os-meta/schemas/precap-week-cockpit.schema.json",
+  "title": "Precap Week Machine Data Payload",
+  "description": "Week-specific compiled state consumed by render_precap_cockpit.py. Clock timestamps, standard anchors, P/M/R/C minute math, and DD-22A P/M/R bands are NEVER stored here because 02-weekly-dispersal/ owns them canonically.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "meta",
+    "decisions",
+    "matrix1_portfolios",
+    "matrix2_days",
+    "personal_focus",
+    "residuals",
+    "presentation_handoff"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "PRECAP-WEEK-DATA-v2.1" },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "week_id",
+        "date_start",
+        "date_end",
+        "date_span_label",
+        "banner_badge",
+        "intro",
+        "direction_summary",
+        "next_action",
+        "review_needed",
+        "op_status",
+        "calendar_status",
+        "g1_status",
+        "source_links"
+      ],
+      "properties": {
+        "week_id": { "type": "string", "pattern": "^[0-9]{4}-W[0-9]{2}$" },
+        "date_start": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+        "date_end": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+        "date_span_label": { "type": "string" },
+        "banner_badge": { "type": "string" },
+        "intro": { "type": "string" },
+        "direction_summary": { "type": "string" },
+        "next_action": { "type": "string" },
+        "review_needed": { "type": "string" },
+        "op_status": { "type": "string", "enum": ["ONLINE", "OFFLINE_FALLBACK"] },
+        "calendar_status": { "type": "string", "enum": ["ONLINE", "OFFLINE_FALLBACK"] },
+        "g1_status": { "type": "string", "enum": ["PROPOSED_FOR_G1", "APPROVED", "EDITED", "REJECTED"] },
+        "meeting_subtraction_hours": { "type": "number", "minimum": 0 },
+        "meeting_subtraction_note": { "type": "string" },
+        "source_links": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["primary", "primaryLabel", "secondary", "secondaryLabel", "spec"],
+          "properties": {
+            "primary": { "type": "string" },
+            "primaryLabel": { "type": "string" },
+            "secondary": { "type": "string" },
+            "secondaryLabel": { "type": "string" },
+            "spec": { "type": "string" }
+          }
+        }
+      }
+    },
+    "decisions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["new", "ongoing"],
+      "properties": {
+        "new": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "val", "detail", "gate", "ov"],
+            "properties": {
+              "preview_key": { "type": "string" },
+              "preview_val": { "type": "string" },
+              "name": { "type": "string" },
+              "val": { "type": "string" },
+              "detail": { "type": "string" },
+              "gate": { "type": "string" },
+              "sysDef": { "type": ["string", "null"] },
+              "opChoice": { "type": ["string", "null"] },
+              "srcRef": { "type": ["string", "null"] },
+              "ov": { "type": "boolean" }
+            }
+          }
+        },
+        "ongoing": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "val", "detail", "gate", "ov"],
+            "properties": {
+              "preview_key": { "type": "string" },
+              "preview_val": { "type": "string" },
+              "name": { "type": "string" },
+              "val": { "type": "string" },
+              "detail": { "type": "string" },
+              "gate": { "type": "string" },
+              "sysDef": { "type": ["string", "null"] },
+              "opChoice": { "type": ["string", "null"] },
+              "srcRef": { "type": ["string", "null"] },
+              "ov": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    "matrix1_portfolios": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "caption", "ref", "op", "note", "goals", "nice"],
+        "properties": {
+          "id": { "type": "string", "enum": ["leela", "ipos", "master_of_arts", "apex_ai", "mindful_bar", "residual"] },
+          "name": { "type": "string", "enum": ["Leela", "IPOS", "Master of Arts", "Apex AI", "Mindful Bar", "Residual"] },
+          "caption": { "type": "string" },
+          "ref": { "type": "string" },
+          "op": { "type": "string" },
+          "note": { "type": "string" },
+          "goals": { "type": "array", "items": { "$ref": "#/$defs/goalItem" } },
+          "nice": { "type": "array", "items": { "$ref": "#/$defs/goalItem" } }
+        }
+      }
+    },
+    "matrix2_days": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["day", "short", "date", "role", "holds", "evening_note", "flows"],
+        "properties": {
+          "day": { "type": "string", "enum": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] },
+          "short": { "type": "string" },
+          "date": { "type": "string" },
+          "role": { "type": "string" },
+          "holds": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["text", "state"],
+              "properties": {
+                "text": { "type": "string" },
+                "state": { "type": "string" }
+              }
+            }
+          },
+          "evening_note": { "type": "string" },
+          "flows": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["owner", "sprints"],
+              "properties": {
+                "owner": { "type": "string" },
+                "cell_notes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["text", "protected"],
+                    "properties": {
+                      "text": { "type": "string" },
+                      "protected": { "type": "boolean" }
+                    }
+                  }
+                },
+                "sprints": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["label", "steps"],
+                    "properties": {
+                      "label": { "type": "string" },
+                      "steps": { "type": "array", "items": { "type": "string" } }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "personal_focus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mental", "physical", "regeneration"],
+      "properties": {
+        "mental": { "type": "array", "items": { "type": "string" } },
+        "physical": { "type": "array", "items": { "type": "string" } },
+        "regeneration": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "residuals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["em13_op_gaps", "longlist_deferrals", "provenance_ledger", "confidence", "assumptions"],
+      "properties": {
+        "em13_op_gaps": { "type": "array", "items": { "type": "string" } },
+        "longlist_deferrals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["wp", "title", "reason", "trigger"],
+            "properties": {
+              "wp": { "type": "string" },
+              "title": { "type": "string" },
+              "reason": { "type": "string" },
+              "trigger": { "type": "string" }
+            }
+          }
+        },
+        "provenance_ledger": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["tag", "label", "ref", "freshness"],
+            "properties": {
+              "tag": { "type": "string" },
+              "label": { "type": "string" },
+              "ref": { "type": "string" },
+              "freshness": { "type": "string", "enum": ["CURRENT", "AGED", "STALE", "UNKNOWN"] }
+            }
+          }
+        },
+        "confidence": { "type": "string" },
+        "assumptions": { "type": "string" }
+      }
+    },
+    "presentation_handoff": {
+      "type": "object"
+    }
+  },
+  "$defs": {
+    "goalItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "title", "wp", "state", "critical", "crossRepo",
+        "baseline", "acceptance", "subtasks", "inputs", "upstream",
+        "exclusions", "process", "skills", "outputs", "redraft",
+        "continuation", "evidence", "caution", "tier"
+      ],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "wp": { "type": "string" },
+        "state": { "type": "string" },
+        "critical": { "type": "boolean" },
+        "crossRepo": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["label", "targetRepo", "targetGoal"],
+            "properties": {
+              "label": { "type": "string" },
+              "targetRepo": { "type": "integer", "minimum": 0, "maximum": 5 },
+              "targetGoal": { "type": "integer", "minimum": 0 }
+            }
+          }
+        },
+        "baseline": { "type": "string" },
+        "acceptance": { "type": "string" },
+        "subtasks": { "type": "array", "items": { "type": "string" } },
+        "inputs": { "type": "array", "items": { "type": "string" } },
+        "upstream": { "type": "array", "items": { "type": "string" } },
+        "exclusions": { "type": "array", "items": { "type": "string" } },
+        "process": { "type": "array", "items": { "type": "string" } },
+        "skills": { "type": "array", "items": { "type": "string" } },
+        "outputs": { "type": "array", "items": { "type": "string" } },
+        "redraft": { "type": "string" },
+        "continuation": { "type": "array", "items": { "type": "string" } },
+        "evidence": { "type": "array", "items": { "type": "string" } },
+        "caution": { "type": "array", "items": { "type": "string" } },
+        "tier": { "type": "string", "enum": ["L1", "L2"] }
+      }
+    }
+  }
+}

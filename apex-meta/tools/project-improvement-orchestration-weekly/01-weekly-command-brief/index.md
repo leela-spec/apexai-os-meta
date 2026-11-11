@@ -1,7 +1,7 @@
 ---
 okf_version: "0.2"
 title: Module 01 — Precap Week Cockpit & Weekly Command Brief Bundle
-description: Canonical specification, active section handovers (02-06), and reference HTML cockpit for Precap Week (v2.1).
+description: Single-owner specification, JSON schemas, deterministic multi-surface compiler, and compiled W45/W46 cockpit fixtures (v2.1).
 status: current
 date: 2026-11-11
 tags: [weekly-orchestration, precap-week, module-01, cockpit, index]
@@ -9,17 +9,16 @@ tags: [weekly-orchestration, precap-week, module-01, cockpit, index]
 
 # Module 01 — Precap Week Cockpit & Weekly Command Brief Bundle
 
-This bundle holds the canonical Precap Week Cockpit specification, section-level design records (`HANDOVER-02`..`06`), and the verified `W45` HTML cockpit fixture.
+This bundle holds the **one authoritative home** for each Precap Week concern: UI/domain specification, JSON schemas, compiler, HTML cockpit, and fixtures (see [`../DECISIONS.md#d021`](../DECISIONS.md) for consolidation provenance).
 
-## Files
+## Canonical Bundle Structure
 
-| File | Type | Description |
+| File | Role | Description |
 |---|---|---|
-| [`SPEC-PRECAP-WEEK-ITERATIONS.okf.md`](SPEC-PRECAP-WEEK-ITERATIONS.okf.md) | **Specification** | Canonical Precap Week Cockpit specification (`00..05`, 6-Portfolio standard, unified `EM-13` `G\|I\|P\|S\|O\|C`, `T1/T2` integration). |
-| [`precap-week-cockpit-W45-actual-data-v03.html`](precap-week-cockpit-W45-actual-data-v03.html) | Reference Fixture | Interactive single-scroll Precap Week Cockpit (`#s00..#s05`) grounded in verified `W45` data. |
-| [`HANDOVER-02-TIMELINE-CALENDAR-SEQUENCE-SPRINT-VIEW.md`](HANDOVER-02-TIMELINE-CALENDAR-SEQUENCE-SPRINT-VIEW.md) | Adapter | Section `03 · Matrix 2` calendar snapshot, `Monday–Sunday` `T1` grid, and `DD-22A` `P/M/R` band spec. |
-| [`HANDOVER-03-TASK-SPEC-VARIABLE-SYSTEM-AND-SYMBOL-GRAMMAR.okf.md`](HANDOVER-03-TASK-SPEC-VARIABLE-SYSTEM-AND-SYMBOL-GRAMMAR.okf.md) | Specification | Section `02 · Matrix 1` `L1/L2` hierarchy, unified `G\|I\|P\|S\|O\|C` (`EM-13`), and `Tasks -> Subtasks` grammar. |
-| [`HANDOVER-04-OPERATOR-DECISION-BRIEF-VARIABLE-DROPDOWN-REDESIGN.okf.md`](HANDOVER-04-OPERATOR-DECISION-BRIEF-VARIABLE-DROPDOWN-REDESIGN.okf.md) | Specification | Section `01 · Operator Decision Brief` (`New`, `Ongoing`, `Standard`) and `G1` sign-off contract. |
-| [`HANDOVER-05-PRECAP-STATS-SYSTEM-LEELA-INSPIRED.okf.md`](HANDOVER-05-PRECAP-STATS-SYSTEM-LEELA-INSPIRED.okf.md) | Specification | Section `00 · Portfolio Compass` 5 header KPI cards and 6-Portfolio distribution. |
-| [`HANDOVER-06-CROSS-PROJECT-DEPENDENCY-VIEW-RESEARCH.okf.md`](HANDOVER-06-CROSS-PROJECT-DEPENDENCY-VIEW-RESEARCH.okf.md) | Specification | Option B `🔗 Cross-Repo:` inline clickable dependency pills and `⚡` critical-path cue in Matrix 1. |
-| [`README.md`](README.md) | Reference | Module 01 overview and completion summary. |
+| [`SPEC-PRECAP-WEEK-ITERATIONS.okf.md`](SPEC-PRECAP-WEEK-ITERATIONS.okf.md) | **Specification** | Single canonical UI & domain spec (`00..05`, 6 Portfolios, `EM-13` `G\|I\|P\|S\|O\|C`, OP `## Heading` & epistemology, `<920px` non-`rowspan`, `T1/T2`). |
+| [`render_precap_cockpit.py`](render_precap_cockpit.py) | **Compiler & Validator** | Validating Python compiler (`stdlib`-only) emitting the `v0.5` HTML Cockpit, OKF v0.2 Brief (`D1–D12`), and handoff JSON from `schemas/` + `02-weekly-dispersal/`. |
+| [`schemas/operator-weekly-command-brief.schema.json`](schemas/operator-weekly-command-brief.schema.json) | **Schema (Stage 1A)** | Draft 2020-12 schema for lightweight Stage 1A Operator Weekly Command Brief intake. |
+| [`schemas/precap-week-cockpit.schema.json`](schemas/precap-week-cockpit.schema.json) | **Schema (Stage 1B)** | Draft 2020-12 schema for compiled 6-Portfolio Matrix 1/2 Cockpit payloads. |
+| [`schemas/presentation-handoff.schema.json`](schemas/presentation-handoff.schema.json) | **Schema (Handoff)** | Draft 2020-12 handshake schema for `PrecapNextDay` (`artifact_type: Weekly_Command_Brief`). |
+| [`precap-week-cockpit-W45-actual-data-v03.html`](precap-week-cockpit-W45-actual-data-v03.html) | **Compiled Cockpit** | Generated interactive `v0.5` HTML Cockpit (`#s00..#s05`) compiled from `fixtures/`. |
+| [`fixtures/index.md`](fixtures/index.md) | **Fixture Sub-Bundle** | Verified W46 reference intake, cockpit JSON, OKF v0.2 brief, and handoff JSON. |

@@ -339,3 +339,18 @@ Two readings, not resolved here:
 **Scope:** `.claude/skills/PrecapWeek/`, `01-weekly-command-brief/`, `02-weekly-dispersal/`, `02-next-day-brief/`.
 
 **Source:** operator verification & forensic execution, 2026-11-11.
+
+---
+
+## D021 — Single-Owner Precap Week Simplification, Machine Schemas, Compiler & OKF v0.2 Output
+
+**Status:** locked and implemented (2026-11-11).
+
+**Decision:**
+1. **One Home Per Rule:** Consolidated all valid Precap Week UI/domain rules into [`01-weekly-command-brief/SPEC-PRECAP-WEEK-ITERATIONS.okf.md`](01-weekly-command-brief/SPEC-PRECAP-WEEK-ITERATIONS.okf.md), clock windows into [`02-weekly-dispersal/week-blueprint.json`](02-weekly-dispersal/week-blueprint.json), calendar deformation into [`.claude/skills/PrecapWeek/calendar-planning-guidance.md`](../../../.claude/skills/PrecapWeek/calendar-planning-guidance.md), and eliminated `16` redundant handover/blueprint/manifest files (`HANDOVER-02..06`, `precap-week-handovers/01..07`, `weekly-blueprint-standard.md`, `weekly-blueprint-meeting-example.md`, `package-manifest.md`, `01-weekly-command-brief/README.md`; preserved at pushed baseline SHA `ad10c483`).
+2. **Machine-Readable Background & Compiler:** Added Draft 2020-12 JSON schemas in [`01-weekly-command-brief/schemas/`](01-weekly-command-brief/schemas/precap-week-cockpit.schema.json) and deterministic `stdlib`-only Python compiler [`render_precap_cockpit.py`](01-weekly-command-brief/render_precap_cockpit.py) generating both the preserved interactive `v0.5` HTML Cockpit and OKF v0.2 Weekly Command Briefs + `PrecapNextDay` handoff JSON.
+3. **Preserved Downstream Compatibility:** Retained `Weekly_Command_Brief` / `weekly_plan_packet` (`handoff_envelope`) and `presentation_handoff` contracts for `weekly-orchestrator` and `PrecapNextDay`.
+
+**Scope:** `.claude/skills/PrecapWeek/`, `01-weekly-command-brief/`, `precap-week-handovers/`, `CURRENT-STATE.md`.
+
+**Source:** operator SSOT simplification mandate, 2026-11-11.

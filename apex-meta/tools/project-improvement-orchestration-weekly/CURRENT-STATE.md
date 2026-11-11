@@ -8,19 +8,19 @@
 **Accepted operator decisions:** D014 OpenProject-first dependency intake (`http://127.0.0.1:8083` via `opCall.js` with `D019` `[OP-OFFLINE]` fallback); D017 Monday–Sunday planning (`week-blueprint.json`: `4 × 120m` Flows Mon–Fri `08:00–24:00`, `2 × 120m` Flows Sat–Sun `12:00–16:00`); D018/D020 `3x3` Dispersal (`T1/T2` `slot-inventory.json` + `week-allocation.json`), 6-Portfolio standard (`Leela`, `IPOS`, `Master of Arts`, `Apex AI`, `Mindful Bar`, `Residual`), and unified `EM-13` `G|I|P|S|O|C` contract.
 
 **Current state & verified deliverables:**
-1. Live OpenProject read & 6-Portfolio standard (`Leela`, `IPOS`, `Master of Arts`, `Apex AI`, `Mindful Bar`, `Residual`) wired across `.claude/skills/PrecapWeek/`, `SPEC-PRECAP-WEEK-ITERATIONS.okf.md`, and `epics.json`.
-2. Canonical Precap Week Cockpit & Spec updated: `01-weekly-command-brief/SPEC-PRECAP-WEEK-ITERATIONS.okf.md` and `01-weekly-command-brief/precap-week-cockpit-W45-actual-data-v03.html` (`#s00..#s05`).
+1. **Single-Owner Precap Week Bundle (`D021`):** Consolidated all UI/domain rules into `01-weekly-command-brief/SPEC-PRECAP-WEEK-ITERATIONS.okf.md`, clock windows into `02-weekly-dispersal/week-blueprint.json`, calendar deformation into `.claude/skills/PrecapWeek/calendar-planning-guidance.md`, and eliminated `16` redundant handover/blueprint/manifest files (preserved at baseline `ad10c483`).
+2. **Machine-Readable Compiler & Schemas (`D021`):** Added Draft 2020-12 `schemas/*.schema.json`, `render_precap_cockpit.py`, OKF v0.2 reference brief, `PrecapNextDay` handoff fixture, and compiled `v0.5` cockpit `precap-week-cockpit-W45-actual-data-v03.html` (`#s00..#s05`, 6 Portfolio Areas, unified `EM-13` `G|I|P|S|O|C`).
 3. `T1/T2` Dispersal generated & mirrored: `02-weekly-dispersal/slot-inventory.json`, `02-weekly-dispersal/epics.json`, and `02-weekly-dispersal/week-allocation.json` (`240` bound slots, `2,880m` Flow TP, `3,706.0` XP, `100.0` BP); GCal writer moved to `02-next-day-brief/HANDOVER-GOOGLE-CALENDAR-FLOW-EVENTS.md`.
 
 **Next action:** Module 02 (`02-next-day-brief` / `PrecapNextDay`) intake using the unified `presentation_handoff` and `week-allocation.json`.
 
-**Verification note:** Live OpenProject read executed; ics calendar export validated; post-write OP mutations remain dry-run pending operator execution gates.
+**Verification note:** `render_precap_cockpit.py` (`--validate-only` + compile), `okf_validator.py` (`0` errors on `01-weekly-command-brief/`, `fixtures/`, `02-weekly-dispersal/`, `precap-week-handovers/`), Playwright desktop/mobile (`0` console errors, `0` overflow), and forked `PrecapWeek` `D011` smoke test passed; `0` broken links across `80` checks and `0` drift hits; post-write OP mutations remain dry-run.
 
 ---
 
-**Project phase:** Module 00 CLOSED. Ready for Module 01 (Weekly Command Brief).
+**Project phase:** Module 00 CLOSED (`ad95d50d..8c6c50ea`); Module 01 (`01-weekly-command-brief` / `PrecapWeek`) & `T1/T2` Dispersal (`02-weekly-dispersal/`) converged under `D014–D021`. Ready to open Module 02 (`02-next-day-brief`).
 
-**Active module:** none — awaiting operator instruction to open `01-weekly-command-brief`.
+**Active module:** `01-weekly-command-brief` closing into `02-next-day-brief` (`PrecapNextDay`).
 
 **Accepted topology (D012, O001 resolved), now live:** one main-session `weekly-orchestrator`; six stage components (`PrecapWeek`, `PrecapNextDay`, `raw-flow-dump-normalize`, `flow-recap`, `status-merge`, `ProjectStatus`) executed as directly-dispatched Skills with isolated `context: fork`; two retained blind reviewer agents (`apex-review-validity`, `apex-review-alignment`); `apex-session` (durable mutation) and `apex-sync` (deterministic read-side) as direct backbone; `PromptEngineer`/`AIRouting`/`model-usage-log` loaded on demand only.
 
