@@ -47,13 +47,13 @@ week_scope:
   weekend_regime_days:
     - Saturday
     - Sunday
-  allowed_sunday_exception:
-    - Sunday_weekly_precap_session
+  weekly_precap_cadence:
+    - Saturday_or_Sunday
   scope_rules:
     monday_to_sunday_only: true
     saturday_weekend_regime_applied: true
     sunday_weekend_regime_applied: true
-    sunday_weekly_precap_session_allowed: true
+    weekly_precap_session_on_saturday_or_sunday_allowed: true
     sun_off_retired: true
     canonical_clock_source: apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json
 ```
@@ -91,31 +91,42 @@ fixed_blocks:
     impossible.
   items:
     morning_routine:
-      block_role: day_start_anchor
+      block_role: day_start_anchor_0800_0900
       default_status: protected
       planning_effect:
         - reserve_before_first_work_flow
         - avoid_scheduling_project_work_inside_block
-    lunch_prep:
-      block_role: midday_food_preparation_anchor
+    lunch_and_afterlunch:
+      block_role: midday_food_and_regeneration_anchor_1304_1420
       default_status: protected
       planning_effect:
-        - reserve_before_lunch_break
+        - reserve_between_flow_2_and_flow_3
         - protect_transition_into_midday
-    lunch_break:
-      block_role: midday_recovery_anchor
+    afternoon_break_and_finanzen_2Do:
+      block_role: afternoon_break_and_admin_anchor_1620_1630
       default_status: protected
       planning_effect:
-        - reserve_as_non_work_block
+        - reserve_between_flow_3_and_flow_4
         - prevent_work_flow_overlap
+    evening_physical_and_abend:
+      block_role: evening_physical_1830_1930_and_abend_1930_2030
+      default_status: protected
+      planning_effect:
+        - protect_daily_60m_evening_physical_course_outside_in_flow_P_quota
+        - preserve_dinner_and_evening_transition
+    project_night_mon_wed_or_freizeit_thu_fri:
+      block_role: evening_regime_2030_2200
+      default_status: protected
+      planning_effect:
+        - run_project_night_mon_tue_wed_and_freizeit_thu_fri
     day_outro:
-      block_role: workday_shutdown_anchor
+      block_role: workday_shutdown_anchor_2200_2230
       default_status: protected
       planning_effect:
         - reserve_end_of_day_shutdown_space
         - support_next_day_continuity
     sleep_routine:
-      block_role: day_end_recovery_anchor
+      block_role: day_end_recovery_anchor_2330_2400
       default_status: protected
       planning_effect:
         - protect_evening_boundary
@@ -141,9 +152,10 @@ planned_blocks:
       flexibility: medium
       allowed_projects:
         - Leela
+        - IPOS
         - MasterOfArts
-        - Apex
-        - Investment
+        - ApexAI
+        - MindfulBar
         - Residual
       planning_effect:
         - place_highest_priority_project_work_first
@@ -235,30 +247,34 @@ weekly_blueprint_standard:
 
 ```yaml
 project_flow_priority:
-  default_full_capacity_order:
+  canonical_six_portfolio_areas:
     1: Leela
-    2: MasterOfArts
-    3: Apex
-    4: Investment
-    5: Residual
+    2: IPOS
+    3: MasterOfArts
+    4: ApexAI
+    5: MindfulBar
+    6: Residual
   default_order_rule: >
-    At full standard capacity, use the default project order as the starting
-    point for work-flow direction unless operator intent, current project state,
-    project_priority_signal, ratings, or calendar constraints justify a
-    different allocation.
+    At full standard capacity, derive weekly priority across the 6 canonical
+    portfolio areas (Leela, IPOS, Master of Arts, Apex AI, Mindful Bar,
+    Residual) from operator intent, current project state, OpenProject work
+    packages, and calendar constraints.
   project_roles:
     Leela:
-      default_role: primary_product_work
+      default_role: primary_product_and_skill_tree_work
+      default_priority_behavior: preserve_when_relevant
+    IPOS:
+      default_role: financial_advisory_platform_and_crm_work
       default_priority_behavior: preserve_when_relevant
     MasterOfArts:
-      default_role: business_or_content_work
+      default_role: creative_studio_billing_and_content_work
       default_priority_behavior: preserve_when_relevant
-    Apex:
-      default_role: orchestration_system_work
+    ApexAI:
+      default_role: orchestration_informatics_and_os_work
       default_priority_behavior: preserve_when_relevant
-    Investment:
-      default_role: investment_or_financial_review_work
-      default_priority_behavior: include_when_active_or_priority_raised
+    MindfulBar:
+      default_role: cacao_bar_product_validation_and_erp_work
+      default_priority_behavior: preserve_when_relevant
     Residual:
       default_role: overflow_recovery_unassigned_or_other_non_fixed_material
       default_priority_behavior: lowest_unless_operator_raises

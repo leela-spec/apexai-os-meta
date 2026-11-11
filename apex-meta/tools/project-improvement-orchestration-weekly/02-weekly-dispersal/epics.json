@@ -1,0 +1,685 @@
+{
+  "schema_version": "1.0",
+  "id": "MOA-SEQ-EPICS-DB",
+  "schema_ref": "EPICS-SCHEMA.md",
+  "status": "current",
+  "as_of": "2026-11-11",
+  "epics": [
+    {
+      "epic_id": "EP_m_intention",
+      "branch": "M",
+      "title": "Intention",
+      "priority": 9,
+      "op_project_id": null,
+      "status": "active"
+    },
+    {
+      "epic_id": "EP_m_acim",
+      "branch": "M",
+      "title": "ACIM",
+      "priority": 8,
+      "op_project_id": null,
+      "status": "active"
+    },
+    {
+      "epic_id": "EP_m_surrender",
+      "branch": "M",
+      "title": "Surrender",
+      "priority": 8,
+      "op_project_id": null,
+      "status": "active"
+    },
+    {
+      "epic_id": "EP_m_breathing",
+      "branch": "M",
+      "title": "Breathing",
+      "priority": 7,
+      "op_project_id": null,
+      "status": "active"
+    },
+    {
+      "epic_id": "EP_p_martial_arts",
+      "branch": "P",
+      "title": "Martial Arts",
+      "priority": 9,
+      "op_project_id": null,
+      "status": "active"
+    },
+    {
+      "epic_id": "EP_p_dance",
+      "branch": "P",
+      "title": "Dance",
+      "priority": 8,
+      "op_project_id": null,
+      "status": "active"
+    },
+    {
+      "epic_id": "EP_p_sbjj",
+      "branch": "P",
+      "title": "S/BJJ",
+      "priority": 7,
+      "op_project_id": null,
+      "status": "active"
+    },
+    {
+      "epic_id": "EP_p_general",
+      "branch": "P",
+      "title": "General",
+      "priority": 7,
+      "op_project_id": null,
+      "status": "active"
+    },
+    {
+      "epic_id": "EP_p_knee",
+      "branch": "P",
+      "title": "Knee",
+      "priority": 9,
+      "op_project_id": null,
+      "status": "active"
+    },
+    {
+      "epic_id": "EP_r_regeneration",
+      "branch": "R",
+      "title": "Regeneration",
+      "priority": 8,
+      "op_project_id": null,
+      "status": "active"
+    },
+    {
+      "epic_id": "EP_c_leela",
+      "branch": "C",
+      "title": "Leela",
+      "priority": 10,
+      "op_project_id": 10,
+      "status": "active"
+    },
+    {
+      "epic_id": "EP_c_ipos",
+      "branch": "C",
+      "title": "IPOS",
+      "priority": 8,
+      "op_project_id": 16,
+      "status": "active"
+    },
+    {
+      "epic_id": "EP_c_moa",
+      "branch": "C",
+      "title": "Master of Arts",
+      "priority": 9,
+      "op_project_id": 14,
+      "status": "active"
+    },
+    {
+      "epic_id": "EP_c_apex_ai",
+      "branch": "C",
+      "title": "Apex AI",
+      "priority": 9,
+      "op_project_id": 8,
+      "status": "active"
+    },
+    {
+      "epic_id": "EP_c_mindful_bar",
+      "branch": "C",
+      "title": "Mindful Bar",
+      "priority": 5,
+      "op_project_id": null,
+      "status": "active"
+    },
+    {
+      "epic_id": "EP_c_residual",
+      "branch": "C",
+      "title": "Residual",
+      "priority": 6,
+      "op_project_id": null,
+      "status": "active"
+    }
+  ],
+  "blocks": [
+    {
+      "block_id": "BL_m_intention_core",
+      "epic_id": "EP_m_intention",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "Intention Alignment & Cueing",
+      "order_index": 1
+    },
+    {
+      "block_id": "BL_m_acim_lessons",
+      "epic_id": "EP_m_acim",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "ACIM Daily Lesson & Quiet Center",
+      "order_index": 1
+    },
+    {
+      "block_id": "BL_m_surrender_release",
+      "epic_id": "EP_m_surrender",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "Letting Go & Somatic Release",
+      "order_index": 1
+    },
+    {
+      "block_id": "BL_m_breathing_cadence",
+      "epic_id": "EP_m_breathing",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "Coherent & Box Breathing",
+      "order_index": 1
+    },
+    {
+      "block_id": "BL_p_ma_strikes",
+      "epic_id": "EP_p_martial_arts",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "Strikes & Guard Transitions",
+      "order_index": 1
+    },
+    {
+      "block_id": "BL_p_ma_kicks",
+      "epic_id": "EP_p_martial_arts",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "Kicks & Chamber Control",
+      "order_index": 2
+    },
+    {
+      "block_id": "BL_p_dance_footwork",
+      "epic_id": "EP_p_dance",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "Dance Footwork & Rhythm",
+      "order_index": 1
+    },
+    {
+      "block_id": "BL_p_dance_moves",
+      "epic_id": "EP_p_dance",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "Moves & Flow Transitions",
+      "order_index": 2
+    },
+    {
+      "block_id": "BL_p_sbjj_Solo",
+      "epic_id": "EP_p_sbjj",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "S/BJJ Hip Escapes & Retention",
+      "order_index": 1
+    },
+    {
+      "block_id": "BL_p_general_mobility",
+      "epic_id": "EP_p_general",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "Running Cadence & Full-Body Stretch",
+      "order_index": 1
+    },
+    {
+      "block_id": "BL_p_knee_rehab",
+      "epic_id": "EP_p_knee",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "Knee Tendon Loading & Terminal Extension",
+      "order_index": 1
+    },
+    {
+      "block_id": "BL_r_yoga_nidra",
+      "epic_id": "EP_r_regeneration",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "Yoga Nidra",
+      "order_index": 1
+    },
+    {
+      "block_id": "BL_r_audiobooks",
+      "epic_id": "EP_r_regeneration",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "Audiobooks",
+      "order_index": 2
+    },
+    {
+      "block_id": "BL_r_socializing",
+      "epic_id": "EP_r_regeneration",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "Socializing",
+      "order_index": 3
+    },
+    {
+      "block_id": "BL_c_leela_sprint",
+      "epic_id": "EP_c_leela",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "Leela Core & Path Engine",
+      "order_index": 1
+    },
+    {
+      "block_id": "BL_c_ipos_sprint",
+      "epic_id": "EP_c_ipos",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "IPOS Architecture & Delivery",
+      "order_index": 1
+    },
+    {
+      "block_id": "BL_c_moa_sprint",
+      "epic_id": "EP_c_moa",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "Master of Arts Dispersal & Sequencing",
+      "order_index": 1
+    },
+    {
+      "block_id": "BL_c_apex_ai_sprint",
+      "epic_id": "EP_c_apex_ai",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "Apex AI Weekly Orchestration & OS",
+      "order_index": 1
+    },
+    {
+      "block_id": "BL_c_mindful_bar_sprint",
+      "epic_id": "EP_c_mindful_bar",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "Mindful Bar Operations",
+      "order_index": 1
+    },
+    {
+      "block_id": "BL_c_residual_sprint",
+      "epic_id": "EP_c_residual",
+      "parent_block_id": null,
+      "level": 1,
+      "title": "Residual Admin & Maintenance",
+      "order_index": 1
+    }
+  ],
+  "chunks": [
+    {
+      "chunk_id": "CH_m_intention_3m",
+      "branch": "M",
+      "title": "Sprint Intention & Outcome Visualization",
+      "duration_min": 3,
+      "base_xp": 3.0,
+      "mode": "cue_and_recall",
+      "op_ref": null
+    },
+    {
+      "chunk_id": "CH_m_acim_3m",
+      "branch": "M",
+      "title": "ACIM Lesson Recall & Forgiveness Pause",
+      "duration_min": 3,
+      "base_xp": 3.0,
+      "mode": "contemplation",
+      "op_ref": null
+    },
+    {
+      "chunk_id": "CH_m_surrender_3m",
+      "branch": "M",
+      "title": "Somatic Letting-Go & Jaw/Shoulder Release",
+      "duration_min": 3,
+      "base_xp": 3.0,
+      "mode": "release",
+      "op_ref": null
+    },
+    {
+      "chunk_id": "CH_m_breathing_3m",
+      "branch": "M",
+      "title": "Coherent 5.5s Nasal Cadence",
+      "duration_min": 3,
+      "base_xp": 3.0,
+      "mode": "regulation",
+      "op_ref": null
+    },
+    {
+      "chunk_id": "CH_p_ma_strikes_2m",
+      "branch": "P",
+      "title": "Shadow Jab-Cross-Slip Mechanics",
+      "duration_min": 2,
+      "base_xp": 2.0,
+      "mode": "interleaved_drill",
+      "op_ref": null
+    },
+    {
+      "chunk_id": "CH_p_ma_kicks_2m",
+      "branch": "P",
+      "title": "Slow Chamber Front & Roundhouse Control",
+      "duration_min": 2,
+      "base_xp": 2.0,
+      "mode": "balance_test",
+      "op_ref": null
+    },
+    {
+      "chunk_id": "CH_p_dance_footwork_2m",
+      "branch": "P",
+      "title": "Basic Groove & Weight-Shift Isolation",
+      "duration_min": 2,
+      "base_xp": 2.0,
+      "mode": "rhythm_drill",
+      "op_ref": null
+    },
+    {
+      "chunk_id": "CH_p_dance_moves_2m",
+      "branch": "P",
+      "title": "Turn-Out & Directional Flow Combo",
+      "duration_min": 2,
+      "base_xp": 2.0,
+      "mode": "combo_recall",
+      "op_ref": null
+    },
+    {
+      "chunk_id": "CH_p_sbjj_2m",
+      "branch": "P",
+      "title": "Technical Stand-Up & Hip Frame Drill",
+      "duration_min": 2,
+      "base_xp": 2.0,
+      "mode": "solo_grappling",
+      "op_ref": null
+    },
+    {
+      "chunk_id": "CH_p_general_2m",
+      "branch": "P",
+      "title": "Thoracic Opener & Ankle Bounce Reset",
+      "duration_min": 2,
+      "base_xp": 2.0,
+      "mode": "mobility_reset",
+      "op_ref": null
+    },
+    {
+      "chunk_id": "CH_p_knee_iso_2m",
+      "branch": "P",
+      "title": "Isometric Terminal Knee Extension & Spanish Squat Hold",
+      "duration_min": 2,
+      "base_xp": 2.0,
+      "mode": "tendon_load",
+      "op_ref": null
+    },
+    {
+      "chunk_id": "CH_r_yoga_nidra_12m",
+      "branch": "R",
+      "title": "Non-Sleep Deep Rest (Yoga Nidra Body Scan)",
+      "duration_min": 12,
+      "base_xp": 0.0,
+      "mode": "restorative_nsdr",
+      "op_ref": null
+    },
+    {
+      "chunk_id": "CH_r_audiobooks_12m",
+      "branch": "R",
+      "title": "Light Snack & Audiobook Listening Break",
+      "duration_min": 12,
+      "base_xp": 0.0,
+      "mode": "cognitive_offload",
+      "op_ref": null
+    },
+    {
+      "chunk_id": "CH_r_socializing_12m",
+      "branch": "R",
+      "title": "Warm Social Check-In & Walk Break",
+      "duration_min": 12,
+      "base_xp": 0.0,
+      "mode": "social_recovery",
+      "op_ref": null
+    },
+    {
+      "chunk_id": "CH_c_leela_30m",
+      "branch": "C",
+      "title": "Leela Work Package Sprint (+1m Recap)",
+      "duration_min": 30,
+      "base_xp": 30.0,
+      "mode": "craft_execution",
+      "op_ref": "WP#35"
+    },
+    {
+      "chunk_id": "CH_c_ipos_30m",
+      "branch": "C",
+      "title": "IPOS Work Package Sprint (+1m Recap)",
+      "duration_min": 30,
+      "base_xp": 30.0,
+      "mode": "craft_execution",
+      "op_ref": "WP#55"
+    },
+    {
+      "chunk_id": "CH_c_moa_30m",
+      "branch": "C",
+      "title": "Master of Arts Dispersal Sprint (+1m Recap)",
+      "duration_min": 30,
+      "base_xp": 30.0,
+      "mode": "craft_execution",
+      "op_ref": "WP#64"
+    },
+    {
+      "chunk_id": "CH_c_apex_ai_30m",
+      "branch": "C",
+      "title": "Apex AI Orchestration Sprint (+1m Recap)",
+      "duration_min": 30,
+      "base_xp": 30.0,
+      "mode": "craft_execution",
+      "op_ref": "WP#86"
+    },
+    {
+      "chunk_id": "CH_c_mindful_bar_30m",
+      "branch": "C",
+      "title": "Mindful Bar Hold / Review Sprint (+1m Recap)",
+      "duration_min": 30,
+      "base_xp": 30.0,
+      "mode": "craft_execution",
+      "op_ref": null
+    },
+    {
+      "chunk_id": "CH_c_residual_30m",
+      "branch": "C",
+      "title": "Residual Maintenance Sprint (+1m Recap)",
+      "duration_min": 30,
+      "base_xp": 30.0,
+      "mode": "craft_execution",
+      "op_ref": "WP#68"
+    }
+  ],
+  "node_placements": [
+    {
+      "placement_id": "NP_intention_1",
+      "epic_id": "EP_m_intention",
+      "block_id": "BL_m_intention_core",
+      "chunk_id": "CH_m_intention_3m",
+      "weight": 1.0,
+      "rotation_order": 1
+    },
+    {
+      "placement_id": "NP_acim_1",
+      "epic_id": "EP_m_acim",
+      "block_id": "BL_m_acim_lessons",
+      "chunk_id": "CH_m_acim_3m",
+      "weight": 1.0,
+      "rotation_order": 1
+    },
+    {
+      "placement_id": "NP_surrender_1",
+      "epic_id": "EP_m_surrender",
+      "block_id": "BL_m_surrender_release",
+      "chunk_id": "CH_m_surrender_3m",
+      "weight": 1.0,
+      "rotation_order": 1
+    },
+    {
+      "placement_id": "NP_breathing_1",
+      "epic_id": "EP_m_breathing",
+      "block_id": "BL_m_breathing_cadence",
+      "chunk_id": "CH_m_breathing_3m",
+      "weight": 1.0,
+      "rotation_order": 1
+    },
+    {
+      "placement_id": "NP_ma_strikes_1",
+      "epic_id": "EP_p_martial_arts",
+      "block_id": "BL_p_ma_strikes",
+      "chunk_id": "CH_p_ma_strikes_2m",
+      "weight": 0.5,
+      "rotation_order": 1
+    },
+    {
+      "placement_id": "NP_ma_kicks_2",
+      "epic_id": "EP_p_martial_arts",
+      "block_id": "BL_p_ma_kicks",
+      "chunk_id": "CH_p_ma_kicks_2m",
+      "weight": 0.5,
+      "rotation_order": 2
+    },
+    {
+      "placement_id": "NP_dance_footwork_1",
+      "epic_id": "EP_p_dance",
+      "block_id": "BL_p_dance_footwork",
+      "chunk_id": "CH_p_dance_footwork_2m",
+      "weight": 0.5,
+      "rotation_order": 1
+    },
+    {
+      "placement_id": "NP_dance_moves_2",
+      "epic_id": "EP_p_dance",
+      "block_id": "BL_p_dance_moves",
+      "chunk_id": "CH_p_dance_moves_2m",
+      "weight": 0.5,
+      "rotation_order": 2
+    },
+    {
+      "placement_id": "NP_sbjj_1",
+      "epic_id": "EP_p_sbjj",
+      "block_id": "BL_p_sbjj_Solo",
+      "chunk_id": "CH_p_sbjj_2m",
+      "weight": 1.0,
+      "rotation_order": 1
+    },
+    {
+      "placement_id": "NP_general_1",
+      "epic_id": "EP_p_general",
+      "block_id": "BL_p_general_mobility",
+      "chunk_id": "CH_p_general_2m",
+      "weight": 1.0,
+      "rotation_order": 1
+    },
+    {
+      "placement_id": "NP_knee_1",
+      "epic_id": "EP_p_knee",
+      "block_id": "BL_p_knee_rehab",
+      "chunk_id": "CH_p_knee_iso_2m",
+      "weight": 1.0,
+      "rotation_order": 1
+    },
+    {
+      "placement_id": "NP_r_yoga_nidra",
+      "epic_id": "EP_r_regeneration",
+      "block_id": "BL_r_yoga_nidra",
+      "chunk_id": "CH_r_yoga_nidra_12m",
+      "weight": 0.35,
+      "rotation_order": 1
+    },
+    {
+      "placement_id": "NP_r_audiobooks",
+      "epic_id": "EP_r_regeneration",
+      "block_id": "BL_r_audiobooks",
+      "chunk_id": "CH_r_audiobooks_12m",
+      "weight": 0.45,
+      "rotation_order": 2
+    },
+    {
+      "placement_id": "NP_r_socializing",
+      "epic_id": "EP_r_regeneration",
+      "block_id": "BL_r_socializing",
+      "chunk_id": "CH_r_socializing_12m",
+      "weight": 0.20,
+      "rotation_order": 3
+    },
+    {
+      "placement_id": "NP_c_leela",
+      "epic_id": "EP_c_leela",
+      "block_id": "BL_c_leela_sprint",
+      "chunk_id": "CH_c_leela_30m",
+      "weight": 1.0,
+      "rotation_order": 1
+    },
+    {
+      "placement_id": "NP_c_ipos",
+      "epic_id": "EP_c_ipos",
+      "block_id": "BL_c_ipos_sprint",
+      "chunk_id": "CH_c_ipos_30m",
+      "weight": 1.0,
+      "rotation_order": 1
+    },
+    {
+      "placement_id": "NP_c_moa",
+      "epic_id": "EP_c_moa",
+      "block_id": "BL_c_moa_sprint",
+      "chunk_id": "CH_c_moa_30m",
+      "weight": 1.0,
+      "rotation_order": 1
+    },
+    {
+      "placement_id": "NP_c_apex_ai",
+      "epic_id": "EP_c_apex_ai",
+      "block_id": "BL_c_apex_ai_sprint",
+      "chunk_id": "CH_c_apex_ai_30m",
+      "weight": 1.0,
+      "rotation_order": 1
+    },
+    {
+      "placement_id": "NP_c_mindful_bar",
+      "epic_id": "EP_c_mindful_bar",
+      "block_id": "BL_c_mindful_bar_sprint",
+      "chunk_id": "CH_c_mindful_bar_30m",
+      "weight": 1.0,
+      "rotation_order": 1
+    },
+    {
+      "placement_id": "NP_c_residual",
+      "epic_id": "EP_c_residual",
+      "block_id": "BL_c_residual_sprint",
+      "chunk_id": "CH_c_residual_30m",
+      "weight": 1.0,
+      "rotation_order": 1
+    }
+  ],
+  "set_members": [
+    {
+      "set_id": "SET_ma_combo",
+      "member_type": "CHUNK",
+      "member_id": "CH_p_ma_strikes_2m",
+      "sequence_index": 1
+    },
+    {
+      "set_id": "SET_ma_combo",
+      "member_type": "CHUNK",
+      "member_id": "CH_p_ma_kicks_2m",
+      "sequence_index": 2
+    },
+    {
+      "set_id": "SET_dance_combo",
+      "member_type": "CHUNK",
+      "member_id": "CH_p_dance_footwork_2m",
+      "sequence_index": 1
+    },
+    {
+      "set_id": "SET_dance_combo",
+      "member_type": "CHUNK",
+      "member_id": "CH_p_dance_moves_2m",
+      "sequence_index": 2
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "ED_moa_apex_sync",
+      "from_id": "CH_c_moa_30m",
+      "to_id": "CH_c_apex_ai_30m",
+      "relation": "synergy",
+      "weight": 1.0
+    },
+    {
+      "edge_id": "ED_leela_moa_schema",
+      "from_id": "CH_c_leela_30m",
+      "to_id": "CH_c_moa_30m",
+      "relation": "prerequisite",
+      "weight": 1.0
+    }
+  ]
+}

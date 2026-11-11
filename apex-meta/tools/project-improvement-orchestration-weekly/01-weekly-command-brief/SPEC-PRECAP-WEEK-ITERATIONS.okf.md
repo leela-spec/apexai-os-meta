@@ -3,8 +3,8 @@ type: specification
 id: SPEC-PRECAP-WEEK-ITERATIONS-v2.0
 title: "Precap Week Iterations — Compact Cockpit, L1/L2 Goal Specification and Hourly Calendar"
 description: "Operator-corrected cockpit design: five-card Portfolio Compass; collapsible three-card Operator Decisions; collapsible Matrix 1 with L1/L2 goals and six-field specification; single fit-to-width Mon-Sun hourly calendar sourced from week-blueprint.json; personal Mental/Physical/Regeneration priorities; residual information; Sequencing TODO."
-status: operator_review_pending
-date: 2026-11-10
+status: current
+date: 2026-11-11
 scope: [weekly-orchestration, precap-week, matrix-1, matrix-2, task-spec, g-i-p-s-o-c, leela-stats]
 tags: [weekly-orchestration, precap-week, specification, matrix-1, matrix-2, g-i-p-s-o-c, leela-stats]
 ---
@@ -13,23 +13,24 @@ tags: [weekly-orchestration, precap-week, specification, matrix-1, matrix-2, g-i
 
 ## 1. Executive Summary & Core Architectural Invariants
 
-This is the current **operator-review draft** for the Precap Week cockpit. The `2026-11-09` operator corrections (`v05`) replace recursive cube trees, `L3`, and supplemental calendar panels with section-level previews, `L1`/`L2` six-field goal detail, and one fit-to-width hourly timetable. These presentation rules are explicit alongside the locked `2026-11-10` `Mon–Sun` blueprint clock in [`02-weekly-dispersal/week-blueprint.json`](file:///C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json); Portfolio Compass metric selection and field-level semantic refinements remain pending.
+This is the canonical **operator-verified specification** for the Precap Week cockpit (`v05` + `T1` `Mon–Sun` clock + **6-Portfolio Standard**). The `2026-11-09..11` operator locks replace recursive cube trees, `L3`, and supplemental calendar panels with section-level previews, `L1`/`L2` six-field goal detail (`EM-13` unified on `G|I|P|S|O|C`), one fit-to-width hourly timetable driven by [`02-weekly-dispersal/week-blueprint.json`](file:///C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json), the 5-card Portfolio Compass, and the **6 Portfolio Areas** (`Leela`, `IPOS`, `Master of Arts`, `Apex AI`, `Mindful Bar`, `Residual`).
 
 ### Core Architectural Invariants
 
-- [P0 | I98/E95/R05] **00 · Head / Portfolio Compass**: Title `Precap Week · {{ISO_DATE_SPAN}}` with correctly computed ISO week number and dates, followed by five source-grounded summary cards (`metric_selection: OPERATOR_TODO`, visible by default; collapse optional). Do not inject duplicate `Weekly Target`, `Operator Agenda`, `Primary Data Source`, `Planned vs Realized`, or `Coverage` panels.
-- [P0 | I97/E94/R06] **01 · Operator Decision Brief**: The entire section collapses. Its collapsed header keeps three horizontally arranged preview cards (`New`, `Ongoing`, `Standard`) displaying short `setting: current value` summaries. Expanding exposes full setting rows; clicking a setting reveals details and provenance without adding a separate redundant controls bar.
-- [P0 | I97/E94/R06] **02 · Matrix 1 (Non-Temporal)**: The entire section collapses while keeping up to three highest-priority `L1` weekly goal cards visible in its own header. Expanded content stacks active projects vertically, each with horizontal `L1 Priority Goals` and folded `L2 Nice-to-Haves` (`no L3`, zero sprints). Selecting any `L1` or `L2` card opens one full-width, single-line six-column `Goal | Input | Process | Skills | Output | Continuation` row directly beneath that goal strip—no recursive child-cube trees and no extra visible `Task Specification` heading.
-- [P0 | I96/E94/R08] **03 · Matrix 2 (Temporal)**: Preserve **one** fit-to-width **Monday–Sunday** hourly timetable (`08:00–24:00` weekday regime and `12:00–16:00` Saturday–Sunday weekend regime — same mechanism, reduced slot count) driven dynamically by [`02-weekly-dispersal/week-blueprint.json`](file:///C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json), including `F1–F4`, protected anchors, external commitments, evening `Project Night` (`Mon–Wed`) / `Freizeit` (`Thu–Fri`), `22:00–22:30` `Day Outro`, and `23:30–24:00` `Sleep Routine`. No horizontal scrollbar, duplicate Monday detail panel, extra saved-sprint table, or unsolicited summary-pill bar. Follow the last time row with a dedicated 3-column `Mental | Physical | Regeneration` focus strip (`1–3` operator priorities each or `not yet specified`, no project assignment).
-- [P0 | I95/E92/R06] **04 · Residual Information**: Preserve unresolved questions, material evidence gaps, and the compact downstream handoff without duplicating Matrix 1 or Matrix 2. Distinct from any `Residuals` workstream.
-- [P0 | I90/E90/R05] **05 · Sequencing Orientation**: `TODO / OPERATOR_DEFINITION_PENDING` placeholder in cockpit display until operator defines UI semantics (while dispersal engine design tracks separately in [`02-weekly-dispersal/index.md`](file:///C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/index.md)).
+- [P0 | I98/E95/R05] **00 · Head / Portfolio Compass**: Title `Precap Week · {{ISO_DATE_SPAN}}` with correctly computed ISO week number and dates, followed by five source-grounded summary cards (`1. Net Craft Capacity 36.0h C / 48.0h gross minus meetings`, `2. 24 Flows`, `3. 72 3×3 Craft Sprints`, `4. Active L1 Outcomes across the 6 Portfolio Areas`, `5. G1 Gate & Source Readiness`, visible by default; collapse optional). Do not inject duplicate `Weekly Target`, `Operator Agenda`, `Primary Data Source`, `Planned vs Realized`, or `Coverage` panels.
+- [P0 | I97/E94/R06] **01 · Operator Decision Brief**: The entire section collapses. Its collapsed header keeps three horizontally arranged preview cards (`New`, `Ongoing`, `Standard`) displaying short `setting: current value` summaries. Expanding exposes full setting rows (`<details>` accordion); clicking a setting reveals details, `G1` status (`PROPOSED_FOR_G1 | APPROVED | CONFIRMED_INPUT`), and verified override proof (`{system_default, operator_choice, source_ref}`) without adding a separate redundant controls bar.
+- [P0 | I97/E94/R06] **02 · Matrix 1 (Non-Temporal)**: The entire section collapses while keeping up to three highest-priority `L1` weekly goal cards visible in its own header. Expanded content stacks the **6 canonical Portfolio Areas** (`Leela`, `IPOS`, `Master of Arts`, `Apex AI`, `Mindful Bar`, `Residual`) vertically, each with horizontal `L1 Priority Goals` (with inline `🔗 Cross-Repo:` dependency pills and `⚡` critical-path badges) and folded `L2 Nice-to-Haves` (`no L3`, zero sprints). Selecting any `L1` or `L2` card opens one full-width, single-line six-column `Goal | Input | Process | Skills | Output | Continuation` row directly beneath that goal strip—no recursive child-cube trees and no extra visible `Task Specification` heading; inside expanded `Goal` and `Output` cells, items decompose into `Tasks -> Subtasks` with short drafts/examples.
+- [P0 | I96/E94/R08] **03 · Matrix 2 (Temporal)**: Preserve **one** fit-to-width **Monday–Sunday** hourly timetable (`08:00–24:00` weekday regime and `12:00–16:00` Saturday–Sunday weekend regime — same mechanism, reduced slot count) driven dynamically by [`02-weekly-dispersal/week-blueprint.json`](file:///C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json) + `slot-inventory.json`, including `F1–F4` (with read-only `DD-22A` `P/M/R` bands), protected anchors, external commitments, evening `Project Night` (`Mon–Wed`) / `Freizeit` (`Thu–Fri`), `22:00–22:30` `Day Outro`, and `23:30–24:00` `Sleep Routine`. No horizontal scrollbar, duplicate Monday detail panel, extra saved-sprint table, or unsolicited summary-pill bar. Follow the last time row with a dedicated 3-column `Mental | Physical | Regeneration` focus strip (`1–3` operator priorities each or `not yet specified`, no project assignment).
+- [P0 | I95/E92/R06] **04 · Residual Information**: Formal 4-card contract covering `(1) Clock & Capacity Reconciliation`, `(2) EM-13 & OpenProject Readiness Gaps`, `(3) Longlist Deferrals & Revisit Triggers` (blocked/future-phase items moved out of Matrix 1 `L2`), and `(4) 1-Hop Provenance & presentation_handoff`. Distinct from the `Residual` portfolio area.
+- [P0 | I92/E90/R06] **05 · Sequencing Orientation**: Renders the **Dispersal Dials** (`week-demand.json` shares & `focus_days` across `M`, `P`, `R`, and the **6 Craft/Project Epics**: `Leela`, `IPOS`, `Master of Arts`, `Apex AI`, `Mindful Bar`, `Residual`), Gaussian placement rules (`σ = 6.0h` around `19:00`, `w_max = 1.5x`), and projected `T2` `TP / XP / BP` breakdown from [`02-weekly-dispersal/`](file:///C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/index.md).
 - [P0 | I96/E95/R05] **Source Discipline**: Keep W45 planning examples historical. Never promote W45 work items, time allocations, scores, OpenProject references, or metric values into universal defaults. Missing fields stay explicitly unresolved rather than invented.
-- [P0 | I93/E90/R08] **W45 Example Portfolio Only (Not a Fixed Five-Project Requirement)**:
-  1. **Master of Arts** (`MasterOfArts` / OP #14, #6, #7): Website content draft, content production week (7 videos), and business operations (invoicing engine & automated PDF billing).
-  2. **Leela** (`Leela-Cloud-2026` / OP #10): Focused strictly on the Skill Tree (spatial node contracts, Chunk library, durable placement identity). Path & Sequencing paused in W45.
-  3. **Investment / IPOS** (`investment-ipos` / OP #16): Pipeline recheck, external ingestion evaluation, and sovereign data visualization over time.
-  4. **Apex OS** (`apexai-os-meta` / OP #8): OpenMouse kernel bindings, mindful repo orchestration, dark factory integration.
-  5. **Residuals**: Apartment & studio art, Sexy Content, Community & Travel, personal auxiliary rhythms.
+- [P0 | I96/E94/R06] **Canonical 6-Portfolio Standard (`06-PORTFOLIO`)**:
+  1. **Leela** (`leela-game-flutter` / `leela-website` / `leela-spec` / OP #10): Skill Tree spatial node contracts, Chunk library, durable placement identity.
+  2. **IPOS** (`IPOS` / OP #16): Financial advisory ingestion pipeline, Docling/Trafilatura seam, sovereign time-series visualization.
+  3. **Master of Arts** (`MasterOfArts` / OP #14, #6, #7): Website content & responsive layout (`WP #163`), content production (`7` videos), and invoicing / automated PDF billing.
+  4. **Apex AI** (`apexai-os-meta` / OP #8): OpenMouse kernel HID bindings (`WP #139`), mindful repository orchestration (`WP #198`), Dark Factory gate (`WP #222`).
+  5. **Mindful Bar** (`leela-spec/mindful-bar` / `mindful-bar`): Cacao Bar functional product specification & validation (`v0.2`), ERPNext/Frappe architecture evaluation, and `systems/apex/` integration.
+  6. **Residual**: Apartment & studio art, Sexy Content, Community & Travel, personal auxiliary rhythms & overflow recovery.
 
 ---
 
@@ -88,9 +89,13 @@ The Operator Decision Brief acts as a calm executive control panel rather than a
 
 ### 4.1 Section 00 — Header and Portfolio Compass
 * Title: `Precap Week · {{ISO_DATE_SPAN}}` with correctly computed ISO week number; do not use the erroneous W45 label for 09–15 November 2026 (ISO W46).
-* Five visually consistent summary cards are immediately visible inside `Portfolio Compass` by default. Section-level collapse is optional, not mandatory.
-* **Metric selection remains pending operator definition (`OPERATOR_TODO`)**. Historical numbers from W45 may be shown as `historical / source-reported`, never as verified current metrics.
-* Do not automatically introduce `Coverage Triple`, `Planned vs Realized`, `XP/TP/BP`, balance scores, or other unapproved metrics from [`HANDOVER-05`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-05-PRECAP-STATS-SYSTEM-LEELA-INSPIRED.okf.md).
+* Five visually consistent summary cards are immediately visible inside `Portfolio Compass` by default (section-level collapse optional):
+  1. **`Net Craft Capacity (T1)`** (`36.0h` pure Craft `C` / `48.0h` gross across `24` Flows, minus verified fixed calendar collisions, with `72m` trailing `recap_min` accounted inside the `12.0h` non-Craft budget).
+  2. **`Total Weekly Flows`** (`24` nominal `120m` Flows = `20` weekday `Mon–Fri` + `4` weekend `Sat–Sun`).
+  3. **`3×3 Craft Sprints`** (`72` × `30m C` sprints across the week).
+  4. **`6 Portfolio Areas & Active L1 Scope`** (`6` Portfolio Areas: **`Leela`**, **`IPOS`**, **`Master of Arts`**, **`Apex AI`**, **`Mindful Bar`**, **`Residual`**, plus active `L1` outcome count).
+  5. **`G1 Gate & Source Readiness`** (`G1` approval state, verified overrides, OpenProject / Google Calendar status).
+* Historical numbers from W45 may be shown as `historical / source-reported`, never as verified current metrics.
 * Do not place a duplicate `Weekly Target`, `Operator Agenda`, or `Primary Data Source` card above or beside the Compass. Strategic goals belong to Matrix 1, evidence metadata to Section `04` or contextual detail.
 
 ### 4.2 Section 01 — Collapsible Operator Decision Brief
@@ -100,11 +105,11 @@ The section-level summary is always legible and renders three compact side-by-si
 `[ NEW: setting: current value ]  [ ONGOING: setting: current value ]  [ STANDARD: setting: current value ]`
 
 - With the section collapsed, each category card lists concise factual previews; it is not an empty heading or a tag-only control.
-- Expanding `01` exposes the full settings lists for all three categories. Each setting is `Variable: Active Value`; selecting it reveals explanation, provenance, default vs operator override, and any unresolved choice.
-- `New`: weekly changes, topic routing, scope changes, operator overrides, and special project evenings.
-- `Ongoing`: carried initiatives, verified calendar commitments, and background state (including explicit decline/ignore states where recorded).
-- `Standard`: standing OpenProject intake logic, `3×3` Flow/Sequencing baselines, and daily clock boundaries sourced from [`02-weekly-dispersal/week-blueprint.json`](file:///C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json) (`Mon–Sun`, `08:00–24:00` weekday with `22:00–22:30` `Day Outro`; `12:00–16:00` weekend regime; Sunday no longer OFF by default).
-- An `OPERATOR OVERRIDE` label appears only where source evidence shows an actual default-to-operator difference. Do not manufacture an override.
+- Expanding `01` exposes the full settings lists for all three categories (`<details>` inline accordion, zero extra toolbar). Each setting is `Variable: Active Value`; selecting it reveals explanation, provenance, `G1` status (`PROPOSED_FOR_G1 | APPROVED | CONFIRMED_INPUT`), and verified `{system_default, operator_choice, source_ref}` proof.
+- `New`: weekly changes, topic routing, scope changes, verified operator overrides, and weekly theme overrides on the `Mon–Wed Project Night` baseline.
+- `Ongoing`: carried initiatives, verified calendar commitments, and ignored ambient calendar holds (e.g., `WC Meister` ignored hold, `München Tanz` protected external event).
+- `Standard`: standing OpenProject intake logic, `3×3` Flow/Sequencing baselines, and daily clock boundaries sourced from [`02-weekly-dispersal/week-blueprint.json`](file:///C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json) (`Mon–Sun`, `08:00–24:00` weekday with `Mon–Wed Project Night 20:30–22:00`, `Thu–Fri Freizeit 20:30–22:00`, and `22:00–22:30` `Day Outro`; `12:00–16:00` weekend regime; Sunday no longer OFF by default).
+- An `OPERATOR OVERRIDE` label appears only where source evidence shows an actual default-to-operator difference (`{system_default, operator_choice, source_ref}`). Do not manufacture an override.
 - One-click collapse of the **whole** `01` section hides all expanded settings without erasing the three preview cards.
 
 ---
@@ -114,23 +119,23 @@ The section-level summary is always legible and renders three compact side-by-si
 The complete Matrix 1 **body** folds under one section-level control. Even while folded, the `02` header keeps up to three highest-priority weekly **goal cards** visible as previews, chosen from the plan's actual priority order. This is a responsive preview, not three mandatory goals for every project. Cards display human-readable goal titles; technical IDs belong in expanded metadata. Matrix 1 contains **zero calendar times and zero sprints**.
 
 ### 5.1 Project and Level Layout
-1. On expansion, projects stack in a single full-width vertical column. The project roster is dynamic; the W45 five-repo list is historical example data, not a permanent fixed roster.
-2. Each project displays **L1 Priority Goals** side-by-side from left to right in actual weekly execution/priority sequence. The row uses available width, with compact cards allowed; no arbitrary max-one-or-two limit.
-3. **L2 Nice-to-Haves** sits immediately below `L1` and starts folded. Opening `L2` reveals its own side-by-side cards, with the identical selection and detail behavior as `L1`.
-4. **No L3**. Other work packages remain available through the canonical OpenProject source and/or an `L2` classification where meaningful, never reappearing as a third Matrix 1 layer.
+1. On expansion, the **6 canonical Portfolio Areas** (`Leela`, `IPOS`, `Master of Arts`, `Apex AI`, `Mindful Bar`, `Residual`) stack in a single full-width vertical column.
+2. Each portfolio area displays **L1 Priority Goals** side-by-side from left to right in actual weekly execution/priority sequence. The row uses available width, with compact cards allowed; no arbitrary max-one-or-two limit.
+3. **L2 Nice-to-Haves** sits immediately below `L1` and starts folded. Opening `L2` reveals its own side-by-side cards (actionable secondary candidates only; blocked/future-phase items move to `Longlist Deferred` in Section `04`), with the identical selection and detail behavior as `L1`.
+4. **No L3**. Matrix 1 UI cards stay strictly `L1 / L2` (no `L3` cubes), while inside expanded `Goal` and `Output` cells items decompose into `Tasks -> Subtasks` with short drafts/examples.
 5. A project title and status may remain as lightweight metadata; do not render bulky outcome banners, technical ID columns, or redundant priority indicators.
 
 ### 5.2 Goal Selection and Expanded Data (Both L1 and L2)
 - Selecting a goal card unfolds one specification row **directly beneath that goal-card strip**. No extra visible `Task Specification`, `Test Specification Process`, or other heading bar is placed above it.
-- Exactly six fields render **left to right on one screen-width line**: `Goal | Input | Process | Skills | Output | Continuation`. Each takes an equal or content-responsive share of the available width; long content wraps within its field. On narrow viewports reflow cleanly without horizontal overflow.
-- `Goal`: concrete outcome and success evidence, not a generic project title.
-- `Input`: actual named source artifacts in priority order **plus separately identified upstream dependencies/prerequisites**. Missing paths/IDs remain unresolved.
+- Exactly six fields render **left to right on one screen-width line** (`EM-13` unified on `G | I | P | S | O | C`): `Goal | Input | Process | Skills | Output | Continuation`. Each takes an equal or content-responsive share of the available width; long content wraps within its field. On narrow viewports reflow cleanly without horizontal overflow.
+- `Goal`: concrete outcome, observable `acceptance` evidence, and `Tasks -> Subtasks` decomposition with short drafts/examples, not a generic project title.
+- `Input`: actual named `sources` in priority order, separately identified `upstream_dependencies`, and explicit `exclusions`. Missing paths/IDs remain unresolved.
 - `Process`: source-supported ordered work/method and the verification steps, not an invented generic framework.
 - `Skills`: actual registered skill IDs where verified; proposed/unverified capabilities marked explicitly.
-- `Output`: concrete output artifacts and testable deliverable characteristics; file paths only when grounded.
-- `Continuation`: downstream consumer, actual successor or unblocked work package, and handoff location where known.
+- `Output`: concrete `deliverable` artifacts, `redraft` (short drafts/examples), and `Tasks -> Subtasks` output structure; file paths only when grounded.
+- `Continuation`: `downstream` consumer, actual successor or unblocked work package, and handoff location where known.
 - Preserve the parent project context without duplicating it inside every field. Do not suppress the `Goal` field itself.
-- Do **not** add recursive child-cube trees. Arrows represent only verified material dependency edges; parallel goals have none.
+- Do **not** add recursive child-cube trees. Arrows and inline `🔗 Cross-Repo:` pills represent only verified material dependency edges; parallel goals have none.
 - Goal IDs may be exposed in expanded detail or on request, never as the primary human-facing card text.
 
 ### 5.3 Collapsed and Expanded Sketch
@@ -139,20 +144,21 @@ The complete Matrix 1 **body** folds under one section-level control. Even while
 02 · MATRIX 1 — PROJECT GOALS  [Goal A] [Goal B] [Goal C]  [Expand/Collapse]
     (collapsed: up to three preview goal cards remain visible; nothing else shows)
 
-    (expanded:)  PROJECT: Master of Arts
-    L1  [7 Produced Videos] [Website Content Draft] [Automated PDF Billing]
+    (expanded across 6 Portfolio Areas: Leela, IPOS, Master of Arts, Apex AI, Mindful Bar, Residual)
+    PROJECT: Master of Arts
+    L1  [7 Produced Videos] [Website Content Draft] [⚡ Automated PDF Billing 🔗->IPOS]
              (click selected goal; order follows verified weekly priority)
-        [ Goal ] [ Input ] [ Process ] [ Skills ] [ Output ] [ Continuation ]
+        [ Goal (Outcome+Acceptance+Tasks->Subtasks) ] [ Input (Sources+Deps+Exclusions) ] [ Process ] [ Skills ] [ Output (Deliverable+Redraft+Tasks->Subtasks) ] [ Continuation ]
     L2  [Nice-to-Haves: collapsed; expand to same card + six-field interaction]
-    PROJECT: Leela ...
+    PROJECT: Leela / IPOS / Apex AI / Mindful Bar / Residual ...
 ```
 
 ### 5.4 Goal-Card Content
-Visible by default: outcome title and, where useful, a short human-readable state/priority context. Move opaque OpenProject IDs and system provenance to expanded detail. Do not invent a completed state, priority, or critical-path link simply for presentation.
+Visible by default: outcome title, optional `⚡` critical-path cue, inline `🔗 Cross-Repo:` dependency pills (`Option B`), and short human-readable state/priority context. Move opaque OpenProject IDs and system provenance to expanded detail. Do not invent a completed state, priority, or critical-path link simply for presentation.
 
-### 5.5 Cross-Project Consolidated Dependency Deck — `DEPRECATED_UNDER_RESEARCH`
+### 5.5 Cross-Project Dependency Pills (`Option B` Ratified)
 
-The bottom standalone Mermaid `Consolidated Cross-Repo Critical Path & Process Dependency DAG` from `v1.2` is **deprecated pending research** per [`HANDOVER-06`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-06-CROSS-PROJECT-DEPENDENCY-VIEW-RESEARCH.okf.md) (`Option B` inline pills remain under visual verification). Do not auto-render multi-subgraph bottom Mermaid charts.
+The bottom standalone Mermaid `Consolidated Cross-Repo Critical Path & Process Dependency DAG` from `v1.2` is **retired** per [`HANDOVER-06`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-06-CROSS-PROJECT-DEPENDENCY-VIEW-RESEARCH.okf.md). Cross-repo dependencies render directly on `L1` goal cubes via inline clickable **`🔗 Cross-Repo:` pills** (plus `⚡` critical-path badges). Do not render multi-subgraph bottom Mermaid charts.
 
 ---
 
@@ -240,15 +246,26 @@ Forbidden below or around Matrix 2: a secondary expanded Monday details panel (`
 
 ---
 
-## 7. Section 04 — Residual Information
+## 7. Section 04 — Residual Information Contract
 
-Material unresolved planning choices, intentional deferrals, actual provenance gaps, and the embedded `PrecapNextDay` handoff reside here. Do not duplicate Matrix 1 goal cards, the Matrix 2 detailed calendar, or Section `00`/`01` control surfaces. This section is distinct from any `Residuals` project workstream.
+Section `04 · Residual Information` renders a structured 4-card grid (`2×2` on desktop, `1`-col on mobile) without duplicating Matrix 1 goal cards, the Matrix 2 calendar, or Section `00`/`01` control surfaces (distinct from the `Residual` portfolio area):
+1. **`Clock & Capacity Reconciliation`**: `T1` `week-blueprint.json` gross (`2,880m` / `48.0h`) vs pure Craft (`2,160m` / `36.0h`) vs `P/M/R/recap` (`720m` / `12.0h` including `72m` trailing `recap_min`), plus verified external meeting subtractions and commute buffers (e.g., `Alex & Chris` `10:00–11:00`, `München Tanz` `18:45–21:00` w/ `18:15` transition buffer).
+2. **`EM-13 & OpenProject Readiness Gaps`**: Unified `EM-13` (`G|I|P|S|O|C`) field completeness, OpenProject status-vs-description audit findings, and `[OP-OFFLINE]` / `[OP-UNRESOLVED]` provenance markers.
+3. **`Longlist Deferrals & Revisit Triggers`**: Blocked or future-phase backlog items moved out of Matrix 1 `L2 Nice-to-Haves` (e.g., `WP #204 ACIM Credits`, `Stripe webhook`, `WP #227 Telegram digest`) with explicit deferral reason and revisit trigger.
+4. **`1-Hop Provenance & Downstream Handoff`**: Source freshness ledger and the single embedded `presentation_handoff` pointer to `PrecapNextDay`.
 
 ---
 
-## 8. Section 05 — Sequencing Orientation
+## 8. Section 05 — Sequencing Orientation (`02-weekly-dispersal/`)
 
-`TODO / OPERATOR_DEFINITION_PENDING`. No UI behavior, contents, or integration semantics are authorized in the cockpit yet.
+Section `05 · Sequencing Orientation` displays the weekly Dispersal Engine dials and `T2` allocation summary grounded in [`02-weekly-dispersal/week-demand.json`](file:///C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-demand.json), `epics.json`, and `week-allocation.json`:
+1. **Branch & Epic Shares (`WD-40` Across 4 Branches)**:
+   - **`Mental (24 slots / 120m)`**: `Intention` (`focus_days`), `ACIM`, `Surrender`, `Breathing`.
+   - **`Physical (72 slots / 144m)`**: `Martial Arts`, `Dance`, `S/BJJ`, `General`, `Knee` (pinned to `*_*_I3_P`).
+   - **`Regeneration (72 in-Flow + 14 routine/break slots / 456m)`**: `Yoga Nidra`, `Audiobooks`, `Socializing` (`XP = 0`, `DD-16` no numeric BP floor).
+   - **`Craft / Projects (72 slots / 2,160m across the 6 Portfolio Areas)`**: **`Leela`**, **`IPOS`**, **`Master of Arts`**, **`Apex AI`**, **`Mindful Bar`**, and **`Residual`**.
+2. **Gaussian Focus-Day Weighting (`T2`)**: `σ = 6.0h` centered on `19:00` (`1140m`) of each `focus_day` (`w_max = 1.5x`, no Fri→Sat bleed).
+3. **Sequence-Arc Summary & Projected `TP / XP / BP`**: Displays the `Q13` Sequence-Arc overview (`Sequence` `M04` broader than a single `Flow`, while mixed-project `C1/C2/C3` sprints are permitted when capacity compression requires) and projected `TP`, `XP`, and structural `BP` (`50/25/25`).
 
 ---
 
@@ -258,53 +275,64 @@ Precap Week concludes with an embedded YAML `presentation_handoff` block consume
 
 ```yaml
 presentation_handoff:
-  specification: "SPEC-PRECAP-WEEK-ITERATIONS-v2.0"
-  produced_at: "2026-11-10T00:00:00Z"
-  operator_governance_status: "OPERATOR_SPEC_VERIFICATION_PENDING"
-  active_week: "{{ACTIVE_ISO_WEEK}}"
+  artifact_type: "Weekly_Command_Brief"
+  specification_version: "SPEC-PRECAP-WEEK-ITERATIONS-v2.1"
+  produced_at: "2026-11-11T00:00:00Z"
+  operator_g1_status: "APPROVED"
+  week: "{{ACTIVE_ISO_WEEK}}"
   timezone: "Europe/Berlin"
   clock_owner: "apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json"
-  
-  repository_priorities:
-    master_of_arts:
-      priority_goals: ["Website Content Draft", "7 Produced Videos", "Automated PDF Billing"]
-      active_workstreams: ["website_content", "content_week_7_videos", "business_invoicing"]
-    leela:
+  source_status:
+    openproject: "ONLINE | OFFLINE_FALLBACK"
+    google_calendar: "ONLINE | OFFLINE_FALLBACK"
+  six_portfolio_areas:
+    - portfolio_id: "leela"
+      label: "Leela"
       priority_goals: ["Skill Tree Spatial Node Contracts & Freeze Gate"]
-      active_workstreams: ["skill_tree_contracts"]
-    investment_ipos:
+      selected_work_refs: ["OP-WP#159", "OP-WP#39", "OP-WP#48"]
+    - portfolio_id: "ipos"
+      label: "IPOS"
       priority_goals: ["Full Pipeline Recheck & Sovereign Data Visualization Over Time"]
-      active_workstreams: ["pipeline_recheck", "data_viz_over_time"]
-    apex_os:
+      selected_work_refs: ["OP-WP#224", "OP-WP#226", "OP-WP#228"]
+    - portfolio_id: "master_of_arts"
+      label: "Master of Arts"
+      priority_goals: ["Website Content Draft", "7 Produced Videos", "Automated PDF Billing"]
+      selected_work_refs: ["OP-WP#163"]
+    - portfolio_id: "apex_ai"
+      label: "Apex AI"
       priority_goals: ["OpenMouse Kernel HID Binding", "Mindful Repo Orchestration & Dark Factory Gate"]
-      active_workstreams: ["openmouse_integration", "mindful_repo_orchestration", "dark_factory"]
-    residuals:
-      priority_goals: ["Mon/Wed Special Project Evenings (Sexy Content, Dance/Martial Arts)", "Studio Art & Travel Sync"]
-      active_workstreams: ["apartment_studio_art", "sexy_content", "community_travel"]
-
+      selected_work_refs: ["OP-WP#139", "OP-WP#198", "OP-WP#222"]
+    - portfolio_id: "mindful_bar"
+      label: "Mindful Bar"
+      priority_goals: ["Cacao Bar Functional Product Spec v0.2 & Validation", "ERPNext/Frappe Architecture Evaluation"]
+      selected_work_refs: ["mindful-bar:spec-v0.2", "mindful-bar:erp-eval"]
+    - portfolio_id: "residual"
+      label: "Residual"
+      priority_goals: ["Mon-Wed Project Night Themes (Sexy Content, Dance/Martial Arts)", "Studio Art & Travel Sync"]
+      selected_work_refs: ["residual:studio-art", "residual:sexy-content", "residual:community-travel"]
   operating_geometry:
     week_span: "monday_to_sunday"
     weekday_window: "08:00-24:00"
+    project_night_window: "Mon-Wed 20:30-22:00"
+    freizeit_evening_window: "Thu-Fri 20:30-22:00"
     day_outro: "22:00-22:30"
     weekend_window: "12:00-16:00"
-    special_project_evenings: ["Monday", "Wednesday"]
     reconciled_calendar_events: []
-
+    capacity_deformations_and_omissions: []
   next_consumer: "PrecapNextDay"
-  next_action: "Verify v05-aligned cockpit & T1 week-blueprint.json integration"
 ```
 
 ---
 
 ## 10. Failure Guards & Acceptance Tests for Current Operator Design
 
-- [ ] **UX-00:** Portfolio Compass starts open with five source-grounded candidate metric cards (`OPERATOR_TODO`); no `Weekly Target`, `Operator Agenda`, `Primary Data Source`, `Coverage`, or `Planned vs Realized` duplicate surface is injected.
-- [ ] **UX-01:** `01` is fully collapsible. With body closed, `New / Ongoing / Standard` remain visible as three compact side-by-side cards displaying `setting: value` previews; with body open, each setting can independently reveal details.
-- [ ] **UX-02:** `02` is fully collapsible. With body closed, up to three highest-priority `L1` goal cards remain visible in its own header; all per-project rows are hidden. No isolated `L1`-only collapse substitutes for section collapse.
-- [ ] **UX-03:** Expanded Matrix 1 has only `L1` and folded `L2`, each using a horizontal goal-card row. Selecting either category's goal reveals one directly-below six-field (`Goal | Input | Process | Skills | Output | Continuation`) horizontal row with zero extra heading or recursive child tree.
-- [ ] **UX-04:** Human-readable goal title dominates the card; OpenProject IDs remain secondary metadata and are never invented. Source precedence and verified blocking edges are preserved.
-- [ ] **UX-05:** `03` has exactly one fit-to-width **Monday–Sunday** hourly timetable grounded in [`week-blueprint.json`](file:///C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json) (`08:00–24:00` weekday + `12:00–16:00` weekend `F1–F4`, anchors, `Day Outro 22:00–22:30`), without a second `#daystrip`/`#flowdetail` panel, saved sprint table, extra `.displayrow` pills, or horizontal scrollbar (`scrollWidth <= clientWidth`).
-- [ ] **UX-06:** Directly under the final `23:30–24:00` timetable row, the `Mental | Physical | Regeneration` strip shows `1–3` operator-specified bullet priorities per category, or explicit `not yet specified` state.
-- [ ] **UX-07:** `04` contains residual information without duplicated project/calendar panels; `05` remains `TODO` placeholder only.
-- [ ] **CONTRACT-01:** `G/I/P/S/O/Continuation` values are sourced or explicitly unresolved. Upstream dependencies in `Input` remain distinct from downstream successors in `Continuation`. The `EM-13` mapping remains explicitly open.
-- [ ] **EVAL-01:** Exercise section collapse, preview persistence, `L1`/`L2` selection, 6-field row visibility, timetable fit at desktop and narrow widths, and personal-focus strip using the real W45 fixture (`scrollWidth <= clientWidth`). Never treat a passing static string check as proof of usability.
+- [x] **UX-00:** Portfolio Compass starts open with the 5 locked source-grounded metric cards (`Net Craft Capacity`, `24 Flows`, `72 Craft Sprints`, `6 Portfolio Areas & Active L1 Scope`, `G1 Gate & Source Readiness`); no `Weekly Target`, `Operator Agenda`, `Primary Data Source`, `Coverage`, or `Planned vs Realized` duplicate surface is injected.
+- [x] **UX-01:** `01` is fully collapsible. With body closed, `New / Ongoing / Standard` remain visible as three compact side-by-side cards displaying `setting: value` previews; with body open, each setting can independently reveal details, `G1` status, and verified override proof.
+- [x] **UX-02:** `02` is fully collapsible. With body closed, up to three highest-priority `L1` goal cards remain visible in its own header; all per-project rows across the 6 Portfolio Areas are hidden. No isolated `L1`-only collapse substitutes for section collapse.
+- [x] **UX-03:** Expanded Matrix 1 stacks the **6 Portfolio Areas** (`Leela`, `IPOS`, `Master of Arts`, `Apex AI`, `Mindful Bar`, `Residual`) and has only `L1` and folded `L2`, each using a horizontal goal-card row. Selecting either category's goal reveals one directly-below six-field (`Goal | Input | Process | Skills | Output | Continuation`) horizontal row with `Tasks -> Subtasks` and short drafts/examples inside `Goal` and `Output`, zero extra heading, and zero recursive child tree.
+- [x] **UX-04:** Human-readable goal title dominates the card; inline `🔗 Cross-Repo:` pills (`Option B`) and `⚡` critical-path badges appear on `L1` cards; OpenProject IDs remain secondary metadata and are never invented.
+- [x] **UX-05:** `03` has exactly one fit-to-width **Monday–Sunday** hourly timetable grounded in [`week-blueprint.json`](file:///C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json) (`08:00–24:00` weekday + `12:00–16:00` weekend `F1–F4`, read-only `DD-22A` `P/M/R` bands, anchors, `Day Outro 22:00–22:30`), without a second `#daystrip`/`#flowdetail` panel, saved sprint table, extra `.displayrow` pills, or horizontal scrollbar (`scrollWidth <= clientWidth`).
+- [x] **UX-06:** Directly under the final `23:30–24:00` timetable row, the `Mental | Physical | Regeneration` strip shows `1–3` operator-specified bullet priorities per category, or explicit `not yet specified` state.
+- [x] **UX-07:** `04` renders the 4-card Residual Information contract without duplicated project/calendar panels; `05` renders the Sequencing Orientation panel (`week-demand.json` dials across 4 branches + 6 Craft Epics, Gaussian `σ=6.0h`, and `T2` `TP/XP/BP` summary).
+- [x] **CONTRACT-01:** `G/I/P/S/O/Continuation` values are sourced or explicitly unresolved (`EM-13` unified on `G|I|P|S|O|C`, `Goal.acceptance`, `Input.exclusions`, `Output.redraft` included). Upstream dependencies in `Input` remain distinct from downstream successors in `Continuation`.
+- [x] **EVAL-01:** Exercise section collapse, preview persistence, `L1`/`L2` selection, 6-field row visibility, timetable fit at desktop and narrow widths, and personal-focus strip using the W45/W46 fixture (`scrollWidth <= clientWidth`).

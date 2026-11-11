@@ -1,18 +1,18 @@
 # Current State
 
 
-## Active improvement continuation — 2026-11-08 (supersedes older 2026-11-06 statement)
+## Active improvement state — 2026-11-11 (Precap Week & Dispersal `T1/T2` Convergence)
 
 **Operator directive:** Ground the weekly command brief in live OpenProject work packages, the 4-flow daily structure (3x3 standard repetition), the Sequencing integration system, and Google Calendar time-blocking.
 
-**Accepted operator decisions:** D014 OpenProject-first dependency intake (P1 live read executed against `http://127.0.0.1:8083` via `opCall.js`); D016/OP-01 Sequencing as the holistic integration system (3x3 standard, 4 flows daily: 2 MoA, 1 IPOS, 1 Residual); D017 M06=A Saturday weekly Precap, Sunday off. Canonical production command brief `01-weekly-command-brief/WEEKLY_COMMAND_BRIEF_2026_W45.md` and calendar export `2026-W45-flows.ics` generated.
+**Accepted operator decisions:** D014 OpenProject-first dependency intake (`http://127.0.0.1:8083` via `opCall.js` with `D019` `[OP-OFFLINE]` fallback); D017 Monday–Sunday planning (`week-blueprint.json`: `4 × 120m` Flows Mon–Fri `08:00–24:00`, `2 × 120m` Flows Sat–Sun `12:00–16:00`); D018/D020 `3x3` Dispersal (`T1/T2` `slot-inventory.json` + `week-allocation.json`), 6-Portfolio standard (`Leela`, `IPOS`, `Master of Arts`, `Apex AI`, `Mindful Bar`, `Residual`), and unified `EM-13` `G|I|P|S|O|C` contract.
 
 **Current state & verified deliverables:**
-1. Live OpenProject read executed: mapped active WPs (#204, #163, #224, #226, #233, #232, #227, #215, #216).
-2. Production Command Brief produced: `01-weekly-command-brief/WEEKLY_COMMAND_BRIEF_2026_W45.md`.
-3. Deterministic Google Calendar export: `01-weekly-command-brief/calendar-export/2026-W45-flows.ics` (22 events, RFC 5545).
+1. Live OpenProject read & 6-Portfolio standard (`Leela`, `IPOS`, `Master of Arts`, `Apex AI`, `Mindful Bar`, `Residual`) wired across `.claude/skills/PrecapWeek/`, `SPEC-PRECAP-WEEK-ITERATIONS.okf.md`, and `epics.json`.
+2. Canonical Precap Week Cockpit & Spec updated: `01-weekly-command-brief/SPEC-PRECAP-WEEK-ITERATIONS.okf.md` and `01-weekly-command-brief/precap-week-cockpit-W45-actual-data-v03.html` (`#s00..#s05`).
+3. `T1/T2` Dispersal generated & mirrored: `02-weekly-dispersal/slot-inventory.json`, `02-weekly-dispersal/epics.json`, and `02-weekly-dispersal/week-allocation.json` (`240` bound slots, `2,880m` Flow TP, `3,706.0` XP, `100.0` BP); GCal writer moved to `02-next-day-brief/HANDOVER-GOOGLE-CALENDAR-FLOW-EVENTS.md`.
 
-**Next action:** PrecapNextDay intake targeting Monday Nov 9 using the generated downstream handoff payload.
+**Next action:** Module 02 (`02-next-day-brief` / `PrecapNextDay`) intake using the unified `presentation_handoff` and `week-allocation.json`.
 
 **Verification note:** Live OpenProject read executed; ics calendar export validated; post-write OP mutations remain dry-run pending operator execution gates.
 

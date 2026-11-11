@@ -3,8 +3,8 @@ type: handover
 id: HANDOVER-06-CROSS-PROJECT-DEPENDENCY-VIEW-RESEARCH-v1.0
 title: Handover — Cross-Project Consolidated Dependency Visualization Research (Replace or Drop Mermaid Deck)
 description: Bounded research handover evaluating whether the bottom Consolidated Process Dependency DAG should be removed entirely, replaced by inline Goal-Cube handoff badges, or refactored into a pure Goal-Hopping map.
-status: ready_for_operator_verification
-date: 2026-11-09
+status: current
+date: 2026-11-11
 tags: [weekly-orchestration, matrix-1, critical-path, dependency-visualization, ux-research, em-09]
 ---
 
@@ -59,8 +59,8 @@ L1 | Priority Goals:
 
 ## 3. 5-Component Verification Readiness Note
 
-1. **Observation**: In Week 45 draft v1.2, 18 nodes in the bottom Consolidated Mermaid DAG merely echoed individual repo L2 cards with only one dashed cross-repo edge (`M5 -.-> I2`).
-2. **Logic Chain**: When cross-repo coupling is sparse (`0-2` edges), rendering an entire 5-cluster diagram repeats Level 1/Level 2 content without proportional clarity. Inline link badges on affected `L1` Goal cubes (`Option B`) or clean deletion (`Option A`) respects the high-density visual budget.
-3. **Caveats**: True live frequency of cross-repo dependencies awaits execution of P1 read-only OpenProject relation intake (`HANDOVER-20261106.okf.md`).
-4. **Conclusion**: Bottom Consolidated Process Dependency DAG should be reclassified as **`DEPRECATED_UNDER_RESEARCH`** in `SPEC-PRECAP-WEEK-ITERATIONS.okf.md` `v2.0` pending execution of this handover.
-5. **Verification Method**: Execute `HANDOVER-20261106.okf.md` read-only OP relation count, render Option B pill mockup vs current Mermaid DAG side-by-side, and capture operator selection.
+1. **Observation**: In Week 45 draft v1.2 (`generate_northstar_html.py:732-734`), 18 nodes in the bottom Consolidated Mermaid DAG echoed individual repo cards with only three dashed cross-repo edges (`M5 -> I2`, `A3 -> L1`, `A2 -> M1`).
+2. **Logic Chain**: When cross-repo coupling is sparse across the 6 Portfolio Areas (`Leela`, `IPOS`, `Master of Arts`, `Apex AI`, `Mindful Bar`, `Residual`), rendering a standalone multi-cluster Mermaid diagram repeats Level 1/Level 2 content without proportional clarity. Inline clickable link badges on affected `L1` Goal cubes (**`Option B`: `🔗 Cross-Repo:` pills + `⚡` critical-path badge**) preserve cross-repo visibility *in situ* with zero extra vertical deck height.
+3. **Caveats**: Cross-repo pills render only for verified OpenProject relations (`OP-REL#80–91`) or explicit operator-confirmed cross-repo handoffs (e.g., `moa-billing -> IPOS`).
+4. **Conclusion**: **Option B (`🔗 Cross-Repo:` inline clickable pills on `L1` cubes)** is ratified; the standalone bottom Mermaid DAG is retired.
+5. **Verification Method**: Verify inline `🔗 Cross-Repo:` pills on `L1` cards in Section `02 · Matrix 1` and confirm zero standalone bottom Mermaid DAG is rendered.

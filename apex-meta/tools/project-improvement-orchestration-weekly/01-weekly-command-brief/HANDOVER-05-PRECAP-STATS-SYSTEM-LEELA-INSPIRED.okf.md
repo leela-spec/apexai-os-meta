@@ -3,8 +3,8 @@ type: handover
 id: HANDOVER-05-PRECAP-STATS-SYSTEM-LEELA-INSPIRED-v1.0
 title: Handover — Precap Week & Weekly Orchestration Stats System (Leela Feature Stats Grounded)
 description: Research findings and architectural handover adapting Leela Cloud's feature-stats telemetry grammar (basis separation, Target/Placed/Realized coverage, XP/TP/BP portfolio balance, and testing-vs-application share) into Precap Week and weekly orchestration.
-status: ready_for_operator_verification
-date: 2026-11-09
+status: current
+date: 2026-11-11
 tags: [weekly-orchestration, stats, leela-inspiration, telemetry, precap-week, em-09]
 ---
 
@@ -12,57 +12,41 @@ tags: [weekly-orchestration, stats, leela-inspiration, telemetry, precap-week, e
 
 ## 1. Mission & Grounded Inspiration
 
-Per the operator's `2do` directive to research high-signal statistics for **Precap Week** and **weekly orchestration** inspired by Leela's feature stats, this handover distills the verified metric architecture inside `Leela-Cloud-2026` (`docs/design/stats/`, `docs/ssot/features/stats/`, `lib/features/stats/`) into a rigorous, non-gamified portfolio KPI system for Precap Week.
+This specification locks the **5 canonical Portfolio Compass header cards** (`Section 00`) grounded in `02-weekly-dispersal/week-blueprint.json` + `slot-inventory.json` (`T1` `Mon–Sun` clock) and the **6 Portfolio Areas** (`Leela`, `IPOS`, `Master of Arts`, `Apex AI`, `Mindful Bar`, `Residual`), while preserving the verified Leela telemetry grammar (`Leela-Cloud-2026/docs/design/stats/`, `docs/ssot/features/stats/`) as the `T2` (`XP/TP/BP`) upgrade path.
 
 ---
 
 ## 2. 4-Dimensional Handover Contract (`EM-09`)
 
 ### 2.1 Input & Priority Ledger
-- **P1 Authoritative Leela Stats Sources (Inspected Live)**:
-  - [`00-MACRO.md`](file:///c:/GitDev/Leela-Cloud-2026/docs/design/stats/00-MACRO.md): The eleven stat-chip laws (`L1–L11`), non-color basis marks (`● realized · ○ planned · ◇ forecast`), and cross-feature consumer routing.
-  - [`10-STATS-FEATURE.md`](file:///c:/GitDev/Leela-Cloud-2026/docs/design/stats/10-STATS-FEATURE.md): Six canonical UX surfaces (`S1 Today`, `S2 Week dashboard`, `S3 Drill-down cascade`, `S4 Flow & Session efficacy`, `S5 Evidence & data quality`).
-  - [`spec.md`](file:///c:/GitDev/Leela-Cloud-2026/docs/ssot/features/stats/spec.md): Rules `F5-B01` through `F5-B23` (TP/XP/BP construct separation, `F5-B13` Target/Placed/Realized coverage, `F5-B17` capped adherence vs over-delivery, `F5-B20` testing vs application split).
-  - [`stats-system.md`](file:///c:/GitDev/Leela-Cloud-2026/docs/design/stats-system.md): Embedded evidence vs destination analysis thesis.
-  - [`stats_cube_symbol.dart`](file:///c:/GitDev/Leela-Cloud-2026/lib/features/stats/stats_cube_symbol.dart): Visual cube/envelope symbol taxonomy (`Chunk`, `Sequence`, `Epic`, `Branch`).
-- **Deliberately Excluded**: Legacy streak badges and completion-driven level-up (`SD-004` drift refused per `00-MACRO.md` §8 and baseline `ST-033`); arbitrary invented vanity metrics lacking verifiable denominators.
+- **P1 Authoritative Canonical Clock & Portfolio Sources**:
+  - [`week-blueprint.json`](file:///C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json) & `slot-inventory.json`: `24` nominal `120m` Flows (`Mon–Fri` `08:00–24:00` w/ `Day Outro 22:00–22:30` = `20` Flows; `Sat–Sun` `12:00–16:00` = `4` Flows; `48.0h` / `2,880m` gross = `36.0h` / `2,160m` pure Craft `C` across `72 × 30m` sprints + `12.0h` / `720m` `P/M/R/recap` including `72m` trailing `recap_min`).
+  - **6 Canonical Portfolio Areas (`06-PORTFOLIO`)**: **`Leela`**, **`IPOS`**, **`Master of Arts`**, **`Apex AI`**, **`Mindful Bar`**, and **`Residual`**.
+- **P2 Leela Stats Reference Sources (For `T2` `XP/TP/BP` Projection Only)**:
+  - [`00-MACRO.md`](file:///c:/GitDev/Leela-Cloud-2026/docs/design/stats/00-MACRO.md): Basis separation (`● realized · ○ planned · ◇ forecast`).
+  - [`spec.md`](file:///c:/GitDev/Leela-Cloud-2026/docs/ssot/features/stats/spec.md): `TP/XP/BP` construct orthogonality (`F5-B01`..`F5-B23`).
+- **Deliberately Excluded**: Legacy pre-`T1` `38.5h` (`2,310m`), `21:00` shutdown, and `6d (Mon-Sat)` assumptions; unverified `stats_facts_daily` claims before `FlowRecap`/`StatusMerge` emit JSON logs; duplicate `Weekly Target`, `Operator Agenda`, or `Primary Data Source` panels inside Section `00`.
 
-### 2.2 Research Candidates — NOT Approved Header Metrics
-- **Research Framework**: Construct Separation + Coverage Accounting (`Target` vs `Placed` vs `Realized`). The following laws and figures are retained as historical research, **not** mandatory components of the current Precap Head (`00 Portfolio Compass`). Exact five Compass metrics will be chosen separately by the operator (`OPERATOR_TODO`).
-- **Four Historical Leela Research Candidates (Not Current Precap Display Mandates)**:
-  1. **Non-Blending Basis Marks (`L2`, `F5-B16`)**: Header chips never conflate what is planned (`○`) with last week's actuals (`●`) or probability forecast (`◇`). Every metric wears its explicit symbol and basis marker.
-  2. **Coverage Triple (`F5-B13`)**: Replaces naive "72 sprints" with an honest capacity check:
-     - **Target**: Goals/Tasks declared in Matrix 1 `L1 Priority Goals`.
-     - **Placed**: Hours/Flows physically protected inside Matrix 2 around Google Calendar anchors.
-     - **Realized (Trailing Benchmark)**: Previous week's execution rate (`min(1.0, realized/planned)` per `F5-B17`) to reality-check ambitious capacity assumptions!
-  3. **XP · TP · BP Portfolio Health (`F5-B01`, `00-MACRO.md` §4)**:
-     - **TP (Time Capacity)**: Exact planned focus minutes/hours across F1–F4 (`○ 38.5h / 2310 TP`).
-     - **XP (Leverage / Priority Concentration)**: Count/share of placed minutes advancing Matrix 1 `L1 Priority Goals` vs nice-to-haves/maintenance.
-     - **BP (Weekly Balance Index, 0–100)**: Adapted 3-part balance across `(a) Build/Create/System/Life-Regen repo diversity (50%)`, `(b) Shutdown 21:00 & Lunch Anchor preservation (25%)`, and `(c) Special-Day Mon/Wed alternation (25%)`.
-  4. **Testing vs Application Split (`F5-B20`)**: Exposes cognitive load balance between greenfield R&D/recheck (`Testing`: e.g. IPOS Pipeline Recheck, Apex OpenMouse HID) and reliable production throughput (`Application`: e.g. MoA 7 Videos, PDF Invoicing).
+### 2.2 Locked 5-Card Portfolio Compass Standard (`Option S1` + `6-Portfolio` Roster)
+Section `00 · Portfolio Compass` starts open by default and renders **5 visually uniform summary cards**:
+1. **`Net Craft Capacity (T1)`**: `36.0h C` (`2,160m` across `72 × 30m` sprints; `48.0h` / `2,880m` gross across `24` Flows with `72m` trailing `recap_min` inside the `12.0h` non-Craft budget) minus verified fixed calendar meeting collisions.
+2. **`Total Weekly Flows`**: `24 Flows` (`20` weekday `Mon–Fri` + `4` weekend `Sat–Sun`, `120m` each).
+3. **`3×3 Craft Sprints`**: `72 Sprints` (`3 × 30m C` per Flow; `full / compressed / minimal / omitted` deformation tracked explicitly).
+4. **`6 Portfolio Areas & Active L1 Scope`**: **`6` Portfolio Areas** (`Leela` · `IPOS` · `Master of Arts` · `Apex AI` · `Mindful Bar` · `Residual`) with active `L1` priority outcome count.
+5. **`Gate & Source Readiness`**: `G1` approval status, verified override count, and live OpenProject / Google Calendar provenance state (`ONLINE` vs `[OP-OFFLINE]` / `historical`).
 
-### 2.3 Historical Candidate KPI Redraft (Not Current Cockpit Requirement)
+### 2.3 Optional `T2` Leela `XP / TP / BP` Upgrade (`Section 05` / `Option S2`)
 
-The following sample is retained only to preserve the original research comparison (`2026-11-09` pre-`T1` example numbers). The current **`00 Portfolio Compass`** is a visible-by-default five-card summary with **metrics pending operator selection (`OPERATOR_TODO`)**. The previous `Coverage Triple`, `Planned vs Realized`, `XP/TP/BP`, and derived `BP` scores **must not be automatically inserted**. Do not add extra KPI cards or duplicate `Weekly Target`, `Operator Agenda`, or `Primary Data Source` panels.
-
-```text
-+-------------------------------+-------------------------------+-------------------------------+-------------------------------+-------------------------------+
-| ○ TP · CAPACITY PLACED        | 🎯 COVERAGE TRIPLE             | ⚡ XP · PRIORITY FOCUS RATIO   | ⚖ BP · WEEK BALANCE INDEX      | ⚗ TESTING VS APPLICATION       |
-| ○ 38.5h (2,310 min)           | 9 / 9 Goals Placed            | 74% on L1 Goals               | 84 / 100                      | 28% Test · 72% Apply          |
-| Across 24 Flows · 6d (Mon-Sat)| Target 9 · Placed 9 · Lag 0%  | Mon-Sat Focus Allocation      | Diversity+Rest+Mon/Wed Themes | IPOS/Apex vs MoA Execution    |
-+-------------------------------+-------------------------------+-------------------------------+-------------------------------+-------------------------------+
-```
-
-*Optional Trailing Baseline Pill (on `●` button/tooltip)*: `● W44 Realized Rate: 0.78 (on track) · 5/6 shutdowns @ 21:00`.
+When `02-weekly-dispersal/allocate_week.py` (`T2`) runs and produces `week-allocation.json`, projected `TP` (`2,808m` occurrences + `72m` recap = `2,880m`), `XP` (`leverage × TP`, with `R` strictly `XP = 0` per `DD-16`), and structural `BP` (`50/25/25` branch mix, no numeric BP floor) are surfaced in Section `05 · Sequencing` (and may upgrade Compass cards when requested).
 
 #### Downstream Orchestration Integration (`StatusMerge` / `FlowRecap`)
-- At `StatusMerge` (`Saturday_or_Sunday` per `week-blueprint.json`), each candidate metric flips cleanly from **`○ Placed`** to **`● Realized`** without changing chip position:
-  - Exposes **`forecast_gap`** and capped **`execution_rate <= 1.0`** (`overfulfilment_minutes` tracked separately so heroic Monday surges never disguise skipped Fridays).
-  - Surfaces **`zero-denominator`** ("paused / no target") honestly for intentionally paused streams like *Leela Path/Sequencing*, rather than showing `0%` red failure alerts!
+- At `StatusMerge` (`Saturday_or_Sunday` per `week-blueprint.json`), planned capacity (`○ Placed`) compares against realized execution (`● Realized`) once `FlowRecap` logs are present:
+  - Exposes **`forecast_gap`** and capped **`execution_rate <= 1.0`** (`overfulfilment_minutes` tracked separately).
+  - Surfaces **`zero-denominator`** ("paused / no target") honestly for intentionally paused streams rather than `0%` failure alerts.
 
-### 2.4 Current Cockpit Acceptance (Supersedes Historical Proposed KPI Choices)
-1. `00 Portfolio Compass` starts open with five consistently presented factual cards; their specific metric identities remain `OPERATOR_TODO`.
-2. No `Planned vs Realized`, `Coverage Triple`, `BP` composite, or `Testing vs Application` display is added without explicit later approval.
+### 2.4 Current Cockpit Acceptance (`DoD`)
+1. `00 Portfolio Compass` starts open with the 5 locked, source-grounded `T1` + `6-Portfolio` cards (`Leela`, `IPOS`, `Master of Arts`, `Apex AI`, `Mindful Bar`, `Residual`).
+2. Every capacity figure reconciles deterministically with `02-weekly-dispersal/week-blueprint.json` and `slot-inventory.json` (`48.0h` gross / `36.0h` Craft `C` + `12.0h` `P/M/R/recap`).
 3. Historical W45 counts are flagged `historical / source-reported`; they are never re-labelled live, independently verified, or current.
 4. No `Weekly Target`, `Operator Agenda`, or `Primary Data Source` duplication is added to Section `00`.
 
@@ -70,8 +54,8 @@ The following sample is retained only to preserve the original research comparis
 
 ## 3. 5-Component Verification Readiness Note
 
-1. **Observation**: Inspected `Leela-Cloud-2026/docs/design/stats/{00-MACRO.md,10-STATS-FEATURE.md}`, `docs/ssot/features/stats/spec.md`, and `lib/features/stats/stats_cube_symbol.dart`. Leela solved exact anti-vanity stat challenges via `L1–L11`, `XP/TP/BP` construct orthogonality, and `Target/Placed/Realized` accounting.
-2. **Logic Chain**: Precap Week asks *"Is my planned week realistic, focused on top goals, and sustainable across creative + technical + rest domains?"* Leela's metrics directly answer capacity (`○ TP`), priority concentration (`XP`), completeness (`Target vs Placed`), burnout guard (`BP`), and cognitive risk (`Testing vs Application`).
-3. **Caveats**: Until `StatusMerge` / `FlowRecap` emit machine-verified trailing `stats_facts_daily` JSON logs for prior weeks, the `●` trailing actual badge displays provisional manual/OP estimates flagged as `provisional` per `L9`.
-4. **Conclusion**: Ready for operator selection of which 4–5 header chips become the frozen Precap standard.
-5. **Verification Method**: Inspect generated HTML stat strip against `L1–L4` rules (explicit basis glyphs, no `0%` on paused modules, capped adherence formulas in spec).
+1. **Observation**: Inspected `week-blueprint.json`, `slot-inventory.json`, and `Leela-Cloud-2026/docs/design/stats/`. Reconciled the pre-`T1` `38.5h` / `5-project` W45 draft against the canonical `T1` `Mon–Sun` (`24` Flows = `48.0h` gross / `36.0h` Craft) clock and the **6-Portfolio standard** (`Leela`, `IPOS`, `Master of Arts`, `Apex AI`, `Mindful Bar`, `Residual`).
+2. **Logic Chain**: Grounding the 5 Compass cards directly in `slot-inventory.json`, Calendar collisions, and the 6 Portfolio Areas eliminates unverified prose numbers while keeping `XP/TP/BP` cleanly connected to `T2` (`allocate_week.py`).
+3. **Caveats**: Until `StatusMerge` / `FlowRecap` emit machine-verified actual logs for a closing week, Section `00` displays planned (`○`) or historical-snapshot (`historical / source-reported`) basis labels only.
+4. **Conclusion**: Locked and aligned to `v05`, `T1`, and `06-PORTFOLIO`.
+5. **Verification Method**: Inspect `#s00` in the Cockpit HTML confirming the 5 locked cards, `48.0h` gross / `36.0h` Craft `T1` math, and all 6 Portfolio Areas (`Leela`, `IPOS`, `Master of Arts`, `Apex AI`, `Mindful Bar`, `Residual`).

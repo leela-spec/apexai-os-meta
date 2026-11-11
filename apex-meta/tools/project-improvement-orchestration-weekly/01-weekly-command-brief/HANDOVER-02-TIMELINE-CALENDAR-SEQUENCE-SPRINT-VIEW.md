@@ -21,7 +21,7 @@ tags: [weekly-orchestration, precap-week, matrix-2, calendar-view, sequence-spri
 
 ### 1.1 Input & Priority Ledger
 - **Authoritative Sources**:
-  - `apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/HANDOVER-GOOGLE-CALENDAR-FLOW-EVENTS.md`: Google Calendar placement algorithm, routine anchors, and meeting safety rules.
+  - `apex-meta/tools/project-improvement-orchestration-weekly/02-next-day-brief/HANDOVER-GOOGLE-CALENDAR-FLOW-EVENTS.md`: `PrecapNextDay`-only gated Google Calendar writer (`T1` `120m` Flows, auto CET/CEST); `PrecapWeek` is strictly read-only (`create_calendar_events: false`).
   - Operator Guidance:
     - Standard Sequence = **2 hours** (120 minutes).
     - Sprint = **30 minutes**.
@@ -31,11 +31,23 @@ tags: [weekly-orchestration, precap-week, matrix-2, calendar-view, sequence-spri
 - **Deliberately Excluded**: Untyped ad-hoc lists; generic non-hourly calendar tables; hardcoded clock tables overriding `week-blueprint.json`.
 
 ### 1.2 Process & Placement Architecture
-1. **Single Clock Owner**: Exact daily block start/end timestamps (`08:00–24:00` Mon–Fri = `960m`, `Day Outro 22:00–22:30`, `Sat/Sun 12:00–16:00` = `240m`) read dynamically from [`02-weekly-dispersal/week-blueprint.json`](file:///C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json).
-2. **Sequence / Flow Structure (`120m` Focus Blocks)**:
+1. **Single Clock Owner**: Exact daily block start/end timestamps (`08:00–24:00` Mon–Fri = `960m`, `Day Outro 22:00–22:30`, `Sat/Sun 12:00–16:00` = `240m`) read dynamically from [`02-weekly-dispersal/week-blueprint.json`](file:///C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json) + `slot-inventory.json` (`24` nominal `120m` Flows kept invariant for `slot_id` stability, with calendar collision overlays marking `full / compressed / minimal / omitted` capacity and commute/prep buffers such as `18:15–18:45` before `München Tanz`).
+2. **Sequence / Flow Structure (`120m` Focus Blocks + `DD-22A` `P/M/R` Band)**:
    - Every `120m` Flow follows `3 × (P 2m + M 3m + C 30m + recap 1m) + R 12m` across `24` weekly Flows (`F1–F4` Mon–Fri, `F1–F2` Sat–Sun).
-3. **3-Item Craft Sprint Standard**:
-   - Inside each `30m C` Craft block, display up to `3` distinct actionable items / micro-deliverables (while in-Flow `P/M/R` carry read-only practice Chunks).
+   - Each Flow cell renders a read-only **`DD-22A` `P/M/R` Chunk band** (`P` 3×2m, `M` 1×5m, `R` 3×5m practice Chunks from `T2`) alongside the Craft `C` assignment.
+3. **Weekly Cell Depth (`Q06` / `Q08`) & Mobile Non-`rowspan` Strategy**:
+   - In `PrecapWeek`, each Flow cell displays the **Flow Owner ref** (`selected_work_reference[]` across the 6 Portfolio Areas: `Leela`, `IPOS`, `Master of Arts`, `Apex AI`, `Mindful Bar`, `Residual`), **Flow outcome**, clickable **`C1/C2/C3` macro labels**, and the **read-only `DD-22A` `P/M/R` band**. Granular `S1–S3` tactical micro-checklists and prompt packets belong strictly to `PrecapNextDay`.
+   - At `<920px`, avoid `rowspan="2"/"3"/"8"` table cell collapse by rendering flat 1-row-per-time-window cells (or stacked day-card view) so zero weekend or afternoon slots disappear on mobile.
+
+---
+
+## 1.3 Section `04 · Residual Information` Contract (Companion Surface)
+
+Section `04 · Residual Information` (distinct from the `Residual` portfolio area) renders a structured 4-card (`2×2`) grid immediately below Matrix 2:
+1. **`Clock & Capacity Reconciliation`**: `T1` `week-blueprint.json` gross (`48.0h` / `2,880m`) vs pure Craft (`36.0h` / `2,160m`) vs `P/M/R/recap` (`12.0h` / `720m` including `72m` trailing `recap_min`), plus verified external meeting subtractions and commute buffers.
+2. **`EM-13 & OpenProject Readiness Gaps`**: Unified `EM-13` (`G|I|P|S|O|C`) completeness, OpenProject status-vs-description audit, and `[OP-OFFLINE]` / `[OP-UNRESOLVED]` provenance markers.
+3. **`Longlist Deferrals & Revisit Triggers`**: Blocked or future-phase items moved out of Matrix 1 `L2 Nice-to-Haves` (`WP #204`, `Stripe webhook`, `WP #227`) with explicit deferral reason and revisit trigger.
+4. **`1-Hop Provenance & Downstream Handoff`**: Source freshness ledger and the single embedded `presentation_handoff` pointer to `PrecapNextDay`.
 
 ---
 

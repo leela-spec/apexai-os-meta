@@ -2,9 +2,9 @@
 type: handover
 id: HANDOVER-03-TASK-SPEC-VARIABLE-SYSTEM-AND-SYMBOL-GRAMMAR-v1.0
 title: Handover — L1/L2 Goal Selection and Six-Field Specification
-description: "Operator-corrected design: selecting a goal opens a single horizontal Goal/Input/Process/Skills/Output/Continuation row; no recursive tree or L3. OpenProject alignment remains pending."
-status: ready_for_operator_verification
-date: 2026-11-10
+description: "Operator-corrected design: selecting a goal opens a single horizontal Goal/Input/Process/Skills/Output/Continuation row; no recursive tree or L3. EM-13 unified on G|I|P|S|O|C and OpenProject ## Heading mapping locked."
+status: current
+date: 2026-11-11
 tags: [weekly-orchestration, task-specification, variable-system, symbols, matrix-1, openproject-2do, em-09, em-13]
 ---
 
@@ -12,7 +12,7 @@ tags: [weekly-orchestration, task-specification, variable-system, symbols, matri
 
 ## 1. Mission & Architectural Gap
 
-Precap Week Matrix 1 presents ranked `L1` goal cubes and folded `L2` nice-to-have cubes. Selecting either reveals six fields in one full-width horizontal row: `Goal | Input | Process | Skills | Output | Continuation`. The row has no visible specification heading, no child goal tree, and no `L3`. This is a **cockpit presentation contract**; universal agent/OpenProject serialization remains a separate pending compatibility decision.
+Precap Week Matrix 1 presents ranked `L1` goal cubes and folded `L2` nice-to-have cubes across the **6 canonical Portfolio Areas** (`Leela`, `IPOS`, `Master of Arts`, `Apex AI`, `Mindful Bar`, `Residual`). Selecting either reveals six fields in one full-width horizontal row: `Goal | Input | Process | Skills | Output | Continuation`. Matrix 1 UI cards stay strictly `L1 / L2` (no `L3` cubes), while inside expanded `Goal` and `Output` cells items decompose into `Tasks -> Subtasks` with short drafts/examples. `EM-13` is unified directly onto `G | I | P | S | O | C`.
 
 ---
 
@@ -37,10 +37,10 @@ Precap Week Matrix 1 presents ranked `L1` goal cubes and folded `L2` nice-to-hav
   4. **`S — Skills`**: Verified registered skill/capability IDs where available; otherwise `unresolved`.
   5. **`O — Output`**: Actual destination artifact types, concrete file paths where known, expected structure/content, and acceptance proof; typed non-file deliverables are supported.
   6. **`C — Continuation`**: **Downstream** consumers, successor work packages, actual unblocked goals, and handoff references; unknown successors stay unresolved.
-- [P0 | I97/E95/R05] **Presentation Contract**: Click one goal cube to expand exactly one row immediately below that cube's `L1`/`L2` group. The six fields span available width in one horizontal line (responsive reflow at narrow widths). A selected goal's label supplies context, while the `Goal` field itself still renders. Zero recursive child-cube trees, zero `L3`, zero extra heading banner, and zero separate execution card.
-- [P0 | I94/E90/R08] **Variable and Cross-System Compatibility (`EM-13`)**: Existing `EM-13` requires `Input / Sources / Process / Skills / Output / Redraft`. The six-field cockpit presentation contract does not automatically overwrite it. Map `EM-13` `Sources` to `Input.sources`; preserve `Redraft` separately until its role in `Output` is explicitly resolved. Define one canonical placeholder grammar later; do not silently treat `{{name}}` and `${name}` as interchangeable.
-- [P1 | I92/E82/R10] **OpenProject Task Creation & Symbol Synchronization (`2do`)**:
-  - `TODO`: Define and test lossless mappings for `G/I/P/S/O/C`, upstream vs downstream dependencies, and preserved `EM-13` `Redraft` before any live `opCall.js` mutation. Read-only inspection is permitted; no custom-field support is assumed.
+- [P0 | I97/E95/R05] **Presentation Contract**: Click one goal cube to expand exactly one row immediately below that cube's `L1`/`L2` group. The six fields span available width in one horizontal line (responsive reflow at narrow widths). Matrix 1 UI cards remain `L1 / L2` (zero `L3` cubes, zero recursive child-cube trees, zero extra heading banner), while inside the expanded `Goal` and `Output` cells, items decompose into `Tasks -> Subtasks` with short drafts/examples.
+- [P0 | I96/E94/R06] **Unified `EM-13` Mapping on `G | I | P | S | O | C`**: `EM-13` (`Input / Sources / Process / Skills / Output / Redraft`) is unified on the 6-column `G | I | P | S | O | C` contract: `G (Goal)` carries desired outcome, `acceptance`, and `Tasks -> Subtasks` decomposition; `I (Input)` hosts `sources`, `upstream_dependencies`, and explicit `exclusions`; `P (Process)` hosts ordered steps and verification; `S (Skills)` hosts verified skill IDs; `O (Output)` hosts `deliverable`, `redraft` (short drafts/examples), and `Tasks -> Subtasks` output structure; `C (Continuation)` hosts `downstream` successors and handoff refs. Standard template placeholder syntax is `{{VAR_NAME}}`.
+- [P1 | I92/E88/R08] **OpenProject Description `## Heading` Synchronization**:
+  - Canonical Markdown headings inside OpenProject work package `description` fields: `## Goal`, `## Input / Sources`, `## Upstream Dependencies`, `## Process`, `## Skills`, `## Output`, `## Continuation / Downstream`. Read-only inspection runs by default (`opCall.js`); mutating writebacks require explicit `--confirmed` operator authorization.
 
 ### 2.3 Output Specification & Concrete Structural Draft
 
@@ -84,26 +84,26 @@ task_spec:
 | `✉` / Gold Sequence Envelope | Process Flow Sequence (3x3 container) | Gold badge linking Matrix 1 cubes to Matrix 2 flows | Leela `SequenceEnvelope` |
 | `➔` / Conditional Edge | Critical Dependency Arrow | Drawn between L1 cubes *only* when Output A blocks Goal B | Critical Path Engine |
 | `⚡` / Bolt Badge | Critical Path Flag | Highlights bottleneck cube or work package | Topological Gate |
-| `⚙` / Process Gear | Method / Logical Path (`P`) | Inside clicked G-I-P-S-O drawer | Process Field |
-| `📥` / Input Stack | Priority Sources (`I`) | Ranked source list inside G-I-P-S-O drawer | Input Field |
-| `🎯` / `📦` | Goal (`G`) / File Output Draft (`O`) | Top breadcrumb (when non-redundant) & deliverable skeleton | Goal & Output Fields |
+| `⚙` / Process Gear | Method / Logical Path (`P`) | Inside clicked `G|I|P|S|O|C` 6-column row | Process Field |
+| `📥` / Input Stack | Priority Sources (`I`) | Ranked `sources`, `upstream_dependencies`, and `exclusions` inside `G|I|P|S|O|C` row | Input Field |
+| `🎯` / `📦` | Goal (`G`) / File Output & Redraft (`O`) | Inside `G` (`outcome + acceptance + Tasks->Subtasks`) and `O` (`deliverable + redraft`) cells | Goal & Output Fields |
 
-#### C. Concrete OpenProject Synchronization `2do` Checklist
-- Propose (do not yet mandate) OpenProject description anchors for `Goal`, `Input/Sources`, `Upstream Dependencies`, `Process`, `Skills`, `Output`, and `Continuation/Downstream`. Preserve provenance and status of missing fields.
-- After the operator decides the `EM-13`/`Redraft` mapping, inspect the live canonical OpenProject skill read-only and prove a lossless read/write contract in a controlled test; do not modify production work packages from this design patch.
+#### C. OpenProject `## Heading` Synchronization Contract
+- OpenProject work package `description` anchors map 1-to-1 to `## Goal`, `## Input / Sources`, `## Upstream Dependencies`, `## Process`, `## Skills`, `## Output`, and `## Continuation / Downstream`. Preserve provenance and status of missing fields.
+- Live `opCall.js` inspection is read-only by default (`D019` `[OP-OFFLINE]` fallback when `:8083` is unreachable); production work packages are never modified without explicit operator `--confirmed` approval.
 
 ### 2.4 Definition of Done (`DoD`)
-1. Only `L1` and `L2` cubes exist; both reveal six horizontal fields directly below that cube strip on selection, including `Goal` and `Continuation`.
+1. Only `L1` and `L2` cubes exist across the 6 Portfolio Areas (`Leela`, `IPOS`, `Master of Arts`, `Apex AI`, `Mindful Bar`, `Residual`); both reveal six horizontal fields directly below that cube strip on selection (`G | I | P | S | O | C`), with `Tasks -> Subtasks` and short drafts/examples inside expanded `Goal` and `Output` cells.
 2. No recursive child cubes, `L3`, redundant specification heading, fabricated skill/file/WP IDs, or invented dependency links.
-3. `Input.sources`, `Input.upstream_dependencies`, and `Continuation.downstream` remain distinct and traceable. `EM-13` compatibility is explicitly unresolved, not silently rewritten.
+3. `Input.sources`, `Input.upstream_dependencies`, `Input.exclusions`, `Goal.acceptance`, `Output.redraft`, and `Continuation.downstream` remain distinct and traceable (`EM-13` unified on `G|I|P|S|O|C`).
 4. Visual symbol matching is an optional styling concern, not an excuse to infer task identity/priority or to require Leela symbol semantics.
 
 ---
 
 ## 3. 5-Component Verification Readiness Note
 
-1. **Observation**: `ADPT-EXEC-TASKSPEC-v0.1` (`EM-13`) already established the 6 pre-work alignment fields (`Input`, `Sources`, `Process`, `Skills`, `Output`, `Redraft`), and Leela's `stats_cube_symbol.dart` provides an optional visual vocabulary (`Chunk`, `Sequence`, `Epic`, `Branch`).
-2. **Logic Chain**: The cockpit adopts an `L1`/`L2` goal-to-six-field horizontal inspection surface (`Goal | Input | Process | Skills | Output | Continuation`). `EM-13` serialization and OpenProject field mapping are open compatibility questions rather than assumed universal replacements.
-3. **Caveats**: OpenProject server custom-field support is not yet live-verified in this handover; markdown-header standardization inside WP `description` requires zero DB schema risk and acts as the default candidate path pending operator sign-off.
-4. **Conclusion**: Handover updated to `v05` operator corrections; ready for verification in cockpit HTML and Matrix 1 module execution (`T3`).
-5. **Verification Method**: Test both `L1`/`L2` selection and the six-field horizontal row against source-backed project examples; verify upstream vs downstream links separately; leave missing fields unresolved. Do not require a fixed five-repo roster.
+1. **Observation**: `ADPT-EXEC-TASKSPEC-v0.1` (`EM-13`) established the 6 pre-work alignment fields (`Input`, `Sources`, `Process`, `Skills`, `Output`, `Redraft`), now unified cleanly onto the 6-column `G | I | P | S | O | C` Matrix 1 drawer.
+2. **Logic Chain**: Matrix 1 UI cards stay strictly `L1 / L2` (no `L3` cubes), while expanded `Goal` and `Output` cells decompose items into `Tasks -> Subtasks` with short drafts/examples (`Redraft`), preserving high-speed top-level scanning and full execution-ready depth in one click.
+3. **Caveats**: OpenProject `description` synchronization uses standard Markdown `## Heading` sections (`zero` custom DB schema risk) and respects `D019` (`[OP-OFFLINE]` fallback when `:8083` is unreachable).
+4. **Conclusion**: Handover locked as `current` (`v05` + unified `EM-13` + 6-Portfolio standard).
+5. **Verification Method**: Test both `L1`/`L2` selection and the six-field horizontal row across the 6 Portfolio Areas (`Leela`, `IPOS`, `Master of Arts`, `Apex AI`, `Mindful Bar`, `Residual`); verify `Goal.acceptance`, `Input.exclusions`, `Output.redraft`, and upstream vs downstream links separately.

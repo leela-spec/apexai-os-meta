@@ -42,13 +42,13 @@ scope_validation:
     weekend_regime_days:
       - Saturday
       - Sunday
-    allowed_sunday_exception:
-      - Sunday_weekly_precap_session
+    weekly_precap_cadence:
+      - Saturday_or_Sunday
   required_checks:
     monday_to_sunday_scope: true
     saturday_weekend_regime_applied: true
     sunday_weekend_regime_applied: true
-    sunday_weekly_precap_session_allowed: true
+    weekly_precap_session_on_saturday_or_sunday_allowed: true
   forbidden_scope_items:
     - detailed_next_day_plan_creation
     - prompt_packet_generation
@@ -77,7 +77,14 @@ input_validation:
     - operator_notes
   active_project_set:
     source: derive_from_confirmed_current_project_context
-    fallback_when_no_confirmed_context: last_known_project_set
+    canonical_six_portfolio_areas:
+      - Leela
+      - IPOS
+      - MasterOfArts
+      - ApexAI
+      - MindfulBar
+      - Residual
+    fallback_when_no_confirmed_context: canonical_six_portfolio_areas
     overflow_bucket:
       purpose: overflow_recovery_unassigned_or_other_non_fixed_material
       default_priority: lowest_unless_operator_raises
@@ -127,11 +134,17 @@ calendar_validation:
 blueprint_validation:
   standard_blueprint_checks:
     weekly_blueprint_standard_available_or_marked_missing: true
+    canonical_clock_owner: apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json
     fixed_blocks_considered:
       - morning_routine
-      - lunch_prep
-      - lunch_break
+      - lunch_and_afterlunch
+      - afternoon_break
+      - finanzen_or_2Do
+      - evening_physical_course_vwc
+      - abend
+      - project_night_mon_wed_or_freizeit_thu_fri
       - day_outro
+      - freizeit
       - sleep_routine
     planned_blocks_considered:
       - work_flows
@@ -169,12 +182,12 @@ output_validation:
     compact_downstream_handoff_present: true
     operator_validation_present: true
   required_sections:
-    - operator_decision
-    - weekly_direction
-    - project_sections_for_each_active_project
-    - cross_project_sequence
-    - daily_seed_map
-    - provenance_and_confidence
+    - section_00_portfolio_compass
+    - section_01_operator_decisions
+    - section_02_matrix_1_six_portfolio_areas
+    - section_03_matrix_2_mon_sun_timetable
+    - section_04_residual_information_and_provenance
+    - section_05_sequencing_and_dispersal_dials
     - compact_downstream_handoff
   optional_sections:
     - review_flags
@@ -195,6 +208,7 @@ output_validation:
     output_is_minimal: true
     output_is_sufficient_for_precap_next_day: true
     compact_downstream_handoff_present: true
+    six_portfolio_areas_represented: true
     active_project_set_derived_or_defaulted: true
     overflow_bucket_policy_applied_when_needed: true
     calendar_block_proposals_only_if_calendar_blocks_are_included: true
@@ -229,8 +243,6 @@ operator_review_flags:
       response: mark_calendar_block_proposals_as_tentative
     scope_drift:
       trigger:
-        - saturday_requested
-        - regular_sunday_planning_requested
         - next_day_plan_requested
         - prompt_packets_requested
         - project_execution_requested

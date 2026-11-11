@@ -3,8 +3,8 @@ type: handover
 id: HANDOVER-04-OPERATOR-DECISION-BRIEF-VARIABLE-DROPDOWN-REDESIGN-v1.0
 title: Handover — Collapsible Operator Decision Brief (New, Ongoing, Standard Preview Cards & Setting Detail)
 description: UX architecture handover defining one collapsible Section 01 whose folded header retains New, Ongoing, and Standard preview cards with factual setting summaries, plus per-setting expansion when opened.
-status: ready_for_operator_verification
-date: 2026-11-10
+status: current
+date: 2026-11-11
 tags: [weekly-orchestration, operator-decision-brief, ux-design, special-days, overrides, em-09]
 ---
 
@@ -20,14 +20,14 @@ Section 01 has an **overall expand/collapse control**. Its collapsed state shows
 
 ### 2.1 Input & Priority Ledger
 - **P1 Operator Feedback & Governance Rules**:
-  - Three required classification buckets: **`Standard`** | **`New`** | **`Ongoing`**.
-  - Interactive row anatomy: `[Category Tag] + [Variable Label] + [Active Value Chip / Dropdown Selector] + [(i) More Info Button]`.
+  - Three required classification buckets: **`New`** | **`Ongoing`** | **`Standard`**.
+  - Interactive row anatomy: `<details class="vitem">` inline accordion (`[Category Tag] + [Variable Label] + [Gate Status Chip] + [OPERATOR OVERRIDE badge when verified] + [Active Value]`, expanding inline on click with zero separate dropdown toolbar or global `(i)` button).
   - Weekly orchestration variables explicitly requested:
     1. **Four Flows Cadence & Sequencing Meta-System** (`Standard` default).
-    2. **OpenProject Priority Intake vs Operator Override** (`Standard` default intake + `New` override markers whenever operator reprioritizes).
-    3. **Flow Topic Routing** (`New` weekly selection assigning topics/repos to F1–F4).
-    4. **Special Project Days (Mon & Wed Evenings)** (`New` weekly signature pattern — e.g., Monday & Wednesday evenings routed to *Sexy Content* and *Dance / Martial Arts*).
-    5. **Calendar Fixtures Outside Primary Work** (`Ongoing` items present on calendar without being active workstreams — e.g., *WC Meister*, *Munich Dance*).
+    2. **OpenProject Priority Intake vs Operator Override** (`Standard` default intake + `New` override markers whenever operator reprioritizes with verified `{system_default, operator_choice, source_ref}` proof).
+    3. **Flow Topic Routing** (`New` weekly selection assigning topics/repos across the 6 Portfolio Areas to F1–F4).
+    4. **Evening Project Night (`Mon–Wed 20:30–22:00` Baseline + Weekly Theme Overrides)** (`Standard` baseline is `Mon–Wed Project Night 20:30–22:00` and `Thu–Fri Freizeit 20:30–22:00` per `week-blueprint.json`; week-specific theme overrides such as Monday & Wednesday *Sexy Content / Dance & Martial Arts* appear under `New` with `gate_status: PROPOSED_FOR_G1 | APPROVED`).
+    5. **Calendar Fixtures Outside Primary Work** (`Ongoing` items present on calendar without being active workstreams — e.g., *WC Meister* ignored/declined hold, *Munich Dance* protected external event).
 - **P2 Existing System Grounding**:
   - [`SPEC-PRECAP-WEEK-ITERATIONS.okf.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-PRECAP-WEEK-ITERATIONS.okf.md) (`v2.0`).
   - [`01-operator-output-design-principles.okf.yaml`](file:///c:/GitDev/apexai-os-meta/apex-meta/operator-output-design/step3-output-design-system/01-operator-output-design-principles.okf.yaml): Principle D1 (*Decision Before Detail*) and D2 (*First 10 Seconds Contract*).

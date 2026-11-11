@@ -176,11 +176,13 @@ meeting_classification_rules:
 ```yaml
 fixed_and_planned_blocks:
   fixed_blocks:
-    description: "Blocks protected before discretionary work-flow planning."
+    description: "Blocks protected before discretionary work-flow planning (timestamps governed solely by 02-weekly-dispersal/week-blueprint.json)."
     items:
       - morning_routine
-      - lunch_prep
-      - lunch_break
+      - lunch_and_afterlunch
+      - afternoon_break_and_finanzen_2Do
+      - evening_physical_and_abend
+      - project_night_mon_wed_or_freizeit_thu_fri
       - day_outro
       - sleep_routine
     rule: >
@@ -302,9 +304,10 @@ calendar_block_proposal_contract:
       required: true
       allowed_values:
         - Leela
+        - IPOS
         - MasterOfArts
-        - Apex
-        - Investment
+        - ApexAI
+        - MindfulBar
         - Residual
         - null
     capacity_shape:
@@ -417,8 +420,10 @@ validation_checks:
   fixed_and_planned_blocks:
     fixed_blocks_considered:
       - morning_routine
-      - lunch_prep
-      - lunch_break
+      - lunch_and_afterlunch
+      - afternoon_break_and_finanzen_2Do
+      - evening_physical_and_abend
+      - project_night_mon_wed_or_freizeit_thu_fri
       - day_outro
       - sleep_routine
     planned_blocks_considered:

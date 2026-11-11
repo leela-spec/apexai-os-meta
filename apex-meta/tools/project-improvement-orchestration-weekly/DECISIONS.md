@@ -311,3 +311,31 @@ Two readings, not resolved here:
 **Scope:** weekly orchestration, `3x3` flow standard, single blueprint clock ownership, Sequencing dispersal.
 
 **Source:** operator + T1 alignment, 2026-11-10.
+
+---
+
+## D019 — External service intake: live read-only OpenProject and Calendar with offline fallback
+
+**Status:** locked operator decision (2026-11-11).
+
+**Decision:** When running `PrecapWeek` or `PrecapNextDay`, query OpenProject (`127.0.0.1:8083`, read-only via `opCall.js`) and Google Calendar when reachable to pull live work packages, relations, and fixed commitments. If `:8083` or Calendar is unreachable (`ECONNREFUSED` or auth error), do not block planning: fall back automatically to confirmed offline snapshots/Session feeds and tag affected items `[OP-OFFLINE]`.
+
+**Scope:** external data intake (`T0`), `PrecapWeek`, `PrecapNextDay`, Matrix 1 & 2 provenance.
+
+**Source:** operator verification, 2026-11-11.
+
+---
+
+## D020 — Precap Week v2.1 (`00..05`), 6-Portfolio Standard, Unified `EM-13` (`G|I|P|S|O|C`), and `T2` Dispersal Closure
+
+**Status:** locked and implemented (2026-11-11).
+
+**Decision:**
+1. **6-Portfolio Standard (`02-PORTFOLIO-COMPASS`):** Portfolio-level views, Matrix 1 grouping, and Craft (`C`) Epics use the 6 canonical Portfolio Areas: **`Leela`** (`OP #10`), **`IPOS`** (`OP #16`), **`Master of Arts`** (`OP #14`), **`Apex AI`** (`OP #8`), **`Mindful Bar`** (`OP null`), and **`Residual`** (`OP null`).
+2. **Unified `EM-13` (`G|I|P|S|O|C`):** Matrix 1 UI cards remain `L1 / L2` (no `L3` cubes), while expanded `Goal` and `Output` cells decompose into `Tasks -> Subtasks` with short drafts/examples (`Goal.acceptance`, `Input.exclusions`, `Output.redraft`). Cross-repo dependencies render inline via Option B `🔗 Cross-Repo:` clickable pills (`SPEC-PRECAP-WEEK-ITERATIONS.okf.md` §5.2).
+3. **`T2` Dispersal & Section `05` (`SEQ-D1..D4`):** `MasterOfArts/Sequencing/dispersal/` (mirrored to `02-weekly-dispersal/`) owns `EPICS-SCHEMA.md`, `epics.json`, `ALGORITHM.md`, `week-demand.json`, `build_slot_inventory.py`, and `allocate_week.py` (`week-allocation.json`). Evening physical courses (`18:30–19:30`) drive Gaussian coupling (`σ = 6.0h`, `19:00` midpoint, `w_max = 1.5x`, no Fri→Sat bleed); `R` rotates via weighted round-robin (`XP = 0`, `DD-16` no numeric BP floor).
+4. **Calendar Boundary (`Q10`):** `PrecapWeek` is strictly read-only for Google Calendar; gated `[FLOW]` event creation belongs exclusively to `PrecapNextDay` (`02-next-day-brief/HANDOVER-GOOGLE-CALENDAR-FLOW-EVENTS.md`).
+
+**Scope:** `.claude/skills/PrecapWeek/`, `01-weekly-command-brief/`, `02-weekly-dispersal/`, `02-next-day-brief/`.
+
+**Source:** operator verification & forensic execution, 2026-11-11.

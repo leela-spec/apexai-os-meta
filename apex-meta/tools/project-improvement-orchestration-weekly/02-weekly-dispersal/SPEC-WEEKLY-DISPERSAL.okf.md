@@ -20,9 +20,10 @@ This specification governs the Flow contract, day regimes, slot inventory, Epic 
 
 - Calendar clock: `apexai-os-meta/.../02-weekly-dispersal/week-blueprint.json`.
 - Algorithm & BP authority: [ALGORITHM.md](ALGORITHM.md).
-- Weekly operator dials (`DD-02` draft): [week-demand.json](week-demand.json).
+- Entity schema & Personal Epic database: [EPICS-SCHEMA.md](EPICS-SCHEMA.md) and [epics.json](epics.json).
+- Weekly operator dials (`DD-02`): [week-demand.json](week-demand.json).
 - Active register & changelog: [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DECISIONS-REGISTER.md) and [log.md](log.md).
-- Generated inventory & builder: [slot-inventory.json](slot-inventory.json) and [build_slot_inventory.py](build_slot_inventory.py).
+- Generated inventory, `T2` allocator & outputs: [slot-inventory.json](slot-inventory.json), [build_slot_inventory.py](build_slot_inventory.py), [allocate_week.py](allocate_week.py), and [week-allocation.json](week-allocation.json).
 
 ---
 
@@ -109,9 +110,7 @@ This specification governs the Flow contract, day regimes, slot inventory, Epic 
 - **WD-19 [P1 | I91/E90/R06] Regeneration Slots Are The In-Flow Breaks**: `R` is an ordinary branch.
   Its 24 slots are the in-flow breaks, carrying `R` content such as Yoga Nidra or reading. The
   `22:30-24:00` night window (`Freizeit` + `Sleep Routine`) is rest, not schedule, and is **not** a slot source.
-- **WD-20 [P2 | I86/E90/R06] Anchors Are Outside The Quota**: The morning (`08:00-08:30`), midday (`12:30-13:30`), afternoon (`15:30-16:30`), and evening (`18:30-20:30`)
-  anchors are practice/life surface but carry no quota-bearing slots. The daily shutdown (`Day Outro 22:00-22:30`) is never
-  bindable.
+- **WD-20 [P2 | I86/E90/R06] Anchors Are Outside The Quota**: The weekday anchors in `week-blueprint.json` — `Morning Anchor` (`08:00-08:30`), `Midday Anchor` (`12:30-13:30`), `Afternoon Buffer` (`15:30-16:00`), `Physical Course` (`18:30-19:30`), `Evening Meal & Transition` (`19:30-20:30`), `Project Night / Freizeit` (`20:30-22:00`), `Day Outro` (`22:00-22:30`), and `Night Window` (`22:30-24:00`) — are practice/life surface and carry no quota-bearing slots. `Day Outro` (`22:00-22:30`) is never bindable.
 
 ---
 
@@ -165,27 +164,27 @@ Single owner for weekly shares, focus days, and evening physical activity mappin
 
 ## 7. Decision Routing (Single-Owner Links)
 
-- **Closed Dispersal Decisions (`DD-01`..`DD-40`, `OD-*`, `A-*`, `X-*`):** Archived in [log.md](log.md).
-- **Open Cross-Module Questions (`DD-23`, `DD-24`, `DD-26`, `DD-28`):** Tracked in [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DECISIONS-REGISTER.md).
-- **Orchestration-Wide Architecture Decisions (`D001`..`D018`):** Governed by `apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/DECISIONS.md`.
+- **Closed Dispersal Decisions (`DD-01`..`DD-40`, `SEQ-D1`..`SEQ-D4`, `OD-*`, `A-*`, `X-*`):** Archived in [log.md](log.md).
+- **Active Register & Runtime Verification Scope:** Tracked in [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DECISIONS-REGISTER.md).
+- **Orchestration-Wide Architecture Decisions (`D001`..`D019`):** Governed by `apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/DECISIONS.md`.
 
 ---
 
 ## 8. Entity Model Conformance
 
-- **WD-37 [P1 | I92/E96/R04] Mirror The Canonical Schema**: The personal Epic database mirrors
-  `EPIC / BLOCK / CHUNK / NODE_PLACEMENT / SET_MEMBER / EDGE` (`10_ENTITY_MODEL.md:13-78`). Never
+- **WD-37 [P1 | I92/E96/R04] Mirror The Canonical Schema**: The personal Epic database ([epics.json](epics.json)) mirrors
+  `EPIC / BLOCK / CHUNK / NODE_PLACEMENT / SET_MEMBER / EDGE` ([EPICS-SCHEMA.md](EPICS-SCHEMA.md), `10_ENTITY_MODEL.md:13-78`). Never
   invent fields alongside it.
 - **WD-38 [P1 | I90/E95/R05] A Sub-Block Is Not An Entity**: A Sub-Block is a `BLOCK` carrying a
   `parent_block_id` at level 2-4.
 - **WD-39 [P1 | I93/E96/R04] Chunk Identity Is Canonical**: One canonical `CH_*` owns intrinsic
   content. A Chunk reaches an Epic through `NODE_PLACEMENT`, never by duplication; a placement never
   becomes a second Chunk.
-- **WD-40 [P2 | I86/E92/R06] All-Branch Epic Set**: The Epic database covers **all four branches**:
+- **WD-40 [P2 | I86/E92/R06] All-Branch Epic Set (6-Portfolio Craft Standard)**: The Epic database covers **all four branches**:
   Mental (`Intention`, `ACIM`, `Surrender`, `Breathing`), Physical (`Martial Arts`, `Dance`, `S/BJJ`,
   `General`, `Knee`), Regeneration (`Regeneration` Epic with `Yoga Nidra`, `Audiobooks`, and
-  `Socializing` Blocks; `DD-17` closed), and Craft / Projects (`MasterOfArts`, `Leela`, `IPOS`,
-  `Apex OS`, `Residuals`) bound to OpenProject work packages (`DD-11`).
+  `Socializing` Blocks; `DD-17` closed), and Craft / Projects across the **6 Portfolio Areas** (`Leela`, `IPOS`,
+  `Master of Arts`, `Apex AI`, `Mindful Bar`, `Residual`) bound to OpenProject work packages (`DD-11`).
 
 ---
 

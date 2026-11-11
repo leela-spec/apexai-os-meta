@@ -28,6 +28,8 @@ MIRROR = Path(
 TRACKED = [
     "index.md",
     "SPEC-WEEKLY-DISPERSAL.okf.md",
+    "EPICS-SCHEMA.md",
+    "epics.json",
     "ALGORITHM.md",
     "week-demand.json",
     "ASSUMPTIONS-AND-DECISIONS-REGISTER.md",
@@ -35,6 +37,8 @@ TRACKED = [
     "log.md",
     "slot-inventory.json",
     "build_slot_inventory.py",
+    "allocate_week.py",
+    "week-allocation.json",
     "render_blueprint.py",
     "week-blueprint.html",
     "sync_dispersal.py",

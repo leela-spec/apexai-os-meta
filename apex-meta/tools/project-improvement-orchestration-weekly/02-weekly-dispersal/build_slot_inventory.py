@@ -18,15 +18,33 @@ Spans marked DERIVED in span_status were computed from the operator's
 "everything else half an hour earlier" rule, not declared one by one (WD-46).
 """
 
+import argparse
 import json
 from pathlib import Path
 
 OUT = Path(__file__).with_name("slot-inventory.json")
 DEMAND_PATH = Path(__file__).with_name("week-demand.json")
-BLUEPRINT_PATH = Path(
-    "C:/GitDev/apexai-os-meta/apex-meta/tools/"
-    "project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json"
+DEFAULT_BLUEPRINT_PATH = (
+    Path(__file__).resolve().parents[3]
+    / "apexai-os-meta"
+    / "apex-meta"
+    / "tools"
+    / "project-improvement-orchestration-weekly"
+    / "02-weekly-dispersal"
+    / "week-blueprint.json"
 )
+LOCAL_BLUEPRINT_FALLBACK = Path(__file__).with_name("week-blueprint.json")
+
+
+def _resolve_blueprint_path(cli_path=None):
+    if cli_path:
+        return Path(cli_path)
+    if LOCAL_BLUEPRINT_FALLBACK.exists():
+        return LOCAL_BLUEPRINT_FALLBACK
+    return DEFAULT_BLUEPRINT_PATH
+
+
+BLUEPRINT_PATH = _resolve_blueprint_path()
 BLUEPRINT = json.loads(BLUEPRINT_PATH.read_text(encoding="utf-8"))
 DEMAND = json.loads(DEMAND_PATH.read_text(encoding="utf-8"))
 
@@ -48,18 +66,21 @@ FLOW_MIN = FT["duration_min"]
 WEEKDAY_FLOWS = BLUEPRINT["weekday_flows"]
 WEEKEND_FLOWS = BLUEPRINT["weekend_flows"]
 
-# OD-35: the physical Epic set and the week-table mapping.
-PHYSICAL_EPICS = ["Martial Arts", "Dance", "S/BJJ", "General", "Knee"]
-WEEK_TABLE_MAP = {
-    "Strikes": "Martial Arts",
-    "Kicks": "Martial Arts",
-    "Dance": "Dance",
-    "Moves": "Dance",
-    "S/BJJ": "S/BJJ",
-    "Running": "General",
-    "Stretch": "General",
-    "EFX": None,  # dropped by the operator
-}
+# OD-35: the physical Epic set and the week-table mapping read from week-demand.json.
+PHYSICAL_EPICS = list(DEMAND["physical"]["shares"].keys())
+WEEK_TABLE_MAP = DEMAND["physical"].get(
+    "week_table_map",
+    {
+        "Strikes": "Martial Arts",
+        "Kicks": "Martial Arts",
+        "Dance": "Dance",
+        "Moves": "Dance",
+        "S/BJJ": "S/BJJ",
+        "Running": "General",
+        "Stretch": "General",
+        "EFX": None,  # dropped by the operator
+    },
+)
 
 MENTAL_EPICS = list(DEMAND["mental"]["shares"].keys())
 MENTAL_SHARES = DEMAND["mental"]["shares"]
@@ -108,11 +129,21 @@ def round_shares_to_step(shares, fixed_keys, tie_order):
     return {k: out[k] * SHARE_STEP for k in shares}
 
 
-_PHYS_EXACT = {k: v * (1 - KNEE_SHARE) for k, v in _REST.items()}
-_PHYS_EXACT["Knee"] = KNEE_SHARE
-PHYSICAL_SHARES = round_shares_to_step(
-    _PHYS_EXACT, fixed_keys=("Knee",), tie_order=_tie_order(_PHYS_EXACT)
-)
+if "shares" in DEMAND["physical"] and DEMAND["physical"]["shares"]:
+    PHYSICAL_SHARES = dict(DEMAND["physical"]["shares"])
+    for _epic, _share in PHYSICAL_SHARES.items():
+        if abs(_share / SHARE_STEP - round(_share / SHARE_STEP)) > 1e-9:
+            raise ValueError(
+                f"physical share {_epic}={_share} is off the {SHARE_STEP:.0%} ladder (OD-51)"
+            )
+    if abs(sum(PHYSICAL_SHARES.values()) - 1.0) > 1e-9:
+        raise ValueError(f"physical shares do not sum to 100%: {PHYSICAL_SHARES}")
+else:
+    _PHYS_EXACT = {k: v * (1 - KNEE_SHARE) for k, v in _REST.items()}
+    _PHYS_EXACT["Knee"] = KNEE_SHARE
+    PHYSICAL_SHARES = round_shares_to_step(
+        _PHYS_EXACT, fixed_keys=("Knee",), tie_order=_tie_order(_PHYS_EXACT)
+    )
 
 # Mental already sits on the ladder (40/20/20/20). Assert it rather than
 # re-derive it, so a future edit off the ladder fails here instead of shipping.
@@ -360,6 +391,17 @@ def build():
 
 
 if __name__ == "__main__":
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--blueprint", help="path to week-blueprint.json", default=None)
+    args = ap.parse_args()
+    if args.blueprint:
+        BLUEPRINT_PATH = _resolve_blueprint_path(args.blueprint)
+        BLUEPRINT = json.loads(BLUEPRINT_PATH.read_text(encoding="utf-8"))
+        REGIMES = BLUEPRINT["regimes"]
+        WEEKDAYS = REGIMES["weekday_project"]["days"] + REGIMES["weekday_plain"]["days"]
+        WEEKEND = REGIMES["weekend"]["days"]
+        FT = BLUEPRINT["flow_template"]
+        ANCHORS = BLUEPRINT["anchors"]
     data = build()
     OUT.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
     t = data["totals"]

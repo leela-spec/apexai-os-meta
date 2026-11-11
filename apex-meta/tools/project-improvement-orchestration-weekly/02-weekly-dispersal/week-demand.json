@@ -1,14 +1,20 @@
 {
   "schema_version": "1.0",
-  "id": "MOA-SEQ-WEEK-DEMAND-DRAFT",
-  "status": "draft",
-  "purpose": "Operator weekly demand dials (shares, focus days, and active regime settings) separated from calendar clock (week-blueprint.json) and dispersal algorithm (ALGORITHM.md). Resolves DD-02, OD-03, DD-03, DD-05, DD-17, DD-18.",
+  "id": "MOA-SEQ-WEEK-DEMAND",
+  "status": "current",
+  "purpose": "Operator weekly demand dials (shares, priorities, pins, focus days, and active regime settings) separated from calendar clock (week-blueprint.json) and dispersal algorithm (ALGORITHM.md). Resolves DD-02, OD-03, DD-03, DD-05, DD-17, DD-18.",
   "mental": {
     "shares": {
       "Intention": 0.40,
       "ACIM": 0.20,
       "Surrender": 0.20,
       "Breathing": 0.20
+    },
+    "priorities": {
+      "Intention": 9,
+      "ACIM": 8,
+      "Surrender": 8,
+      "Breathing": 7
     },
     "focus_days": {
       "Monday": "Intention",
@@ -41,6 +47,32 @@
       "General": 0.15,
       "Knee": 0.15
     },
+    "priorities": {
+      "Martial Arts": 9,
+      "Dance": 8,
+      "S/BJJ": 7,
+      "General": 7,
+      "Knee": 9
+    },
+    "week_table_map": {
+      "Strikes": "Martial Arts",
+      "Kicks": "Martial Arts",
+      "Dance": "Dance",
+      "Moves": "Dance",
+      "S/BJJ": "S/BJJ",
+      "Running": "General",
+      "Stretch": "General",
+      "EFX": null
+    },
+    "pins": [
+      {
+        "pattern": "*_*_I3_P",
+        "epic": "Knee",
+        "max_slots": 11,
+        "rule_id": "WD-33",
+        "note": "Positional pin on I3_P slots up to Knee's weekly quota (11 slots)"
+      }
+    ],
     "focus_capacity": {
       "Martial Arts": 36,
       "Dance": 24,
@@ -60,11 +92,32 @@
   "craft_and_project_evenings": {
     "mon_to_wed_project_nights": ["Monday", "Tuesday", "Wednesday"],
     "thu_to_fri_evening": "Freizeit",
-    "craft_epics_source": "OpenProject work packages (bound in C slots via G-I-P-S-O)"
+    "craft_epics": [
+      "Leela",
+      "IPOS",
+      "Master of Arts",
+      "Apex AI",
+      "Mindful Bar",
+      "Residual"
+    ],
+    "craft_priorities": {
+      "Leela": 10,
+      "IPOS": 8,
+      "Master of Arts": 9,
+      "Apex AI": 9,
+      "Mindful Bar": 5,
+      "Residual": 6
+    },
+    "craft_epics_source": "OpenProject work packages across the 6 Portfolio Areas (bound in C slots via G|I|P|S|O|C)"
   },
   "regeneration": {
     "epic": "Regeneration",
     "blocks": ["Yoga Nidra", "Audiobooks", "Socializing"],
+    "block_weights": {
+      "Yoga Nidra": 0.35,
+      "Audiobooks": 0.45,
+      "Socializing": 0.20
+    },
     "note": "DD-17 resolved: all R activities belong as Blocks inside one Regeneration Epic."
   },
   "weekend_regime": {

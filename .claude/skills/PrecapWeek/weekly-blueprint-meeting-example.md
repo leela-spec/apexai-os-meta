@@ -58,12 +58,13 @@ scope:
     weekend_regime_days:
       - Saturday
       - Sunday
-    allowed_exception:
-      - Sunday_weekly_precap_session
+    weekly_precap_cadence:
+      - Saturday_or_Sunday
+    canonical_clock_owner: apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json
   use_condition: >
-    Use this file only after the standard weekday blueprint has been considered
-    and calendar constraints or fixed commitments make the standard structure
-    unrealistic.
+    Use this file only after the standard Monday through Sunday blueprint has
+    been considered and calendar constraints or fixed commitments make the
+    standard structure unrealistic.
 ```
 
 ## Meeting-Heavy Detection
@@ -118,10 +119,13 @@ meeting_week_deformation_rules:
     keep_output_weekly_direction_level: true
     create_calendar_block_proposals_only: true
   fixed_block_policy:
+    canonical_clock_owner: apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json
     remain_protected_where_realistic:
       - morning_routine
-      - lunch_prep
-      - lunch_break
+      - lunch_and_afterlunch
+      - afternoon_break_and_finanzen_2Do
+      - evening_physical_and_abend
+      - project_night_mon_wed_or_freizeit_thu_fri
       - day_outro
       - sleep_routine
     if_conflict_occurs:
@@ -387,18 +391,44 @@ minimal_meeting_heavy_week_example:
       capacity_shape: minimal
       protected_fixed_blocks:
         - morning_routine
-        - lunch_break
+        - lunch_and_afterlunch
         - day_outro
         - sleep_routine
       project_direction:
         Leela:
           flow_shape: minimal_flow_1_sprint
           reason: "Close one important loop before the week ends."
+        MindfulBar:
+          flow_shape: minimal_flow_1_sprint
+          reason: "Advance Cacao Bar validation sprint inside remaining Flow capacity."
         Residual:
           flow_shape: minimal_flow_1_sprint
           reason: "Use only for recovery or unavoidable overflow if operator agrees."
       operator_review_flags:
         - residual_use_needs_operator_review
+    Saturday:
+      capacity_shape: standard
+      protected_fixed_blocks:
+        - weekend_regime_1200_1600
+      project_direction:
+        IPOS:
+          flow_shape: full_flow_3_sprints
+          reason: "Flow 1 (12:00-14:00) weekend regime capacity."
+        MasterOfArts:
+          flow_shape: full_flow_3_sprints
+          reason: "Flow 2 (14:00-16:00) weekend regime capacity."
+    Sunday:
+      capacity_shape: standard
+      protected_fixed_blocks:
+        - weekend_regime_1200_1600
+        - weekly_precap_and_status_merge
+      project_direction:
+        ApexAI:
+          flow_shape: full_flow_3_sprints
+          reason: "Flow 1 (12:00-14:00) weekend regime capacity."
+        Leela:
+          flow_shape: compressed_flow_2_sprints
+          reason: "Flow 2 (14:00-16:00) paired with weekly PrecapWeek / StatusMerge session."
   example_validation:
     no_full_daily_plan_created: true
     no_prompt_packets_created: true
@@ -420,11 +450,10 @@ non_goals:
   not_status_merge: true
   not_calendar_event_creation: true
   not_calendar_write_result: true
-  not_saturday_plan: true
-  not_regular_sunday_plan: true
   boundary_statement: >
     This file only defines how to bend weekly direction around constrained
-    weekdays. It does not replace the standard blueprint, create the canonical
-    weekly output schema, generate daily plans, create prompt packets, execute
-    project work, merge status, or create calendar events.
+    Monday through Sunday days. It does not replace the standard blueprint,
+    create the canonical weekly output schema, generate daily plans, create
+    prompt packets, execute project work, merge status, or create calendar
+    events.
 ```
