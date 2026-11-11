@@ -55,6 +55,18 @@ def _save_ledger(path: Path, data: dict[str, Any]) -> None:
         pass
 
 
+def _append_git_telemetry(cwd: str, event_name: str, decision: str, detail: str = "") -> None:
+    git_dir = Path(cwd) / ".git"
+    if not git_dir.is_dir():
+        return
+    try:
+        tpath = git_dir / "hook-telemetry.jsonl"
+        with tpath.open("a", encoding="utf-8") as fh:
+            fh.write(json.dumps({"hook": event_name, "tool": event_name, "decision": decision, "detail": detail}) + "\n")
+    except OSError:
+        pass
+
+
 def _turn_key(event: dict[str, Any], ledger: dict[str, Any]) -> str:
     tp = str(event.get("transcript_path") or "")
     if tp and Path(tp).is_file():
@@ -187,10 +199,12 @@ def main() -> int:
         )
 
     if not issues:
+        _append_git_telemetry(cwd, str(event.get("hook_event_name") or "Stop"), "allow")
         return 0
 
     ledger.setdefault("stop_turns", []).append(tkey)
     _save_ledger(lpath, ledger)
+    _append_git_telemetry(cwd, str(event.get("hook_event_name") or "Stop"), "deny", f"{len(issues)}_issues")
     sys.stderr.write("HOOK STOP BLOCK: " + " | ".join(issues) + "\n")
     return 2
 

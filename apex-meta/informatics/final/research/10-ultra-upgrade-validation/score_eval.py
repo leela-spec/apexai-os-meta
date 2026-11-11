@@ -20,6 +20,7 @@ import os
 import re
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -38,16 +39,18 @@ SHELL_TOOL_NAMES = {"Bash", "PowerShell", "run_shell_command", "command_executio
 
 PS_READ_RE = re.compile(r"\b(?:Get-Content|gc|cat|type|Select-String|sls|head|tail|more|less|git\s+show|git\s+diff)\b", re.IGNORECASE)
 PS_WRITE_RE = re.compile(r"\b(?:Set-Content|Out-File|Add-Content|sc|ac|Copy-Item|Move-Item|cpi|mvi)\b|>|>>", re.IGNORECASE)
+def _field_pat(name: str) -> re.Pattern[str]:
+    return re.compile(
+        rf"(?:^|\n)\s*(?:#{{1,4}}\s+|\*\*|(?:[-*]\s+)\*\*)(?:\d+\.\s*)?(?:L0.?L3\s+)?{name}(?:[^\n:*]{{0,45}})(?:\*\*)?(?:\s*\([^\n)]{{1,45}}\))?\s*(?:\*\*)?(?::|—|-|\s*(?:\r?\n|$))",
+        re.IGNORECASE,
+    )
+
+
 ALIGN_FIELD_PATTERNS = {
-    "Goal": re.compile(r"(?:^|\n)\s*(?:#{1,4}\s*|(?:[-*]\s+)?(?:\*\*)?)Goal(?:\*\*)?\s*(?::|—|-|\n)", re.IGNORECASE),
-    "Input": re.compile(r"(?:^|\n)\s*(?:#{1,4}\s*|(?:[-*]\s+)?(?:\*\*)?)Input(?:\*\*)?\s*(?::|—|-|\n)", re.IGNORECASE),
-    "Process": re.compile(r"(?:^|\n)\s*(?:#{1,4}\s*|(?:[-*]\s+)?(?:\*\*)?)Process(?:\*\*)?\s*(?::|—|-|\n)", re.IGNORECASE),
-    "Skills": re.compile(r"(?:^|\n)\s*(?:#{1,4}\s*|(?:[-*]\s+)?(?:\*\*)?)Skills(?:\*\*)?\s*(?::|—|-|\n)", re.IGNORECASE),
-    "Output": re.compile(r"(?:^|\n)\s*(?:#{1,4}\s*|(?:[-*]\s+)?(?:\*\*)?)Output(?:\*\*)?\s*(?::|—|-|\n)", re.IGNORECASE),
-    "Redraft": re.compile(r"(?:^|\n)\s*(?:#{1,4}\s*|(?:[-*]\s+)?(?:\*\*)?)Redraft(?:\*\*)?\s*(?::|—|-|\n)", re.IGNORECASE),
+    k: _field_pat(k) for k in ("Goal", "Input", "Process", "Skills", "Output", "Redraft")
 }
 FRAMEWORK_HINT_RE = re.compile(
-    r"\b(?:OODA|FMEA|Cynefin|First Principles|Pre-Mortem|Root Cause|5 Whys|MECE|Pugh|Bayesian|Trade-?off|Decision Matrix|Verification-First)\b",
+    r"\b(?:OODA|FMEA|Cynefin|First Principles|Pre-Mortem|Premortem|Root Cause|5[- ]Whys|MECE|Pugh|Bayesian|Trade-?off|Decision Matrix|Verification-First|Sequencing & Architecture|Critical Path|Macro-Meso-Micro|EM-10|SCQA|Minto BLUF|User Story Mapping|Inversion|Bake-?Off)\b",
     re.IGNORECASE,
 )
 
@@ -80,6 +83,7 @@ def parse_jsonl_trace(jsonl_path: Path) -> dict[str, Any]:
     shell_cmds: list[tuple[int, str]] = []
     unparsed_tools: list[str] = []
     hook_events: list[str] = []
+    session_ids: list[str] = []
     assistant_texts: list[str] = []
     cost_usd: float | None = None
     num_turns: int | None = None
@@ -109,10 +113,21 @@ def parse_jsonl_trace(jsonl_path: Path) -> dict[str, Any]:
 
         etype = obj.get("type")
 
-        # Claude hook telemetry
+        # Claude hook telemetry (SessionStart + PreToolUse/Stop hook errors or blocks)
         if etype == "system" and str(obj.get("subtype") or "").startswith("hook_"):
             hook_events.append(f"{obj.get('subtype')}:{obj.get('hook_event')}:{obj.get('exit_code')}")
             harness = "claude"
+        if etype == "user" and isinstance(obj.get("message"), dict):
+            for blk in obj["message"].get("content") or []:
+                if isinstance(blk, dict) and blk.get("type") == "tool_result":
+                    cstr = str(blk.get("content") or "")
+                    if "hook error:" in cstr or "HOOK BLOCK" in cstr:
+                        hook_events.append("hook_block:" + cstr[:60])
+
+        # Capture session_id for optional temp ledger fallback check
+        sid_val = obj.get("session_id")
+        if isinstance(sid_val, str) and sid_val and sid_val not in session_ids:
+            session_ids.append(sid_val)
 
         # Claude init
         if etype == "system" and obj.get("subtype") == "init":
@@ -218,6 +233,13 @@ def parse_jsonl_trace(jsonl_path: Path) -> dict[str, Any]:
                 events.append({"seq": seq, "tool": "command_execution", "input": {"command": cmd}})
                 shell_cmds.append((seq, cmd))
                 _classify_shell(seq, cmd, reads, writes)
+            elif itype == "file_change":
+                for ch in item.get("changes") or []:
+                    if isinstance(ch, dict) and isinstance(ch.get("path"), str):
+                        seq += 1
+                        p = _norm(ch["path"])
+                        events.append({"seq": seq, "tool": "file_change", "input": ch})
+                        writes.append((seq, p))
         if etype == "turn.completed" and isinstance(obj.get("usage"), dict):
             harness = "codex"
             u = obj["usage"]
@@ -230,6 +252,7 @@ def parse_jsonl_trace(jsonl_path: Path) -> dict[str, Any]:
         "shell_cmds": shell_cmds,
         "unparsed_tools": sorted(set(unparsed_tools)),
         "hook_events": hook_events,
+        "session_ids": session_ids,
         "assistant_text": "\n".join(assistant_texts).strip(),
         "cost_usd": cost_usd,
         "num_turns": num_turns,
@@ -283,7 +306,7 @@ def _prompt_overlap_ratio(prompt: str, final_text: str) -> float:
     if not p_words:
         return 0.0
     m = re.search(
-        r"(?:^|\n)\s*(?:#{1,4}\s*|(?:[-*]\s+)?(?:\*\*)?)Input(?:\*\*)?\s*(?::|—|-|\n)(.*?)(?:\n\s*(?:#{1,4}\s*|[-*]\s+\*\*|\*\*)|$)",
+        r"(?:^|\n)\s*(?:#{1,4}\s+|\*\*|(?:[-*]\s+)\*\*)(?:\d+\.\s*)?Input(?:[^\n:*]{0,45})(?:\*\*)?\s*(?::|—|-|\s*\n)(.*?)(?:\n\s*(?:#{1,4}\s+|[-*]\s+\*\*|\*\*\s*(?:\d+\.\s*)?(?:Process|Skills|Output|Redraft))|$)",
         final_text,
         re.DOTALL | re.IGNORECASE,
     )
@@ -441,6 +464,19 @@ def score_cell(
     if trace.get("status_error"):
         notes.append(f"err={trace['status_error']}")
 
+    hook_count = len(trace["hook_events"])
+    if repo_dir and (repo_dir / ".git" / "hook-telemetry.jsonl").is_file():
+        hook_count = max(hook_count, len((repo_dir / ".git" / "hook-telemetry.jsonl").read_text(encoding="utf-8", errors="replace").splitlines()))
+    elif cell_meta.get("arm") == "B":
+        for sid in trace.get("session_ids") or []:
+            lp = Path(tempfile.gettempdir()) / f"apex-eval-hook-{re.sub(r'[^A-Za-z0-9_.-]+', '_', sid)}.json"
+            if lp.is_file():
+                try:
+                    ldata = json.loads(lp.read_text(encoding="utf-8"))
+                    hook_count = max(hook_count, len(ldata.get("reads") or []) + len(ldata.get("writes") or []))
+                except ValueError:
+                    pass
+
     return {
         "cell": cell_meta["cell"],
         "arm": cell_meta["arm"],
@@ -458,7 +494,7 @@ def score_cell(
         "bloat_reads": bloat_reads,
         "pause_ok": pause_ok,
         "validator_new_errors": validator_new_errors,
-        "hook_events_count": len(trace["hook_events"]),
+        "hook_events_count": hook_count,
         "unparsed_tools": ";".join(trace["unparsed_tools"]),
         "det_pass": det_pass,
         "notes": "; ".join(notes),

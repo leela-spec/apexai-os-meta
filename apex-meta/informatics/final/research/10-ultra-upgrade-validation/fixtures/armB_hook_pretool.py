@@ -72,6 +72,18 @@ def _save_ledger(path: Path, data: dict[str, Any]) -> None:
         pass
 
 
+def _append_git_telemetry(cwd: str, event_name: str, tool_name: str, decision: str, detail: str = "") -> None:
+    git_dir = Path(cwd) / ".git"
+    if not git_dir.is_dir():
+        return
+    try:
+        tpath = git_dir / "hook-telemetry.jsonl"
+        with tpath.open("a", encoding="utf-8") as fh:
+            fh.write(json.dumps({"hook": event_name, "tool": tool_name, "decision": decision, "detail": detail}) + "\n")
+    except OSError:
+        pass
+
+
 def _reads_from_transcript(transcript_path: str) -> set[str]:
     found: set[str] = set()
     if not transcript_path:
@@ -156,6 +168,7 @@ def main() -> int:
                 if nv not in ledger["reads"]:
                     ledger["reads"].append(nv)
         _save_ledger(lpath, ledger)
+        _append_git_telemetry(cwd, str(event.get("hook_event_name") or "PreToolUse"), tool_name, "allow")
         return 0
 
     if tool_name in SHELL_TOOLS:
@@ -169,6 +182,7 @@ def main() -> int:
             st = subprocess.run(["git", "status", "--porcelain"], cwd=cwd, capture_output=True, text=True)
             dirty = [ln for ln in st.stdout.splitlines() if ln.strip()]
             if dirty:
+                _append_git_telemetry(cwd, str(event.get("hook_event_name") or "PreToolUse"), tool_name, "deny", "blanket_git")
                 return _deny(
                     "HOOK BLOCK (<sync>/<handover> EM-14): Refusing blanket git staging/commit "
                     "(-A / --all / . / -a) in a dirty working tree. Leave unrelated dirty files "
@@ -180,6 +194,7 @@ def main() -> int:
             staged_files = [_norm(s) for s in staged.stdout.splitlines() if s.strip()]
             bad_staged = [s for s in staged_files if s in DIRTY_EXCLUSIONS]
             if bad_staged:
+                _append_git_telemetry(cwd, str(event.get("hook_event_name") or "PreToolUse"), tool_name, "deny", "dirty_staged")
                 return _deny(
                     f"HOOK BLOCK (<handover> EM-14): Refusing commit because unrelated dirty files "
                     f"are staged: {bad_staged}. Unstage them with `git reset HEAD -- ...`."
@@ -188,10 +203,12 @@ def main() -> int:
         if SHELL_WRITE_FINAL_RE.search(cmd):
             all_reads = set(ledger["reads"]) | _reads_from_transcript(str(event.get("transcript_path") or ""))
             if not _has_ref(all_reads, "apex-meta/informatics/final/index.md"):
+                _append_git_telemetry(cwd, str(event.get("hook_event_name") or "PreToolUse"), tool_name, "deny", "shell_write_final_no_index")
                 return _deny(
                     "HOOK BLOCK (<authoring>): Shell write targeting apex-meta/informatics/final/ "
                     "before opening apex-meta/informatics/final/index.md. Read the index and matched spec first."
                 )
+        _append_git_telemetry(cwd, str(event.get("hook_event_name") or "PreToolUse"), tool_name, "allow")
         return 0
 
     if tool_name in WRITE_TOOLS:
@@ -212,6 +229,7 @@ def main() -> int:
             if "/operations/handovers/" in target and not _has_ref(all_reads, "handover.md"):
                 missing.append("apex-meta/informatics/final/specs/execution-modes/handover.md")
             if missing:
+                _append_git_telemetry(cwd, str(event.get("hook_event_name") or "PreToolUse"), tool_name, "deny", f"missing_{missing}")
                 return _deny(
                     "HOOK BLOCK (<authoring>/<handover>): Read required spec(s) BEFORE creating or editing "
                     f"under apex-meta/informatics/final/: missing {missing}."
@@ -225,11 +243,13 @@ def main() -> int:
                 text_to_check = str(tool_input.get("new_string") or "")
             found_bad = [m for m in RESIDUE_MARKERS if m in text_to_check]
             if found_bad:
+                _append_git_telemetry(cwd, str(event.get("hook_event_name") or "PreToolUse"), tool_name, "deny", "residue")
                 return _deny(
                     f"HOOK BLOCK (<current_truth>): Operating rule file `{target}` still contains "
                     f"deprecated strikethrough or retired markers {found_bad}. State live truth only and "
                     "purge retired runner references in the same edit."
                 )
+        _append_git_telemetry(cwd, str(event.get("hook_event_name") or "PreToolUse"), tool_name, "allow")
 
     return 0
 
