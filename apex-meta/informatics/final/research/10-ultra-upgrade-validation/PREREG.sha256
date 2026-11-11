@@ -1,7 +1,5 @@
-# initial_locked_utc: 2026-11-11T15:46:24Z (commit 1da186c0)
-# pre_phase2_audit_lock_utc: 2026-11-11T16:33:32Z (commit b843944b: Arm B hook 2>&1/read gates, Gemini 0.66.0 tool names, shell/T1/T3 scorer fixes before fresh r0 calibration)
-# pre_phase2_scorer_addendum_utc: 2026-11-11T17:03:05Z (score_eval.py field qualifier width 45->100, Stop feedback text event, T3 missing_subtasks note, T4 pycache filter; zero prompt/arm changes)
-# experiment: EVAL-APEX-ULTRA-V1-UPGRADE (base a4cb2b6a)
+# PREREG.sha256 for EVAL-APEX-ULTRA-V1-UPGRADE locked 2026-11-11T17:06:43Z
+# Base commit: a4cb2b6a | Tracked files: 22
 979f44b9710b33a90887195e9e748dd3b7f4c4c6cd956d17f826be454fa7cf9e  fixtures/armA-contract.txt
 0792c6d7c1d36332ddb2ba13bcb6b0689cd445f298996f6944ea20686322a5ea  fixtures/armB-rule-closeout.txt
 f6b4a71d0b86105e16a456ab55808885d6b5c4a5559edf47d6d649f7aa8670a1  fixtures/armB-rule-informatics.txt
@@ -22,5 +20,5 @@ e2fdb519c8a19ee6d076e276e1a1688c71c564568ad3bd8c4f2459e02791039e  fixtures/t6-pr
 b61c0ffe79373e5836835861f09e6f4f1327c96e697dd98fcf251b7296e956ad  fixtures/t6-target.md.txt
 283f4d043317d391b026a7153f1fd7126c44b9b096309ca27d3b96ec821fda8d  index.md
 ef778c7b3ef52e71c95ca2bb6bcbefd979d25fa79463faacf022a6b3a9fa6485  preregistration.md
-322b78ef25cfe99acae2e6e626d8d9f4cdf94f91dce61e5a2f462f425b61a80c  score_eval.py
+1da2f8915b784eb6acba43d9a20d3e0ab768181084eefdde7350f5167a3e73b8  score_eval.py
 a15812e525e0b1ff8737ac3ad63cde2484b52a74ebdc2c41b000995aee237e32  tasks.json

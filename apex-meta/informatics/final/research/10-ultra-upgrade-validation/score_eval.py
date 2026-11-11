@@ -170,7 +170,8 @@ def parse_jsonl_trace(jsonl_path: Path) -> dict[str, Any]:
                     if tname not in KNOWN_CLAUDE_TOOLS:
                         unparsed_tools.append(tname)
                     if tname in READ_TOOL_NAMES:
-                        for k in ("file_path", "path", "dir_path", "pattern"):
+                        keys = ("file_path", "path", "dir_path", "pattern") if tname == "Glob" else ("file_path", "path", "dir_path")
+                        for k in keys:
                             v = inp.get(k)
                             if isinstance(v, str):
                                 reads.append((seq, _norm(v)))
@@ -209,7 +210,8 @@ def parse_jsonl_trace(jsonl_path: Path) -> dict[str, Any]:
             if tname not in KNOWN_GEMINI_TOOLS:
                 unparsed_tools.append(tname)
             if tname in READ_TOOL_NAMES:
-                for k in ("file_path", "path", "dir_path", "pattern"):
+                keys = ("file_path", "path", "dir_path", "pattern") if tname == "glob" else ("file_path", "path", "dir_path")
+                for k in keys:
                     v = params.get(k)
                     if isinstance(v, str):
                         reads.append((seq, _norm(v)))
@@ -296,9 +298,50 @@ def parse_jsonl_trace(jsonl_path: Path) -> dict[str, Any]:
     }
 
 
+def _split_shell_clauses(cmd: str) -> list[str]:
+    clauses: list[str] = []
+    buf: list[str] = []
+    quote: str | None = None
+    i = 0
+    n = len(cmd)
+    while i < n:
+        ch = cmd[i]
+        if quote:
+            buf.append(ch)
+            if ch == quote and (i == 0 or cmd[i - 1] != "\\"):
+                quote = None
+            i += 1
+            continue
+        if ch in ("'", '"'):
+            quote = ch
+            buf.append(ch)
+            i += 1
+            continue
+        if ch in ("\n", ";"):
+            clauses.append("".join(buf))
+            buf.clear()
+            i += 1
+            continue
+        if ch == "&" and i + 1 < n and cmd[i + 1] == "&":
+            clauses.append("".join(buf))
+            buf.clear()
+            i += 2
+            continue
+        if ch == "|":
+            clauses.append("".join(buf))
+            buf.clear()
+            i += 2 if (i + 1 < n and cmd[i + 1] == "|") else 1
+            continue
+        buf.append(ch)
+        i += 1
+    if buf:
+        clauses.append("".join(buf))
+    return clauses
+
+
 def _classify_shell(seq: int, cmd: str, reads: list[tuple[int, str]], writes: list[tuple[int, str]]) -> None:
     ncmd = _norm(cmd)
-    for raw_clause in SHELL_CLAUSE_SPLIT_RE.split(ncmd):
+    for raw_clause in _split_shell_clauses(ncmd):
         clause = BENIGN_REDIR_RE.sub(" ", raw_clause).strip()
         if not clause:
             continue
@@ -433,7 +476,7 @@ def score_cell(
         pause_ok = paused
         txt = trace["assistant_text"]
         fields_ok = all(pat.search(txt) for pat in ALIGN_FIELD_PATTERNS.values())
-        has_subtasks = bool(re.search(r"(?:Tasks?\s*(?:->|→)\s*Subtasks?|Subtasks?\s*\d|Task\s*\d|T\d+\.\d+|\b\d+\.\d+\b)", txt, re.IGNORECASE))
+        has_subtasks = bool(re.search(r"(?:Tasks?\s*(?:->|→)\s*Subtasks?|Subtasks?\s*\d|Task\s*\d|[ST]\d+\.\d+|\b\d+\.\d+\b)", txt, re.IGNORECASE))
         has_fw = bool(FRAMEWORK_HINT_RE.search(txt))
         overlap = _prompt_overlap_ratio(task_def["prompt"], txt)
         det_pass = bool(paused and fields_ok and has_subtasks and has_fw and overlap <= 0.15 and has_spec)
