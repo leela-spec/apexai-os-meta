@@ -23,6 +23,10 @@ tags: [layered-kb, rules, semantic-blocks, audits, index, v1.0, token-compressio
 > - **Solution:** added [`rule-23-align.md`](rule-23-align.md) as a change record (not an audit) and a row 23 below; added dated update blocks to [`rule-17-trade-off.md`](rule-17-trade-off.md) and [`audit-module-03-execution-modes.md`](audit-module-03-execution-modes.md). The metrics and the 22-rule counts in this file were left as the historical snapshot.
 > - **After:** the master is `specs/apex_contract_v1.0_ultra.xml`. This knowledge base is a snapshot of the 22-rule `3A` analysis and does not drive the master; wording changes are made in the master and recorded in `operations/20-CHANGE-RECORD-2026-11-06-07.md`.
 
+> **Update 2026-11-11** (Task Specification + Living-Ruleset + Cross-Agent Two-Phase Planning upgrade):
+> - **Before:** `rule-23-align.md` was a 42-line stub with open `TODO-EM-13-A`; `rule-01`, `rule-11`, `rule-18`, `rule-19`, `rule-22`, and `audit-module-02`/`03` pre-dated the `Goal` (`Tasks -> Subtasks`), flowing `Input`, `EM-14`, canonical-artifact `Done`, and two-phase `ref=` pre-read upgrades (`1,490 cl100k_base` / `1,509 o200k_base` master XML).
+> - **Solution:** upgraded [`rule-23-align.md`](rule-23-align.md) to a full 5-section audit (`SB-23.1`..`23.8`, `191 cl100k` / `198 o200k`), added dated update blocks to `rule-01`, `rule-11`, `rule-18`, `rule-19`, `rule-22`, [`audit-module-02-file-architecture.md`](audit-module-02-file-architecture.md), and [`audit-module-03-execution-modes.md`](audit-module-03-execution-modes.md); live master XML is `1,621 cl100k_base` / `1,638 o200k_base` (`+131 cl100k`, `+8.8%`). Rules 01–22 `3A` snapshot totals remain preserved below.
+
 ---
 
 ## 1. Governed 22-Rule Semantic Block Knowledge Base
@@ -53,7 +57,7 @@ Every rule in the canonical `3A` contract block is systematically audited across
 | 20 | [**`rule-20-schemas.md`**](rule-20-schemas.md) | `<schemas>` | 64 | 64 | 0 BPE (0.0%) | 62 | `GS-01`, `GS-09`, `GS-10` | `RP-08`, `RP-09` (Schema conformance) |
 | 21 | [**`rule-21-sync.md`**](rule-21-sync.md) | `<sync>` | 53 | 52 | −1 BPE (−1.9%) | 51 | `AD-23`, `EM-12`, `WP-25` | `RP-09`, `RP-10` (Git dispatch priority) |
 | 22 | [**`rule-22-pointers.md`**](rule-22-pointers.md) | `<pointers>` | 32 | 33 | +1 BPE (+3.1%) | 31 | `AD-26`, `WP-18`, `WP-25` | `RP-08`, `RP-09`, `RP-10` (JIT pointers) |
-| 23 | [**`rule-23-align.md`**](rule-23-align.md) | `<align>` | n/a | n/a | n/a | n/a | `EM-13` | change record only, no audit |
+| 23 | [**`rule-23-align.md`**](rule-23-align.md) | `<align>` | 179 (2026-11-07) | 191 cl / 198 o2 | +12 (+6.7%) | 149 cl / 156 o2 | `EM-13` | `SpecBench`, `FixedBench`, Patton, `operations/15,17` |
 | **Totals** | **Rules 01–22 (rule 23 not audited)** | **All Tags** | **1,311** | **1,187** | **−124 BPE (−9.5%) inner** | **1,061** | — | — |
 
 *Compiled Contract Metrics:* When assembled with the root tag `<apex_contract v="1.0-ultra" base_ref="apex-meta/informatics/">` and standard spacing, the contract achieves **1,225 BPE tokens** (1,479 repo tokens / 5,917 chars / 769 words / 65 lines) in [`16-candidate-3A-ultra.md`](../../candidates/_archive/16-candidate-3A-ultra.md), representing a **9.3% net token reduction** from `3A` (`1,350` BPE) while preserving 100% of non-default operational disciplines.

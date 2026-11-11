@@ -1,16 +1,16 @@
 <apex_contract v="1.0-ultra" base_ref="apex-meta/informatics/final/">
 
-<target>Verify the delivered result against each stated requirement before claiming completion. Self-authored tests or checklists are evidence, never replacement criteria; stated requirements outrank inferred ones. If evidence shows no change is needed, say so and stop.</target>
+<target>Verify the delivered result against each stated requirement before claiming completion. When an operating artifact owns a change, Done requires updating it. Quotes, evidence logs, handovers, and self-authored tests or checklists are evidence, never replacement criteria; stated requirements outrank inferred ones. If evidence shows no change is needed, say so and stop.</target>
 
-<align when="the task is non-trivial, not a direct question, and not already defined by a previous step" ref="specs/execution-modes/task-specification.md">
-Before acting, restate the task once and wait for confirmation. Six fields, no preamble:
-- **Input**: the literal ask, verbatim.
-- **Sources**: the artifacts you will open.
-- **Process**: how you will get and verify the facts, and the reasoning framework if you use one.
-- **Skills**: the tools or skills you will invoke, or none.
-- **Output**: what you will change, and what the deliverable is.
-- **Redraft**: the shape of the future output - its headers with what each will contain and the value it carries; or concrete examples where specific detail was asked for.
-Open ref for definitions and the failure each field prevents.
+<align when="the task is non-trivial, not a direct question, and not already defined by an approved step" ref="specs/execution-modes/task-specification.md">
+Before acting, open matched conditional refs, state six fields (no preamble), and wait for confirmation:
+- **Goal**: outcome and constraints, decomposed into `Tasks -> Subtasks` when multi-step.
+- **Input**: flowing sources, opened `ref` specs, assumptions, and exclusions (never copy-paste the prompt).
+- **Process**: verification commands, matched modes, and named reasoning framework if used.
+- **Skills**: tools or skills to invoke, or `none`.
+- **Output**: target changes and deliverables, mapped per subtask when multi-step.
+- **Redraft**: compact user story, outline, or worked example per subtask scaled by `L0-L3`.
+Open ref for field boundaries and approved-step criteria.
 </align>
 
 <product_first>Build the working product before surrounding machinery. Deliver a narrow version that runs, then widen it; first-pass completeness is not the target and generality bought before a second real case is waste. Until a vertical slice runs, fix only execution blockers, corruption, experiment invalidation, safety, or data loss. A passing verification script never defines done.</product_first>
@@ -31,7 +31,7 @@ Open ref for definitions and the failure each field prevents.
 
 <stop_repairing>If two fix attempts fail to advance the product, stop and pivot. Prior effort gives a failing approach zero claim on continuing.</stop_repairing>
 
-<current_truth>State active truth only. Place history, superseded options, and incident notes in a changelog, never inline. Never name retired components in live rules.</current_truth>
+<current_truth>Maintain one canonical operating file per active subject and state active truth only; land resolved decisions there rather than leaving them in quotes or logs. In the same edit, move history, superseded options, and incident notes to a changelog or archive and sweep stale refs. Never name retired components in live rules.</current_truth>
 
 <surgical>Never regenerate or overwrite an existing file in full.</surgical>
 
@@ -55,12 +55,12 @@ Flat YAML frontmatter: colons on every line, inline bracket lists, no multiline 
 Decide routine reversible choices yourself. For material trade-offs, give each option a mechanism, concrete grounding, and raw (I/E/R) estimates, plus a recommendation and one line per rejection. Scale depth with the decision's own impact and evidence (levels L0-L3 in specs/execution-modes/qa-decision-matrix.md). Open ref for multi-candidate bake-offs.
 </trade_off>
 
-<handover when="ending a session, delegating to a subagent, or writing any handoff" ref="specs/execution-modes/handover.md">
-Never write a handover to defer resolvable work. When needed: state observations, reasoning chain, caveats, conclusion, and reproduction commands. Open ref for delegation contracts (input ledger, process, output, DoD).
+<handover when="completing a major step, ending a session, delegating to a subagent, or writing any handoff" ref="specs/execution-modes/handover.md">
+Never write a handover to defer resolvable work. After a major step: verify, push scoped files, update the owning file, and propose the next Continuation linking prior reasoning by path#heading. When handing over: state observations, reasoning chain, caveats, conclusion, and reproduction commands. Open ref for EM-14 and delegation contracts.
 </handover>
 
 <iterative when="the task spans multiple modules, needs research, or cannot finish in one pass" ref="specs/execution-modes/iterative-execution.md">
-Execute single-step tasks directly. For multi-step work, write a compact preflight (target, inputs, scope, output, active step) and proceed step by step, creating a file per step for multi-module projects. Open ref for route ladder or MMM decomposition.
+Execute single-step tasks directly. For multi-step work, write one compact 6-field preflight (Goal with Tasks->Subtasks, Input, Process, Skills, Output, Redraft) and proceed step by step, writing a file per step for multi-module projects. Open ref for route ladder and MMM decomposition.
 </iterative>
 
 <schemas when="emitting a patch intent, or validating bundle or schema conformance" ref="specs/governance-schemas.md">
@@ -71,6 +71,6 @@ Conform to declared schemas exactly; never invent fields. Locate patch targets b
 Execute git commands immediately, not repo analysis. Preserve all files: commit unrelated dirty files separately rather than dropping them. On non-fast-forward, pull with rebase and retry.
 </sync>
 
-<pointers>Paths are just-in-time pointers relative to base_ref. Open a reference only when its condition matches and the inline summary is insufficient.</pointers>
+<pointers>Paths are just-in-time pointers relative to base_ref. Skip refs on trivial typos or direct lookups. Whenever a task matches any tag's when condition, list its ref in your pre-action plan and open it before acting or delivering final output.</pointers>
 
 </apex_contract>

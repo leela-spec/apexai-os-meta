@@ -14,6 +14,12 @@ tags: [layered-kb, rule-01, target, semantic-blocks, token-compression, research
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<target>` into 4 atomic semantic blocks (`SB-01.1`..`SB-01.4`), audits whether each token bundle earns its place, and presents scored compression options.
 > - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../specs/anti-drift-rules.md) (`AD-01`, `AD-09`, `AD-12`), [execution-modes.md](../../specs/execution-modes.md) (`EM-04`), [writing-profile.md](../../specs/writing-profile.md) (`WP-01`).
 
+> **Update 2026-11-11, read before the analysis below** (closing the `"evidence != rule"` and canonical-artifact `Done` loophole):
+> - **Before:** Live `<target>` (`50 BPE` `cl100k_base` / `51` `o200k_base`, `279 chars`, `36 words` in `specs/apex_contract_v1.0_ultra.xml`) forbade treating self-authored tests or checklists as replacement criteria, but left open whether logging an operator quote, writing a handover, or recording an audit finding discharged `"Done"` for an owning specification or ruleset.
+> - **Problem:** Repeated sessions recorded quotes or handovers instead of updating the canonical living artifact that builds or governs the subject, leaving the operative file stale while reporting completion.
+> - **Solution:** Updated live `<target>` (`50 -> 72 BPE` `cl100k_base`, `51 -> 73` `o200k_base`, `279 -> 386` chars, `36 -> 52` words, `+22 BPE`): *"Verify the delivered result against each stated requirement before claiming completion. When an operating artifact owns a change, Done requires updating it. Quotes, evidence logs, handovers, and self-authored tests or checklists are evidence, never replacement criteria; stated requirements outrank inferred ones. If evidence shows no change is needed, say so and stop."* (`AD-01` and `FA-01` synced in Plane 4; repo-specific folder names kept out of Layer 1).
+> - **After & Epistemic Boundary:** Distinguishes the `"no change needed"` legitimate stop (`SB-01.4`) from unapplied changes by scoping the requirement to `"When an operating artifact owns a change"`. Sections 1–5 below retain the original `3A` snapshot (`56` BPE baseline vs `40` BPE Option B).
+
 ---
 
 ## 1. Original Rule & Atomic Semantic Block List

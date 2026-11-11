@@ -15,6 +15,10 @@ tags: [module-audit, plane-4, file-architecture, single-owner, semantic-blocks, 
 > - **Layer 2 (Audited Canonical Module):** [file-architecture.md](../../specs/file-architecture.md) (`FA-01` through `FA-13`)
 > - **Upstream Research & Empirical Lore:** [standard.md](../../specs/standard.md), [RESULTS-10-surface-layering.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-10-surface-layering.md), [RESULTS-03-currency-check.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-03-currency-check.md), [A11-current-truth-authoritative-state/README.md](../01-universal-instruction-research/module-deepening/A11-current-truth-authoritative-state/README.md), [Snippets.md](../../../../AI-Snippets/Snippets.md)
 
+> **Update 2026-11-11, read before the pre-split audit below** (`FA-01` & `FA-09` expansion for single canonical operating file and same-edit superseded cleanup):
+> - **Before:** `FA-01` banned inline changelogs/narratives and `FA-09` banned stale residual names, without explicitly stating "one canonical operating file per active subject", `evidence != rule` (quotes/logs/handovers never count as updating the operating file), or same-edit cleanup of killed/struck-through options and stale cross-links.
+> - **Solution:** Expanded `FA-01` and `FA-09` in [`file-architecture.md`](../../specs/file-architecture.md) (synced with `<current_truth>`, `<target>`, and `AD-01`/`AD-15`), aligned with external living-spec + delta-archive discipline (`Fission-AI/OpenSpec`). Inventory and SB tables below retain the 13-rule `3A` snapshot (`test_m4_audits_coverage.py`).
+
 ---
 
 ## 1. Module Scope, Architectural Role & Governed Rule Inventory

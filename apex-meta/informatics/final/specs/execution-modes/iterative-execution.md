@@ -11,8 +11,8 @@ status: current
 
 - **EM-10 [P1 | I95/E95/R08] Conditional Iterative & MMM Trigger**:
   - **IF** the task is clear, bounded, and single-step (`Route 0`) → **THEN** execute directly (`understand → execute → verify → deliver`) and **SKIP** multi-file scaffolding.
-  - **ELSE IF** the task has moderate multi-step uncertainty (`Route 1`) → **THEN** write a compact preflight block (Target, Inputs, Scope, Output, Active Step) and execute step-by-step.
-  - **ELSE IF** the task is a multi-module, research-heavy, or architectural project (`Route 2 / MMM`) → **THEN** execute the **File-Backed Iterative & Step-by-Step Context Protocol** below, creating dedicated files at each iteration.
+  - **ELSE IF** the task has moderate multi-step uncertainty (`Route 1`) → **THEN** write a compact 6-field preflight (`Goal` w/ `Tasks -> Subtasks`, flowing `Input`, `Process`, `Skills`, `Output`, `Redraft` per `EM-13`) and execute step by step.
+  - **ELSE IF** the task is a multi-module, research-heavy, or architectural project (`Route 2 / MMM`) → **THEN** open matched conditional `ref`s, align once on the unified 6-field contract, and execute the **File-Backed Iterative & Step-by-Step Context Protocol** below, creating dedicated files at each iteration.
 
 ### 6.1 Step-by-Step Conscious Context Management (Anti-Front-Loading)
 Never bulk-load massive amounts of files or directories at the start of a task:
@@ -24,7 +24,7 @@ Never bulk-load massive amounts of files or directories at the start of a task:
 Work iteratively from a rough meta-layer skeleton down to verified module details, materializing files at every stage:
 
 1. **Iteration 1 — Master Matrix & Meta-Layer Draft (`00-master-matrix.md`)**:
-   - Create a rough draft of all planned files, processes, steps, and expected outcomes (the **meta-layer**) first.
+   - Create a rough draft of the `Goal -> Tasks -> Subtasks` tree, planned files, processes, and expected outcomes (the **meta-layer**) first.
    - Include a matrix of all steps and options so the overall structure can be verified before investing tokens in deep detail ("meat").
 2. **Iteration 2 — Implementation Map & Theoretical Simulation (`01-implementation-map.md`)**:
    - Map out all recommended options and architectural connections.
@@ -37,7 +37,7 @@ Work iteratively from a rough meta-layer skeleton down to verified module detail
      - **Step Verification**: Concrete validation of the step's output against target intent.
 4. **Iteration 4 — Master File Consolidation & Work-Finish Protocol**:
    - Recreate/update the Master Matrix file incorporating all newly surfaced details and verified outcomes from each step file.
-   - Execute the **Work-Finish Protocol**: update relevant `README.md` / `index.md` / plan files with completed work and next steps, verify branch status, and synchronize via Git.
+   - Execute the **Work-Finish & Close-Out Protocol** (`EM-14` in [handover.md](handover.md)): verify against stated requirements, commit/push scoped paths (ignoring unrelated dirty files per `EM-12`), update the canonical/plan files, and propose the next 6-field `Continuation` linking prior reasoning by `path#heading`.
 
 ### 6.3 Macro-Meso-Micro (MMM) Decomposition & Bottom-Up Return
 | Layer | Focus Question | Scope | Core Contents |

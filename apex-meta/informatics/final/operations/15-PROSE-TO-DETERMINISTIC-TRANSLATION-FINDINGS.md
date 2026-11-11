@@ -34,12 +34,17 @@ catalog recommends more of it rather than inventing the idea:
   (part of `GS-06`'s family), and a sentence-length advisory (the `WP-14`/`GS` relationship in
   §5 of that file). It classifies findings into `OKF_ERROR` / `APEX_PROFILE_ERROR` /
   `ADVISORY_WARNING` — a severity model worth reusing rather than reinventing per repo.
-- **The subject repo's `scripts/check_instruction_integrity.py`** independently reinvents the same
-  idea for a different rule family: it enforces that every `agents/*.md`-style rule file declares a
-  `paths:` key (so it loads on match, not on every turn), checks citation resolution, rule
-  placement, and rule-destination consistency. It is wired into `scripts/gates.py` and its own
-  sabotage self-test (`sabotage_audit.py`, scenario `I5`) proves the enforcement actually fires, not
-  just that the check exists.
+- **The subject repo's `scripts/check_instruction_integrity.py` (Claude-Code-specific lane)**
+  implements a separate validator for Claude Code modular rules: it enforces that every
+  `agents/*.md`-style rule file declares a `paths:` key (so Claude Code injects it lazily on
+  glob match), checks citation resolution, rule placement, and rule-destination consistency.
+  **Cross-agent scope limit:** `.claude/rules/*.md` `paths:` YAML frontmatter, `PreToolUse`
+  hooks, and `Stop` hooks are **Claude Code-only mechanics** (verified against official Claude
+  Code docs vs. OpenAI Codex CLI's hierarchical `AGENTS.md` / `AGENTS.override.md` and Google
+  Gemini CLI's hierarchical `GEMINI.md` + eager `@path` imports). Codex CLI and Gemini CLI do
+  not load rules via `paths:` frontmatter globs. It is wired into `scripts/gates.py`, and its own
+  sabotage self-test (`sabotage_audit.py`, scenario `I5`) proves the enforcement fires inside Claude
+  Code workflows.
 
 Both predate this sweep. The catalog below asks, for every remaining prose rule: does this pattern
 apply here too, and has anyone actually built it, or only declared that it should exist?
@@ -96,7 +101,7 @@ Four layers, read in full for this sweep (not sampled):
 
 | Rule | Class | Finding |
 |---|---|---|
-| `agents/index.md`'s own placement rule (`paths:` key required, listed in `ALLOWED_RULE_FILES`) | **A** | Already built and self-tested (`check_instruction_integrity.py`, sabotage scenario `I5`). |
+| `agents/index.md`'s own placement rule (`paths:` key required in Claude Code, listed in `ALLOWED_RULE_FILES`) | **A (Claude Code only)** | Already built and self-tested (`check_instruction_integrity.py`, sabotage scenario `I5`). Ignored by Codex CLI (uses hierarchical `AGENTS.md`) and Gemini CLI (uses hierarchical `GEMINI.md` + eager `@path`), so portable cross-agent modules cannot rely on `paths:` globs for routing. |
 | `agents/data-plane.md`: "do not add a new storage engine, auth flow, sync layer, outbox, or multi-device behavior" | **B** | Partially gateable as a path/import allowlist: no new file under a storage-adjacent path, no new dependency matching a denylist (`sqflite`, `hive`, a second auth package), without an explicit SSOT-D exception citation in the same diff. Imperfect — a determined rewrite could still dodge it — but catches the lazy case. |
 | `agents/sequencing.md`: "reuse Wave A typed IDs, do not recreate parallel domain objects" | **C, weak B** | A near-duplicate-class/type-name detector against the existing domain module is a weak proxy at best; true "is this a parallel object" requires semantic judgment. |
 | `agents/gates.md`'s own meta-rule: re-measure tier timings when a gate changes; correct a stale guarantee comment in the same commit | **C** | Needs semantic linkage between a code change and a specific comment's claim; not mechanically checkable without that link being named structurally (e.g., a comment ID a gate could grep for — not present today). |
@@ -106,7 +111,7 @@ Four layers, read in full for this sweep (not sampled):
 1. ~~`GS-12`/`GS-13` structural checks~~ — **built, broken, fixed, and wired into `okf_validator.py`, 2026-11-03**: `tools/check_decision_bakeoff_shape.py`. Self-test alone (synthetic fixtures) passed and was not sufficient evidence — validated against a real decision record in this corpus, a real one in a downstream repo, and then the full bundle it was wired into, which together found and fixed three real detection bugs (two before wiring, one surfaced only by wiring it into a whole bundle instead of one fixture). GS-12/GS-13 scoped to this corpus deliberately — the downstream propagation gap (`DECISION-SHEET-06`) is that repo's own problem to raise. See §3.1's corrected row for the full account.
 2. ~~Wire `check_vendor_drift.py` into `scripts/gates.py`~~ — **built 2026-11-03**, operator-authorized after this file flagged the CI-silent-skip caveat. Added as a fast-tier gate (`exposure: ("docs/apex/",)`); full canary (`--full`, triggered because the change touched `gates.py` itself) ran 16/16 GREEN. The caveat stands and is documented inline in `gates.py`: exit 0 covers both "in sync" and "meta repo absent," so GREEN there means "nothing to compare" in a clone without `apexai-os-meta`, not "verified in sync" — state that distinction whenever this gate's evidence is reported.
 3. ~~A "gate-green-but-uncommitted" nudge~~ — **built 2026-11-03**: `.claude/hooks/stop-uncommitted-nudge.py`, a Claude Code `Stop` hook, advisory only (prints AGENTS.md §7's own text back; does not auto-commit, since "is this actually verified" stays a judgment call). Claude-only for now, same vendor-lock caveat as the `verification_scope` hook.
-4. **Still open**: the same nudge pattern for Gemini CLI / Codex CLI equivalents of `Stop` (unconfirmed whether either has one — not found in this sweep's research, flagged rather than guessed).
+4. **Still open — Cross-agent harness limits & upfront vs. post-hoc gating (2026-11-11 finding)**: `.claude/rules/*.md` `paths:` globs and `PreToolUse`/`Stop` hooks protect only Claude Code runs (`§1`, `§3.3`). Codex CLI (`AGENTS.md` hierarchy) and Gemini CLI (`GEMINI.md` + `@path`) lack `paths:` lazy-glob activation and our repo has no verified cross-harness hook parity for them. Moreover, post-hoc linters, `Stop` hooks, and validators only inspect artifacts *after* an agent writes them; they do not steer reasoning from token 1. Cross-agent upstream alignment belongs in a **two-phase pre-action planning gate** in Layer 1 (`<align>` + `<pointers>`): list every matched `when=`/`ref=` target in the pre-action plan and open it *before* editing or finalizing output, while skipping refs on trivial `Route 0` typos/lookups. That mechanism is portable prose planning rather than a deterministic runtime guarantee; it requires Stage 2 / `EVAL-APEX-JIT-GATE-V3` read-trace proof across harnesses.
 4. ~~The `_generated/` hand-edit gate~~ — **removed from this list.** It looked like row 1's twin
    (repo names the gap, looks bounded) until `scripts/gates.py`'s own removal comment was checked:
    the gate existed and was deliberately retired per `SSOT-D-052`/`SSOT-D-058`. Rebuilding it would
@@ -146,3 +151,4 @@ Four layers, read in full for this sweep (not sampled):
 - `Leela-Cloud-2026/AGENTS.md` — read in full, including §7 (missed on an earlier pass on the same repo — see `docs/audits/2026-11-03-agent-adherence-inter-feature-runtime-reliability/README.md`).
 - `Leela-Cloud-2026/agents/{index,data-plane,sequencing,gates,repo-layout}.md` — read in full.
 - `Leela-Cloud-2026/scripts/check_instruction_integrity.py`, `scripts/gates.py` — read for actual coverage.
+- **External harness docs (verified 2026-11-11):** Anthropic Claude Code memory & `.claude/rules/` `paths:` frontmatter docs; OpenAI Codex CLI hierarchical `AGENTS.md` / `AGENTS.override.md` discovery docs; Google Gemini CLI `GEMINI.md` & `@path/to/file.md` import docs; Plan-and-Execute two-phase decomposition literature (Anthropic *Effective Context Engineering for AI Agents*; Gloaguen et al. 2026, *Evaluating AGENTS.md*).

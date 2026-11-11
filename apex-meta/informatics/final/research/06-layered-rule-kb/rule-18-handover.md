@@ -14,6 +14,12 @@ tags: [layered-kb, rule-18, handover, semantic-blocks, token-compression, resear
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<handover>` into 3 atomic semantic blocks (`SB-18.1`..`SB-18.3`), audits token value against premature handoffs, and presents scored compression options.
 > - **Layer 2 (Downstream Infrastructure Modules):** [execution-modes.md](../../specs/execution-modes.md) (`EM-09`, `EM-02`), [anti-drift-rules.md](../../specs/anti-drift-rules.md) (`AD-06`).
 
+> **Update 2026-11-11, read before the analysis below** (Major Step Close-Out, `Continuation` protocol `EM-14`, & Scoped Preflight Guard):
+> - **Before:** `<handover>` (`83 BPE` `cl100k_base` / `85` `o200k_base`, `355 chars`, `43 words` in `specs/apex_contract_v1.0_ultra.xml`) triggered only at session end, subagent delegation, or explicit handoffs (`EM-09`) and had no close-out/continuation protocol for finishing a major multi-step phase.
+> - **Problem:** Between major steps, agents either rewrote prior reasoning from scratch instead of linking prior sections (`path#heading`), forgot to update the owning plan/living file after committing, or halted on blanket `git status --porcelain` checks over unrelated dirty workspace files. Note that in [research/08](../../research/08-read-trace-routing-experiments/01-findings-and-protocol.md) Stage 1, `<handover>` achieved `9/9` ref compliance (high signal under explicit step/handover prompts vs `0/2` under terse pilot prompts in `operations/17`).
+> - **Solution:** Expanded `<handover>` (`83 -> 115 BPE` `cl100k_base`, `85 -> 117` `o200k_base`, `355 -> 505` chars, `43 -> 67` words, `+32 BPE`) with widened `when="completing a major step, ending a session, delegating to a subagent, or writing any handoff"` and added `EM-14 [P0]` in [`specs/execution-modes/handover.md`](../../specs/execution-modes/handover.md) (§5.3–§5.4): verify -> scoped commit/push (`EM-12`, ignoring unrelated dirty files) -> update owning file -> propose next 6-field `Continuation` referencing prior reasoning by `path#heading` without rewriting.
+> - **After & Epistemic Boundary:** Unifies major-step completion with the 6-field `<align>`/`EM-13` contract and scoped Git hygiene (`EM-12`). Sections 1–5 below retain the original `3A` snapshot (`test_m3_challenger_tokens.py`).
+
 ---
 
 ## 1. Original Rule & Atomic Semantic Block Inventory

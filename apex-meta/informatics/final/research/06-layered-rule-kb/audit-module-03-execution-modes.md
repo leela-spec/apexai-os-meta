@@ -21,6 +21,10 @@ tags: [module-audit, plane-4, execution-modes, single-owner, semantic-blocks, tr
 > - **Solution:** monolith section 2 now points at `specs/execution-modes/qa-decision-matrix.md`. `EM-06a` (intensity lever, `L0`-`L3`) is defined there, section 2.3. `EM-13` lives in `specs/execution-modes/task-specification.md` and its trigger was reworded (`C1`).
 > - **After:** `qa-decision-matrix.md` owns `EM-06` and `EM-06a`. The inventory and ownership tables below are the pre-split snapshot and still name `execution-modes.md` as owner; they are stale and were not re-audited.
 
+> **Update 2026-11-11, read before the pre-split audit below** (`EM-13`, `EM-14`, `EM-10` preflight unification, and `test_sre_03` / `WP-23` compliance):
+> - **Before:** `execution-modes.md` did not index `EM-13` (`task-specification.md`) or `EM-14` (`handover.md` close-out & `Continuation`), `EM-10` (`iterative-execution.md`) used a mismatched 5-field preflight (`target, inputs, scope, output, active step`), and `TODO-EM-13-A` in `task-specification.md` asserted an unverified internal reasoning-framework ranking study.
+> - **Solution:** Harmonized `EM-10` and `EM-13` around the unified 6-field schema (`Goal` with `Tasks -> Subtasks` when multi-step, flowing `Input`, `Process` w/ resolved `TODO-EM-13-A`, `Skills`, `Output`, `L0-L3`-scaled `Redraft`), added two-phase matched-`ref=` pre-read and clarified `"already defined by an approved step"` in `task-specification.md`, added `EM-14` (Major Step Close-Out, `Continuation` linking prior reasoning by `path#heading`, and Scoped Preflight Guard ignoring unrelated dirty files) in `handover.md`, and wired `EM-13 [P0]` + `EM-14 [P0]` into `execution-modes.md` §1 (preserving strict `P0 -> P1 -> P2 -> P3` descending order for `test_sre_03` and unique rule IDs for `test_canonical_ownership.py`) with pointer-only adapter routing (`<execution_dispatch>`, §5, §8). Chapter 1–5 tables below remain the 12-rule snapshot (`test_m4_audits_coverage.py`).
+
 ---
 
 ## 1. Module Scope, Architectural Role & Governed Rule Inventory

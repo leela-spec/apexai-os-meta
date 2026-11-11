@@ -14,6 +14,12 @@ tags: [layered-kb, rule-19, iterative, semantic-blocks, token-compression, resea
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<iterative>` into 4 atomic semantic blocks (`SB-19.1`..`SB-19.4`), audits token value against execution drift, and presents scored compression options.
 > - **Layer 2 (Downstream Infrastructure Modules):** [execution-modes.md](../../specs/execution-modes.md) (`EM-10`, `EM-11`), [anti-drift-rules.md](../../specs/anti-drift-rules.md) (`AD-04`).
 
+> **Update 2026-11-11, read before the analysis below** (unifying `<iterative>` preflight fields with the 6-field `<align>` / `EM-13` schema):
+> - **Before:** `<iterative>` (`92 BPE` `cl100k_base` / `93` `o200k_base`, `414 chars`, `54 words` in `specs/apex_contract_v1.0_ultra.xml`) and `EM-10` in `iterative-execution.md` required a 5-field preflight (`target, inputs, scope, output, active step`), conflicting with `<align>`'s six fields (`Task Specification`, `EM-13`).
+> - **Problem:** Maintaining two competing preflight schemas (`5-field` vs `6-field`) split agent adherence and omitted explicit `Goal` (`Tasks -> Subtasks`) hierarchy, verification `Process`, `Skills`, and `Redraft` alignment on Route 1/Route 2 runs.
+> - **Solution:** Harmonized `<iterative>` (`92 -> 102 BPE` `cl100k_base`, `93 -> 103` `o200k_base`, `414 -> 448` chars, `54 -> 57` words, `+10 BPE`) and [`specs/execution-modes/iterative-execution.md`](../../specs/execution-modes/iterative-execution.md) (§6, §6.2) to the unified 6-field preflight (`Goal with Tasks->Subtasks, Input, Process, Skills, Output, Redraft`), linking Iteration 4 Work-Finish to `EM-14` (`handover.md`).
+> - **After & Epistemic Boundary:** Eliminates preflight schema drift between `EM-10` and `EM-13`. Sections 1–5 below retain the original `3A` snapshot (`test_m3_challenger_tokens.py`).
+
 ---
 
 ## 1. Original Rule & Atomic Semantic Block Inventory

@@ -17,7 +17,7 @@ This specification governs file organization, frontmatter schemas, directory lay
 All files authored under Apex Informatics must satisfy these top-loaded invariants.
 
 ### FA-01: Strict Current-Truth Separation
-[P0 | I95/E95/R08] Live specification and instruction files state active current truth only. Never embed inline changelogs, superseded alternatives, or historical narratives inside live documents. Record historical changes, deprecated options, and audit notes in dedicated external changelogs (`log.md`) or archive directories.
+[P0 | I95/E95/R08] Maintain one canonical operating file per active subject and state active current truth only. Move resolved decisions into that owning file rather than leaving them only in quotes, evidence logs, or handovers. Never keep inline changelogs or superseded options in live documents. Move historical notes and retired alternatives to dedicated changelogs (`log.md`) or archive directories in the same edit.
 
 ### FA-02: Top-Loaded Attention Primacy
 [P0 | I95/E92/R08] Front-load critical P0 invariants near the beginning of every specification and instruction file (aiming for roughly the first ~500 tokens as a practical orientation). Organize subsequent rules in generally descending priority order (P0, then P1, P2, and P3) so primary constraints are read before attention decays, without truncating load-bearing context. Canonical: `WP-06`; tier and raw-metric definitions are owned by `WP-07` in [writing-profile.md](writing-profile.md).
@@ -142,7 +142,7 @@ apex-meta/informatics/
 [P1 | I85/E90/R15] Subdirectories containing their own `index.md` file form independent sub-bundles. The repository validator automatically stops recursion at sub-bundle boundaries. This pruning isolates legacy onboarding files, experimental prototypes, and untracked drafts from root bundle verification.
 
 ### FA-09: Residual Name Eradication
-[P1 | I82/E85/R18] When refactoring or deleting system components, eradicate all residual mentions of obsolete names from live specification documents. Lingering references to retired components cause models to hallucinate legacy behaviors and resurrect deleted workflows. Canonical: `AD-15`.
+[P1 | I82/E85/R18] When refactoring or retiring components, remove every residual obsolete name, inline struck-through option, and stale cross-link from live documents in the same edit. Lingering retired references prime models to resurrect deprecated workflows. Canonical: `AD-15`.
 
 ### FA-10: Single-Purpose Topic Files
 [P2 | I78/E82/R20] Structure every concept document around a single responsibility. Apply Information Mapping principles: partition content into clearly labeled sections, tables, and bulleted lists. Avoid dense narrative paragraphs that bury actionable rules.
@@ -159,7 +159,7 @@ apex-meta/informatics/
 
 Guard actively against these recurring file-architecture failure modes.
 
-- **Do not embed inline changelogs in live specifications**: Never record historical version notes, rejected options, or audit trails inside active specification files (`FA-01`); isolate all history in `log.md`.
+- **Do not embed inline changelogs or split operating rules**: Never leave resolved decisions only in quote logs or handovers, and never keep struck-through or retired alternatives inside live files; update the canonical operating file and isolate history in `log.md` (`FA-01`, `FA-09`).
 - **Do not use multiline YAML lists in OKF frontmatter**: Always serialize frontmatter arrays using inline bracket syntax (`tags: [a, b]`) so zero-dependency parsers succeed (`FA-13`).
 - **Do not mix architecture planes in a single file**: Keep Control Plane invariants, Scoped rules, Skills, Knowledge Bundles, and raw Evidence in their dedicated planes (`FA-03`).
 - **Do not rely on `@path` imports across heterogenous runtimes**: Keep the `<apex_contract>` block byte-identical across root `AGENTS.md`, `CLAUDE.md`, and `GEMINI.md` so raw-file IDE loaders parse the full contract.

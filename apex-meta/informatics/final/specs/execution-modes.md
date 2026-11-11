@@ -22,6 +22,8 @@ The following invariants apply across all execution modes. Front-load these boun
 - **EM-03 [P0 | I96/E95/R06] Step-by-Step Context & File Iteration Invariant**: Never front-load massive amounts of files or documentation at session start. Load context step-by-step per active stage and materialize each iteration's output into a dedicated file.
 - **EM-04 [P0 | I95/E95/R08] Target Dominance**: Optimize for the most balanced, value-efficient, and effective path to the stated user outcome. Do not substitute process ceremony, secondary schemas, or self-verifying scripts for the required deliverable. Canonical: `AD-01`.
 - **EM-05 [P0 | I94/E92/R10] Two-Strike Pivot Rule**: Stop repairing a failing subsystem if two consecutive fix attempts fail to advance the product. Reconsider the architecture and select an alternative approach. Canonical: `AD-02`; per-subsystem tracking mechanics in `AD-24`.
+- **EM-13 [P0 | I94/E88/R10] Pre-Work Task Contract**: Open matched conditional `ref`s first, then align non-trivial unapproved work in six fields (`Goal` with `Tasks -> Subtasks`, flowing `Input`, `Process`, `Skills`, `Output`, `L0-L3` `Redraft`) before acting. Adapter: `#8-adapter-7-task-specification-contract`.
+- **EM-14 [P0 | I92/E95/R07] Major Step Close-Out & Continuation**: After a major step, verify requirements, push scoped files ignoring unrelated dirty paths, update the owning artifact, and propose the next 6-field Continuation linking prior reasoning by `path#heading`. Adapter: `#5-adapter-4-handover--handoff-protocol`.
 
 ### Conditional Execution Mode Dispatch (`IF`-Routing)
 
@@ -33,8 +35,10 @@ Evaluate the active task against these conditional gates and load only the match
   IF task == "multi_candidate_comparison_or_bakeoff"   THEN apply="#3-adapter-2-comparison--bake-off-rubric" ELSE skip
   IF task == "existing_file_mutation_or_patch"         THEN apply="#4-adapter-3-exact-match-patch-discipline" ELSE skip
   IF task == "session_handover_or_subagent_delegation" THEN apply="#5-adapter-4-handover--handoff-protocol"   ELSE skip
+  IF task == "major_step_closeout_or_continuation"     THEN apply="#5-adapter-4-handover--handoff-protocol"   ELSE skip
   IF task == "multi_step_iterative_or_mmm_execution"   THEN apply="#6-adapter-5-iterative-context--mmm-execution" ELSE skip
   IF task == "repository_sync_or_synch_request"        THEN apply="#7-adapter-6-git-sync--file-preservation"  ELSE skip
+  IF task == "non_trivial_unapproved_task_start"       THEN apply="#8-adapter-7-task-specification-contract"  ELSE skip
 </execution_dispatch>
 ```
 
@@ -84,9 +88,7 @@ when this adapter fires; not restated here (`WP-23`).
   - **IF** concluding an agent session, delegating work to a subagent, or transferring context across boundaries → **THEN** structure the handover using the Dimensional Contract and 5-Component Report below.
   - **IF** an open question or ambiguity is checkable right now using available tools or parallel subagents → **THEN** **DO NOT write a handover**; invoke the tool and resolve it in the current turn (`EM-02`).
 
-The 4-Dimensional Handover Contract and the 5-Component Forensic & Completion Report structure are
-owned by [specs/execution-modes/handover.md](execution-modes/handover.md) §5.1–5.2 — open it when
-this adapter fires; not restated here (`WP-23`).
+The 4-Dimensional Handover Contract, 5-Component Forensic & Completion Report, `EM-14` Major Step Close-Out & Continuation Protocol, and Scoped Preflight Guard are owned by [specs/execution-modes/handover.md](execution-modes/handover.md) §5.1–5.5 — open it when this adapter fires; not restated here (`WP-23`).
 
 ---
 
@@ -94,8 +96,8 @@ this adapter fires; not restated here (`WP-23`).
 
 - **EM-10 [P1 | I95/E95/R08] Conditional Iterative & MMM Trigger**:
   - **IF** the task is clear, bounded, and single-step (`Route 0`) → **THEN** execute directly (`understand → execute → verify → deliver`) and **SKIP** multi-file scaffolding.
-  - **ELSE IF** the task has moderate multi-step uncertainty (`Route 1`) → **THEN** write a compact preflight block (Target, Inputs, Scope, Output, Active Step) and execute step-by-step.
-  - **ELSE IF** the task is a multi-module, research-heavy, or architectural project (`Route 2 / MMM`) → **THEN** execute the **File-Backed Iterative & Step-by-Step Context Protocol** below, creating dedicated files at each iteration.
+  - **ELSE IF** the task has moderate multi-step uncertainty (`Route 1`) → **THEN** write a compact 6-field preflight (`Goal` with `Tasks -> Subtasks`, flowing `Input`, `Process`, `Skills`, `Output`, `Redraft`) and execute step by step.
+  - **ELSE IF** the task is a multi-module, research-heavy, or architectural project (`Route 2 / MMM`) → **THEN** open matched conditional `ref`s, align once on the unified 6-field contract, and execute the **File-Backed Iterative & Step-by-Step Context Protocol** below, creating dedicated files at each iteration.
 
 The anti-front-loading context protocol, the file-producing iterative execution loop (the four
 numbered iterations), and the Macro-Meso-Micro decomposition table are owned by
@@ -115,7 +117,13 @@ open it when this adapter fires; not restated here (`WP-23`).
 
 ---
 
-## 8. Execution Failure Modes & Not-To-Dos
+## 8. Adapter 7: Task Specification Contract
+
+Governs `EM-13` (§1): **IF** a task is non-trivial, not a direct question, and not already defined by an approved step → **THEN** open matched conditional `ref`s first, align in six fields (`Goal` with `Tasks -> Subtasks`, flowing `Input`, `Process`, `Skills`, `Output`, `L0-L3` `Redraft`), and wait for confirmation. The full six-field boundaries, approved-step exemption criteria, `EM-06a`-scaled `Redraft` guidance, and named reasoning frameworks are owned by [specs/execution-modes/task-specification.md](execution-modes/task-specification.md) §8–8.5 — open it when this adapter fires; not restated here (`WP-23`).
+
+---
+
+## 9. Execution Failure Modes & Not-To-Dos
 
 Guard actively against these recurring task-execution failure modes.
 
@@ -123,3 +131,5 @@ Guard actively against these recurring task-execution failure modes.
 - **Do not write a handover to escape checkable work**: Never defer a question that available tools or subagents can verify right now (`EM-02`, `EM-09`).
 - **Do not front-load bulk repository context**: Load sources step-by-step via an Input Priority Ledger and materialize each iteration into a dedicated file (`EM-03`, `EM-10`).
 - **Do not compute synthetic scores in decision matrices**: Keep `Impact`, `Evidence`, and `Risk` (`I/E/R`) as three separate raw numbers on a 1–100 scale (`EM-06`).
+- **Do not copy-paste raw user prompts as `Input` or skip matched `ref` reads**: Put outcome decomposition in `Goal`, synthesize flowing context in `Input`, and open matched `ref`s before editing (`EM-13`).
+- **Do not halt scoped close-outs over unrelated dirty files**: Scope Git status checks to target deliverables and link settled reasoning by `path#heading` (`EM-12`, `EM-14`).
