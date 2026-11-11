@@ -1,54 +1,46 @@
 ---
 okf_version: "0.2"
 title: Weekly Dispersal Bundle
-description: The weekly dispersal slice — the governed specification, the generated slot inventory, the working assumptions register, and the Precap Week integration analysis.
+description: The weekly dispersal slice — governed specification, algorithm rules, weekly demand dials, slot inventory, active register, and changelog.
 status: current
-date: 2026-11-09
+date: 2026-11-10
 tags: [sequencing, dispersal, weekly-orchestration, precap-week, slot-inventory, quota]
 ---
 <!-- MIRROR. Source of truth: MasterOfArts/Sequencing/dispersal/ (DD-15).
      Edits here are overwritten by sync_dispersal.py. -->
 # Weekly Dispersal Bundle
 
-> **Zone:** `MasterOfArts/Sequencing/dispersal/`, mirrored read-only into
+> **Zone:** `MasterOfArts/Sequencing/dispersal/`, mirrored one-way into
 > `apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/`.
-> `MasterOfArts` is the single source of truth; the mirror is a one-way copy (`DD-15`).
+> **Single Blueprint Clock Owner:** `apexai-os-meta/.../02-weekly-dispersal/week-blueprint.json` owns the calendar clock (`08:00–24:00` weekday, `12:00–16:00` weekend); `MasterOfArts` owns Sequencing (`Epics`, shares, allocator) and derived slot inventory outputs (`DD-15`).
 
-The mechanism that decides which Mental, Physical, Craft and Regeneration content occupies which slot
-of which day, and how that reaches Precap Week Matrix 2.
+Sequencing is a distribution system powered by interleaving, spaced repetition, chunking, and testing to achieve a valuable dispersion of practicing and pursuing goals, skills, and trainings.
 
 ## Files
 
 | File | Type | Description |
 |---|---|---|
-| [`SPEC-WEEKLY-DISPERSAL.okf.md`](SPEC-WEEKLY-DISPERSAL.okf.md) | **Specification** | Canonical contract: Flow composition, the three day regimes, the slot inventory, the XP/TP/BP point model, the share mechanism, the binding notation, the full decision ledger, and the failure guards. `WD-01`..`WD-48`. |
-| [`slot-inventory.json`](slot-inventory.json) | Generated Data | 24 Flows, 240 slot occurrences with stable addresses, the regime map, and the resolved Mental and Physical quotas. |
-| [`build_slot_inventory.py`](build_slot_inventory.py) | Generator | Produces the inventory from the Flow contract so the two cannot drift. Rejects any Flow duration but 120 minutes. |
-| [`ASSUMPTIONS-AND-DECISIONS-REGISTER.md`](ASSUMPTIONS-AND-DECISIONS-REGISTER.md) | Reference | Working record: operator inputs `OD-01`..`OD-44`, assumptions `A-01`..`A-14`, conflicts `X-01`..`X-06` with evidence, and the applied Monday-Sunday amendment. |
-| [`PRECAP-INTEGRATION-ANALYSIS.md`](PRECAP-INTEGRATION-ANALYSIS.md) | Reference | The collision with Precap Week v2.0 and Handovers 03-06: the point-construct reconciliation, the day geometry, and the stale weekend text. |
-| [`render_blueprint.py`](render_blueprint.py) | Renderer | Generates the operator-facing week page from `slot-inventory.json`, so the page cannot disagree with the contract (`WD-36b`). |
-| [`week-blueprint.html`](week-blueprint.html) | Generated View | The human-readable week: the three regimes as clock-ordered timelines with gaps shown, the Flow grid, and both share tables. Regenerate; never edit. |
-| [`sync_dispersal.py`](sync_dispersal.py) | Tool | One-way mirror of this bundle into `apexai-os-meta`. Refuses to run in reverse. |
+| `week-blueprint.json` *(in `apexai-os-meta/.../02-weekly-dispersal/`)* | **Canonical Clock Owner** | Sole canonical owner of the weekly calendar clock (`08:00–24:00` Mon–Fri, `960 min`; `12:00–16:00` Sat–Sun, `240 min`). |
+| [`week-demand.json`](week-demand.json) | Operator Demand (`DD-02` Draft) | Weekly priority shares, focus days, and evening physical course table (`OD-03`, `DD-03`). |
+| [`SPEC-WEEKLY-DISPERSAL.okf.md`](SPEC-WEEKLY-DISPERSAL.okf.md) | **Specification** | Canonical contract: `3x3` Flow composition, regimes, slot inventory rules, Epics across all 4 branches, and guards (`WD-01`..`WD-48`). |
+| [`ALGORITHM.md`](ALGORITHM.md) | **Specification** | Single owner of projected XP/TP/BP scoring, BP authority (`DD-01`, `DD-16`), quota rounding, and evening-to-flow Gaussian coupling. |
+| [`build_slot_inventory.py`](build_slot_inventory.py) | Generator | Reads `week-blueprint.json` and `week-demand.json`, validates zero overlaps, and generates `slot-inventory.json`. |
+| [`slot-inventory.json`](slot-inventory.json) | Generated Data | 24 Flows, 240 slot occurrences with stable addresses, regime timelines, and resolved Mental/Physical quotas. |
+| [`render_blueprint.py`](render_blueprint.py) | Renderer | Reads `slot-inventory.json` and `week-blueprint.json` to generate `week-blueprint.html` (`WD-36b`). |
+| [`week-blueprint.html`](week-blueprint.html) | Generated View | Human-readable week timeline, Flow grid, and quota tables. Regenerate; never edit. |
+| [`sync_dispersal.py`](sync_dispersal.py) | Tool | One-way mirror of this bundle into `apexai-os-meta`, preserving canonical `week-blueprint.json` there. |
+| [`ASSUMPTIONS-AND-DECISIONS-REGISTER.md`](ASSUMPTIONS-AND-DECISIONS-REGISTER.md) | Reference | Active open cross-module questions, unverified runtime gaps, and single-owner map. |
+| [`PRECAP-INTEGRATION-ANALYSIS.md`](PRECAP-INTEGRATION-ANALYSIS.md) | Reference (Snapshot) | Historical 2026-11-09 integration analysis against Precap Week v2.0 and Handovers 03–06. |
+| [`log.md`](log.md) | Changelog | Archive of closed `DD-*` / `OD-*` / `A-*` / `X-*` rulings and modification history. |
 
 ## Status
 
-The specification carries `status: operator_review_pending`. The three blockers are closed: the
-operator declared the weekday re-cut (`DD-32`), the project night at `20:00-21:30` (`DD-33`) and
-**Knee** at 15% (`DD-34`, now 11 slots a week). The weekday geometry is read from the operator's
-own calendar and the declared shares sit on the 5% ladder (`DD-35`). Ten decisions remain open
-(`SPEC-WEEKLY-DISPERSAL.okf.md` §7.2).
+Calendar clock (`week-blueprint.json`), `week-demand.json` draft (`DD-02`), focus days (`DD-03`), `Knee` in branch `P` (`DD-04`), Sunday ACIM (`DD-05`), no numeric BP cutoff (`DD-16`), one `Regeneration` Epic with Blocks (`DD-17`), and weekend 2-Flow regime (`DD-18`) are settled. Four cross-module Precap questions (`DD-23`, `DD-24`, `DD-26`, `DD-28`) remain open in [`ASSUMPTIONS-AND-DECISIONS-REGISTER.md`](ASSUMPTIONS-AND-DECISIONS-REGISTER.md).
 
-**One of them blocks the allocator.** `DD-40`: the physical focus block counts toward the quota
-(`DD-38`), and its pre-bound 90-minute blocks already exceed the declared shares for Martial Arts
-and Dance, leaving the other three Epics owed more minutes than the Flows contain. Either the shares
-move or the block stops counting.
-
-Next in the product, not yet built: the slot-filling algorithm, the Epic database, and
-`week-demand.json`. Until the allocator exists the inventory describes capacity only, so no
-dispersion or spaced-repetition view can be generated.
+Next in product build: the slot-filling allocator (`T2`), Personal Epic JSON data across `M/P/R/C`, and live Matrix 2 HTML rendering (`T4`).
 
 ## Related
 
+- Weekly Orchestration Ledger: `apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/DECISIONS.md`
 - Precap Week specification: `apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-PRECAP-WEEK-ITERATIONS.okf.md`
 - Sequencing decisions: [`../decisions.md`](../decisions.md) — open choice `N05`
-- Operator blueprint page: <https://claude.ai/artifact/4QEZffC7rxdqwKxVC9hcax>

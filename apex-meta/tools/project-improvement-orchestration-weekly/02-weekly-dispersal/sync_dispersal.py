@@ -1,8 +1,9 @@
 """One-way mirror of the weekly dispersal bundle into apexai-os-meta.
 
-DD-15: MasterOfArts is the single source of truth. A bidirectional mirror of one
-file across two Git repositories produces conflicts with no merge authority, so
-this script refuses to copy in reverse.
+DD-15: apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json
+is the sole canonical owner of the calendar clock. MasterOfArts owns time-free
+Sequencing (Epics, shares, allocator) plus the generated slot-inventory.json and
+week-blueprint.html derived from the canonical week-blueprint.json.
 
 Dry-run by default. Pass --apply to write.
 
@@ -27,8 +28,11 @@ MIRROR = Path(
 TRACKED = [
     "index.md",
     "SPEC-WEEKLY-DISPERSAL.okf.md",
+    "ALGORITHM.md",
+    "week-demand.json",
     "ASSUMPTIONS-AND-DECISIONS-REGISTER.md",
     "PRECAP-INTEGRATION-ANALYSIS.md",
+    "log.md",
     "slot-inventory.json",
     "build_slot_inventory.py",
     "render_blueprint.py",

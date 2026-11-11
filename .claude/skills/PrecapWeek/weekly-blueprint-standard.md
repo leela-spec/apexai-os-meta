@@ -3,6 +3,7 @@
 ```yaml
 purpose:
   file_role: standard_no_meeting_weekday_blueprint
+  canonical_clock_owner: apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json
   owns:
     - weekly_blueprint_standard
     - fixed_blocks
@@ -13,7 +14,9 @@ purpose:
     Define the standard Monday through Sunday blueprint used by the
     precap-week skill when the week has normal capacity and does not require
     meeting-heavy deformation rules. Monday through Friday run the weekday
-    regime; Saturday and Sunday run the weekend regime.
+    regime (08:00-24:00, 960 min, 4 x 120m Flows); Saturday and Sunday run the
+    weekend regime (12:00-16:00, 2 x 120m Flows). All clock timestamps are
+    governed solely by 02-weekly-dispersal/week-blueprint.json.
   blueprint_role:
     provides_default_structure: true
     guides_weekday_direction: true
@@ -51,7 +54,8 @@ week_scope:
     saturday_weekend_regime_applied: true
     sunday_weekend_regime_applied: true
     sunday_weekly_precap_session_allowed: true
-    weekend_regime_content_defined_elsewhere: true
+    sun_off_retired: true
+    canonical_clock_source: apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json
 ```
 
 ## Time Precision Rule
@@ -172,6 +176,7 @@ planned_blocks:
 ```yaml
 weekly_blueprint_standard:
   pattern_type: standard_no_meeting_weekday
+  canonical_clock_owner: apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json
   applies_when:
     - no_meeting_heavy_deformation_is_required
     - calendar_constraints_do_not_overload_day
@@ -184,31 +189,42 @@ weekly_blueprint_standard:
         - work_flow_1
         - work_flow_2
       planning_intent: >
-        Start with protected routine, then use the clearest early energy for
-        priority project work.
+        Start with the protected morning routine, then run two adjacent 120m
+        Flows reading exact timestamps from 02-weekly-dispersal/week-blueprint.json.
     midday:
       sequence:
-        - lunch_prep
-        - lunch_break
+        - lunch_and_afterlunch
         - work_flow_3
       planning_intent: >
-        Protect food and recovery, then continue meaningful work after the
-        midday reset.
+        Protect Lunch + AfterLunch, then continue with 120m Flow 3.
     afternoon:
       sequence:
-        - admin_or_2Do
+        - afternoon_break
+        - finanzen_or_2Do
         - work_flow_4
       planning_intent: >
-        Use the afternoon for operational maintenance and the final planned
-        project-flow block when capacity allows.
+        Take Afternoon Break, handle Finanzen / 2Do, and run 120m Flow 4.
     evening:
       sequence:
-        - physical_social_or_evening_blocks
+        - evening_physical_course_vwc
+        - abend
+        - project_night_mon_wed_or_freizeit_thu_fri
         - day_outro
+        - freizeit
         - sleep_routine
       planning_intent: >
-        Preserve recovery, social, physical, or evening space before shutdown
-        and sleep boundaries.
+        Preserve the evening physical course, Abend, Project Night (Mon-Wed)
+        or Freizeit (Thu-Fri), Day Outro, Freizeit, and Sleep Routine. All exact
+        times live solely in 02-weekly-dispersal/week-blueprint.json.
+  standard_weekend_pattern:
+    clock_source: 02-weekly-dispersal/week-blueprint.json
+    sequence:
+      - work_flow_1
+      - work_flow_2
+    planning_intent: >
+      Two adjacent 120m Flows under the Saturday/Sunday weekend regime (both
+      weekend days active); read timestamps from
+      02-weekly-dispersal/week-blueprint.json.
   block_level_output_rule:
     show_sections_not_micro_slots: true
     keep_weekday_direction_compact: true
@@ -304,10 +320,10 @@ non_goals:
   not_project_execution: true
   not_status_merge: true
   not_calendar_event_creation: true
-  not_saturday_plan: true
-  not_regular_sunday_plan: true
   boundary_statement: >
-    This file defines the standard weekday blueprint only. It does not define
+    This file defines the standard Monday through Sunday blueprint structure
+    (weekday and weekend regimes reading timestamps from
+    02-weekly-dispersal/week-blueprint.json). It does not define
     meeting-heavy reductions, the complete weekly output contract, detailed
     daily plans, prompt packets, project execution, status merging, or calendar
     event creation.

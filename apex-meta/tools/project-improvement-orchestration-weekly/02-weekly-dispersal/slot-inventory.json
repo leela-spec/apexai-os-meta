@@ -1,9 +1,24 @@
 {
   "schema_version": "1.0",
   "id": "MOA-SEQ-SLOT-INVENTORY",
-  "as_of": "2026-11-09",
+  "blueprint_owner": "apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json",
+  "as_of": "2026-11-10",
   "status": "working",
   "week_span": "monday_to_sunday",
+  "operating_window": {
+    "weekday": {
+      "start": "08:00",
+      "end": "24:00",
+      "duration_min": 960,
+      "day_outro": "22:00-22:30"
+    },
+    "weekend": {
+      "start": "12:00",
+      "end": "16:00",
+      "duration_min": 240,
+      "sun_off_retired": true
+    }
+  },
   "regimes": {
     "weekday_project": {
       "days": [
@@ -13,11 +28,13 @@
       ],
       "flows_per_day": 4,
       "evening": {
-        "label": "Project night",
-        "start": "20:15",
-        "end": "21:45",
+        "label": "Project Night",
+        "start": "20:30",
+        "end": "22:00",
         "minutes": 90,
-        "time_status": "DECLARED by the operator 2026-11-09 (OD-53)"
+        "branch_hint": "C",
+        "bindable": false,
+        "time_status": "locked: Screenshot Col-1 Ground Truth (Mon-Wed Project Night 20:30-22:00)"
       }
     },
     "weekday_plain": {
@@ -26,7 +43,15 @@
         "Friday"
       ],
       "flows_per_day": 4,
-      "evening": null
+      "evening": {
+        "label": "Freizeit",
+        "start": "20:30",
+        "end": "22:00",
+        "minutes": 90,
+        "branch_hint": "R",
+        "bindable": false,
+        "time_status": "locked: Thu-Fri Freizeit 20:30-22:00"
+      }
     },
     "weekend": {
       "days": [
@@ -52,6 +77,7 @@
       "C"
     ],
     "closing_branch": "R",
+    "duration_min": 120,
     "minutes": {
       "P": 2,
       "M": 3,
@@ -64,7 +90,8 @@
     "grounding": [
       "qmd #1a447e:47-57",
       "qmd #46ebe0:17-27,48-49",
-      "OD-29"
+      "OD-29",
+      "OD-34"
     ]
   },
   "anchors": [
@@ -75,76 +102,94 @@
       "minutes": 30,
       "label": "Morning Routine",
       "branch_hint": "M",
-      "span_status": "declared: day starts 30 min later (OD-52)"
-    },
-    {
-      "anchor": "breakfast",
-      "start": "12:30",
-      "end": "13:30",
-      "minutes": 60,
-      "label": "Fruehstueck Prep & Fruehstueck Mental",
-      "branch_hint": "M",
-      "span_status": "declared: shifted 30 min later with the day (OD-52)"
+      "quota_bearing": false,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (08:00-08:30)"
     },
     {
       "anchor": "lunch",
+      "start": "12:30",
+      "end": "13:30",
+      "minutes": 60,
+      "label": "Lunch + AfterLunch",
+      "branch_hint": "M",
+      "quota_bearing": false,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (12:30-13:00 Lunch + 13:00-13:30 AfterLunch)"
+    },
+    {
+      "anchor": "afternoon_break",
       "start": "15:30",
       "end": "16:00",
       "minutes": 30,
-      "label": "Mittag Prep & Mittag Stephen",
+      "label": "Afternoon Break",
       "branch_hint": "R",
-      "span_status": "DERIVED: halved from 60 min. It is the only flexible element between the shifted morning and the fixed 18:00 evening, so it absorbs the 30-minute start shift. The operator did not declare this - see DD-39"
+      "quota_bearing": false,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (15:30-16:00, DD-39 resolved)"
     },
     {
-      "anchor": "physical_focus",
-      "start": "18:00",
+      "anchor": "finanzen_2do",
+      "start": "16:00",
+      "end": "16:30",
+      "minutes": 30,
+      "label": "Finanzen / 2Do",
+      "branch_hint": "C",
+      "quota_bearing": false,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (16:00-16:30, DD-39 resolved)"
+    },
+    {
+      "anchor": "evening_physical",
+      "start": "18:30",
       "end": "19:30",
-      "minutes": 90,
-      "label": "Physical Focus Block",
+      "minutes": 60,
+      "label": "Evening Physical Course / VWC",
       "branch_hint": "P",
-      "quota_bearing": true,
-      "span_status": "declared 2026-11-09 (OD-53)",
-      "note": "DD-38 closed: these 90 minutes COUNT toward the physical quota, and their content is pre-designed per day from the week table - Strikes Monday, Kicks Tuesday and Friday, Dance Wednesday, Moves Thursday. The solver does not choose it; it is pre-bound."
+      "quota_bearing": false,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (18:30-19:30, DD-39/DD-40 resolved)",
+      "note": "DD-39/DD-40 resolved: Evening physical sessions (18:30-19:30, 60m) do NOT share the 72 x 2m in-Flow P slot denominator."
     },
     {
-      "anchor": "evening",
+      "anchor": "abend",
       "start": "19:30",
-      "end": "20:15",
-      "minutes": 45,
+      "end": "20:30",
+      "minutes": 60,
       "label": "Abend",
       "branch_hint": null,
       "bindable": false,
-      "span_status": "declared 2026-11-09 (OD-53)"
-    },
-    {
-      "anchor": "freizeit",
-      "start": "21:45",
-      "end": "22:45",
-      "minutes": 60,
-      "label": "Freizeit",
-      "branch_hint": "R",
-      "bindable": false,
-      "span_status": "DERIVED: follows the 20:15-21:45 project night (OD-53)"
+      "quota_bearing": false,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (19:30-20:30)"
     },
     {
       "anchor": "day_outro",
-      "start": "22:45",
-      "end": "23:15",
+      "start": "22:00",
+      "end": "22:30",
       "minutes": 30,
       "label": "Day Outro",
       "branch_hint": null,
       "bindable": false,
-      "span_status": "DERIVED: shifted with Freizeit (OD-53)"
+      "quota_bearing": false,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (22:00-22:30)"
     },
     {
-      "anchor": "night",
-      "start": "23:15",
-      "end": "24:00",
-      "minutes": 45,
-      "label": "Sleep Routine & Night Recovery",
+      "anchor": "freizeit",
+      "start": "22:30",
+      "end": "23:30",
+      "minutes": 60,
+      "label": "Freizeit",
       "branch_hint": "R",
       "bindable": false,
-      "note": "not a slot source. R is an ordinary branch (OD-41); its slots are the 24 in-flow breaks, which carry R content such as Yoga Nidra or reading. This window is life, not schedule."
+      "quota_bearing": false,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (22:30-23:30)"
+    },
+    {
+      "anchor": "sleep_routine",
+      "start": "23:30",
+      "end": "24:00",
+      "minutes": 30,
+      "label": "Sleep Routine",
+      "branch_hint": "R",
+      "bindable": false,
+      "quota_bearing": false,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (23:30-24:00)",
+      "note": "not a slot source. R is an ordinary branch (OD-41); its slots are the 24 in-flow breaks."
     }
   ],
   "day_timeline": {
@@ -168,7 +213,7 @@
       {
         "start": "12:30",
         "end": "13:30",
-        "element": "breakfast"
+        "element": "lunch"
       },
       {
         "start": "13:30",
@@ -178,42 +223,47 @@
       {
         "start": "15:30",
         "end": "16:00",
-        "element": "lunch"
+        "element": "afternoon_break"
       },
       {
         "start": "16:00",
-        "end": "18:00",
+        "end": "16:30",
+        "element": "finanzen_2do"
+      },
+      {
+        "start": "16:30",
+        "end": "18:30",
         "element": "F4"
       },
       {
-        "start": "18:00",
+        "start": "18:30",
         "end": "19:30",
-        "element": "physical_focus"
+        "element": "evening_physical"
       },
       {
         "start": "19:30",
-        "end": "20:15",
-        "element": "evening"
+        "end": "20:30",
+        "element": "abend"
       },
       {
-        "start": "20:15",
-        "end": "21:45",
-        "element": "Project night"
+        "start": "20:30",
+        "end": "22:00",
+        "element": "Project Night"
       },
       {
-        "start": "21:45",
-        "end": "22:45",
-        "element": "freizeit"
-      },
-      {
-        "start": "22:45",
-        "end": "23:15",
+        "start": "22:00",
+        "end": "22:30",
         "element": "day_outro"
       },
       {
-        "start": "23:15",
+        "start": "22:30",
+        "end": "23:30",
+        "element": "freizeit"
+      },
+      {
+        "start": "23:30",
         "end": "24:00",
-        "element": "night"
+        "element": "sleep_routine"
       }
     ],
     "weekday_plain": [
@@ -235,7 +285,7 @@
       {
         "start": "12:30",
         "end": "13:30",
-        "element": "breakfast"
+        "element": "lunch"
       },
       {
         "start": "13:30",
@@ -245,37 +295,47 @@
       {
         "start": "15:30",
         "end": "16:00",
-        "element": "lunch"
+        "element": "afternoon_break"
       },
       {
         "start": "16:00",
-        "end": "18:00",
+        "end": "16:30",
+        "element": "finanzen_2do"
+      },
+      {
+        "start": "16:30",
+        "end": "18:30",
         "element": "F4"
       },
       {
-        "start": "18:00",
+        "start": "18:30",
         "end": "19:30",
-        "element": "physical_focus"
+        "element": "evening_physical"
       },
       {
         "start": "19:30",
-        "end": "20:15",
-        "element": "evening"
+        "end": "20:30",
+        "element": "abend"
       },
       {
-        "start": "21:45",
-        "end": "22:45",
-        "element": "freizeit"
+        "start": "20:30",
+        "end": "22:00",
+        "element": "Freizeit"
       },
       {
-        "start": "22:45",
-        "end": "23:15",
+        "start": "22:00",
+        "end": "22:30",
         "element": "day_outro"
       },
       {
-        "start": "23:15",
+        "start": "22:30",
+        "end": "23:30",
+        "element": "freizeit"
+      },
+      {
+        "start": "23:30",
         "end": "24:00",
-        "element": "night"
+        "element": "sleep_routine"
       }
     ],
     "weekend": [
@@ -403,7 +463,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: day starts 30 min later (OD-52)"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (08:30-10:30)"
     },
     {
       "day": "Monday",
@@ -516,7 +576,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: adjacent to F1, no turnaround (OD-46)"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (10:30-12:30)"
     },
     {
       "day": "Monday",
@@ -629,14 +689,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: day starts 30 min later (OD-52)"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (13:30-15:30)"
     },
     {
       "day": "Monday",
       "regime": "weekday",
       "flow": "F4",
-      "start": "16:00",
-      "end": "18:00",
+      "start": "16:30",
+      "end": "18:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -742,7 +802,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "HELD at 16:00, not shifted with the rest of the day. The operator declared the evening chain from 18:00 absolutely (OD-53), so F4 must end at 18:00. The 30-minute start shift is absorbed by the Mittag anchor - DERIVED, see DD-39"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (16:30-18:30, DD-39 resolved)"
     },
     {
       "day": "Tuesday",
@@ -855,7 +915,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: day starts 30 min later (OD-52)"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (08:30-10:30)"
     },
     {
       "day": "Tuesday",
@@ -968,7 +1028,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: adjacent to F1, no turnaround (OD-46)"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (10:30-12:30)"
     },
     {
       "day": "Tuesday",
@@ -1081,14 +1141,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: day starts 30 min later (OD-52)"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (13:30-15:30)"
     },
     {
       "day": "Tuesday",
       "regime": "weekday",
       "flow": "F4",
-      "start": "16:00",
-      "end": "18:00",
+      "start": "16:30",
+      "end": "18:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -1194,7 +1254,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "HELD at 16:00, not shifted with the rest of the day. The operator declared the evening chain from 18:00 absolutely (OD-53), so F4 must end at 18:00. The 30-minute start shift is absorbed by the Mittag anchor - DERIVED, see DD-39"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (16:30-18:30, DD-39 resolved)"
     },
     {
       "day": "Wednesday",
@@ -1307,7 +1367,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: day starts 30 min later (OD-52)"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (08:30-10:30)"
     },
     {
       "day": "Wednesday",
@@ -1420,7 +1480,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: adjacent to F1, no turnaround (OD-46)"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (10:30-12:30)"
     },
     {
       "day": "Wednesday",
@@ -1533,14 +1593,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: day starts 30 min later (OD-52)"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (13:30-15:30)"
     },
     {
       "day": "Wednesday",
       "regime": "weekday",
       "flow": "F4",
-      "start": "16:00",
-      "end": "18:00",
+      "start": "16:30",
+      "end": "18:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -1646,7 +1706,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "HELD at 16:00, not shifted with the rest of the day. The operator declared the evening chain from 18:00 absolutely (OD-53), so F4 must end at 18:00. The 30-minute start shift is absorbed by the Mittag anchor - DERIVED, see DD-39"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (16:30-18:30, DD-39 resolved)"
     },
     {
       "day": "Thursday",
@@ -1759,7 +1819,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: day starts 30 min later (OD-52)"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (08:30-10:30)"
     },
     {
       "day": "Thursday",
@@ -1872,7 +1932,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: adjacent to F1, no turnaround (OD-46)"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (10:30-12:30)"
     },
     {
       "day": "Thursday",
@@ -1985,14 +2045,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: day starts 30 min later (OD-52)"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (13:30-15:30)"
     },
     {
       "day": "Thursday",
       "regime": "weekday",
       "flow": "F4",
-      "start": "16:00",
-      "end": "18:00",
+      "start": "16:30",
+      "end": "18:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -2098,7 +2158,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "HELD at 16:00, not shifted with the rest of the day. The operator declared the evening chain from 18:00 absolutely (OD-53), so F4 must end at 18:00. The 30-minute start shift is absorbed by the Mittag anchor - DERIVED, see DD-39"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (16:30-18:30, DD-39 resolved)"
     },
     {
       "day": "Friday",
@@ -2211,7 +2271,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: day starts 30 min later (OD-52)"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (08:30-10:30)"
     },
     {
       "day": "Friday",
@@ -2324,7 +2384,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: adjacent to F1, no turnaround (OD-46)"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (10:30-12:30)"
     },
     {
       "day": "Friday",
@@ -2437,14 +2497,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: day starts 30 min later (OD-52)"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (13:30-15:30)"
     },
     {
       "day": "Friday",
       "regime": "weekday",
       "flow": "F4",
-      "start": "16:00",
-      "end": "18:00",
+      "start": "16:30",
+      "end": "18:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -2550,7 +2610,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "HELD at 16:00, not shifted with the rest of the day. The operator declared the evening chain from 18:00 absolutely (OD-53), so F4 must end at 18:00. The 30-minute start shift is absorbed by the Mittag anchor - DERIVED, see DD-39"
+      "span_status": "locked: Screenshot Col-1 Ground Truth (16:30-18:30, DD-39 resolved)"
     },
     {
       "day": "Saturday",
@@ -2663,7 +2723,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared 2026-11-09 (DD-30 closed)"
+      "span_status": "locked: Weekend Flow 1 (12:00-14:00, DD-30 closed)"
     },
     {
       "day": "Saturday",
@@ -2776,7 +2836,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: adjacent to F1, no pause (DD-30 closed)"
+      "span_status": "locked: Weekend Flow 2 (14:00-16:00, DD-30 closed)"
     },
     {
       "day": "Sunday",
@@ -2889,7 +2949,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared 2026-11-09 (DD-30 closed)"
+      "span_status": "locked: Weekend Flow 1 (12:00-14:00, DD-30 closed)"
     },
     {
       "day": "Sunday",
@@ -3002,7 +3062,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: adjacent to F1, no pause (DD-30 closed)"
+      "span_status": "locked: Weekend Flow 2 (14:00-16:00, DD-30 closed)"
     }
   ],
   "totals": {
@@ -3097,9 +3157,9 @@
         "EFX"
       ],
       "budget": {
-        "basis": "minutes, because a 90-min focus block and a 2-min in-flow slot cannot both count as one unit (DD-38)",
+        "basis": "72 x 2-min in-flow P slots (144 min); 18:30-19:30 evening course excluded from P quota denominator (DD-39 / DD-40 resolved)",
         "inflow_min": 144,
-        "focus_block_min_per_day": 90,
+        "focus_block_min_per_day": 0,
         "focus_day_activity": {
           "Monday": "Strikes",
           "Tuesday": "Kicks",
@@ -3108,31 +3168,28 @@
           "Friday": "Kicks"
         },
         "prebound_min": {
-          "Martial Arts": 270,
-          "Dance": 180,
+          "Martial Arts": 0,
+          "Dance": 0,
           "S/BJJ": 0,
           "General": 0,
           "Knee": 0
         },
-        "total_physical_min": 594,
+        "total_physical_min": 144,
         "entitlement_min": {
-          "Martial Arts": 207.9,
-          "Dance": 148.5,
-          "S/BJJ": 59.4,
-          "General": 89.1,
-          "Knee": 89.1
+          "Martial Arts": 50.4,
+          "Dance": 36.0,
+          "S/BJJ": 14.4,
+          "General": 21.6,
+          "Knee": 21.6
         },
-        "over_allocated_min": {
-          "Martial Arts": 62.1,
-          "Dance": 31.5
-        },
+        "over_allocated_min": {},
         "free_minutes_available": 144,
-        "free_minutes_needed": 237.6,
-        "feasible": false,
-        "verdict": "INFEASIBLE: the pre-bound focus blocks alone exceed the declared shares for Dance, Martial Arts, and the Epics that are still owed minutes need 238 against 144 available in-flow. Either the shares move or the focus block stops counting (DD-40)."
+        "free_minutes_needed": 144.0,
+        "feasible": true,
+        "verdict": "feasible (DD-39 / DD-40 resolved: evening course outside 72x2m in-Flow P denominator)"
       },
       "shares_status": "Knee 15% DECLARED by the operator 2026-11-09 (DD-34 closed); the remaining 85% keeps the week-table proportions 3:2:1:1 (OD-49)",
-      "open_question": "DD-35: 'optimized to 5-minute iterations' is not yet applied - see the spec ledger for the two candidate readings",
+      "ladder_rule": "DD-35 closed: declared shares snap to 5% steps via round_shares_to_step() -> 35/25/10/15/15",
       "denominator": 72,
       "declared_shares": {
         "Martial Arts": 0.35,

@@ -162,3 +162,14 @@ The Weekly Command Brief visual architecture consists of two sequential matrices
 ### Google Calendar Flow Event Creation Handover
 - Automated creation of Google Calendar focus blocks for planned flows (`F1`–`F4`) around real meeting constraints is governed by:
   `apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/HANDOVER-GOOGLE-CALENDAR-FLOW-EVENTS.md`.
+
+## Operator-Corrected Cockpit Presentation Decisions — 2026-11-09 (`v05`, Clock Reconciled 2026-11-10)
+
+**Scope**: Precap Week human-facing cockpit ONLY (`01-weekly-command-brief`). These later decisions override older presentation sketches in this file where they conflict; they do not authorize runtime mutation, do not redefine `EM-13`/OpenProject contracts, and preserve [`02-weekly-dispersal/week-blueprint.json`](../02-weekly-dispersal/week-blueprint.json) as sole calendar clock owner (`Mon–Sun`, `08:00–24:00` weekday with `Day Outro 22:00–22:30`, `Sat–Sun 12:00–16:00` 2 Flows).
+
+- `00` Portfolio Compass visible by default, five consistent metric-card slots (`metric_selection: OPERATOR_TODO`). No duplicate `Weekly Target`, `Operator Agenda`, `Primary Data Source`, `Planned vs Realized`, or `Coverage` panels.
+- `01` Operator Decision Brief folds as one whole section; `New | Ongoing | Standard` preview cards always remain visible and show concise `setting: value` entries. Expand for full setting lists; click a setting for details.
+- `02` Matrix 1 folds as one whole section while keeping up to three portfolio-priority `L1` goal cards visible in the collapsed section header. Expanded projects expose horizontal `L1` and initially folded `L2`; **no `L3` or recursive child-cube tree**. Selecting either class of card opens six horizontal `Goal | Input | Process | Skills | Output | Continuation` fields directly below that card strip without a separate specification heading. Technical WP IDs stay secondary metadata.
+- `03` Matrix 2 retains one fit-to-width time-of-day **Monday–Sunday** hourly timetable sourced from [`week-blueprint.json`](../02-weekly-dispersal/week-blueprint.json) (`08:00–24:00` weekday + `12:00–16:00` weekend); zero horizontal scrollbar (`min-width` removed), zero supplementary `#daystrip` / `#flowdetail` / `.displayrow` pills or second sprint-by-day table. Immediately beneath the final `23:30–24:00` (`Sleep Routine`) row, display a 3-column `Mental | Physical | Regeneration` focus strip (`1–3` operator priorities each or `not yet specified`, unrelated to project task assignments).
+- `04` Residual Information separate from any `Residuals` workstream. `05` Sequencing Orientation reserved as `TODO` in the cockpit UI.
+- Exact `G/I/P` field semantics (`EM-13` mapping), the five final Portfolio Compass metrics, and personal-focus priority bullets remain operator-open; never invent them from visual placeholders.

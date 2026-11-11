@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "id": "MOA-SEQ-WEEK-DEMAND-DRAFT",
+  "status": "draft",
+  "purpose": "Operator weekly demand dials (shares, focus days, and active regime settings) separated from calendar clock (week-blueprint.json) and dispersal algorithm (ALGORITHM.md). Resolves DD-02, OD-03, DD-03, DD-05, DD-17, DD-18.",
+  "mental": {
+    "shares": {
+      "Intention": 0.40,
+      "ACIM": 0.20,
+      "Surrender": 0.20,
+      "Breathing": 0.20
+    },
+    "focus_days": {
+      "Monday": "Intention",
+      "Tuesday": "Surrender",
+      "Wednesday": "Intention",
+      "Thursday": "Breathing",
+      "Friday": "Intention",
+      "Sunday": "ACIM"
+    },
+    "focus_capacity": {
+      "Intention": 36,
+      "Surrender": 12,
+      "Breathing": 12,
+      "ACIM": 6
+    }
+  },
+  "physical": {
+    "knee_share": 0.15,
+    "share_step": 0.05,
+    "remaining_proportions": {
+      "Martial Arts": 0.42857142857142855,
+      "Dance": 0.2857142857142857,
+      "S/BJJ": 0.14285714285714285,
+      "General": 0.14285714285714285
+    },
+    "shares": {
+      "Martial Arts": 0.35,
+      "Dance": 0.25,
+      "S/BJJ": 0.10,
+      "General": 0.15,
+      "Knee": 0.15
+    },
+    "focus_capacity": {
+      "Martial Arts": 36,
+      "Dance": 24,
+      "S/BJJ": 6,
+      "General": 6,
+      "Knee": 0
+    },
+    "evening_physical_course": {
+      "Monday": "Strikes",
+      "Tuesday": "Kicks",
+      "Wednesday": "Dance",
+      "Thursday": "Moves",
+      "Friday": "Kicks"
+    },
+    "evening_course_note": "18:30-19:30 courses do NOT share the 72x2m in-Flow P slot denominator (DD-39/DD-40 resolved); they drive Gaussian pre/post Flow weighting in ALGORITHM.md."
+  },
+  "craft_and_project_evenings": {
+    "mon_to_wed_project_nights": ["Monday", "Tuesday", "Wednesday"],
+    "thu_to_fri_evening": "Freizeit",
+    "craft_epics_source": "OpenProject work packages (bound in C slots via G-I-P-S-O)"
+  },
+  "regeneration": {
+    "epic": "Regeneration",
+    "blocks": ["Yoga Nidra", "Audiobooks", "Socializing"],
+    "note": "DD-17 resolved: all R activities belong as Blocks inside one Regeneration Epic."
+  },
+  "weekend_regime": {
+    "days": ["Saturday", "Sunday"],
+    "mode": "reduced_slot_count_same_algorithm",
+    "flows_per_day": 2,
+    "note": "DD-18 resolved: same 3x3 algorithm over 2 Flows/day (12:00-16:00)."
+  }
+}

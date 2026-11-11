@@ -290,30 +290,24 @@ Two readings, not resolved here:
 
 ---
 
-## D017 — M06=A accepted: Saturday weekly Precap; Sunday off
+## D017 — M06=A superseded: Monday–Sunday planning with weekday/weekend regimes
 
-**Status:** operator accepted design timing; runtime PrecapWeek still contradictory and requires bounded patch (2026-11-06).
+**Status:** superseded by Monday–Sunday amendment (2026-11-09) and canonical clock lock (2026-11-10).
 
-**Decision:** Normally run weekly Precap on Saturday. Monday–Saturday remain eligible workdays subject to actual constraints and finite capacity. Sunday is OFF by default; a special exception requires explicit operator choice. Weekly Precap on Saturday consumes actual capacity, rather than presuming Saturday is only a buffer or blindly scheduling project work at the same time.
+**Decision:** Weekly orchestration plans **Monday through Sunday** (both Saturday and Sunday active). Monday–Friday run the weekday regime (`08:00–24:00`, `4 × 120m` Flows); Saturday and Sunday run the weekend regime (`12:00–16:00`, `2 × 120m` Flows). Weekly Precap and `StatusMerge` run on Saturday or Sunday (`A-12` closed).
 
-**Implementation gap:** PrecapWeek skill, blueprint, validation and weekly router still encode Mon–Fri planning/Sunday Precap. Do not claim the accepted timing is in production before exact-context patch, independent diff verification and fresh test.
+**Scope:** calendar/week scope, PrecapWeek, validation, canonical `02-weekly-dispersal/week-blueprint.json`.
 
-**Scope:** calendar/week scope, PrecapWeek, validation, trigger/dispatch.
-
-**Source:** operator M06=A, 2026-11-06.
+**Source:** operator OD-04 / OD-26 / OD-43, 2026-11-09.
 
 ---
 
-## D018 — Operator weekly flow architecture: 4 flows daily (3x3 standard) & Sequencing integration
+## D018 — Operator weekly flow architecture: `3x3` standard & Sequencing integration
 
-**Status:** locked operator decision (2026-11-08).
+**Status:** locked operator decision (2026-11-08; clock & dispersal alignment 2026-11-10).
 
-**Decision:** The weekly operating structure operates on 4 daily flows. Sequencing is the holistic integration system organizing the entire week (routines, habits, meditation, flow cards). A flow follows the 3x3 repetition standard (3 sprints per flow, 3 checklist items per sprint; flexes to 3x1 or 3x2 as capacity requires). Daily domain budget:
-1. Two flows per day: Master of Arts (Website & Content Creation in general).
-2. One flow per day: Investment / IPOS.
-3. One residual flow per day (3x3): Sprint 1: Apartment & Art; Sprint 2: Sexy Content; Sprint 3: Community & Traveling.
-Calendar integration time-blocks these flows in free windows between protected routine anchors (08:00–09:00 Morning, 12:30–13:30 Lunch, 18:00–18:30 Shutdown) without modifying external events.
+**Decision:** The weekly operating structure runs `24` weekly `120m` Flows (`4/day` Mon–Fri, `2/day` Sat–Sun; `72` `P/M/C` iterations + `24` `R` breaks). Sequencing is a distribution system powered by interleaving, spaced repetition, chunking, and testing across Mental, Physical, Regeneration, and Craft/Project Epics. All calendar timestamps and protected anchors (`08:00–24:00` weekday with `22:00–22:30` Day Outro; `12:00–16:00` weekend) are governed solely by [`02-weekly-dispersal/week-blueprint.json`](02-weekly-dispersal/week-blueprint.json). Algorithm rules (`ALGORITHM.md`) and weekly operator dials (`week-demand.json`) live in the `02-weekly-dispersal` bundle (`MasterOfArts/Sequencing/dispersal/`).
 
-**Scope:** weekly orchestration, daily flow budget, sprint checklist structure, calendar integration.
+**Scope:** weekly orchestration, `3x3` flow standard, single blueprint clock ownership, Sequencing dispersal.
 
-**Source:** operator, 2026-11-08.
+**Source:** operator + T1 alignment, 2026-11-10.

@@ -2,9 +2,9 @@
 type: Specification
 id: SPEC-WEEKLY-DISPERSAL-v1.0
 title: "Weekly Dispersal Specification — Flow Contract, Slot Inventory, Share Mechanism & Binding Notation"
-description: "Canonical specification for the weekly dispersal slice: the 3x3 Flow contract, the three day regimes, the 240-occurrence slot inventory, the XP/TP/BP point model, the share-and-quota mechanism shared by Mental and Physical, the slot binding notation, and the full decision ledger."
-status: operator_review_pending
-date: 2026-11-09
+description: "Canonical specification for the weekly dispersal slice: the 3x3 Flow contract, three day regimes, 240-occurrence slot inventory, Epic branch scope, and failure guards."
+status: current
+date: 2026-11-10
 scope: [sequencing, dispersal, precap-week, slots, epics, xp, bp, quota, notation]
 tags: [sequencing, dispersal, specification, weekly-orchestration, precap-week, slot-inventory, quota]
 ---
@@ -12,30 +12,30 @@ tags: [sequencing, dispersal, specification, weekly-orchestration, precap-week, 
      Edits here are overwritten by sync_dispersal.py. -->
 # Weekly Dispersal Specification
 
-This specification is the **canonical source of truth** for the weekly dispersal slice: the mechanism
-that decides which Mental, Physical, Craft and Regeneration content occupies which slot of which day,
-and how that reaches Precap Week Matrix 2. It supersedes the working register as the decision record.
+**Sequencing** is a distribution system powered by interleaving, spaced repetition, chunking, and testing to achieve a valuable dispersion of practicing and pursuing goals, skills, and trainings.
 
-Companion artifacts: [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DECISIONS-REGISTER.md)
-(working assumptions and conflict evidence), [PRECAP-INTEGRATION-ANALYSIS.md](PRECAP-INTEGRATION-ANALYSIS.md)
-(the collision with Precap Week v2.0 and Handovers 03-06), [slot-inventory.json](slot-inventory.json)
-(the generated inventory), [build_slot_inventory.py](build_slot_inventory.py) (its generator).
+This specification governs the Flow contract, day regimes, slot inventory, Epic branch set, and failure guards.
+
+### Single-Owner Companions
+
+- Calendar clock: `apexai-os-meta/.../02-weekly-dispersal/week-blueprint.json`.
+- Algorithm & BP authority: [ALGORITHM.md](ALGORITHM.md).
+- Weekly operator dials (`DD-02` draft): [week-demand.json](week-demand.json).
+- Active register & changelog: [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DECISIONS-REGISTER.md) and [log.md](log.md).
+- Generated inventory & builder: [slot-inventory.json](slot-inventory.json) and [build_slot_inventory.py](build_slot_inventory.py).
 
 ---
 
 ## 1. Core Architectural Invariants
 
-- **WD-01 [P0 | I98/E96/R05] Reduced Slice, Not The Sequencing System**: Build only the four reduced
-  parts — personal Epic database, `WeekDemand` shares, slot-filling algorithm, and the Precap Week
-  surface. Never build or imply the Leela Path, Sequencing or Stats features. Borrow their schemas;
-  do not reimplement their scope.
+- **WD-01 [P0 | I98/E96/R05] Reduced Slice Only**: Build only the personal Epic database, [week-demand.json](week-demand.json), slot-filling algorithm, and Precap Week surface. Reuse Leela's schemas without reimplementing the full Path or Stats modules.
 - **WD-02 [P0 | I98/E95/R04] The Flow Is 3x3 At 120 Minutes**: Every Flow is three slots by three
   iterations of the branch triple `[P, M, C]`, closing on one `R` break, totalling exactly 120
   minutes. One standard everywhere — weekday, weekend, project night or not. Reject any Flow of
   another duration rather than shortening a slot to fit.
 - **WD-03 [P0 | I97/E98/R05] Branch Point Sourcing Is Absolute**: Branch `R` never sources XP and
   branch `C` never sources BP (glossary `ST-010`). Never mint XP for `R` to make it schedulable;
-  reachability for `R` comes from the BP floor alone.
+  reachability for `R` comes from structural BP balance (`ALGORITHM.md`).
 - **WD-04 [P0 | I96/E94/R06] XP Is Solved For, Never Redefined**: XP is a quantity — goal-progress
   leverage over TP, with leverage `= XP / TP` (`ST-008`). Because every slot has a determinate TP,
   compute `XP = leverage x TP` for craft and practice alike. A percentage display is a derived view
@@ -75,31 +75,21 @@ Companion artifacts: [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DEC
 ### 2.2 Regimes
 
 - **WD-12 [P1 | I92/E88/R07] Three Day Regimes**: `weekday_project` (Monday, Tuesday, Wednesday —
-  four Flows plus a project night), `weekday_plain` (Thursday, Friday — four Flows), `weekend`
+  four Flows plus a project night), `weekday_plain` (Thursday, Friday — four Flows plus evening Freizeit), `weekend`
   (Saturday, Sunday — two Flows). Both weekday regimes carry identical slot counts; the regimes
-  differ only in the evening.
+  differ only in the `20:30-22:00` evening block (`Project Night` Mon-Wed vs `Freizeit` Thu-Fri).
 - **WD-13 [P2 | I85/E88/R07] Project Night Is Not A Flow**: The Monday-to-Wednesday project night
-  runs `20:00-21:30` and is an evening block, not a Flow; it contributes no slot occurrences
-  (`DD-33` closed).
-- **WD-14 [P1 | I92/E94/R04] The Declared Weekday Cut**: Morning Routine `08:00-08:30`, Flows
-  `08:30-10:30 / 10:30-12:30 / 13:30-15:30 / 16:00-18:00`, Fruehstueck `12:30-13:30`, Mittag
-  `15:30-16:00`, physical focus block `18:00-19:30`, Abend `19:30-20:15`, project night
-  `20:15-21:45`, Freizeit `21:45-22:45`, Day Outro `22:45-23:15`. `DD-32` closed.
-- **WD-14e [P1 | I88/E90/R08] The Evening Chain Is Absolute, The Morning Floats**: The operator
-  declared `18:00 / 19:30 / 20:15 / 21:45` as clock times, so Flow 4 must end at `18:00` and cannot
-  shift with the day. A 30-minute later start therefore has to be absorbed before `18:00`, and only
-  the two meal anchors can absorb it — a Flow is fixed at 120 minutes. Mittag absorbs it (`DD-39`).
-- **WD-14d [P2 | I86/E92/R05] The Weekday Has No Turnarounds**: Every element abuts its neighbour.
-  This is consistent rather than tight: each Flow already closes on its own 12-minute `R` break,
-  so the break between Flows is inside them.
+  runs `20:30-22:00` (90 min) and is an evening block, not a Flow; it contributes no slot occurrences
+  (`DD-33` closed). On Thursday and Friday, `20:30-22:00` is `Freizeit` (90 min, `DD-37` closed).
+- **WD-14 [P1 | I92/E94/R04] Single Canonical Clock Owner (`week-blueprint.json`)**: Read all start/end timestamps from `apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json` (`08:00-24:00` weekday, `12:00-16:00` weekend). Never duplicate clock tables here (`DD-32`, `DD-39`).
+- **WD-14d [P2 | I86/E92/R05] The Weekday Has No Turnarounds**: Every element abuts its neighbour across the full 960-minute `08:00-24:00` span. Each Flow already closes on its own 12-minute `R` break, so the break between Flows is inside them.
 - **WD-14a [P2 | I84/E92/R05] Flows 1 And 2 Are Adjacent**: No turnaround separates Flow 1 from
   Flow 2. Each Flow already closes on its own 12-minute `R` break, so adjacency removes the
   inter-Flow gap only and never the break.
 - **WD-14b [P2 | I82/E90/R06] Weekend Flows Start At Noon**: The two weekend Flows run `12:00-14:00`
-  and `14:00-16:00`, back-to-back with no pause between them.
+  and `14:00-16:00`, back-to-back with no pause between them. Both Saturday and Sunday run the weekend regime.
 - **WD-14c [P1 | I88/E94/R04] Day Geometry Is Overlap-Checked**: The generator sorts every placed
-  element per regime and rejects any overlap. The operator shifts these times by voice, and the
-  first such shift drove the midday anchor into Flow 2.
+  element per regime from `week-blueprint.json`, rejects any overlap, and verifies the 960-minute `08:00-24:00` weekday span.
 
 ---
 
@@ -118,70 +108,32 @@ Companion artifacts: [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DEC
   identifiers are unique.
 - **WD-19 [P1 | I91/E90/R06] Regeneration Slots Are The In-Flow Breaks**: `R` is an ordinary branch.
   Its 24 slots are the in-flow breaks, carrying `R` content such as Yoga Nidra or reading. The
-  `21:30-24:00` night window is rest, not schedule, and is **not** a slot source.
-- **WD-20 [P2 | I86/E90/R06] Anchors Are Outside The Quota**: The morning (`08:00-09:00`) and midday
-  anchors are practice surface but carry no quota-bearing slots. The daily shutdown is never
+  `22:30-24:00` night window (`Freizeit` + `Sleep Routine`) is rest, not schedule, and is **not** a slot source.
+- **WD-20 [P2 | I86/E90/R06] Anchors Are Outside The Quota**: The morning (`08:00-08:30`), midday (`12:30-13:30`), afternoon (`15:30-16:30`), and evening (`18:30-20:30`)
+  anchors are practice/life surface but carry no quota-bearing slots. The daily shutdown (`Day Outro 22:00-22:30`) is never
   bindable.
 
 ---
 
 ## 4. The Point Model
 
-- **WD-21 [P1 | I94/E96/R04] TP Is Determinate**: `1 TP = 1 minute` (`ST-007`), counted once across
-  serial and concurrent activity. Every slot's TP is read off the Flow contract — 2, 3, 30 or 12 —
-  never estimated. This determinacy is what makes `WD-04` computable.
-- **WD-22 [P1 | I93/E92/R06] Objective Function**: Maximise projected XP subject to the BP floor.
-  Per occurrence,
-  `projected_xp = base_xp(chunk) x priority_factor(epic) x quality_multiplier(spacing, interleaving, chunking, testing)`,
-  with `priority_factor` on Leela's Path-priority curve, `0.75x` at priority 1 to `1.50x` at
-  priority 10 (`ST-034`).
-- **WD-23 [P1 | I92/E90/R06] Dispersal Is Emergent, Not Scheduled**: The four scientific principles
-  live in `quality_multiplier`. Binding one Epic into adjacent slots collapses its own spacing and
-  interleaving multipliers, so clustering is self-penalising. Never hand-schedule dispersal that the
-  objective already produces.
-- **WD-24 [P1 | I91/E88/R07] BP Is A Floor, Not A Term**: A candidate week must clear the BP floor;
-  among those that clear it, highest projected XP wins. Never weight BP against XP in one sum — a
-  weighting either starves `R` or crowds out goal work, and needs a coefficient nobody can ground.
-- **WD-25 [P2 | I88/E90/R07] Per-Component Floor**: The floor sets minima on each BP component
-  separately. A single total lets a week buy past the floor on branch diversity while skipping rest
-  entirely, which is the failure the floor exists to prevent. Values pending (`DD-16`).
-- **WD-26 [P2 | I85/E94/R05] Glossary BP Supersedes The Algorithm Document**: Where the historical
-  Algorithm document defines BP as `spacing 30 + testing 35 + interleaving 20 + application 15`,
-  reject it. Those four components duplicate the XP `quality_multiplier` and leave branch diversity
-  and rest unmeasured. The locked glossary (`authority_tier: 1`) governs.
+Single owner for equations, BP authority (`DD-01`, `DD-16`), and Gaussian coupling: [ALGORITHM.md](ALGORITHM.md).
+
+- **WD-21 [P1 | I94/E96/R04] TP Is Determinate**: Read `TP` (`1 TP = 1 minute`) directly from the Flow contract (`2`, `3`, `30`, or `12`).
+- **WD-22 [P1 | I93/E92/R06] Algorithm Point Model**: Maximise projected `XP` (`leverage × TP`) with BP owned by the Algorithm (`50/25/25`) and no numeric BP cutoff floor (`DD-16`). See [ALGORITHM.md](ALGORITHM.md).
+- **WD-26 [P2 | I85/E94/R05] Reject Historical Algorithm BP Definition**: Reject the older `spacing/testing/interleaving/application` BP formula. The locked `branch_diversity / work_break_alternation / focus_day_alternation` definition governs.
 
 ---
 
 ## 5. The Share Mechanism
 
-- **WD-27 [P1 | I93/E90/R06] One Mechanism For Both Branches**: Mental and Physical use identical
-  share-and-quota code. Declare a share per Epic; the week's slots of that branch divide by largest
-  remainder; ties resolve deterministically. Never special-case one branch as pattern-driven.
-- **WD-28 [P1 | I90/E92/R05] Quota Is Occurrences, Not Minutes**: Shares bind slot occurrences. A
-  share expressed as a priority weight drifts whenever the quality multipliers move, so the declared
-  figure would not be the obtained figure.
-- **WD-29 [P2 | I88/E90/R06] Rounding At The Week**: Round by largest remainder once per week and
-  let per-day counts float. Per-day rounding compounds the error across seven days; carrying a
-  fraction forward requires the cross-week state excluded by `DD-09`.
-- **WD-30 [P2 | I86/E88/R07] Deterministic Tie-Break**: Ties go to the Epic with the least
-  focus-day capacity — the one the weekend reduction penalises most is compensated first. Moving a
-  focus day therefore moves the allocation with it, which a lexical or arbitrary tie-break would not.
-- **WD-31 [P2 | I90/E75/R12] Shares Are Dials**: Share values are operator settings expected to
-  change. No share figure in this specification is a finding, and no downstream artifact may treat a
-  particular percentage as fixed.
-- **WD-32 [P1 | I88/E94/R06] A Zero Share Is Schedulable Silence**: An Epic with a zero share draws
-  no slots and the algorithm will never place it. Detect and surface this rather than letting an
-  Epic vanish. **Knee** was the case that proved it and is now at 15%, so no Epic currently
-  holds a zero share.
-- **WD-32a [P2 | I84/E94/R04] Shares Land On The 5% Ladder**: Every declared share is a multiple of
-  5 percentage points, so each one ends on a 0 or a 5. Snapping uses largest remainder in units of
-  5 points — the same rule the slot quota uses — and a tie goes to the Epic covering more
-  week-table activities. Mental `40/20/20/20`, Physical `35/25/10/15/15`.
-- **WD-32b [P1 | I92/E96/R03] Pre-Bound Minutes Are Checked Before The Solver Runs**: The physical
-  focus block is 90 minutes of pre-designed content, so it is an allocation the solver inherits.
-  Where a pre-bound Epic already exceeds its share, no assignment of the remaining slots can repair
-  it. Check this on minutes, never on slot counts: a 90-minute block and a 2-minute slot both count
-  as one slot, which hides the entire problem. **Currently infeasible** (`DD-40`).
+Single owner for weekly shares, focus days, and evening physical activity mapping: [week-demand.json](week-demand.json). Quota rounding rules live in [ALGORITHM.md](ALGORITHM.md).
+
+- **WD-27 [P1 | I93/E90/R06] One Mechanism For Both Branches**: Mental (`72` slots) and Physical (`72` in-Flow slots) use identical largest-remainder quota code over slot occurrences.
+- **WD-30 [P2 | I86/E88/R07] Deterministic Tie-Break**: Break rounding ties by lowest focus-day capacity from [week-demand.json](week-demand.json).
+- **WD-31 [P2 | I90/E75/R12] Shares Are Operator Dials**: Read weekly shares and focus days from [week-demand.json](week-demand.json) (`DD-02`, `DD-03`). Treat percentage numbers there as mutable dials snapped to `5%` steps (`DD-35`).
+- **WD-32 [P1 | I88/E94/R06] Surface Zero-Share Epics**: Report any active Epic with zero allocated slots instead of dropping it silently.
+- **WD-32b [P1 | I92/E96/R03] Evening Physical Courses Stay Outside In-Flow `P` Quota**: Exclude `18:30-19:30` evening physical courses (`60m`) from the `72 × 2m` in-Flow `P` denominator (`DD-39`, `DD-40`). Couple them via Gaussian proximity weighting in [ALGORITHM.md](ALGORITHM.md).
 
 ---
 
@@ -211,61 +163,11 @@ Companion artifacts: [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DEC
 
 ---
 
-## 7. Decision Ledger
+## 7. Decision Routing (Single-Owner Links)
 
-### 7.1 Closed
-
-| # | Decision | Ruling |
-|---|---|---|
-| DD-01 | BP authority | Reinstated as a week-level feasibility floor on the locked glossary definition |
-| DD-02 | Share expression | Quota of slot occurrences, not a priority weight |
-| DD-03 | Focus-day strength | Not built this iteration; operator supplies focus-day specifications later |
-| DD-04 | Knee branch | `P` Physical — knee training, settled on operator grounds |
-| DD-05 | Sunday | ACIM on Sunday |
-| DD-06 | Monday-Sunday span | All artifacts amended; Saturday and Sunday under a distinct regime |
-| DD-07 | Thursday physical collision | Settled by the operator |
-| DD-08 | Execution model | Build the algorithm, not a hand-written example week |
-| DD-09 | Cross-week memory | Out of scope; stateless. Spaced repetition operates within the week |
-| DD-10 | Physical allocation basis | Superseded by DD-34: physical uses the share mechanism |
-| DD-11 | Special Projects source | OpenProject work packages |
-| DD-12 | Deliverable home | Both repositories, one-way sync |
-| DD-13 | Regeneration filling | By the algorithm via the BP floor; no nominal XP for `R` |
-| DD-14 | Priority artifact name | `WeekDemand` (`week-demand.json`) |
-| DD-15 | Sync direction | One source of truth, one-way copy |
-| DD-19 | The Precap "XP" chip | Solve for XP; the percentage is a derived view (`WD-04`) |
-| DD-20 | Sprint duration | No conflict: a sprint is 36 min, 30 is the craft block |
-| DD-21 | Where practice binds | Inside the Flows — that is what a Flow is |
-| DD-25 | Which BP the chip shows | Withdrawn; there is only one BP |
-| DD-27 | Quota rounding | Largest remainder at the week |
-| DD-29 | Recap branch | Craft (`WD-10`) |
-| DD-30 | Weekend Flow shape | The same 120-minute standard; `12:00-14:00` and `14:00-16:00`, adjacent |
-| DD-22 | The per-day band | **Option A.** A read-only readout rendered into Precap Week Matrix 2. Craft is omitted — it is authored in the work-package surface (`WD-06`) |
-| DD-32 | Weekday re-cut | Declared: 30-minute morning anchor, everything after it 30 minutes earlier, Flows 1 and 2 adjacent (`WD-14`) |
-| DD-33 | Project-night times | `20:00-21:30` |
-| DD-34 | Physical shares | Knee raised to 15%; the remaining 85% keeps the week-table proportions `3:2:1:1` |
-| DD-35 | "Optimized to 5-minute iterations" | Operator clarified: **5% steps.** Every declared share lands on a 0 or a 5. Physical resolves to `35 / 25 / 10 / 15 / 15`; Mental already sat on the ladder at `40 / 20 / 20 / 20` |
-| DD-36 | Evening block content | The `19:30-20:15` block is `Abend` in the operator calendar. Not a slot source |
-| DD-38 | The physical focus block | Its 90 minutes **count toward the physical quota**, and their content is pre-designed per day from the week table — Strikes Monday, Kicks Tuesday and Friday, Dance Wednesday, Moves Thursday. The solver inherits this allocation rather than choosing it |
-| DD-31 | Week table to Epics | Five physical Epics; EFX dropped |
-| A-09 | Wednesday Special Project Day | Doubles: project night and slot share both |
-| A-10 | Night window | Withdrawn as malformed; `R` is an ordinary branch (`WD-19`) |
-| A-11 | Weekend Flow count | Two |
-| A-12 | StatusMerge day | Saturday or Sunday; propagate everywhere Saturday is hard-coded |
-
-### 7.2 Open
-
-| # | Decision | Recommendation |
-|---|---|---|
-| DD-16 | BP floor values | Per-component minima; values follow the slot inventory |
-| DD-17 | Which Epic owns `R` content | One `Regeneration` Epic with Blocks, not one per activity |
-| DD-18 | Weekend regime content | Reduced slot count under the same algorithm — settled at two Flows |
-| DD-23 | "Path and Sequencing paused" | Qualify: the Leela feature is paused, the dispersal slice is active |
-| DD-24 | Stale weekend text in Handovers 04, 05 | Fix now, before ratification reintroduces `Sun OFF` |
-| DD-26 | Dependency-view choice | No recommendation; its own DoD requires an unrun OpenProject edge count |
-| DD-28 | HANDOVER-05 XP chip amendment | Amend now; the definition is already a `[P0]` spec invariant |
-| DD-37 | Thursday and Friday evening | `20:00-21:30` is unallocated on those two days, since only Monday to Wednesday carry a project night |
-| DD-39 | Which element absorbs the later start | Mittag, halved to 30 minutes. **Derived, not declared.** Fruehstueck could absorb it instead |
-| DD-40 | The physical quota is infeasible | The pre-bound focus blocks give Martial Arts 270 min against a 207.9 entitlement and Dance 180 against 148.5, while S/BJJ, General and Knee are owed 238 min with only 144 in-Flow minutes left. Either the declared shares move, or the focus block stops counting. No recommendation: the shares are the operator's dial |
+- **Closed Dispersal Decisions (`DD-01`..`DD-40`, `OD-*`, `A-*`, `X-*`):** Archived in [log.md](log.md).
+- **Open Cross-Module Questions (`DD-23`, `DD-24`, `DD-26`, `DD-28`):** Tracked in [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DECISIONS-REGISTER.md).
+- **Orchestration-Wide Architecture Decisions (`D001`..`D018`):** Governed by `apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/DECISIONS.md`.
 
 ---
 
@@ -279,9 +181,11 @@ Companion artifacts: [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DEC
 - **WD-39 [P1 | I93/E96/R04] Chunk Identity Is Canonical**: One canonical `CH_*` owns intrinsic
   content. A Chunk reaches an Epic through `NODE_PLACEMENT`, never by duplication; a placement never
   becomes a second Chunk.
-- **WD-40 [P2 | I86/E92/R06] Epic Set**: Four Mental Epics (Intention, ACIM, Surrender, Breathing),
-  five Physical (Martial Arts, Dance, S/BJJ, General, Knee), and one Regeneration Epic pending
-  `DD-17`. Craft Epics are OpenProject work packages, not personal Epics.
+- **WD-40 [P2 | I86/E92/R06] All-Branch Epic Set**: The Epic database covers **all four branches**:
+  Mental (`Intention`, `ACIM`, `Surrender`, `Breathing`), Physical (`Martial Arts`, `Dance`, `S/BJJ`,
+  `General`, `Knee`), Regeneration (`Regeneration` Epic with `Yoga Nidra`, `Audiobooks`, and
+  `Socializing` Blocks; `DD-17` closed), and Craft / Projects (`MasterOfArts`, `Leela`, `IPOS`,
+  `Apex OS`, `Residuals`) bound to OpenProject work packages (`DD-11`).
 
 ---
 
@@ -303,8 +207,8 @@ Each guard names the silent failure it prevents.
   surfaces author one assignment is refused. *Prevents:* the band reading "Intention x2" while the
   slots hold five, with nothing to reconcile them.
 - **WD-45 [P1 | I90/E92/R06] Never Mint XP For `R`**: A nominal XP value for Regeneration is
-  refused. *Prevents:* contradicting `ST-010` to work around a scheduling gap that the BP floor
-  already closes.
+  refused. *Prevents:* contradicting `ST-010` to work around a scheduling gap that structural BP
+  balance already closes.
 - **WD-46 [P1 | I88/E90/R07] Mark Derived Figures As Derived**: Any share, span or count this
   specification inferred rather than received carries that status in the artifact. *Prevents:* an
   inference hardening into a requirement — the failure that produced `DD-33` and `DD-34`.

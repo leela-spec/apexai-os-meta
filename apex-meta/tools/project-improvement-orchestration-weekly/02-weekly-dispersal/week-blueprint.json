@@ -1,0 +1,224 @@
+{
+  "schema_version": "1.0",
+  "id": "APEX-WEEK-BLUEPRINT-CLOCK-v1.0",
+  "title": "Canonical Weekly Blueprint Clock",
+  "as_of": "2026-11-10",
+  "status": "locked",
+  "owner": "apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json",
+  "week_span": "monday_to_sunday",
+  "operating_window": {
+    "weekday": {
+      "start": "08:00",
+      "end": "24:00",
+      "duration_min": 960,
+      "day_outro": "22:00-22:30"
+    },
+    "weekend": {
+      "start": "12:00",
+      "end": "16:00",
+      "duration_min": 240,
+      "sun_off_retired": true
+    }
+  },
+  "flow_template": {
+    "pattern": "3x3",
+    "pattern_meaning": "3 slots per iteration x 3 iterations",
+    "slots_per_iteration": 3,
+    "iterations": 3,
+    "branch_cycle": ["P", "M", "C"],
+    "closing_branch": "R",
+    "duration_min": 120,
+    "minutes": {
+      "P": 2,
+      "M": 3,
+      "craft_standard": 30,
+      "recap": 1,
+      "break": 12
+    },
+    "fixed_overhead_min": 30,
+    "flex_rule": "only the craft block absorbs a flow's residual time",
+    "grounding": ["qmd #1a447e:47-57", "qmd #46ebe0:17-27,48-49", "OD-29", "OD-34"]
+  },
+  "regimes": {
+    "weekday_project": {
+      "days": ["Monday", "Tuesday", "Wednesday"],
+      "flows_per_day": 4,
+      "evening": {
+        "label": "Project Night",
+        "start": "20:30",
+        "end": "22:00",
+        "minutes": 90,
+        "branch_hint": "C",
+        "bindable": false,
+        "time_status": "locked: Screenshot Col-1 Ground Truth (Mon-Wed Project Night 20:30-22:00)"
+      }
+    },
+    "weekday_plain": {
+      "days": ["Thursday", "Friday"],
+      "flows_per_day": 4,
+      "evening": {
+        "label": "Freizeit",
+        "start": "20:30",
+        "end": "22:00",
+        "minutes": 90,
+        "branch_hint": "R",
+        "bindable": false,
+        "time_status": "locked: Thu-Fri Freizeit 20:30-22:00"
+      }
+    },
+    "weekend": {
+      "days": ["Saturday", "Sunday"],
+      "flows_per_day": 2,
+      "evening": null
+    }
+  },
+  "weekday_flows": [
+    {
+      "flow": "F1",
+      "start": "08:30",
+      "end": "10:30",
+      "duration_min": 120,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (08:30-10:30)"
+    },
+    {
+      "flow": "F2",
+      "start": "10:30",
+      "end": "12:30",
+      "duration_min": 120,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (10:30-12:30)"
+    },
+    {
+      "flow": "F3",
+      "start": "13:30",
+      "end": "15:30",
+      "duration_min": 120,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (13:30-15:30)"
+    },
+    {
+      "flow": "F4",
+      "start": "16:30",
+      "end": "18:30",
+      "duration_min": 120,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (16:30-18:30, DD-39 resolved)"
+    }
+  ],
+  "weekend_flows": [
+    {
+      "flow": "F1",
+      "start": "12:00",
+      "end": "14:00",
+      "duration_min": 120,
+      "span_status": "locked: Weekend Flow 1 (12:00-14:00, DD-30 closed)"
+    },
+    {
+      "flow": "F2",
+      "start": "14:00",
+      "end": "16:00",
+      "duration_min": 120,
+      "span_status": "locked: Weekend Flow 2 (14:00-16:00, DD-30 closed)"
+    }
+  ],
+  "anchors": [
+    {
+      "anchor": "morning",
+      "start": "08:00",
+      "end": "08:30",
+      "minutes": 30,
+      "label": "Morning Routine",
+      "branch_hint": "M",
+      "quota_bearing": false,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (08:00-08:30)"
+    },
+    {
+      "anchor": "lunch",
+      "start": "12:30",
+      "end": "13:30",
+      "minutes": 60,
+      "label": "Lunch + AfterLunch",
+      "branch_hint": "M",
+      "quota_bearing": false,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (12:30-13:00 Lunch + 13:00-13:30 AfterLunch)"
+    },
+    {
+      "anchor": "afternoon_break",
+      "start": "15:30",
+      "end": "16:00",
+      "minutes": 30,
+      "label": "Afternoon Break",
+      "branch_hint": "R",
+      "quota_bearing": false,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (15:30-16:00, DD-39 resolved)"
+    },
+    {
+      "anchor": "finanzen_2do",
+      "start": "16:00",
+      "end": "16:30",
+      "minutes": 30,
+      "label": "Finanzen / 2Do",
+      "branch_hint": "C",
+      "quota_bearing": false,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (16:00-16:30, DD-39 resolved)"
+    },
+    {
+      "anchor": "evening_physical",
+      "start": "18:30",
+      "end": "19:30",
+      "minutes": 60,
+      "label": "Evening Physical Course / VWC",
+      "branch_hint": "P",
+      "quota_bearing": false,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (18:30-19:30, DD-39/DD-40 resolved)",
+      "note": "DD-39/DD-40 resolved: Evening physical sessions (18:30-19:30, 60m) do NOT share the 72 x 2m in-Flow P slot denominator."
+    },
+    {
+      "anchor": "abend",
+      "start": "19:30",
+      "end": "20:30",
+      "minutes": 60,
+      "label": "Abend",
+      "branch_hint": null,
+      "bindable": false,
+      "quota_bearing": false,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (19:30-20:30)"
+    },
+    {
+      "anchor": "day_outro",
+      "start": "22:00",
+      "end": "22:30",
+      "minutes": 30,
+      "label": "Day Outro",
+      "branch_hint": null,
+      "bindable": false,
+      "quota_bearing": false,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (22:00-22:30)"
+    },
+    {
+      "anchor": "freizeit",
+      "start": "22:30",
+      "end": "23:30",
+      "minutes": 60,
+      "label": "Freizeit",
+      "branch_hint": "R",
+      "bindable": false,
+      "quota_bearing": false,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (22:30-23:30)"
+    },
+    {
+      "anchor": "sleep_routine",
+      "start": "23:30",
+      "end": "24:00",
+      "minutes": 30,
+      "label": "Sleep Routine",
+      "branch_hint": "R",
+      "bindable": false,
+      "quota_bearing": false,
+      "span_status": "locked: Screenshot Col-1 Ground Truth (23:30-24:00)",
+      "note": "not a slot source. R is an ordinary branch (OD-41); its slots are the 24 in-flow breaks."
+    }
+  ],
+  "weekend_anchors": [],
+  "status_merge_day": {
+    "value": "Saturday_or_Sunday",
+    "note": "operator ruling: either is acceptable; propagate everywhere that hard-codes Saturday (A-12 closed)"
+  }
+}

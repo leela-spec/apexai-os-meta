@@ -27,9 +27,9 @@ Per the operator's `2do` directive to research high-signal statistics for **Prec
   - [`stats_cube_symbol.dart`](file:///c:/GitDev/Leela-Cloud-2026/lib/features/stats/stats_cube_symbol.dart): Visual cube/envelope symbol taxonomy (`Chunk`, `Sequence`, `Epic`, `Branch`).
 - **Deliberately Excluded**: Legacy streak badges and completion-driven level-up (`SD-004` drift refused per `00-MACRO.md` §8 and baseline `ST-033`); arbitrary invented vanity metrics lacking verifiable denominators.
 
-### 2.2 Process & Comparative Stat Selection
-- **Framework Used**: Construct Separation + Coverage Accounting (`Target` vs `Placed` vs `Realized`).
-- **Four Leela Laws Enforced in Precap Week**:
+### 2.2 Research Candidates — NOT Approved Header Metrics
+- **Research Framework**: Construct Separation + Coverage Accounting (`Target` vs `Placed` vs `Realized`). The following laws and figures are retained as historical research, **not** mandatory components of the current Precap Head (`00 Portfolio Compass`). Exact five Compass metrics will be chosen separately by the operator (`OPERATOR_TODO`).
+- **Four Historical Leela Research Candidates (Not Current Precap Display Mandates)**:
   1. **Non-Blending Basis Marks (`L2`, `F5-B16`)**: Header chips never conflate what is planned (`○`) with last week's actuals (`●`) or probability forecast (`◇`). Every metric wears its explicit symbol and basis marker.
   2. **Coverage Triple (`F5-B13`)**: Replaces naive "72 sprints" with an honest capacity check:
      - **Target**: Goals/Tasks declared in Matrix 1 `L1 Priority Goals`.
@@ -41,10 +41,9 @@ Per the operator's `2do` directive to research high-signal statistics for **Prec
      - **BP (Weekly Balance Index, 0–100)**: Adapted 3-part balance across `(a) Build/Create/System/Life-Regen repo diversity (50%)`, `(b) Shutdown 21:00 & Lunch Anchor preservation (25%)`, and `(c) Special-Day Mon/Wed alternation (25%)`.
   4. **Testing vs Application Split (`F5-B20`)**: Exposes cognitive load balance between greenfield R&D/recheck (`Testing`: e.g. IPOS Pipeline Recheck, Apex OpenMouse HID) and reliable production throughput (`Application`: e.g. MoA 7 Videos, PDF Invoicing).
 
-### 2.3 Output Specification & Precap Header KPI Redraft
+### 2.3 Historical Candidate KPI Redraft (Not Current Cockpit Requirement)
 
-#### Recommended Precap Week Header Telemetry Strap (5 Leela-Aligned Stat Chips)
-Instead of ungrounded counts (`24 Flows`, `72 Sprints`), render five `LeelaStatChip`-style cards with hover breakdown drawers:
+The following sample is retained only to preserve the original research comparison (`2026-11-09` pre-`T1` example numbers). The current **`00 Portfolio Compass`** is a visible-by-default five-card summary with **metrics pending operator selection (`OPERATOR_TODO`)**. The previous `Coverage Triple`, `Planned vs Realized`, `XP/TP/BP`, and derived `BP` scores **must not be automatically inserted**. Do not add extra KPI cards or duplicate `Weekly Target`, `Operator Agenda`, or `Primary Data Source` panels.
 
 ```text
 +-------------------------------+-------------------------------+-------------------------------+-------------------------------+-------------------------------+
@@ -57,15 +56,15 @@ Instead of ungrounded counts (`24 Flows`, `72 Sprints`), render five `LeelaStatC
 *Optional Trailing Baseline Pill (on `●` button/tooltip)*: `● W44 Realized Rate: 0.78 (on track) · 5/6 shutdowns @ 21:00`.
 
 #### Downstream Orchestration Integration (`StatusMerge` / `FlowRecap`)
-- At Saturday `StatusMerge`, each metric flips cleanly from **`○ Placed`** to **`● Realized`** without changing chip position:
+- At `StatusMerge` (`Saturday_or_Sunday` per `week-blueprint.json`), each candidate metric flips cleanly from **`○ Placed`** to **`● Realized`** without changing chip position:
   - Exposes **`forecast_gap`** and capped **`execution_rate <= 1.0`** (`overfulfilment_minutes` tracked separately so heroic Monday surges never disguise skipped Fridays).
   - Surfaces **`zero-denominator`** ("paused / no target") honestly for intentionally paused streams like *Leela Path/Sequencing*, rather than showing `0%` red failure alerts!
 
-### 2.4 Definition of Done (`DoD`)
-1. Precap Week header stat cards enforce basis marks (`○` planned, `●` trailing realized, `◇` forecast), never blending them.
-2. Intentionally paused workstreams (e.g. `Leela Path/Sequencing`) display `Paused (no denominator)` rather than `0%`.
-3. `Target vs Placed` exposes any unplaced L1 Priority Goal immediately before execution begins Monday morning.
-4. Balance Index (`BP`) visibly validates evening rest (`21:00` shutdown integrity) and Mon/Wed Special Project alternation alongside code/creative work.
+### 2.4 Current Cockpit Acceptance (Supersedes Historical Proposed KPI Choices)
+1. `00 Portfolio Compass` starts open with five consistently presented factual cards; their specific metric identities remain `OPERATOR_TODO`.
+2. No `Planned vs Realized`, `Coverage Triple`, `BP` composite, or `Testing vs Application` display is added without explicit later approval.
+3. Historical W45 counts are flagged `historical / source-reported`; they are never re-labelled live, independently verified, or current.
+4. No `Weekly Target`, `Operator Agenda`, or `Primary Data Source` duplication is added to Section `00`.
 
 ---
 

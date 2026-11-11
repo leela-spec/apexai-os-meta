@@ -11,6 +11,8 @@ tags: [sequencing, dispersal, precap-week, integration, stats, xp, bp, matrix-2]
      Edits here are overwritten by sync_dispersal.py. -->
 # Precap Week integration analysis
 
+> **Historical Snapshot (2026-11-09):** Captures the initial reconciliation with Precap Week v2.0 and Handovers 03–06. Active rules now live in [SPEC-WEEKLY-DISPERSAL.okf.md](SPEC-WEEKLY-DISPERSAL.okf.md), [ALGORITHM.md](ALGORITHM.md), [week-demand.json](week-demand.json), and `02-weekly-dispersal/week-blueprint.json`.
+
 Companion to [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DECISIONS-REGISTER.md). Decision IDs continue that register's sequence from DD-19.
 
 ## 0. Connectivity and what the parallel work actually is
