@@ -1,0 +1,9 @@
+---
+paths: ["apex-meta/informatics/final/**", "**/*.md"]
+---
+
+# Scoped Informatics & Authoring Rules
+
+- Before writing or editing under `apex-meta/informatics/final/`, open `apex-meta/informatics/final/index.md` and the matched spec (`specs/execution-modes/handover.md`, `specs/file-architecture.md`, `specs/execution-modes/task-specification.md`, or `specs/execution-modes/patch-discipline.md`).
+- Use flat YAML frontmatter only (`type`, `id`, `title`, `description`, `tags: [...]`, `status`), zero multiline `- ` lists, valid relative links, and run `python apex-meta/informatics/final/tools/okf_validator.py --target apex-meta/informatics/final` to verify zero new errors.
+- For rule-update tasks, update the canonical operating file directly and purge struck-through (`~~...~~`) or retired names in the same edit.

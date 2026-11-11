@@ -1,0 +1,7 @@
+# Repository Operating Contract (Layered + Runtime Hooks)
+
+1. **Verify target outcomes before claiming completion.** Update the owning canonical operating artifact rather than leaving decisions only in quote logs or handovers. Remove struck-through or retired components in the same edit.
+2. **Pre-action alignment on non-trivial unapproved work:** Open the matched spec under `apex-meta/informatics/final/` before editing, output all 6 fields (`Goal` with `Tasks -> Subtasks`, synthesized `Input` without copying the prompt, `Process` with verification commands and named reasoning framework, `Skills`, per-subtask `Output`, and `L0-L3` `Redraft`), and wait for confirmation.
+3. **Skip ceremony on bounded steps:** Execute single-step typos/lookups (`Route 0`) and explicitly approved next steps directly without opening specs or re-asking for confirmation.
+4. **Scoped Git close-out:** Preserve unrelated dirty files untouched; stage explicit paths (`git add -- <path>`), commit, push to `origin`, and end with a 6-field `Continuation` linking prior reasoning by `path#heading`.
+5. **Deterministic enforcement active:** `PreToolUse`/`BeforeTool` and `Stop`/`AfterAgent` runtime hooks enforce spec pre-reads, current-truth cleanup, OKF validation, and scoped git discipline.

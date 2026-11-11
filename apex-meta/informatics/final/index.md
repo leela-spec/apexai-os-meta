@@ -58,7 +58,8 @@ research/
 ├── 06-layered-rule-kb/                  <- Layered Rule Knowledge Base (all 22 rules, 5 module audits, index.md)
 ├── 07-ultra-style-audit/                <- Style audit of the ultra block (handover and findings)
 ├── 08-read-trace-routing-experiments/   <- Three routing experiments on 2026-11-07 (findings, retrospective, design review, artifacts); marked to-do
-└── 09-ultra-contract-and-layers-synthesis/ <- 7-topic synthesis, EVAL-APEX-JIT-GATE-V3 test protocol, and step-by-step change ledger (C01..C12)
+├── 09-ultra-contract-and-layers-synthesis/ <- 7-topic synthesis, EVAL-APEX-JIT-GATE-V3 test protocol, and step-by-step change ledger (C01..C12)
+└── 10-ultra-upgrade-validation/         <- Pre-registered benchmark & 4-arm smoke/batch harness validating a4cb2b6a (HANDOVER-12)
 ```
 
 ### 2.1 Research Directory Index
@@ -74,6 +75,7 @@ research/
 | [**`07-ultra-style-audit/`**](research/07-ultra-style-audit/research-handover-ultra-style-audit.md) | moved from `Leela-Cloud-2026/docs/ssot/architecture/spec-organization/` (2026-11-07) | **Ultra block style audit:** the deferred handover and the findings file (prose vs signal-bullet clauses, token measurements, rewrite proposals). |
 | [**`08-read-trace-routing-experiments/`**](research/08-read-trace-routing-experiments/index.md) | created 2026-11-07 in the Mindful Bar routing work; the record and artifacts were moved here from `operations/` | **Routing experiments (to-do):** 12-agent round, 18-agent contract-versus-blueprint comparison and a 72-cell headless stage 1; findings, retrospective (went well, learned, change), design review and hashed artifacts. |
 | [**`09-ultra-contract-and-layers-synthesis/`**](research/09-ultra-contract-and-layers-synthesis/index.md) | created 2026-11-08 in `apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/` | **Ultra Contract & Layers Synthesis:** 7-topic architecture synthesis, `EVAL-APEX-JIT-GATE-V3` 4-arm test protocol, and step-by-step change ledger ([`01-step-by-step-change-ledger.md`](research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md)). |
+| [**`10-ultra-upgrade-validation/`**](research/10-ultra-upgrade-validation/index.md) | created 2026-11-11 for [`HANDOVER-12`](operations/handovers/HANDOVER-12-TEST-UPGRADED-CONTRACT-AND-ALIGNMENT-ARMS.md) | **Ultra Upgrade Validation & Four-Arm Benchmark:** Pre-registered `H1`–`H5` protocol, `Arm A`–`D` fixtures, `Arm B` runtime hooks, and multi-CLI deterministic scorer (`score_eval.py`, `PREREG.sha256`). |
 
 ---
 

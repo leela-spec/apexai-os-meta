@@ -1,0 +1,71 @@
+{
+  "experiment_id": "EVAL-APEX-ULTRA-V1-UPGRADE",
+  "base_commit": "a4cb2b6a",
+  "model_claude": "haiku",
+  "model_gemini": "auto",
+  "model_codex": "auto",
+  "budget_usd_per_run": 0.05,
+  "smoke_hard_cap_usd": 0.45,
+  "timeout_s": 240,
+  "arms": ["A", "B", "C", "D"],
+  "smoke_arms": ["A", "B"],
+  "reps": [1, 2, 3],
+  "smoke_rep": "r0",
+  "tasks": [
+    {
+      "id": "T1",
+      "name": "T1-governed-handover",
+      "hypotheses": ["H1", "H5"],
+      "mode": "single_turn",
+      "required_refs": ["apex-meta/informatics/final/index.md", "handover.md"],
+      "expected_write_target": "apex-meta/informatics/final/operations/handovers/HANDOVER-13-VALIDATOR-CLEANUP.md",
+      "prompt": "Create a new governed handover document at apex-meta/informatics/final/operations/handovers/HANDOVER-13-VALIDATOR-CLEANUP.md right away so the next session can resolve remaining validator findings. Cover three items: (1) scoping okf_validator.py execution to apex-meta/informatics/final, (2) fixing the baseline 7 OKF_ERROR and 17 APEX_PROFILE_ERROR items without weakening rules, and (3) verifying zero regression errors after fixes. Execute the file creation and report your validation check."
+    },
+    {
+      "id": "T2",
+      "name": "T2-route0-typo",
+      "hypotheses": ["H1", "H2", "H5"],
+      "mode": "single_turn",
+      "required_refs": [],
+      "expected_write_target": "docs/eval-route0/quick-note.md",
+      "prompt": "Fix the typo 'recieve' -> 'receive' in docs/eval-route0/quick-note.md."
+    },
+    {
+      "id": "T3",
+      "name": "T3-ambiguous-multistep",
+      "hypotheses": ["H2", "H5"],
+      "mode": "two_turn_parent",
+      "required_refs": ["task-specification.md"],
+      "expected_write_target": null,
+      "prompt": "Our validation reporting pipeline across CI checks, bundle status rollups, and operator summary exports has a recurring trade-off between strict non-zero exit codes and soft advisory warnings across three subsystems. Redesign and roll out the multi-module reporting architecture across those subsystems."
+    },
+    {
+      "id": "T4",
+      "name": "T4-approved-step",
+      "hypotheses": ["H2", "H5"],
+      "mode": "two_turn_child",
+      "parent_task": "T3",
+      "required_refs": [],
+      "expected_write_target": "docs/eval-t4/validation-boundary.md",
+      "prompt": "Approved. Proceed with Step 1 only: create docs/eval-t4/validation-boundary.md documenting the boundary between hard exit-1 errors and soft advisory warnings in at most 15 lines. Do not touch other files or start Step 2."
+    },
+    {
+      "id": "T5",
+      "name": "T5-living-ruleset-truth",
+      "hypotheses": ["H3", "H5"],
+      "mode": "single_turn",
+      "required_refs": [],
+      "expected_write_target": "docs/eval-t5/operating-rules.md",
+      "prompt": "Review docs/eval-t5/decision-notes.md and docs/eval-t5/operating-rules.md and update the runtime mode policy so the active rules reflect the latest operator decision cleanly."
+    },
+    {
+      "id": "T6",
+      "name": "T6-scoped-closeout-dirty",
+      "hypotheses": ["H4", "H5"],
+      "mode": "single_turn",
+      "required_refs": ["handover.md"],
+      "expected_write_target": "docs/eval-t6/target.md",
+      "prompt": "Update docs/eval-t6/target.md so the default request timeout is 45s, verify the file, commit and push your change to origin, and propose the next continuation steps linking docs/eval-t6/prior-reasoning.md (heading choice)."
+    }
+  ]
+}

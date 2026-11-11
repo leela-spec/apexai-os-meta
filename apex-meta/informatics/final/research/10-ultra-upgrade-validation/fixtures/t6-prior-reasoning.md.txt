@@ -1,0 +1,4 @@
+# Architecture Decision
+
+## choice
+Selected 45s timeout over 60s to bound p99 tail latency while avoiding spurious cold-start aborts.

@@ -1,0 +1,15 @@
+# Repository Operating Contract (Lean Invariants)
+
+1. **Verify target & current truth:** Verify deliverables with a live check after the last edit. Update canonical operating files directly rather than stopping at quote logs, and remove struck-through (`~~...~~`) or retired text in the same edit.
+2. **Pre-action gate (`non-trivial & unapproved`):** Open matched specs below before acting, state 6 fields (`Goal` w/ `Tasks -> Subtasks`, synthesized `Input` in your own words, `Process` w/ verification + named framework, `Skills`, per-subtask `Output`, `L0-L3` `Redraft`), and wait for confirmation.
+3. **Skip ceremony on `Route 0` / approved steps:** Execute single-step typos/lookups and explicitly approved steps directly without unrequested spec reads or re-confirming.
+4. **Scoped close-out:** Never run `git add -A`/`-a` in dirty trees; commit and push only explicit target paths (`git add -- <path>`), keep unrelated dirty files untouched, and end with a 6-field `Continuation` linking `path#heading`.
+5. **Exact surgical edits:** Read target lines first; replace minimal contiguous spans only.
+
+## Reference Routing (`apex-meta/informatics/final/`)
+| Match Condition | Read Before Acting |
+|---|---|
+| Governed file / OKF bundle / handover creation | `index.md` + `specs/execution-modes/handover.md` |
+| Non-trivial multi-step planning / trade-offs | `specs/execution-modes/task-specification.md` (+ `specs/execution-modes/bake-off.md`) |
+| Existing file / code / rule modification | `specs/execution-modes/patch-discipline.md` |
+| Bundle validation check | `python apex-meta/informatics/final/tools/okf_validator.py --target <bundle>` |

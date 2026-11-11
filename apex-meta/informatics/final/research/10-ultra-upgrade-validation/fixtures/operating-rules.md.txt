@@ -1,0 +1,5 @@
+# Runtime Mode Policy
+
+- Active Runner: ~~Legacy Script X (`run_legacy.py`)~~ (superseded? pending confirmation)
+- Fallback Runner: `run_legacy.py --fallback` (legacy default)
+- Safety Check: Always verify exit code before reporting completion.

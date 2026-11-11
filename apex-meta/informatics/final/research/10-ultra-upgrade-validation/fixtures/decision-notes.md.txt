@@ -1,0 +1,3 @@
+# Operator Meeting Notes (2026-11-10)
+
+- Operator quote: "Decision finalized: adopt CLI Runner Y (`run_eval_y.py`) as the sole Active Runner, retire `run_legacy.py` and its `--fallback` mode completely, and remove retired runner names from live rules."

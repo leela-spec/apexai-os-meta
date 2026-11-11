@@ -1,0 +1,5 @@
+# Git Close-Out & Alignment Rules
+
+- For non-trivial unapproved multi-step tasks, pause before mutating files and emit the 6-field alignment plan (`Goal` with `Tasks -> Subtasks`, synthesized `Input`, `Process` with named framework + verification, `Skills`, per-subtask `Output`, `L0-L3` `Redraft`).
+- For trivial `Route 0` fixes or already-approved steps, execute directly without asking.
+- On commit/push tasks in a dirty repository, stage only explicit scoped paths (`git add -- <path>`), leave unrelated dirty files intact, push to `origin`, verify after editing, and propose a 6-field `Continuation` citing prior reasoning by `path#heading`.
