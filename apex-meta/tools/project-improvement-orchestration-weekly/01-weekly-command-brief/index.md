@@ -20,5 +20,5 @@ This bundle holds the **one authoritative home** for each Precap Week concern: U
 | [`schemas/operator-weekly-command-brief.schema.json`](schemas/operator-weekly-command-brief.schema.json) | **Schema (Stage 1A)** | Draft 2020-12 schema for lightweight Stage 1A Operator Weekly Command Brief intake. |
 | [`schemas/precap-week-cockpit.schema.json`](schemas/precap-week-cockpit.schema.json) | **Schema (Stage 1B)** | Draft 2020-12 schema for compiled 6-Portfolio Matrix 1/2 Cockpit payloads. |
 | [`schemas/presentation-handoff.schema.json`](schemas/presentation-handoff.schema.json) | **Schema (Handoff)** | Draft 2020-12 handshake schema for `PrecapNextDay` (`artifact_type: Weekly_Command_Brief`). |
-| [`precap-week-cockpit-W45-actual-data-v03.html`](precap-week-cockpit-W45-actual-data-v03.html) | **Compiled Cockpit** | Generated interactive `v0.5` HTML Cockpit (`#s00..#s05`) compiled from `fixtures/`. |
+| [`precap-week-cockpit-2026-W46.html`](precap-week-cockpit-2026-W46.html) | **Compiled Cockpit** | Generated interactive `v0.5` HTML Cockpit (`#s00..#s05`) compiled from live `fixtures/` (`2026-W46`). |
 | [`fixtures/index.md`](fixtures/index.md) | **Fixture Sub-Bundle** | Verified W46 reference intake, cockpit JSON, OKF v0.2 brief, and handoff JSON. |

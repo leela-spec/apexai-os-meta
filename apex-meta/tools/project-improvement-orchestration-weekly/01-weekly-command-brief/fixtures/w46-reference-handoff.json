@@ -1,8 +1,8 @@
 {
   "schema_version": "PRECAP-WEEK-HANDOFF-v2.1",
   "artifact_type": "Weekly_Command_Brief",
-  "packet_id": "weekly-command-brief-20261108-2026-W46",
-  "produced_at": "2026-11-11T00:00:00Z",
+  "packet_id": "weekly-command-brief-20261111-2026-W46",
+  "produced_at": "2026-11-11T15:23:00+01:00",
   "week": "2026-W46",
   "date_range": {
     "start": "2026-11-09",
@@ -11,28 +11,28 @@
   "timezone": "Europe/Berlin",
   "clock_owner": "apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json",
   "dispersal_owner": "apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-allocation.json",
-  "cockpit_html_ref": "apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/precap-week-cockpit-W45-actual-data-v03.html",
+  "cockpit_html_ref": "apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/precap-week-cockpit-2026-W46.html",
   "brief_okf_ref": "apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/fixtures/w46-reference-weekly-command-brief.okf.md",
   "data_json_ref": "apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/fixtures/w46-reference-cockpit.json",
   "result_state": "READY_WITH_REVIEW",
-  "operator_g1_status": "APPROVED",
+  "operator_g1_status": "PROPOSED_FOR_G1",
   "source_status": {
     "openproject": "OFFLINE_FALLBACK",
     "google_calendar": "ONLINE"
   },
-  "weekly_intent": "Ship Master of Arts 7 videos, responsive site draft (#163), and automated PDF billing; freeze Leela Skill Tree spatial contracts (#159/#48, Path paused); complete IPOS intake audit & time-series viz (#224-#226); advance Apex AI HID (#139) & Dark Factory (#222); integrate Mindful Bar spec v0.2 & ERPNext eval.",
+  "weekly_intent": "Advance Leela Skill Tree crown §F.1-§F.5 (#234, ST-G1; Path paused) & repo-efficiency brief (#39); expand IPOS YouTube/RSS intake breadth post-ADR-003 (#224/#226) + run RI-10 fixture replay (#230-#233); convert Master of Arts 6 Flow video scripts (01..06) to filming, advance Stage 3 Website IA (#246), and prep Movement/Flow PDF billing; align Thu Nov 12 Thomas planning (AI Orchestration 3x3, OpenMausBot, skill env — [CAL-GAP] to schedule) + Module 02 PrecapNextDay & HANDOVER-12 (#139/#198/#222); run Mindful Bar Micro pass + Thu 10:00 Alex & Chris founder check (Q-26/Q-27, €3.50-€6.90 price test, 20-60 friend tasting).",
   "six_portfolio_areas": [
     {
       "portfolio_id": "leela",
       "label": "Leela",
       "priority_rank": 1,
       "priority_goals": [
-        "Canonical Chunk identity",
-        "Durable placement identity"
+        "Skill Tree Crown Engine §F.1-§F.5 (ST-G1 · 6/9 Pass)",
+        "SpatialViewNode & Durable Placement Contracts"
       ],
       "selected_work_refs": [
-        "leela-chunk:OP-WP#159/#39",
-        "leela-placement:OP-WP#48"
+        "leela-crown:OP-WP#234",
+        "leela-spatial:OP-WP#159/#39/#48"
       ]
     },
     {
@@ -40,14 +40,12 @@
       "label": "IPOS",
       "priority_rank": 2,
       "priority_goals": [
-        "Full ingestion pipeline audit (ADR-003)",
-        "External intake seam (Docling + Trafilatura)",
-        "Sovereign data visualization over time"
+        "ADR-003 Cleanup & RI-11 YouTube/RSS Intake Breadth",
+        "RI-10 Fixture Acceptance Replay & FRED/Cockpit Readiness"
       ],
       "selected_work_refs": [
-        "ipos-audit:OP-WP#224/#228",
-        "ipos-seam:OP-WP#226",
-        "ipos-viz:OP-WP#225"
+        "ipos-intake:OP-WP#224/#226",
+        "ipos-acceptance:OP-WP#230-#233"
       ]
     },
     {
@@ -55,13 +53,13 @@
       "label": "Master of Arts",
       "priority_rank": 3,
       "priority_goals": [
-        "Website content draft & responsive layout",
-        "7 produced videos",
-        "Automated PDF billing"
+        "Flow Video Series Production (01..06 Scripts -> Filming)",
+        "Website Stage 3 IA & First-Family Content Transformation",
+        "The Art of Flow PDF Billing & Movement Client Compliance"
       ],
       "selected_work_refs": [
-        "moa-web:OP-WP#163",
         "moa-videos:[OP-UNRESOLVED]",
+        "moa-web:OP-WP#163/#244-#249",
         "moa-billing:[OP-UNRESOLVED]"
       ]
     },
@@ -70,14 +68,14 @@
       "label": "Apex AI",
       "priority_rank": 4,
       "priority_goals": [
-        "OpenMouse kernel HID polling hook",
-        "Mindful repository orchestration & Precap convergence",
-        "Dark Factory integration gate"
+        "Thu Thomas Planning & ki-basis / OpenMausBot Setup",
+        "Module 02 PrecapNextDay & Daily Loop Convergence",
+        "Layer-1 Contract Benchmark (HANDOVER-12) & 338-Test Audit"
       ],
       "selected_work_refs": [
-        "apex-hid:OP-WP#139",
-        "apex-repo:OP-WP#198",
-        "apex-dark:OP-WP#222"
+        "apex-thomas:OP-WP#139",
+        "apex-nextday:OP-WP#198",
+        "apex-contract:OP-WP#222"
       ]
     },
     {
@@ -85,12 +83,12 @@
       "label": "Mindful Bar",
       "priority_rank": 5,
       "priority_goals": [
-        "Cacao Bar functional product spec v0.2 & validation",
-        "ERPNext / Frappe food-ops architecture evaluation"
+        "First-Test Micro Pass (20-60 Friends & Network Tasting)",
+        "Thu 10:00 Chris Sync & 4-Track Decisions (Q-26/27, Price, UK Mark, QR)"
       ],
       "selected_work_refs": [
-        "mb-spec:[OP-UNRESOLVED]",
-        "mb-erp:[OP-UNRESOLVED]"
+        "mb-micro:[OP-UNRESOLVED]",
+        "mb-chris:[OP-UNRESOLVED]"
       ]
     },
     {
@@ -98,14 +96,14 @@
       "label": "Residual",
       "priority_rank": 6,
       "priority_goals": [
-        "Apartment & Studio Art",
-        "Sexy Content visuals (Mon/Wed Project Night)",
-        "Community & Travel logistics"
+        "Tonight Wed Project Night: Sexy Content, Dance & Studio Reset",
+        "Personal Errands: Ma, Bahn & BahnCard, Kilian (+ W47 Ghost VPN)",
+        "ACIM-Secular QA (Decads 24-37) & Lika-Community WSL Compose"
       ],
       "selected_work_refs": [
-        "res-art:[OP-UNRESOLVED]",
-        "res-visual:[OP-UNRESOLVED]",
-        "res-community:[OP-UNRESOLVED]"
+        "res-tonight:[OP-UNRESOLVED]",
+        "res-errands:[OP-UNRESOLVED]",
+        "res-acim-lika:[OP-UNRESOLVED]"
       ]
     }
   ],
@@ -120,7 +118,7 @@
     },
     {
       "date": "2026-11-12",
-      "title": "Alex & Chris",
+      "title": "Alex & Chris (+ dup 'Chris' GCal entry)",
       "start": "10:00",
       "end": "11:00",
       "policy": "protected",
@@ -156,7 +154,7 @@
       "day": "Thursday",
       "flow": "F1",
       "shape": "compressed",
-      "reason": "Alex & Chris 10:00-11:00 overlaps tail of F1 (-30m Craft)"
+      "reason": "Alex & Chris 10:00-11:00 overlaps tail of F1 (-30m Craft; duplicate 'Chris' entry not double-counted)"
     },
     {
       "day": "Thursday",
@@ -166,14 +164,20 @@
     },
     {
       "day": "Thursday",
+      "flow": "F3",
+      "shape": "full",
+      "reason": "[CAL-GAP] Provisional host candidate for unscheduled Thu Thomas planning (2Dos.md:37-46) until GCal invite placed"
+    },
+    {
+      "day": "Thursday",
       "flow": "F4",
       "shape": "full",
-      "reason": "Tails against 18:15-18:45 München Tanz commute buffer; monitor overrun"
+      "reason": "Tails against 18:15-18:45 München Tanz commute buffer; hard stop by 18:15"
     }
   ],
   "next_day_seed": {
-    "target_date": "2026-11-09",
-    "intended_emphasis": "Mon Foundations: F1-F2 Master of Arts videos/website (#163), F3 IPOS ADR-003 (#224), F4 Mindful Bar Spec v0.2 & Residual studio art, Project Night 20:30-22:00 Sexy Content & Studio."
+    "target_date": "2026-11-12",
+    "intended_emphasis": "Thu 12 Nov: Alex & Chris 10:00-11:00 (Mindful Bar Q-26/27, €3.50-€6.90 price test, UK mark, Micro pass), schedule missing Thomas hold [CAL-GAP] (AI Orchestration 3x3 / OpenMausBot / skill env), Leela Crown §F.1-§F.5 (#234), IPOS RI-10/11 (#226/#233), MoA Stage 3 IA (#246), München Tanz 18:45-21:00 (18:15 buffer)."
   },
   "next_consumer": "PrecapNextDay"
 }

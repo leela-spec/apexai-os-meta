@@ -1,43 +1,43 @@
 {
   "schema_version": "OPERATOR-COMMAND-BRIEF-v1.0",
   "week_id": "2026-W46",
-  "run_date": "2026-11-08",
-  "weekly_intent": "Ship Master of Arts 7 videos, responsive site draft, and automated PDF billing; freeze Leela Skill Tree spatial contracts (Path paused); complete IPOS intake audit and sovereign time-series viz; land Apex AI HID hook and orchestration convergence; advance Mindful Bar spec v0.2 and ERPNext pilot evaluation.",
+  "run_date": "2026-11-11",
+  "weekly_intent": "Advance Leela Skill Tree crown §F.1-§F.5 (#234, ST-G1; Path paused) & repo-efficiency brief (#39); expand IPOS YouTube/RSS intake breadth post-ADR-003 (#224/#226) + run RI-10 fixture replay (#230-#233); convert Master of Arts 6 Flow video scripts (01..06) to filming, advance Stage 3 Website IA (#246), and prep Movement/Flow PDF billing; align Thu Nov 12 Thomas planning (AI Orchestration 3x3, OpenMausBot, skill env — [CAL-GAP] to schedule) + Module 02 PrecapNextDay & HANDOVER-12 (#139/#198/#222); run Mindful Bar Micro pass + Thu 10:00 Alex & Chris founder check (Q-26/Q-27, €3.50-€6.90 price test, 20-60 friend tasting).",
   "project_focus_overrides": [
     {
       "portfolio_id": "leela",
-      "directive": "Skill Tree spatial contracts ONLY (OP-WP#159, #39, #48); Path UI & in-app Sequencing paused.",
-      "gate_status": "APPROVED",
-      "system_default": "All active Project #10 work packages eligible"
+      "directive": "Skill Tree Crown Engine §F.1-§F.5 ONLY (OP-WP#234 ST-G1 + #159/#39/#48, 6/9 passing after QA-211 depth-over-distance lock) + analysis-only repo-efficiency brief (~118 imperatives / 21,385 B); Path & Sequencing UI paused.",
+      "gate_status": "PROPOSED_FOR_G1",
+      "system_default": "All active Project #3/#9/#10/#11 work packages eligible"
     },
     {
       "portfolio_id": "ipos",
-      "directive": "Complete ADR-003 ingestion audit (#224), Docling/Trafilatura seam (#226), and sovereign time-series viz (#225); defer Telegram digest (#227).",
-      "gate_status": "APPROVED",
+      "directive": "Follow ADR-003 Karakeep retirement (#224 In progress) & Docling/Trafilatura seam (#226): widen configs/research_sources.yaml (3-5 macro YouTube channels + RSS feeds), run uv run ipos fixture-acceptance (RI-10), and keep WEB.DE 30m poller live (#230-#233); defer Telegram digest (#227).",
+      "gate_status": "PROPOSED_FOR_G1",
       "system_default": "Balanced Mission 1-3 intake"
     },
     {
       "portfolio_id": "master_of_arts",
-      "directive": "Route F1/F2 primarily to 7 produced videos, responsive website draft (#163), and automated PDF billing feeding IPOS.",
-      "gate_status": "APPROVED",
+      "directive": "Production-shift on 6 Flow Video Series working scripts (01..06 finished Nov 11 @ e0ec6ff; visual HTML workspace shelved), close Website Stage 3 IA / CP-01..CP-03 (#163, #244-#249), sync T2 dispersal DD-40 (ce6d673), and ready Movement/Flow Kleinunternehmer PDF billing.",
+      "gate_status": "PROPOSED_FOR_G1",
       "system_default": "Default priority rank order"
     },
     {
       "portfolio_id": "apex_ai",
-      "directive": "Advance OpenMouse HID polling (#139), mindful orchestration convergence (#198), and Dark Factory gate (#222).",
-      "gate_status": "APPROVED",
+      "directive": "Prepare Thu Nov 12 Thomas planning session (schedule missing GCal hold [CAL-GAP]: AI Orchestration 3x3, ki-basis/OpenMausBot, Node/token/skill env fixes), open Module 02 PrecapNextDay post-SSOT (da2573c9), reconcile HANDOVER-12 / Layer-1 v1.0-ultra (#222), Informatics 338-test audit, and ki-basis compose mount question (#139/#198).",
+      "gate_status": "PROPOSED_FOR_G1",
       "system_default": null
     },
     {
       "portfolio_id": "mindful_bar",
-      "directive": "Integrate Mindful Bar as 6th canonical Portfolio Area: Cacao Bar spec v0.2 & ERPNext food-ops evaluation.",
-      "gate_status": "APPROVED",
+      "directive": "Execute First-Test Micro pass (batch sheet, allergen handout, tasting protocol, G-MICRO, decision-sheet.md for 20-60 friend testers), close Q-26/Q-27 & Test-1 price ladder (€3.50-€6.90) with Chris Thu 10:00, and evaluate UK 'Mindful Bar' trademark + supplier quotes + OP transfer.",
+      "gate_status": "PROPOSED_FOR_G1",
       "system_default": null
     },
     {
       "portfolio_id": "residual",
-      "directive": "Run studio reset, Sexy Content prep in Mon/Wed Project Night, and Community & Travel logistics; defer-first under meeting compression.",
-      "gate_status": "APPROVED",
+      "directive": "Wed Project Night Sexy Content/Dance & studio acoustics, personal errands (Ma, Bahn & BahnCard, Kilian), acim-secular Decad 24-37 QA follow-up, and lika-community WSL compose alignment; defer-first under meeting compression.",
+      "gate_status": "PROPOSED_FOR_G1",
       "system_default": "Lowest default priority unless raised by operator"
     }
   ],
@@ -45,29 +45,34 @@
     {
       "match": "WC Meister",
       "bucket": "Ongoing",
-      "reason": "Ignored ambient calendar hold on Wed/Fri 18:00-20:00 so F4 and Evening Physical remain intact."
+      "reason": "Ignored ambient calendar hold on Wed Nov 11 & Fri Nov 13 (18:00-20:00) so F4 and Evening Physical remain intact."
+    },
+    {
+      "match": "Parents Gone / Geburtstage (Mon Nov 9 Wallraff, Thu Nov 12 Serena) / W47 ghost vpn reminders",
+      "bucket": "Ongoing",
+      "reason": "Transparent / awareness-only all-day calendar items do not subtract Flow capacity; ghost vpn kündigen Mon/Tue Nov 16-17 queued into W47 lookahead."
     }
   ],
   "special_evenings": {
-    "mon_tue_wed_project_night_theme": "Mon/Wed Sexy Content & Studio; Tue Billing sprint (20:30-22:00)",
+    "mon_tue_wed_project_night_theme": "Mon/Wed Sexy Content & Studio/Dance; Tue Billing & Mindful Bar synthesis (20:30-22:00)",
     "day_themes": {
-      "Monday": "Sexy Content & Studio theme",
-      "Tuesday": "Billing sprint (Mon-Wed Project Night baseline)",
-      "Wednesday": "Sexy Content & Dance/MA theme"
+      "Monday": "Elapsed — Sexy Content & Studio theme",
+      "Tuesday": "Elapsed — Mindful Bar wave + MoA Website & Billing prep",
+      "Wednesday": "TONIGHT — Sexy Content & Dance/MA theme (20:30-22:00)"
     }
   },
   "personal_focus_priorities": {
     "mental": [
-      "Daily Morning Intention coherence (Mon/Wed/Fri/Intention focus days)",
-      "ACIM & Surrender presence across F1-F4 transitions"
+      "Daily Morning Intention coherence (Mon/Wed/Fri/Sun focus days · Tue Surrender · Thu Breathing)",
+      "ACIM & Surrender presence across F1-F4 transitions & Thu meeting load"
     ],
     "physical": [
-      "Protect right knee recovery — Knee chunk pinned to every I3_P slot (11/wk)",
-      "Preserve 18:30-19:30 Evening Physical Course (Mon-Wed, Fri; Thu compensated via München Tanz)"
+      "Protect right knee recovery — Knee chunk pinned to *_*_I3_P slots (11/wk quota)",
+      "Preserve 18:30-19:30 Evening Physical (Tonight Wed Dance · Fri Kicks · Thu replaced by München Tanz 18:45-21:00)"
     ],
     "regeneration": [
-      "Protect 22:00-22:30 Day Outro boundary",
-      "Rotate Yoga Nidra, Audiobooks & Socializing across 24 in-Flow R breaks (XP = 0)"
+      "Protect 22:00-22:30 Day Outro boundary after Wed Project Night & Thu München Tanz",
+      "Rotate Audiobooks (11), Yoga Nidra (8) & Socializing (5) across 24 in-Flow R breaks (288m, XP = 0)"
     ]
   },
   "dispersal_dials_override": {

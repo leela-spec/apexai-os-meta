@@ -9,7 +9,7 @@
 
 **Current state & verified deliverables:**
 1. **Single-Owner Precap Week Bundle (`D021`):** Consolidated all UI/domain rules into `01-weekly-command-brief/SPEC-PRECAP-WEEK-ITERATIONS.okf.md`, clock windows into `02-weekly-dispersal/week-blueprint.json`, calendar deformation into `.claude/skills/PrecapWeek/calendar-planning-guidance.md`, and eliminated `16` redundant handover/blueprint/manifest files (preserved at baseline `ad10c483`).
-2. **Machine-Readable Compiler & Schemas (`D021`):** Added Draft 2020-12 `schemas/*.schema.json`, `render_precap_cockpit.py`, OKF v0.2 reference brief, `PrecapNextDay` handoff fixture, and compiled `v0.5` cockpit `precap-week-cockpit-W45-actual-data-v03.html` (`#s00..#s05`, 6 Portfolio Areas, unified `EM-13` `G|I|P|S|O|C`).
+2. **Machine-Readable Compiler & Schemas (`D021`):** Added Draft 2020-12 `schemas/*.schema.json`, `render_precap_cockpit.py`, OKF v0.2 reference brief, `PrecapNextDay` handoff fixture, and compiled `v0.5` cockpit `precap-week-cockpit-2026-W46.html` (`#s00..#s05`, 6 Portfolio Areas, unified `EM-13` `G|I|P|S|O|C`).
 3. `T1/T2` Dispersal generated & mirrored: `02-weekly-dispersal/slot-inventory.json`, `02-weekly-dispersal/epics.json`, and `02-weekly-dispersal/week-allocation.json` (`240` bound slots, `2,880m` Flow TP, `3,706.0` XP, `100.0` BP); GCal writer moved to `02-next-day-brief/HANDOVER-GOOGLE-CALENDAR-FLOW-EVENTS.md`.
 
 **Next action:** Module 02 (`02-next-day-brief` / `PrecapNextDay`) intake using the unified `presentation_handoff` and `week-allocation.json`.
