@@ -17,6 +17,7 @@ tags: [informatics, research, index, benchmark, validation, arms, a4cb2b6a]
 | Artifact | Purpose | Link |
 |---|---|---|
 | **Pre-Registration Protocol** | Locked `H1`–`H5` oracles, `Arm A`–`Arm D` specs, `T1`–`T6` criteria, isolation flags | [preregistration.md](preregistration.md) |
+| **Round 2 Verdict Report** | `99`-run Antigravity (`gemini-3.8-flash-low`) empirical results & `H1`–`H5` verdicts | [01-results-and-verdict.md](01-results-and-verdict.md) |
 | **Task & Threshold Spec** | Machine-readable `T1`–`T6` prompts, arms, budget caps, target paths | [tasks.json](tasks.json) |
 | **Deterministic Scorer** | Multi-CLI JSONL trace parser, git diff verifier, and Wilson `95%` CI calculator | [score_eval.py](score_eval.py) |
 | **Immutable Hash Lock** | Pre-run SHA-256 manifest generated prior to any `runs/` execution | [PREREG.sha256](PREREG.sha256) |

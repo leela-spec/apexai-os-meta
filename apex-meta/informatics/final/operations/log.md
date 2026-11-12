@@ -1,5 +1,12 @@
 # Apex Informatics Standard — Change Log
 
+## 2026-11-12 (Round 2 Empirical Benchmark Completed on Antigravity CLI)
+
+**Controlled `99`-run `HANDOVER-12` validation on `gemini-3.8-flash-low` (`research/10-ultra-upgrade-validation/01-results-and-verdict.md`)** — Executed `14` `r0-agy` smoke calibration runs and `99` pre-registered batch runs (`n=5` on `T1, T3, T4, T5, T6, T7`; `n=3` on `T2`) across `Arm A`, `Arm B-AGY`, and `Arm D`:
+- **Pass Rates & Paired Stats:** `Arm A` (`18/33`, `54.5%`, Wilson `95%` `[0.38, 0.70]`), **`Arm B-AGY`** (`31/33`, **`93.9%`**, Wilson `95%` `[0.80, 0.98]`, **`+15 / -2`** discordant pairs vs `Arm A`, exact McNemar `p = 0.002350`), and `Arm D` (`17/33`, `51.5%`, `18/33` behavioral, `+0 / -1` vs `Arm A`, `0` `thinking_tokens`).
+- **Key Mechanisms:** `.agents/hooks.json` (`PreToolUse`) raised `T1` governed pre-reads from `0/5` (`Arm A`/`D`) to `5/5` (`Arm B-AGY`) by intercepting premature writes before disk mutation. Under de-cued prompts (`T6` and `T7`, up to `64,976` context tokens), concise workspace reminders (`armB-agy-rule.txt`) held `6`-field `Continuation` compliance at `10/10` (`100%`) vs `0/20` for buried `Arm A`/`D` XML rules.
+- **Verification & Isolation:** `eval_owned_sha256` remained unchanged across `C:\GitDev\apexai-os-meta`, `mindful-bar`, and `Leela-Cloud-2026`. `okf_validator.py --target apex-meta/informatics/final/research/10-ultra-upgrade-validation` reported `0` errors and `0` warnings.
+
 ## 2026-11-11 (EM-13 Goal/Tasks/Subtasks, EM-14 Step Close-Out, Living-Ruleset, Cross-Agent Planning Gate)
 
 **Execution alignment, canonical-artifact completion, and cross-agent JIT gate** — Upgraded `specs/apex_contract_v1.0_ultra.xml` across 6 tags (`<target>`, `<align>`, `<current_truth>`, `<handover>`, `<iterative>`, `<pointers>`: `1,490 -> 1,621 cl100k_base` `+131 / +8.8%`; `1,509 -> 1,638 o200k_base` `+129`; `7,075 -> 7,687 chars`) and synchronized the owning specs and research ledgers:
