@@ -8,6 +8,8 @@ tags: [informatics, final, master-index, candidates, research-corpus, v1.0]
 
 # Apex Informatics Final Architecture & Unified Research Corpus
 
+**Next infrastructure research:** [Evidence index](apex-meta/informatics/final/research/11-infrastructure-evidence-index/index.md), [processing prompt](apex-meta/informatics/final/research/11-infrastructure-evidence-index/PROCESSING-PROMPT.md), [ranked top-50 sources with exact reading windows](apex-meta/informatics/final/research/11-infrastructure-evidence-index/06-ranked-reading-guide.md), and [current web research](apex-meta/informatics/final/research/11-infrastructure-evidence-index/07-current-web-research.md) connect current owners, prior decisions, retained research, CLI/agent surfaces, and fresh external evidence.
+
 > **Consolidated Zone:** `apex-meta/informatics/final/`
 > This directory brings together into **one unified, permanent location** the entire lineage of research, decision registers, candidate blocks, carrier blueprints, and testing protocols developed across all project phases.
 > - **3A Format Source (historical, `v1.0-3A`):** [candidates/13-candidate-3A-xml.md](candidates/13-candidate-3A-xml.md) (`3A` Pure Named XML, `1,350` BPE). The live master is the next bullet.

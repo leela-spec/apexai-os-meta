@@ -1,0 +1,35 @@
+{
+  "baseline_paths": 13470,
+  "scope_counts": {
+    "discovery-candidate": 2242,
+    "runtime-surface-or-work-record": 1683,
+    "outside-primary-scope": 3024,
+    "domain-corpus": 6521
+  },
+  "decision_mention_rows": 375,
+  "catalog_rows": 1177,
+  "inaccessible_paths": 0,
+  "scope_roots": [
+    "apex-meta/informatics/final/",
+    "apex-meta/kb/claude-code-orchestration-design/",
+    "apex-meta/kb/claude-orchestration-agents/",
+    "apex-meta/kb/operator-research-orchestration-20260711/",
+    "apex-meta/kb/old-apex-full-orchestration-agent-kb/",
+    "apex-meta/kb/old-apex-full-orchestration-agent-kb-v2/",
+    "apex-meta/kb/apex-plan-sync-session-workflow-v2/",
+    "apex-meta/kb/prompt-engineer-research-base/",
+    "apex-meta/local-orchestration-engine/",
+    "apex-meta/epics/hermes-multi-repo-orchestration-v2/",
+    "apex-meta/SmallSkills/Prompting/ProThinkingPrompt/",
+    "apex-meta/orchestration/"
+  ],
+  "runtime_roots": [
+    ".agents/",
+    ".claude/",
+    ".cursor/",
+    ".kiro/",
+    ".windsurf/",
+    ".pi/",
+    "skill-package-template/"
+  ]
+}
