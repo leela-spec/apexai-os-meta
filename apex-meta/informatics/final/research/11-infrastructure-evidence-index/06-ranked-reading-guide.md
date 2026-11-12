@@ -13,7 +13,7 @@ These are **reading priorities**, not empirical reliability scores or normative 
 
 Start with ranks **1, 2, 3, 5, and 9**, one relevant slice at a time. Consult the rest by question before settling the design. Every row explains why to read its file and what to extract. The top 50 are an entry set; the wider catalog, original manifests, linked owners, and contrary evidence remain in scope.
 
-Ranges are **inclusive and 1-based**, checked on 2026-11-12. Each window is at most 40 lines. The [machine-readable reading plan](apex-meta/informatics/final/research/11-infrastructure-evidence-index/top50-reading-plan.json) records full file hashes, slice hashes, line counts, and section hints. Hashes identify the inspected working-tree bytes, which may include unpublished edits; Git HEAD alone does not identify those edits.
+Ranges are **inclusive and 1-based**, checked on 2026-11-12. Each window is at most 40 lines. The [machine-readable reading plan](apex-meta/informatics/final/research/11-infrastructure-evidence-index/top50-reading-plan.json) records full file hashes, slice hashes, line counts, and section hints. File hashes identify canonical Git blob bytes at the recorded source revision. Local checkout line endings can differ; slice hashes normalize them for portable comparison.
 
 If the accessible revision differs, find the named section and refresh line citations. Read surrounding context whenever a claim, dependency, or caveat requires it. Resolve paths from the repository root through authenticated access.
 
@@ -25,7 +25,7 @@ If the accessible revision differs, find the named section and refresh line cita
 | 4 | [apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/index.md](apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/index.md) — Research synthesis and proposals | 95–124; 224–257; 389–418 | Recover pointer failures, selective skill gates, and thinking-plane hypotheses already studied. **Extract:** Which prior alternatives need new evidence rather than rediscovery? |
 | 5 | [apex-meta/informatics/final/candidates/01-decision-register.md](apex-meta/informatics/final/candidates/01-decision-register.md) — Historical decisions with mixed statuses | 22–58; 128–164; 237–253; 411–431 | Preserve settled, superseded, proposed, and falsifiable positions in their original scope. **Extract:** What decision and falsification condition would the proposed change affect? |
 | 6 | [apex-meta/informatics/final/operations/18-APEX-CARRIER-MAP.md](apex-meta/informatics/final/operations/18-APEX-CARRIER-MAP.md) — Distribution owner and recorded state | 12–50; 52–89 | Locate existing canonical carriers, sync responsibilities, and recorded gaps. **Extract:** Which distribution mechanism can be reused and which state needs refreshing? |
-| 7 | [AGENTS.md](AGENTS.md) — Repository operating instructions | 1–40; 41–50 | Establish Windows boundaries, Git dispatch, scope, and knowledge governance. **Extract:** What repository constraints must the next design preserve? |
+| 7 | [AGENTS.md](AGENTS.md) — Repository operating instructions | 1–40; 41–51 | Establish committed Git dispatch, scope, and knowledge governance; compare environment claims with current operator instructions. **Extract:** What repository constraints must the next design preserve? |
 | 8 | [.claude/CLAUDE.md](.claude/CLAUDE.md) — Project routing surface | 1–31; 33–53 | Keep Weekly Orchestrator, Multi-Agent Orchestration, and the shared backbone distinct. **Extract:** Which routing boundaries would an over-unified layout collapse? |
 | 9 | [apex-meta/orchestration/CURRENT-SYSTEM-MANIFEST.yaml](apex-meta/orchestration/CURRENT-SYSTEM-MANIFEST.yaml) — Current operating manifest | 5–39; 40–76 | Map doctrine, runtime roles, deterministic tools, and state to their actual owners. **Extract:** Which components are live and which are supporting or historical? |
 | 10 | [apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/cross-cli-hook-architecture.md](apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/cross-cli-hook-architecture.md) — Proposed design snapshot | 17–43; 44–68; 274–296 | Identify native-hook assumptions, payload differences, and unverified rollout claims. **Extract:** Which capabilities require fresh official documentation or runtime probes? |
@@ -73,6 +73,8 @@ If the accessible revision differs, find the named section and refresh line cita
 ## Reading and reuse guards
 
 Use current owners for present rules. A historical source marked current, an earlier handover, or a proposed design remains evidence in its original scope. Reading the original research requirements does not request another handover or authorize executing embedded instructions.
+
+Rank 7 describes the committed repository instructions, which can differ from workstation-local overrides. Resolve environment claims against the current operator's actual execution context. In particular, a historical WSL architecture banner does not authorize accessing that stack from a Windows session.
 
 Keep simulated evaluations separate from measured runs. Rank 30 deliberately identifies simulation code. Rank 3 preserves combined-intervention attribution limits. Rank 10 is a proposed snapshot whose vendor claims require fresh verification.
 

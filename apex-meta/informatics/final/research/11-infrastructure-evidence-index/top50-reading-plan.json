@@ -1,7 +1,8 @@
 {
   "title": "Apex infrastructure top-50 reading plan",
   "checked_date": "2026-11-12",
-  "local_head": "58e50fad60c0d55dd116aac7460b2e4ca5316d50",
+  "source_revision": "2bdf9887a020c03732f619d9a5bf7b8a22e4f48c",
+  "file_hash_basis": "Canonical Git blob bytes at source_revision. Local checkout line endings can differ; slice hashes normalize line endings.",
   "path_base": "repository-root",
   "ranking_basis": "Editorial reading priority: operator intent, live owners, discriminating evidence, then topic-specific reuse and lineage. Not a measured reliability score or normative rule-priority tier.",
   "initial_ranks": [
@@ -45,7 +46,7 @@
       "reason_to_read": "Establish the current rules, conditional references, and authority boundaries.",
       "question_to_answer": "Which current tags and meaningful subrules need activation?",
       "line_count": 76,
-      "file_sha256": "4633e450e9e7d6e654818be32c91ecbea89e9ffcbfb71100361aa42b302e9a60",
+      "file_sha256": "0cbaa3e994b5ff0ba2e489623ae6ee3b58d63988a2a225b11df9b5cdee132b0b",
       "read_ranges": [
         {
           "start_line": 1,
@@ -93,7 +94,7 @@
       "reason_to_read": "Recover pointer failures, selective skill gates, and thinking-plane hypotheses already studied.",
       "question_to_answer": "Which prior alternatives need new evidence rather than rediscovery?",
       "line_count": 583,
-      "file_sha256": "86aad9d1d6020f45945d0b2bcaa27860c1ce88aaae78a0ad0d898ff10cfac2c4",
+      "file_sha256": "af6b5903ab60ce53b8c4ec71375366bc7459548308bf2cca4829e61a574fb151",
       "read_ranges": [
         {
           "start_line": 95,
@@ -159,7 +160,7 @@
       "reason_to_read": "Locate existing canonical carriers, sync responsibilities, and recorded gaps.",
       "question_to_answer": "Which distribution mechanism can be reused and which state needs refreshing?",
       "line_count": 102,
-      "file_sha256": "06074621436b5586a41dcb81dd51bd67f4092fa72e244565907c0d626366afaf",
+      "file_sha256": "a8a380f6424e9d90d0846a1f49adbad2a215763fc7a79ef7b58244ddd0e4ddb9",
       "read_ranges": [
         {
           "start_line": 12,
@@ -180,22 +181,22 @@
       "reading_priority": "Read before design",
       "repository_path": "AGENTS.md",
       "source_role": "Repository operating instructions",
-      "reason_to_read": "Establish Windows boundaries, Git dispatch, scope, and knowledge governance.",
+      "reason_to_read": "Establish committed Git dispatch, scope, and knowledge governance; compare environment claims with current operator instructions.",
       "question_to_answer": "What repository constraints must the next design preserve?",
-      "line_count": 50,
-      "file_sha256": "c89424a1770d83137018bc969622a596d781bc72dc8454bea7cd88ba2470be4f",
+      "line_count": 51,
+      "file_sha256": "c7f660b441ba3ecbcb767e2997fa2c08b33c02c5eaa0fb8206e991a4e8124c39",
       "read_ranges": [
         {
           "start_line": 1,
           "end_line": 40,
           "section_hint": "# Codex Operating Note",
-          "normalized_slice_sha256": "06d96ee2b687b03d3c26edf2283af281ad5fde55c695e596fcd9b7cbfaf973b4"
+          "normalized_slice_sha256": "4534d4b0fcd322075b00cc63ac44d38583f1242a21885673d1137514b097e9f3"
         },
         {
           "start_line": 41,
-          "end_line": 50,
-          "section_hint": "## Informatics & Knowledge Routing",
-          "normalized_slice_sha256": "b61cf33001c75345e1ad6eff436754a0ff6d940212765c76d7377552c7a63df1"
+          "end_line": 51,
+          "section_hint": "## Core Intent Execution",
+          "normalized_slice_sha256": "6e3179bee670d6c68412a5e912acb7a7d651d56d2a3d8e3f550b98711ca2bcf2"
         }
       ]
     },
@@ -207,7 +208,7 @@
       "reason_to_read": "Keep Weekly Orchestrator, Multi-Agent Orchestration, and the shared backbone distinct.",
       "question_to_answer": "Which routing boundaries would an over-unified layout collapse?",
       "line_count": 53,
-      "file_sha256": "7f83660d5adbfe11dd3b10036213b652c05fc56be4edb5f817b7e9eb88ca35f3",
+      "file_sha256": "9583973b6f008980ac19ea05536792add5082d00eac50ef2f0bc2f5a7c7b5d0e",
       "read_ranges": [
         {
           "start_line": 1,
@@ -231,7 +232,7 @@
       "reason_to_read": "Map doctrine, runtime roles, deterministic tools, and state to their actual owners.",
       "question_to_answer": "Which components are live and which are supporting or historical?",
       "line_count": 83,
-      "file_sha256": "ee9ce465bc41cc11fbd43698a14d0ad77c1f45680b21d36e5e55424bbad67508",
+      "file_sha256": "b83a25a0a6d2a06a91f0c95cade1b1847522905a66fe64d09ba4d0b5ff354b39",
       "read_ranges": [
         {
           "start_line": 5,
@@ -285,7 +286,7 @@
       "reason_to_read": "Separate representation, loading, invocation, and enforcement.",
       "question_to_answer": "Which mechanism does the proposed representation change actually alter?",
       "line_count": 155,
-      "file_sha256": "3b1382e4652fb2fe140b515c84c5015230f0150af6f04c05383e86a9db9e5c88",
+      "file_sha256": "bae470850b258b2fc2a2cb323ffb439391b8f0b8e6ce11ab4d24c4900ef22c21",
       "read_ranges": [
         {
           "start_line": 11,
@@ -309,7 +310,7 @@
       "reason_to_read": "Read failed pointer assumptions, base-ref fragility, and the explicit pilot limits.",
       "question_to_answer": "What failed and how strong is the evidence?",
       "line_count": 208,
-      "file_sha256": "766215b193729d42b4878515c0041d6856e9c1cc60cbd7f90d4aaba6159ea747",
+      "file_sha256": "149f236b6a4e1ac32f78f6bf2f65d3c9ea41ed09c1cd38622caa4f532f0752d4",
       "read_ranges": [
         {
           "start_line": 22,
@@ -369,7 +370,7 @@
       "reason_to_read": "Establish precedence, five-plane ownership, procedure boundaries, and provenance.",
       "question_to_answer": "What can external research improve without overriding accepted semantics?",
       "line_count": 170,
-      "file_sha256": "3fdec7b24304d3bd1aa85e9cc30245d71aab6a8db2bab0f6bd2b8c3fe5afdff6",
+      "file_sha256": "6a25eaf2ecc4dcfb3dd2ab2fecf28e3c767f698cadaecd3171aa3fddbc8de553",
       "read_ranges": [
         {
           "start_line": 13,
@@ -405,7 +406,7 @@
       "reason_to_read": "Preserve current-truth separation, metadata contracts, layered roles, and bundle boundaries.",
       "question_to_answer": "Where should each proposed owner and artifact live?",
       "line_count": 165,
-      "file_sha256": "6a57fd19258b3f9ec4af6f13d29d1aeab56749ca406357260aad445798afb46c",
+      "file_sha256": "0ac27e4741819fd3c3785f4e2ce35d85f477c9439695cb466bee20ff1d8ea8f0",
       "read_ranges": [
         {
           "start_line": 15,
@@ -471,7 +472,7 @@
       "reason_to_read": "Identify narrow-scope, recovery, evidence, and anti-overcorrection requirements.",
       "question_to_answer": "Which existing failure guards should the architecture retain?",
       "line_count": 75,
-      "file_sha256": "d578daf58e502f9fd400686bc619c8b6094293f88c1e51a69784b22f1de34ff1",
+      "file_sha256": "9f429c36a53b9c0276053afcaf20741460c881c1613418ed60881f0f85d73229",
       "read_ranges": [
         {
           "start_line": 17,
@@ -495,7 +496,7 @@
       "reason_to_read": "Locate declared serialization and decision contracts before inventing new ones.",
       "question_to_answer": "Which schemas can be reused and what would require a new contract?",
       "line_count": 134,
-      "file_sha256": "f263947659c0323ca36d57de6ac299d336b63efed87b016ec933a3a7630a168a",
+      "file_sha256": "e4fc66bb8f0818e12a8dbe3916b28990e29ee6ae32165a059c4e2bde8e367ba1",
       "read_ranges": [
         {
           "start_line": 17,
@@ -519,7 +520,7 @@
       "reason_to_read": "Read the alignment trigger, approved-step boundary, six fields, and proportionality.",
       "question_to_answer": "How should activation distinguish new tasks from approved bounded continuation?",
       "line_count": 65,
-      "file_sha256": "a8669cc9a0d645686afbf95a6f6d708690b0c24c682fca2715e86f84f317c708",
+      "file_sha256": "85484fe3bff8a4ae92f32f2a77b9d5ba851421221c8274c9379932b322e4e65a",
       "read_ranges": [
         {
           "start_line": 10,
@@ -591,7 +592,7 @@
       "reason_to_read": "Recover chat-only applicability and complete material alternatives with raw I/E/R.",
       "question_to_answer": "How does a response rule activate when no file write occurs?",
       "line_count": 60,
-      "file_sha256": "bea5b8702ff259fc4fabb8ffd913e9c5f213b7eb9cb02405e523df131c74f829",
+      "file_sha256": "a16b0226570883a45e5fb247cce8fc4c9ee76c2498d043b0475960ef1102ba2e",
       "read_ranges": [
         {
           "start_line": 10,
@@ -615,7 +616,7 @@
       "reason_to_read": "Reuse the established comparison procedure and failure-mode requirements.",
       "question_to_answer": "What evidence and working examples should architecture comparison include?",
       "line_count": 39,
-      "file_sha256": "1db3179d7fe67a8dea7726cb165ea532f1d2ea78c8d81e18f84d22e3b062958a",
+      "file_sha256": "00a10c860c72e19f5c264ace38ffaad970be5c15c82243d454c37bf449dfcd0a",
       "read_ranges": [
         {
           "start_line": 10,
@@ -657,7 +658,7 @@
       "reason_to_read": "Find research buckets and rule lineage while detecting stale master terminology.",
       "question_to_answer": "Which evidence beyond this top 50 must a specific question reopen?",
       "line_count": 111,
-      "file_sha256": "0cfb7d0179053cc4cad3a9c3a225666cdc586759da4eef1b58dadfb87b85281f",
+      "file_sha256": "ddec5dc24de305a22ae25092eea10eaa93931c7d65c8eae05ae575d27a702c3b",
       "read_ranges": [
         {
           "start_line": 11,
@@ -687,7 +688,7 @@
       "reason_to_read": "Separate machine-specific routing and environment constraints from the portable constitution.",
       "question_to_answer": "What belongs in workstation adapters instead of universal policy?",
       "line_count": 35,
-      "file_sha256": "fe7167c94b7427869a2701a9dc3f22b18808eb4496d9a105eed2c69314dbc8d0",
+      "file_sha256": "8a7fe4858fcc4accd4ebd1e58f44e5b581e47cbe0c79d031b281cdcd66ae41d8",
       "read_ranges": [
         {
           "start_line": 1,
@@ -789,7 +790,7 @@
       "reason_to_read": "Identify simulated carrier outcomes explicitly to prevent unsupported empirical claims.",
       "question_to_answer": "Which results are hard-coded illustrations rather than real agent execution?",
       "line_count": 373,
-      "file_sha256": "e87eb32b5b676cfc6e459113e63568ab4d76dec8a56b27e59916a25eca368fbc",
+      "file_sha256": "e99ad844212421a1ef610e1643451d0bb92fcf5dae79b93fb4afaea84bd62cc0",
       "read_ranges": [
         {
           "start_line": 89,
@@ -813,7 +814,7 @@
       "reason_to_read": "Recover read-trace evidence, limitations, and corrected stage-one outcomes.",
       "question_to_answer": "What changed after scoring correction and what is actually established?",
       "line_count": 208,
-      "file_sha256": "8c44e4b7a8e578732e6dab25729af9af07c3e4be2f6304a26fb1f9083ca7da1b",
+      "file_sha256": "0af42bbc5202abdf650d81f6895c68c391e02299df792c5f69d8ab21fba63707",
       "read_ranges": [
         {
           "start_line": 19,
@@ -843,7 +844,7 @@
       "reason_to_read": "Separate trigger rules, carrier blueprints, evidence, and adoption.",
       "question_to_answer": "Which routes exist on paper versus in actual loading behavior?",
       "line_count": 51,
-      "file_sha256": "2de8c3cd335eee2761477f49a8829db5ce0d2179467c5f72486ec446c8ac93e9",
+      "file_sha256": "32912e1ad88d3ea9db8df1ddc78ce0e119807ecf338dd761e9260dbfe43e9d32",
       "read_ranges": [
         {
           "start_line": 12,
@@ -861,7 +862,7 @@
       "reason_to_read": "Inspect validation and baseline adjustment behind old scores.",
       "question_to_answer": "What correction prevents misleading arm comparisons?",
       "line_count": 252,
-      "file_sha256": "4404fbbc7b71e2119c52ce85ebd805f964d2db6dae1e809ea746b236378880d7",
+      "file_sha256": "e575f5a2fb135244d65b250bbe0308fc0a72ddcfafb11fc8ede86af6db387c1f",
       "read_ranges": [
         {
           "start_line": 91,
@@ -885,7 +886,7 @@
       "reason_to_read": "Reuse platform discovery while marking capability claims for refresh.",
       "question_to_answer": "Which mechanisms were considered and what vendor changes could alter the choice?",
       "line_count": 182,
-      "file_sha256": "0979764875bc54422b63913ea430d26c3ec27dd569fa2d47a45fddbaa2bc19be",
+      "file_sha256": "3dcedec89ad73b81f253e13c6b769c61e506cf83af3604a7e40e51431461882b",
       "read_ranges": [
         {
           "start_line": 19,
@@ -915,7 +916,7 @@
       "reason_to_read": "Recover ownership, representation caveats, and specialist-agent findings.",
       "question_to_answer": "Which earlier conclusions still match current owners and runtime surfaces?",
       "line_count": 250,
-      "file_sha256": "9ea98b7e4c6ee4c541d595605f216ac5690f083826c3608ac98332b661aa663e",
+      "file_sha256": "06c6c0e356e71a18d310c74a2649a55e42a5f9f7f9f7b0ebb21716fb53f8c949",
       "read_ranges": [
         {
           "start_line": 11,
@@ -951,7 +952,7 @@
       "reason_to_read": "Recover sufficient-context intent, exclusions, and the selection model.",
       "question_to_answer": "How does the design avoid starvation and uncontrolled context loading?",
       "line_count": 585,
-      "file_sha256": "dc133320daa0a5d140b4d0465d035cc741f6e64a99cb2c2fbc7356b9eadfd857",
+      "file_sha256": "9ad30c58e0a3336c0ca9cf5835fc7f52601a780fd7ce6baddb83a383a07e1c89",
       "read_ranges": [
         {
           "start_line": 11,
@@ -1047,7 +1048,7 @@
       "reason_to_read": "Locate atomic rule analyses and explicit reconciliation to the live master.",
       "question_to_answer": "Where is each rule intent grounded and how does the old roster map forward?",
       "line_count": 102,
-      "file_sha256": "d88be91b0e3b1ecfdee95191f9df4c3bfe5e4194405d161208eaa8cdccf48b72",
+      "file_sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
       "read_ranges": [
         {
           "start_line": 13,
@@ -1077,7 +1078,7 @@
       "reason_to_read": "Recover proposed changes and rationales while requiring separate adoption evidence.",
       "question_to_answer": "Was each proposal adopted, rejected, or overtaken by later findings?",
       "line_count": 478,
-      "file_sha256": "c9a241781a8e58ee98e95fd9ac6e676201b4311585566fe471578ab8f8a16e39",
+      "file_sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
       "read_ranges": [
         {
           "start_line": 13,
@@ -1107,7 +1108,7 @@
       "reason_to_read": "Keep permissions, reviews, role topology, context economy, and non-goals aligned.",
       "question_to_answer": "Which existing mechanism should the next architecture reuse?",
       "line_count": 89,
-      "file_sha256": "c6a8f1926ce0bbaddaa480283ffbc944102d51c04b378d300cce8c3d4fc11cf2",
+      "file_sha256": "e3bd6e3ad87fea9b32d8fb612356d1f6f2893fb9dde5db7a928a3c572660c44c",
       "read_ranges": [
         {
           "start_line": 14,
@@ -1131,7 +1132,7 @@
       "reason_to_read": "Read the current routing advisor and its boundaries before proposing another classifier.",
       "question_to_answer": "What responsibility already exists and what remains outside the skill?",
       "line_count": 310,
-      "file_sha256": "ddee8f7689b8e34f3d182e140f87abadc76fe9fcef0958811a9099acf685e640",
+      "file_sha256": "06b52efc17705116b5684f424ed147076eb12e4bc6efa2be6bda308ab115ce5e",
       "read_ranges": [
         {
           "start_line": 9,
@@ -1185,7 +1186,7 @@
       "reason_to_read": "Recover the existing mechanism ladder and doctrine-versus-runtime limits.",
       "question_to_answer": "Which agent, skill, and hook boundaries were already reasoned through?",
       "line_count": 144,
-      "file_sha256": "ac0a004e8f0b0e5a767455261da72a681d51a042cc4ec4bd9a7dd446006dddbf",
+      "file_sha256": "3235aca48aa227cc85e707a9e70ae0cd7e3f7b5e06b7781ed6e47a3beec031ab",
       "read_ranges": [
         {
           "start_line": 37,
@@ -1215,7 +1216,7 @@
       "reason_to_read": "Preserve actual approval scope, enforcement policy, packaging, and deferred work.",
       "question_to_answer": "What did the operator accept and what was explicitly not authorized?",
       "line_count": 151,
-      "file_sha256": "92bb5dd731da64c9f0b683d79848a02e7be9dea70b975ef45e9637539b58b643",
+      "file_sha256": "c411e68bbdaa3a7529e53bd4e3c72703e1a935378434f2143decb87f01588119",
       "read_ranges": [
         {
           "start_line": 13,
@@ -1245,7 +1246,7 @@
       "reason_to_read": "Reuse shared-skill, role, retrieval, memory, and autonomy decisions within their domain.",
       "question_to_answer": "Which choices transfer and which are environment-specific?",
       "line_count": 78,
-      "file_sha256": "1f0d2406cc15155050dd1c8010eb85810ecb3df7b930027bfdc7cb162e77f346",
+      "file_sha256": "c981d4545da0f3fabf3fbc02030056521d33a4b5173c6c4117c0b8f97db2f2de",
       "read_ranges": [
         {
           "start_line": 8,
@@ -1269,7 +1270,7 @@
       "reason_to_read": "Preserve planner-routed selection and evaluated model+harness+runtime boundaries.",
       "question_to_answer": "What constraints require fresh measurements before being revisited?",
       "line_count": 295,
-      "file_sha256": "ba713c3e06dcf207596047ac35ff7d94074113d5cd29ee3b35587579c36bc30c",
+      "file_sha256": "c1519f6eb933d030d6f948e95742a0ff52e4a9332b862f546f1051255361bb64",
       "read_ranges": [
         {
           "start_line": 39,
@@ -1299,7 +1300,7 @@
       "reason_to_read": "Inspect targets, master selection, normalization, and mutation modes for reuse.",
       "question_to_answer": "Can existing synchronization support distribution without another policy owner?",
       "line_count": 237,
-      "file_sha256": "8ea148a23774a94cb9863b274fb2f4b1e23edfcf2d2d48edc12501314e1ed2cd",
+      "file_sha256": "1f4bf20caff55533ce0446429990ebb3e7c7dd62c3f36448cadf694319e0b64d",
       "read_ranges": [
         {
           "start_line": 1,
@@ -1329,7 +1330,7 @@
       "reason_to_read": "Check exactly what the drift detector compares and what it does not establish.",
       "question_to_answer": "Which integrity claim is enforced versus merely documented?",
       "line_count": 107,
-      "file_sha256": "2609dacd692676402c3334a4e1edfa2d97c1cb4017ae1a5f3bca7d53b5583792",
+      "file_sha256": "4ea61059eecca812936db0b1f5e573b89a5cc598c7d16ae987b140b75e41ecb7",
       "read_ranges": [
         {
           "start_line": 1,
@@ -1353,7 +1354,7 @@
       "reason_to_read": "Keep the assignment target-first, evidence-led, autonomous in method, and explicit about outputs.",
       "question_to_answer": "Does the prompt define a usable final product without scripting private reasoning?",
       "line_count": 424,
-      "file_sha256": "245a68e37af2b315946d2daf16894d4b12abe2c4d9539f009676130817ee088d",
+      "file_sha256": "f5cdb1b8e5af2d157f1e8e46d03cf38cc2799a220caca9d8d576a8e8ff77f606",
       "read_ranges": [
         {
           "start_line": 23,
