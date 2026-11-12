@@ -7,7 +7,7 @@ status: current
 date: 2026-11-12
 scope: [weekly-orchestration, precap-week, master-spec, six-portfolios, g1-gate]
 tags: [weekly-orchestration, precap-week, specification, okf-v02]
-references: [SPEC-MATRIX-1-PORTFOLIOS.okf.md, SPEC-MATRIX-2-TEMPORAL-TIMETABLE.okf.md, SPEC-PRECAP-INTERFACES-HANDOFF.okf.md]
+references: [SPEC-MATRIX-1-PORTFOLIOS.okf.md, SPEC-MATRIX-2-TEMPORAL-TIMETABLE.okf.md, SPEC-SEQUENCING.okf.md, SPEC-PRECAP-INTERFACES-HANDOFF.okf.md]
 ---
 
 # Precap Week Master Specification — Operator Cockpit & Weekly Orchestration
@@ -27,7 +27,8 @@ This master specification governs the **Precap Week Planning Process (`PrecapWee
 Modular specifications govern dedicated concerns without duplicate bodies:
 - **Matrix 1 (Non-Temporal Goals)**: Governed by [`SPEC-MATRIX-1-PORTFOLIOS.okf.md`](SPEC-MATRIX-1-PORTFOLIOS.okf.md). Stacks the 6 portfolios, `L1/L2` hierarchy, `EM-13` `G|I|P|S|O|C` drawers, and inline cross-repo pills. Contains zero sprints.
 - **Matrix 2 (Temporal Timetable)**: Governed by [`SPEC-MATRIX-2-TEMPORAL-TIMETABLE.okf.md`](SPEC-MATRIX-2-TEMPORAL-TIMETABLE.okf.md). Governs the Monday–Sunday timetable, blueprint clock, calendar intake, and Personal Focus Strip.
-- **Interfaces & Handoff**: Governed by [`SPEC-PRECAP-INTERFACES-HANDOFF.okf.md`](SPEC-PRECAP-INTERFACES-HANDOFF.okf.md). Governs machine schemas, Section 04 Residuals, Section 05 Sequencing Dispersal, and `PrecapNextDay` handshake.
+- **Sequencing (Section 05 & Dispersal Root)**: Governed by [`SPEC-SEQUENCING.okf.md`](SPEC-SEQUENCING.okf.md). Owns Section `05` orientation, Gaussian coupling, and delegates solver subspecs to [`02-weekly-dispersal/`](../02-weekly-dispersal/index.md) (`DD-15`).
+- **Interfaces & Handoff**: Governed by [`SPEC-PRECAP-INTERFACES-HANDOFF.okf.md`](SPEC-PRECAP-INTERFACES-HANDOFF.okf.md). Governs machine schemas, Section 04 Residuals, and `PrecapNextDay` handshake.
 
 ---
 

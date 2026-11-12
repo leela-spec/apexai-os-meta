@@ -8,7 +8,7 @@ date: 2026-11-12
 parent_spec: SPEC-PRECAP-WEEK-MASTER.okf.md
 scope: [weekly-orchestration, precap-week, matrix-2, timetable, calendar, personal-focus]
 tags: [weekly-orchestration, precap-week, matrix-2, temporal, specification, okf-v02]
-references: [SPEC-PRECAP-WEEK-MASTER.okf.md, SPEC-MATRIX-1-PORTFOLIOS.okf.md, SPEC-PRECAP-INTERFACES-HANDOFF.okf.md]
+references: [SPEC-PRECAP-WEEK-MASTER.okf.md, SPEC-MATRIX-1-PORTFOLIOS.okf.md, SPEC-SEQUENCING.okf.md, SPEC-PRECAP-INTERFACES-HANDOFF.okf.md]
 ---
 
 # Matrix 2 Modular Specification — Monday–Sunday Temporal Timetable & Calendar Collisions

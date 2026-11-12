@@ -52,6 +52,8 @@ supporting_files:
     read_when: [authoring_or_validating_matrix_1_goals_and_gipsoc]
   - path: ../../../apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-MATRIX-2-TEMPORAL-TIMETABLE.okf.md
     read_when: [authoring_or_validating_matrix_2_timetable_and_collisions]
+  - path: ../../../apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-SEQUENCING.okf.md
+    read_when: [rendering_or_validating_section_05_sequencing_and_dispersal_bridge]
   - path: ../../../apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-PRECAP-INTERFACES-HANDOFF.okf.md
     read_when: [emitting_or_validating_schemas_residuals_and_handoff]
   - path: ../../../apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/render_precap_cockpit.py

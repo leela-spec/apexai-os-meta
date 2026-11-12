@@ -8,7 +8,7 @@ date: 2026-11-12
 scope: [weekly-orchestration, precap-week, matrix-1, task-spec, g-i-p-s-o-c, six-portfolios]
 tags: [matrix-1, g-i-p-s-o-c, six-portfolios, okf-v02]
 parent_spec: SPEC-PRECAP-WEEK-MASTER.okf.md
-references: [SPEC-PRECAP-WEEK-MASTER.okf.md, SPEC-MATRIX-2-TEMPORAL-TIMETABLE.okf.md, SPEC-PRECAP-INTERFACES-HANDOFF.okf.md]
+references: [SPEC-PRECAP-WEEK-MASTER.okf.md, SPEC-MATRIX-2-TEMPORAL-TIMETABLE.okf.md, SPEC-SEQUENCING.okf.md, SPEC-PRECAP-INTERFACES-HANDOFF.okf.md]
 ---
 
 # Precap Week — Matrix 1 Specification (Non-Temporal Portfolio Goals)

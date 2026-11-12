@@ -1,17 +1,17 @@
 ---
 type: specification
 id: SPEC-PRECAP-INTERFACES-HANDOFF-v3.0
-title: "Precap Interfaces & Handoff Modular Specification — Machine Schemas, Residuals, Sequencing & PrecapNextDay Handshake"
-description: "Canonical modular specification governing machine schemas, Section 04 Residual Information, Section 05 Sequencing Dispersal, and downstream PrecapNextDay handoff."
+title: "Precap Interfaces & Handoff Modular Specification — Machine Schemas, Residuals & PrecapNextDay Handshake"
+description: "Canonical modular specification governing machine schemas, Section 04 Residual Information, and downstream PrecapNextDay handoff."
 status: current
 date: 2026-11-12
 parent_spec: SPEC-PRECAP-WEEK-MASTER.okf.md
-scope: [weekly-orchestration, precap-week, interfaces, handoff, schemas, residuals, sequencing]
+scope: [weekly-orchestration, precap-week, interfaces, handoff, schemas, residuals]
 tags: [weekly-orchestration, precap-week, interfaces, handoff, schemas, specification, okf-v02]
-references: [SPEC-PRECAP-WEEK-MASTER.okf.md, SPEC-MATRIX-1-PORTFOLIOS.okf.md, SPEC-MATRIX-2-TEMPORAL-TIMETABLE.okf.md]
+references: [SPEC-PRECAP-WEEK-MASTER.okf.md, SPEC-MATRIX-1-PORTFOLIOS.okf.md, SPEC-MATRIX-2-TEMPORAL-TIMETABLE.okf.md, SPEC-SEQUENCING.okf.md]
 ---
 
-# Precap Interfaces & Handoff Modular Specification — Machine Schemas, Residuals, Sequencing & PrecapNextDay Handshake
+# Precap Interfaces & Handoff Modular Specification — Machine Schemas, Residuals & PrecapNextDay Handshake
 
 ## Section 1 — Machine Schema Architecture & Validation Contracts
 
@@ -79,37 +79,7 @@ Provides verifiable source tracking for every figure, policy, and schedule item:
 
 ---
 
-## Section 3 — Section 05: Sequencing Orientation & Dispersal Integration
-
-Section 05 acts as the integration bridge between directional weekly planning and the mathematical dispersal engine under [`02-weekly-dispersal/`](../02-weekly-dispersal/). It dynamically reads [`week-demand.json`](../02-weekly-dispersal/week-demand.json) and [`week-allocation.json`](../02-weekly-dispersal/week-allocation.json) without duplicating solver algorithms.
-
-### Dual-Repository Authority Model (`DD-15`)
-
-- **Solver Canonical Mirror**: Dispersal algorithms and `allocate_week.py` are mirrored between `MasterOfArts/Sequencing/dispersal/` and `02-weekly-dispersal/`.
-- **Clock Authority**: The canonical blueprint clock (`week-blueprint.json`) lives authoritative in `apexai-os-meta`.
-
-### Four-Branch Epic Allocations (240 Slot Occurrences)
-
-The dispersal solver allocates all 240 slot occurrences across four foundational branches:
-
-| Epic Branch | Slot Quota | In-Flow Duration | Allocated Focus Modalities / Projects |
-|---|:---:|:---:|---|
-| **Mental (`M`)** | 72 slots | 216 min | Morning Intention (`focus_days`), ACIM presence, Surrender transitions, Breathing. |
-| **Physical (`P`)** | 72 slots | 144 min | Martial Arts, Dance, S/BJJ, General micro-mobility, Knee therapy (pinned `*_*_I3_P`). |
-| **Regeneration (`R`)** | 24 breaks | 288 min | Audiobooks, Yoga Nidra, Socializing. Weighted round-robin rotation, `XP = 0`, `DD-16` zero BP floor. |
-| **Craft / Projects (`C`)** | 72 sprints | 2,160 min | 6 Canonical Portfolio Epics (Leela, IPOS, Master of Arts, Apex AI, Mindful Bar, Residual). |
-
-*Note*: Evening Physical Courses (e.g. 18:30–19:30 Dance/Kicks/Moves) occur outside the 72 × 2m in-Flow `P` quota.
-
-### Gaussian Focus Coupling & Sequence Arcs (`M04 / Q13`)
-
-- **Temporal Weighting**: Cognitive focus weight follows a Gaussian coupling curve centered around 19:00 with standard deviation $\sigma = 6.0\text{h}$ and maximum weight $w_{\max} = 1.5\times$. Bleed across the Friday-to-Saturday boundary is strictly prohibited.
-- **Sequence vs. Flow Cardinality**: Sequences and Flows have an $N:M$ relationship. Mixed-project Craft sprints (`C1–C3`) within a single Flow block are fully authorized when aligned with critical-path sequence arcs.
-- **Projected Yields**: Models projected Time Points (`TP`), Experience Points (`XP`), and Balance Points (`BP`) across the standard 50/25/25 ratio. Regeneration breaks mint 0 XP to preserve restorative integrity.
-
----
-
-## Section 4 — Downstream Handshake Contract (`PrecapWeek -> PrecapNextDay`)
+## Section 3 — Downstream Handshake Contract (`PrecapWeek -> PrecapNextDay`)
 
 PrecapWeek terminates by emitting exactly one validated `presentation_handoff` envelope conforming to Draft 2020-12 schema [`schemas/presentation-handoff.schema.json`](schemas/presentation-handoff.schema.json) (`PRECAP-WEEK-HANDOFF-v2.1`).
 
@@ -139,10 +109,10 @@ When executed under `weekly-orchestrator`, the report brief and handoff packet a
 
 ---
 
-## Section 5 — Operative Failure-Mode Guards & Circuit Breakers
+## Section 4 — Operative Failure-Mode Guards & Circuit Breakers
 
 In accordance with `WP-25`, this specification closes with operative terminal failure-mode guards:
 1. **Schema Validation Guard**: Any presentation handoff packet failing Draft 2020-12 validation against `presentation-handoff.schema.json` causes immediate pipeline halt.
 2. **G1 Approval Guard**: Handshake release to `PrecapNextDay` is blocked unless `operator_g1_status` resolves to `APPROVED` or explicit operator override.
-3. **Regeneration Purity Guard**: Regeneration slots must mint zero Experience Points (`XP = 0`). Any non-zero XP calculation violates `DD-16` and fails allocation audit.
-4. **Boundary Isolation Guard**: Dispersal algorithms remain strictly isolated within `02-weekly-dispersal/` and upstream mirror (`DD-15`); PrecapWeek consumes allocations via JSON interfaces without duplicating solver logic.
+3. **Provenance & Deferral Guard**: Every deferred item must declare both an evidence-based `reason` and an observable `trigger`, and offline telemetry must fail closed with `[OP-OFFLINE]` / `[OP-UNRESOLVED]`.
+4. **Sequencing Boundary Pointer**: Section `05` dispersal orientation and `DD-15` solver guards are governed exclusively by [`SPEC-SEQUENCING.okf.md`](SPEC-SEQUENCING.okf.md).
