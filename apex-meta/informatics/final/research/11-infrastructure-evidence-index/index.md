@@ -10,6 +10,8 @@ tags: [informatics, infrastructure, research-index, decisions, agents, hooks, sk
 
 # Infrastructure research and decision index
 
+**Alternative prompt version:** [Processing prompt v2](apex-meta/informatics/final/research/11-infrastructure-evidence-index/PROCESSING-PROMPT-v2.md) follows the SmallSkills Pro Thinking template, with explicit synthesis, design freedom, concrete artifact creation, and one-ZIP delivery. The original version remains available below.
+
 **Run the research:** use the standalone [processing prompt](apex-meta/informatics/final/research/11-infrastructure-evidence-index/PROCESSING-PROMPT.md). Its inputs include the [ranked top-50 reading guide](apex-meta/informatics/final/research/11-infrastructure-evidence-index/06-ranked-reading-guide.md) and [current web research](apex-meta/informatics/final/research/11-infrastructure-evidence-index/07-current-web-research.md). The guide gives reasons, exact inclusive line ranges, and source hashes. It prioritizes reading without limiting the wider research scope.
 
 All navigation paths in this index are relative to the repository root, for example `apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml`. Resolve them through the processor's authenticated repository access. The inventories use `repository_path`; no workstation prefix, hostname, or branch is required. See [path conventions and conversion](apex-meta/informatics/final/research/11-infrastructure-evidence-index/05-online-access.md).
