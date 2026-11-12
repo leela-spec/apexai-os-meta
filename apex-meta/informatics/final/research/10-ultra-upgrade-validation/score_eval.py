@@ -36,9 +36,11 @@ KNOWN_GEMINI_TOOLS = {
 KNOWN_AGY_TOOLS = {
     "read_file", "view_file", "view_file_outline", "view_code_item",
     "find_by_name", "grep_search", "list_dir",
-    "write_file", "write_to_file", "replace_file_content", "multi_replace_file_content", "sed_file",
+    "write_file", "edit_file", "write_to_file", "replace_file_content", "multi_replace_file_content", "sed_file",
     "run_command", "command_status", "send_command_input",
-    "read_url_content", "search_web", "ask_question", "ask_permission", "ask_custom_permission", "finish",
+    "manage_task", "schedule", "invoke_subagent", "define_subagent", "manage_subagents", "send_message", "swarm",
+    "read_url_content", "search_web", "search_marketplace", "list_plugin_accounts",
+    "ask_question", "ask_permission", "ask_custom_permission", "finish",
 }
 KNOWN_CODEX_ITEMS = {"command_execution", "agent_message", "reasoning", "file_change", "mcp_tool_call"}
 
@@ -48,7 +50,7 @@ READ_TOOL_NAMES = {
     "view_file", "view_file_outline", "view_code_item", "find_by_name", "list_dir",
 }
 WRITE_TOOL_NAMES = {
-    "Write", "Edit", "MultiEdit", "NotebookEdit", "write_file", "replace",
+    "Write", "Edit", "MultiEdit", "NotebookEdit", "write_file", "edit_file", "replace",
     "write_to_file", "replace_file_content", "multi_replace_file_content", "sed_file",
 }
 SHELL_TOOL_NAMES = {"Bash", "PowerShell", "run_shell_command", "command_execution", "run_command"}
@@ -359,20 +361,32 @@ def parse_jsonl_trace(
         used_companion = False
         if companion_transcript and companion_transcript.is_file():
             raw_lines = companion_transcript.read_text(encoding="utf-8", errors="replace").splitlines()
-            slice_lines = raw_lines[max(0, prior_transcript_lines):]
-            for tline in slice_lines:
+            slice_objs: list[dict[str, Any]] = []
+            for tline in raw_lines[max(0, prior_transcript_lines):]:
                 tline = tline.strip()
                 if not tline:
                     continue
                 try:
-                    tobj = json.loads(tline)
+                    slice_objs.append(json.loads(tline))
                 except ValueError:
                     continue
+            for idx, tobj in enumerate(slice_objs):
                 if tobj.get("type") == "PLANNER_RESPONSE":
-                    for tc in tobj.get("tool_calls") or []:
-                        if isinstance(tc, dict) and tc.get("name"):
-                            _record_agy_tool(str(tc["name"]), tc.get("args") if isinstance(tc.get("args"), dict) else {})
-                            used_companion = True
+                    tcs = [tc for tc in (tobj.get("tool_calls") or []) if isinstance(tc, dict) and tc.get("name")]
+                    next_obj = slice_objs[idx + 1] if idx + 1 < len(slice_objs) else {}
+                    next_err = str(next_obj.get("error") or "")
+                    denied = (
+                        len(tcs) == 1
+                        and next_obj.get("status") == "ERROR"
+                        and ("denied by pre-tool hook" in next_err or "HOOK BLOCK" in next_err)
+                    )
+                    if denied:
+                        hook_events.append(f"agy_pretool_deny:{tcs[0]['name']}")
+                        used_companion = True
+                        continue
+                    for tc in tcs:
+                        _record_agy_tool(str(tc["name"]), tc.get("args") if isinstance(tc.get("args"), dict) else {})
+                        used_companion = True
                 err_s = str(tobj.get("error") or tobj.get("content") or "")
                 if "HOOK BLOCK" in err_s or "HOOK STOP BLOCK" in err_s:
                     hook_events.append("agy_hook:" + err_s.replace("\n", " ")[:60])
@@ -642,7 +656,10 @@ def score_cell(
         verified_after_edit = any(seq > last_edit_seq for seq, p in reads if "target.md" in p) if last_edit_seq >= 0 else False
         atxt = trace["assistant_text"]
         has_cont = bool(re.search(r"Continuation", atxt, re.IGNORECASE) and all(pat.search(atxt) for pat in ALIGN_FIELD_PATTERNS.values()))
-        has_anchor = bool(re.search(r"docs/eval-t6/prior-reasoning\.md#choice", atxt))
+        has_anchor = bool(
+            re.search(r"docs/eval-t6/prior-reasoning\.md#choice", atxt)
+            or re.search(r"\[[^\]]*prior-reasoning\.md#choice[^\]]*\]\([^)]*docs/eval-t6/prior-reasoning\.md", atxt)
+        )
         det_pass = bool(t_ok and scoped_commit and pushed_ok and dirty1_ok and dirty2_ok and verified_after_edit and has_cont and has_anchor)
         for label, ok in [
             ("target_not_45s", t_ok), ("commit_not_scoped", scoped_commit), ("not_pushed", pushed_ok),
@@ -668,7 +685,10 @@ def score_cell(
         verified_after_edit = any(seq > last_edit_seq for seq, p in reads if "eval-t7/operating-rules.md" in p) if last_edit_seq >= 0 else False
         atxt = trace["assistant_text"]
         has_cont = bool(re.search(r"Continuation", atxt, re.IGNORECASE) and all(pat.search(atxt) for pat in ALIGN_FIELD_PATTERNS.values()))
-        has_anchor = bool(re.search(r"docs/eval-t7/prior-reasoning\.md#choice", atxt))
+        has_anchor = bool(
+            re.search(r"docs/eval-t7/prior-reasoning\.md#choice", atxt)
+            or re.search(r"\[[^\]]*prior-reasoning\.md#choice[^\]]*\]\([^)]*docs/eval-t7/prior-reasoning\.md", atxt)
+        )
         det_pass = bool(has_truth and no_residue and scoped_commit and pushed_ok and dirty1_ok and dirty2_ok and verified_after_edit and has_cont and has_anchor)
         for label, ok in [
             ("missing_live_truth", has_truth), ("deprecated_residue_remaining", no_residue),
