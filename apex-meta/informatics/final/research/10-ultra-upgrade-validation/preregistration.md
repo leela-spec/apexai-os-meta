@@ -64,3 +64,15 @@ Machine-readable prompts and thresholds live in [tasks.json](tasks.json). Prompt
 - **Codex CLI (`0.167.0-alpha.4.1`)**: Isolate `CODEX_HOME` (copying `auth.json` only) with `--ignore-user-config --ignore-rules --ephemeral --json --skip-git-repo-check --dangerously-bypass-approvals-and-sandbox` (`workspace-write` blocks Windows shell execution). Excluded from `Arm B` due to missing `PreToolUse`/`Stop` hook parity.
 - **Confidence Bounds & Spend**: Smoke calibration (`r0`) spans `Arm A` and `Arm B` under a hard cumulative `$0.45` stop guard (`$0.50` cap). Small-`n` batch summaries report raw fractions and Wilson score `95%` confidence intervals (`z = 1.96`), never asymptotic p-values.
 - **Hash Lock**: Execute [score_eval.py](score_eval.py) across saved `r0` traces to verify `0` unparsed tools before unlocking multi-rep batch execution (`PREREG.sha256`).
+
+---
+
+## 5. Round 2 Antigravity Amendment
+
+Round 2 executes on **Antigravity CLI (`agy`) running `gemini-3.8-flash-low`**. Global `~/.gemini/GEMINI.md` stays untouched:
+
+- **Harness & Isolation Reality**: Live `agy -p` probes confirmed `~/.gemini/GEMINI.md` (`v1.0-ultra`) loads on every run (`15,928` Turn 1 tokens). Stripped `Arm C` is excluded under Antigravity to prevent confounded comparisons. `Arm B` becomes **`Arm B-AGY`** (`Arm A` baseline + [armB-agy-rule.txt](fixtures/armB-agy-rule.txt) in `AGENTS.md`/`GEMINI.md` + native `.agents/hooks.json` via [armB_hook_agy.py](fixtures/armB_hook_agy.py)), isolating hook enforcement value. `Arm A` and **`Arm D`** (`<deliberation>`, verified `thinking_tokens > 0` on tool calls) remain active.
+- **Task Refinements (`T6` De-Cued + `T7` Context-Drift Close-Out)**:
+  - **`T6`**: Replaces `"continuation"` with `"recommended next steps"` to eliminate keyword cueing.
+  - **`T7` (`T7-context-drift-closeout`)**: Multi-turn `agy --conversation` probe reading [t7-noise-log-01](fixtures/t7-noise-log-01.md.txt)–[t7-noise-log-04](fixtures/t7-noise-log-04.md.txt), [t7-decision](fixtures/t7-decision.md.txt), and [t7-operating-rules](fixtures/t7-operating-rules.md.txt) before scoring living-truth updates (`enforce-v2`, `run_policy_v2.py`) and dirty-tree close-out (`docs/eval-t7/prior-reasoning.md#choice`).
+- **Sample Sizing & Paired Inference**: Run `n=5` repetitions (`1..5`) on `T1`, `T3`, `T4`, `T5`, `T6`, `T7` and `n=3` on `T2` across `Arms A, B-AGY, D`. Report Wilson `95%` intervals and exact two-sided McNemar discordant counts vs `Arm A`. Pass `n=1` (`r0-agy`) smoke calibration before launching the `n=5` batch.

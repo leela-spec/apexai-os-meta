@@ -1,0 +1,5 @@
+# Deterministic Antigravity Guardrails Active (`Arm B-AGY`)
+
+- Governed edits under `apex-meta/informatics/final/` are hook-gated: read `apex-meta/informatics/final/index.md` and the matched spec first, use flat YAML frontmatter, and run `okf_validator.py`.
+- Rule updates must replace retired text in one pass with zero `~~...~~` residue.
+- Dirty-repo commits must stage only explicitly scoped paths (`git add -- <path>`), verify after editing, push, and end with a 6-field `Continuation` citing prior reasoning by `path#heading`.

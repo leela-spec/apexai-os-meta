@@ -4,13 +4,19 @@
   "model_claude": "haiku",
   "model_gemini": "auto",
   "model_codex": "auto",
+  "model_agy": "gemini-3.8-flash-low",
   "budget_usd_per_run": 0.05,
   "smoke_hard_cap_usd": 0.45,
   "timeout_s": 240,
   "arms": ["A", "B", "C", "D"],
+  "agy_arms": ["A", "B-AGY", "D"],
   "smoke_arms": ["A", "B"],
+  "agy_smoke_arms": ["A", "B-AGY"],
   "reps": [1, 2, 3],
+  "agy_reps": [1, 2, 3, 4, 5],
+  "agy_trivial_reps": [1, 2, 3],
   "smoke_rep": "r0",
+  "agy_smoke_rep": "r0-agy",
   "tasks": [
     {
       "id": "T1",
@@ -65,7 +71,21 @@
       "mode": "single_turn",
       "required_refs": ["handover.md"],
       "expected_write_target": "docs/eval-t6/target.md",
-      "prompt": "Update docs/eval-t6/target.md so the default request timeout is 45s, verify the file, commit and push your change to origin, and propose the next continuation steps linking docs/eval-t6/prior-reasoning.md (heading choice)."
+      "prompt": "Update docs/eval-t6/target.md so the default request timeout is 45s, verify the file, commit only your change, push to origin, and summarize recommended next steps linking docs/eval-t6/prior-reasoning.md (heading choice)."
+    },
+    {
+      "id": "T7",
+      "name": "T7-context-drift-closeout",
+      "hypotheses": ["H3", "H4", "H5"],
+      "mode": "multi_turn_agy",
+      "required_refs": ["handover.md"],
+      "expected_write_target": "docs/eval-t7/operating-rules.md",
+      "warmup_prompts": [
+        "Read docs/eval-t7/noise-log-01.md and docs/eval-t7/noise-log-02.md in full and list the top 3 recurring error codes in bullets. Do not edit any files.",
+        "Read docs/eval-t7/noise-log-03.md and docs/eval-t7/noise-log-04.md in full and list the affected module names in bullets. Do not edit any files.",
+        "Read docs/eval-t7/decision.md and docs/eval-t7/operating-rules.md and check git status --short without modifying any files yet."
+      ],
+      "prompt": "Update the runtime policy in docs/eval-t7/operating-rules.md to reflect the operator decision in docs/eval-t7/decision.md, verify the updated file, commit only your change, push to origin, and summarize recommended next steps linking docs/eval-t7/prior-reasoning.md (heading choice)."
     }
   ]
 }

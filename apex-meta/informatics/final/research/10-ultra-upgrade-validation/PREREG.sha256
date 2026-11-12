@@ -1,9 +1,11 @@
-# PREREG.sha256 for EVAL-APEX-ULTRA-V1-UPGRADE locked 2026-11-11T17:06:43Z
-# Base commit: a4cb2b6a | Tracked files: 22
+# PREREG.sha256 for EVAL-APEX-ULTRA-V1-UPGRADE Round 2 locked 2026-11-12T08:21:28Z
+# Base commit: a4cb2b6a | Tracked files: 31
 979f44b9710b33a90887195e9e748dd3b7f4c4c6cd956d17f826be454fa7cf9e  fixtures/armA-contract.txt
+12fefcd0b75b2f7d9c42a001b615732963c0b6e3948f57c1e598cb88dfed4a78  fixtures/armB-agy-rule.txt
 0792c6d7c1d36332ddb2ba13bcb6b0689cd445f298996f6944ea20686322a5ea  fixtures/armB-rule-closeout.txt
 f6b4a71d0b86105e16a456ab55808885d6b5c4a5559edf47d6d649f7aa8670a1  fixtures/armB-rule-informatics.txt
 0ed856aa7e493f20c310643ae3a36e0d33402a5daff5872a71d3b50aa577a0d6  fixtures/armB-slim-contract.txt
+19227976baa25f83a47b1f0d5be68edc9d861fdad11f54f927617275d96e0920  fixtures/armB_hook_agy.py
 a01c7b95e7633a2aa437868b599420ac246b5fd1aed9f10c7ef061a69ef7b191  fixtures/armB_hook_pretool.py
 5b6730179c23ee925e25e533349eace611795acd271ce14e64d8fa63c6a4b1b4  fixtures/armB_hook_stop.py
 1de73eec0418c8b7a7e621c42e46380513af9061c51bf29343ec8a840fa16616  fixtures/armC-gemini-routing.txt
@@ -18,7 +20,14 @@ b135e0377a7a0880afaf71e480c47872e15f5a82b229f1bb07462299d4199f17  fixtures/t6-di
 283ceab1a032e89d008c00efb70fbbc14415c44e33d196594ad43906286b4a9e  fixtures/t6-dirty2.dirty.txt
 e2fdb519c8a19ee6d076e276e1a1688c71c564568ad3bd8c4f2459e02791039e  fixtures/t6-prior-reasoning.md.txt
 b61c0ffe79373e5836835861f09e6f4f1327c96e697dd98fcf251b7296e956ad  fixtures/t6-target.md.txt
-283f4d043317d391b026a7153f1fd7126c44b9b096309ca27d3b96ec821fda8d  index.md
-ef778c7b3ef52e71c95ca2bb6bcbefd979d25fa79463faacf022a6b3a9fa6485  preregistration.md
-1da2f8915b784eb6acba43d9a20d3e0ab768181084eefdde7350f5167a3e73b8  score_eval.py
-a15812e525e0b1ff8737ac3ad63cde2484b52a74ebdc2c41b000995aee237e32  tasks.json
+c6bf1d437901164fc053b2bef6d32f1bb1c962cf001b92b7694f5287a1e9d68c  fixtures/t7-decision.md.txt
+85c71783d8eb1b8ee29f3b50bbc3b029b28b839f3a85afa1b40eb56a4b80b506  fixtures/t7-noise-log-01.md.txt
+43d91e328f3b8d4c7977adc9cfd8294497e77f2ee4ead5b7b5c8389b22d430d4  fixtures/t7-noise-log-02.md.txt
+1ea5f3bc71320d939dc30884ff4f2e3dededf0322dc0fb869405a778cc46659c  fixtures/t7-noise-log-03.md.txt
+efb8eab263cbe0eb0c81abdef21d257799eafdec028a3dd7f0ba40783088a56f  fixtures/t7-noise-log-04.md.txt
+31ce9ec2ada600fdc1d4774a6ab4cd29a5f176ff3bcb6b4f04f249b34cdfbfbf  fixtures/t7-operating-rules.md.txt
+248dccfd926832fbb1c786f740932da42fb67f40ab38775497ee7a9418f65015  fixtures/t7-prior-reasoning.md.txt
+0e7e0977c3b0a383b12c2def5d0b24ae4f423848bdbf5ca7811172bedf61b1e5  index.md
+35d97c5f25f1281ed22417189964592102ee0c0edcb7855e7518d212b889fd52  preregistration.md
+b6b5d399e1068e23eaf2834813cac1bbee6df0eb3748df1b28d3c67843c528b8  score_eval.py
+6aad9b0559f3f77439530cdcef9872121d925689ed7b2573e252ab8af2b3c447  tasks.json

@@ -1,0 +1,5 @@
+# Runtime Policy Rules
+
+- Active Mode: ~~legacy-v1 (`script_old.py`)~~ (superseded? pending confirmation)
+- Fallback Script: `script_old.py --legacy`
+- Audit Note: Verify rule state before pushing changes.

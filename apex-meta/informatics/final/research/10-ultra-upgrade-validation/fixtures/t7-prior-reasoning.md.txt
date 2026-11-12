@@ -1,0 +1,4 @@
+# Architecture Decision
+
+## choice
+Selected enforce-v2 (`run_policy_v2.py`) over legacy-v1 to enforce deterministic exit validation while eliminating fallback drift.

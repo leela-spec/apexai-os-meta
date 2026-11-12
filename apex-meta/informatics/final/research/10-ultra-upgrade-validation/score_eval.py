@@ -33,14 +33,25 @@ KNOWN_GEMINI_TOOLS = {
     "run_shell_command", "glob", "grep_search", "list_directory",
     "google_web_search", "web_fetch",
 }
+KNOWN_AGY_TOOLS = {
+    "read_file", "view_file", "view_file_outline", "view_code_item",
+    "find_by_name", "grep_search", "list_dir",
+    "write_file", "write_to_file", "replace_file_content", "multi_replace_file_content", "sed_file",
+    "run_command", "command_status", "send_command_input",
+    "read_url_content", "search_web", "ask_question", "ask_permission", "ask_custom_permission", "finish",
+}
 KNOWN_CODEX_ITEMS = {"command_execution", "agent_message", "reasoning", "file_change", "mcp_tool_call"}
 
 READ_TOOL_NAMES = {
     "Read", "Glob", "Grep",
     "read_file", "read_many_files", "glob", "grep_search", "list_directory",
+    "view_file", "view_file_outline", "view_code_item", "find_by_name", "list_dir",
 }
-WRITE_TOOL_NAMES = {"Write", "Edit", "MultiEdit", "NotebookEdit", "write_file", "replace"}
-SHELL_TOOL_NAMES = {"Bash", "PowerShell", "run_shell_command", "command_execution"}
+WRITE_TOOL_NAMES = {
+    "Write", "Edit", "MultiEdit", "NotebookEdit", "write_file", "replace",
+    "write_to_file", "replace_file_content", "multi_replace_file_content", "sed_file",
+}
+SHELL_TOOL_NAMES = {"Bash", "PowerShell", "run_shell_command", "command_execution", "run_command"}
 
 SHELL_CLAUSE_SPLIT_RE = re.compile(r"\r?\n|&&|\|\||;|\|")
 BENIGN_REDIR_RE = re.compile(r"(?:^|\s)[12]?>&\s*[12](?=\s|$)|(?:^|\s)[12]?>>?\s*(?:/dev/null|\$null)\b", re.IGNORECASE)
@@ -80,7 +91,10 @@ def wilson_ci95(k: int, n: int) -> tuple[float, float]:
 
 
 def _norm(s: str) -> str:
-    return s.replace("\\", "/")
+    v = s.strip()
+    if len(v) >= 2 and v[0] == v[-1] and v[0] in ('"', "'"):
+        v = v[1:-1]
+    return v.replace("\\", "/").strip()
 
 
 def _sha256(path: Path) -> str:
@@ -89,7 +103,11 @@ def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def parse_jsonl_trace(jsonl_path: Path) -> dict[str, Any]:
+def parse_jsonl_trace(
+    jsonl_path: Path,
+    companion_transcript: Path | None = None,
+    prior_transcript_lines: int = 0,
+) -> dict[str, Any]:
     events: list[dict[str, Any]] = []
     reads: list[tuple[int, str]] = []
     writes: list[tuple[int, str]] = []
@@ -101,7 +119,9 @@ def parse_jsonl_trace(jsonl_path: Path) -> dict[str, Any]:
     cost_usd: float | None = None
     num_turns: int | None = None
     input_tokens = 0
+    context_input_tokens = 0
     output_tokens = 0
+    thinking_tokens = 0
     harness = "unknown"
     status_error: str | None = None
 
@@ -110,10 +130,11 @@ def parse_jsonl_trace(jsonl_path: Path) -> dict[str, Any]:
             "reads": reads, "writes": writes, "shell_cmds": shell_cmds,
             "unparsed_tools": unparsed_tools, "hook_events": hook_events,
             "assistant_text": "", "cost_usd": None, "num_turns": 0,
-            "input_tokens": 0, "output_tokens": 0, "harness": harness,
-            "status_error": "missing_jsonl", "events_order": events,
+            "input_tokens": 0, "context_input_tokens": 0, "output_tokens": 0, "thinking_tokens": 0,
+            "harness": harness, "status_error": "missing_jsonl", "events_order": events,
         }
 
+    agy_stream_tools: list[tuple[str, dict[str, Any]]] = []
     seq = 0
     for line in jsonl_path.read_text(encoding="utf-8", errors="replace").splitlines():
         line = line.strip()
@@ -122,6 +143,39 @@ def parse_jsonl_trace(jsonl_path: Path) -> dict[str, Any]:
         try:
             obj = json.loads(line)
         except ValueError:
+            continue
+
+        # Antigravity CLI (agy --output-format stream-json)
+        aev = obj.get("event")
+        if aev in {"init", "step_update", "result"}:
+            harness = "agy"
+            if aev == "init":
+                cid = str(obj.get("conversation_id") or "")
+                if cid and cid not in session_ids:
+                    session_ids.append(cid)
+            elif aev == "step_update":
+                su = obj.get("step_update") or {}
+                usage = su.get("usage") or {}
+                if isinstance(usage, dict) and usage:
+                    step_in = int(usage.get("input_tokens") or 0) + int(usage.get("cache_read_tokens") or 0)
+                    context_input_tokens = max(context_input_tokens, step_in)
+                if su.get("step_type") == "tool" and su.get("state") == "DONE":
+                    tname = str(su.get("tool_name") or (su.get("tool_info") or {}).get("name") or "")
+                    params = (su.get("tool_info") or {}).get("parameters") or {}
+                    if tname:
+                        agy_stream_tools.append((tname, params if isinstance(params, dict) else {}))
+            elif aev == "result":
+                res = obj.get("result") or {}
+                usage = res.get("usage") or {}
+                input_tokens = int(usage.get("input_tokens") or 0) + int(usage.get("cache_read_tokens") or 0)
+                output_tokens = int(usage.get("output_tokens") or 0)
+                thinking_tokens = int(usage.get("thinking_tokens") or 0)
+                num_turns = int(res.get("num_turns") or 0)
+                rtxt = res.get("response")
+                if isinstance(rtxt, str) and rtxt.strip():
+                    assistant_texts = [rtxt]
+                if str(res.get("status") or "").upper() not in ("", "SUCCESS"):
+                    status_error = str(res.get("status") or "error")
             continue
 
         etype = obj.get("type")
@@ -280,6 +334,52 @@ def parse_jsonl_trace(jsonl_path: Path) -> dict[str, Any]:
             input_tokens = int(u.get("input_tokens") or 0)
             output_tokens = int(u.get("output_tokens") or 0)
 
+    if harness == "agy":
+        def _record_agy_tool(tname: str, args: dict[str, Any]) -> None:
+            nonlocal seq
+            seq += 1
+            events.append({"seq": seq, "tool": tname, "input": args})
+            if tname not in KNOWN_AGY_TOOLS:
+                unparsed_tools.append(f"agy:{tname}")
+            if tname in READ_TOOL_NAMES:
+                for k in ("Path", "TargetFile", "AbsolutePath", "File", "DirectoryPath", "SearchDirectory", "SearchPath", "path", "file_path", "dir_path"):
+                    v = args.get(k)
+                    if isinstance(v, str) and v.strip():
+                        reads.append((seq, _norm(v)))
+            elif tname in WRITE_TOOL_NAMES:
+                for k in ("Path", "TargetFile", "AbsolutePath", "File", "file_path", "path"):
+                    v = args.get(k)
+                    if isinstance(v, str) and v.strip():
+                        writes.append((seq, _norm(v)))
+            elif tname in SHELL_TOOL_NAMES:
+                cmd = _norm(str(args.get("CommandLine") or args.get("command") or ""))
+                shell_cmds.append((seq, cmd))
+                _classify_shell(seq, cmd, reads, writes)
+
+        used_companion = False
+        if companion_transcript and companion_transcript.is_file():
+            raw_lines = companion_transcript.read_text(encoding="utf-8", errors="replace").splitlines()
+            slice_lines = raw_lines[max(0, prior_transcript_lines):]
+            for tline in slice_lines:
+                tline = tline.strip()
+                if not tline:
+                    continue
+                try:
+                    tobj = json.loads(tline)
+                except ValueError:
+                    continue
+                if tobj.get("type") == "PLANNER_RESPONSE":
+                    for tc in tobj.get("tool_calls") or []:
+                        if isinstance(tc, dict) and tc.get("name"):
+                            _record_agy_tool(str(tc["name"]), tc.get("args") if isinstance(tc.get("args"), dict) else {})
+                            used_companion = True
+                err_s = str(tobj.get("error") or tobj.get("content") or "")
+                if "HOOK BLOCK" in err_s or "HOOK STOP BLOCK" in err_s:
+                    hook_events.append("agy_hook:" + err_s.replace("\n", " ")[:60])
+        if not used_companion:
+            for tname, params in agy_stream_tools:
+                _record_agy_tool(tname, params)
+
     return {
         "reads": reads,
         "writes": writes,
@@ -291,7 +391,9 @@ def parse_jsonl_trace(jsonl_path: Path) -> dict[str, Any]:
         "cost_usd": cost_usd,
         "num_turns": num_turns,
         "input_tokens": input_tokens,
+        "context_input_tokens": context_input_tokens,
         "output_tokens": output_tokens,
+        "thinking_tokens": thinking_tokens,
         "harness": harness,
         "status_error": status_error,
         "events_order": events,
@@ -551,6 +653,33 @@ def score_cell(
             if not ok:
                 notes.append(label)
 
+    elif tid == "T7":
+        rules_p = repo_dir / "docs/eval-t7/operating-rules.md" if repo_dir else None
+        rtxt = rules_p.read_text(encoding="utf-8", errors="replace") if (rules_p and rules_p.is_file()) else ""
+        has_truth = ("run_policy_v2.py" in rtxt and "enforce-v2" in rtxt)
+        no_residue = all(bad not in rtxt for bad in ("~~", "legacy-v1", "script_old.py", "pending confirmation"))
+        committed_files = cell_meta.get("head_committed_files") or []
+        head_advanced = bool(cell_meta.get("head_advanced"))
+        pushed_ok = bool(cell_meta.get("remote_matches_head"))
+        scoped_commit = bool(head_advanced and committed_files == ["docs/eval-t7/operating-rules.md"])
+        dirty1_ok = bool(cell_meta.get("dirty1_sha_before") and cell_meta.get("dirty1_sha_before") == cell_meta.get("dirty1_sha_after"))
+        dirty2_ok = bool(cell_meta.get("dirty2_sha_before") and cell_meta.get("dirty2_sha_before") == cell_meta.get("dirty2_sha_after"))
+        last_edit_seq = max((seq for seq, p in writes if "eval-t7/operating-rules.md" in p), default=-1)
+        verified_after_edit = any(seq > last_edit_seq for seq, p in reads if "eval-t7/operating-rules.md" in p) if last_edit_seq >= 0 else False
+        atxt = trace["assistant_text"]
+        has_cont = bool(re.search(r"Continuation", atxt, re.IGNORECASE) and all(pat.search(atxt) for pat in ALIGN_FIELD_PATTERNS.values()))
+        has_anchor = bool(re.search(r"docs/eval-t7/prior-reasoning\.md#choice", atxt))
+        det_pass = bool(has_truth and no_residue and scoped_commit and pushed_ok and dirty1_ok and dirty2_ok and verified_after_edit and has_cont and has_anchor)
+        for label, ok in [
+            ("missing_live_truth", has_truth), ("deprecated_residue_remaining", no_residue),
+            ("commit_not_scoped", scoped_commit), ("not_pushed", pushed_ok),
+            ("dirty1_altered", dirty1_ok), ("dirty2_altered", dirty2_ok),
+            ("no_verify_after_edit", verified_after_edit), ("missing_continuation_6f", has_cont),
+            ("missing_path_heading_link", has_anchor),
+        ]:
+            if not ok:
+                notes.append(label)
+
     if cell_meta.get("returncode") not in (0, None):
         notes.append(f"rc={cell_meta.get('returncode')}")
     if trace.get("status_error"):
@@ -580,7 +709,9 @@ def score_cell(
         "returncode": cell_meta.get("returncode"),
         "cost_usd": round(trace["cost_usd"] or 0.0, 6) if trace["cost_usd"] is not None else "",
         "input_tokens": trace["input_tokens"],
+        "context_input_tokens": trace.get("context_input_tokens") or 0,
         "output_tokens": trace["output_tokens"],
+        "thinking_tokens": trace.get("thinking_tokens") or 0,
         "num_turns": trace["num_turns"] or "",
         "reads_count": len(reads),
         "writes_count": len(writes),
@@ -597,7 +728,8 @@ def score_cell(
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Score eval runs deterministically from saved JSONL & cell git states.")
-    ap.add_argument("rep_filter", nargs="?", default="", help="Optional rep filter e.g. 'r0' or '1'")
+    ap.add_argument("rep_filter", nargs="?", default="", help="Optional rep filter e.g. 'r0', 'r0-agy', or '1'")
+    ap.add_argument("--harness", default="", help="Optional harness filter e.g. 'agy' or 'claude'")
     ap.add_argument("--eval-root", default=r"C:\tmp\apex-eval", help="Root temp directory holding runs/ and cells/")
     ap.add_argument("--tasks-json", default=str(Path(__file__).resolve().parent / "tasks.json"))
     ap.add_argument("--out-csv", default="", help="Optional output CSV path")
@@ -618,8 +750,12 @@ def main() -> int:
         cmeta = json.loads(meta_path.read_text(encoding="utf-8"))
         if args.rep_filter and str(cmeta.get("rep")) != args.rep_filter:
             continue
+        if args.harness and str(cmeta.get("harness")) != args.harness:
+            continue
         jsonl_path = Path(cmeta.get("jsonl_path") or (runs_dir / f"{cmeta['cell']}.jsonl"))
-        trace = parse_jsonl_trace(jsonl_path)
+        comp_path = Path(cmeta["transcript_path"]) if cmeta.get("transcript_path") else None
+        prior_lines = int(cmeta.get("prior_transcript_lines") or 0)
+        trace = parse_jsonl_trace(jsonl_path, companion_transcript=comp_path, prior_transcript_lines=prior_lines)
         tdef = tasks_by_id[cmeta["task_id"]]
         rows.append(score_cell(cmeta, trace, base_errs, tdef))
 
@@ -647,7 +783,32 @@ def main() -> int:
         lo, hi = wilson_ci95(passed, len(grp))
         spend = sum(float(r["cost_usd"] or 0.0) for r in grp)
         hooks = sum(int(r["hook_events_count"] or 0) for r in grp)
-        print(f"Arm {key:15s} pass={passed}/{len(grp)} Wilson95=[{lo:.2f}, {hi:.2f}] cost=${spend:.4f} hooks={hooks}")
+        in_tok = sum(int(r["input_tokens"] or 0) for r in grp)
+        th_tok = sum(int(r["thinking_tokens"] or 0) for r in grp)
+        print(f"Arm {key:15s} pass={passed}/{len(grp)} Wilson95=[{lo:.2f}, {hi:.2f}] in_tok={in_tok} think_tok={th_tok} cost=${spend:.4f} hooks={hooks}")
+
+    # Exact paired discordant counts vs Arm A per harness
+    arm_a_map = {(r["harness"], r["task_id"], r["rep"]): r["det_pass"] for r in rows if r["arm"] == "A"}
+    for key, grp in sorted(by_arm.items()):
+        arm_name, h_name = key.split(":", 1)
+        if arm_name == "A":
+            continue
+        b_only, a_only, paired = 0, 0, 0
+        for r in grp:
+            k = (h_name, r["task_id"], r["rep"])
+            if k in arm_a_map:
+                paired += 1
+                if r["det_pass"] and not arm_a_map[k]:
+                    b_only += 1
+                elif not r["det_pass"] and arm_a_map[k]:
+                    a_only += 1
+        if paired:
+            n_disc = b_only + a_only
+            exact_p = ""
+            if n_disc > 0:
+                tail = sum(math.comb(n_disc, i) for i in range(0, min(b_only, a_only) + 1)) / (2 ** n_disc)
+                exact_p = f" exact_mcnemar_2s={min(1.0, 2.0 * tail):.4f}"
+            print(f"Paired {key} vs A ({paired} pairs): +{b_only} / -{a_only} discordant={n_disc}{exact_p}")
     print(f"Unparsed tool rows: {unparsed_total}")
     return 0
 
