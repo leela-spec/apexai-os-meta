@@ -1,7 +1,7 @@
 ## Purpose
 
 Stage 1A Intake captures non-inferable weekly operator intent and outputs JSON conforming to [`operator-weekly-command-brief.schema.json`](../../../../apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/schemas/operator-weekly-command-brief.schema.json) (`OPERATOR-COMMAND-BRIEF-v1.0`).
-6-Portfolio definitions and clock defaults are NOT duplicated here; see [`SPEC-PRECAP-WEEK-ITERATIONS.okf.md`](../../../../apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-PRECAP-WEEK-ITERATIONS.okf.md) and [`week-blueprint.json`](../../../../apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json).
+6-Portfolio definitions and clock defaults are NOT duplicated here; see [`SPEC-PRECAP-WEEK-MASTER.okf.md`](../../../../apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-PRECAP-WEEK-MASTER.okf.md) and [`week-blueprint.json`](../../../../apex-meta/tools/project-improvement-orchestration-weekly/02-weekly-dispersal/week-blueprint.json).
 
 ## Adaptive-Hybrid Q&A & Notation Rules
 

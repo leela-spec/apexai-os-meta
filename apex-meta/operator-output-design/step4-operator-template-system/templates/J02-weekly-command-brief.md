@@ -1,3 +1,10 @@
+> [!WARNING] DEPRECATED TEMPLATE
+> **Status:** Superseded by Precap Week Master Specification and Multi-Surface Compiler.
+> **Canonical Authority:** [`SPEC-PRECAP-WEEK-MASTER.okf.md`](../../../tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-PRECAP-WEEK-MASTER.okf.md)
+> **Active Compiler:** [`render_precap_cockpit.py`](../../../tools/project-improvement-orchestration-weekly/01-weekly-command-brief/render_precap_cockpit.py)
+> **Output Artifact:** Compiled OKF v0.2 Weekly Command Brief (`fixtures/wXX-reference-weekly-command-brief.okf.md`) and interactive Cockpit HTML (`precap-week-cockpit-*.html`).
+> Do not generate manual command briefs from this raw template.
+
 # Weekly Command Brief - {{WEEK_OR_DATE_RANGE}}
 
 > **Weekly state:** {{READY | READY_WITH_REVIEW | PARTIAL | BLOCKED}}  

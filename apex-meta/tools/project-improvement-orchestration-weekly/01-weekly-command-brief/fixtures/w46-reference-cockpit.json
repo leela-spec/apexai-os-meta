@@ -20,7 +20,7 @@
       "primaryLabel": "OKF v0.2 Brief (W46)",
       "secondary": "../00-openproject-dependency-intake/EVIDENCE-20261106.okf.md",
       "secondaryLabel": "OP Snapshot (Nov 6)",
-      "spec": "./SPEC-PRECAP-WEEK-ITERATIONS.okf.md"
+      "spec": "./SPEC-PRECAP-WEEK-MASTER.okf.md"
     }
   },
   "decisions": {
@@ -700,7 +700,7 @@
           ],
           "exclusions": [
             "Auto-writing Google Calendar events inside PrecapWeek",
-            "Splitting SPEC-PRECAP-WEEK-ITERATIONS.okf.md until operator approves proposed 1-master + 3-detail split"
+            "Maintaining SPEC-PRECAP-WEEK-MASTER.okf.md and dedicated modular specifications"
           ],
           "process": [
             "Map Module 02 PrecapNextDay inputs to w46-reference-handoff.json & week-allocation.json",

@@ -1,6 +1,6 @@
 # PreCap Week Validation Gates & Operator Review Flags
 
-Single owner for pre-`G1` executable validation and operator review-flag policies. Clock, schema, and UX definitions remain solely in `02-weekly-dispersal/week-blueprint.json`, `01-weekly-command-brief/schemas/`, and `SPEC-PRECAP-WEEK-ITERATIONS.okf.md`.
+Single owner for pre-`G1` executable validation and operator review-flag policies. Clock, schema, and UX definitions remain solely in `02-weekly-dispersal/week-blueprint.json`, `01-weekly-command-brief/schemas/`, and `SPEC-PRECAP-WEEK-MASTER.okf.md`.
 
 ## 1. Automated Executable Gates (Run Before Presenting)
 

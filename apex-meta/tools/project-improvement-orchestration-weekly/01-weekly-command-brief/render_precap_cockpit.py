@@ -36,6 +36,11 @@ PORTFOLIO_ORDER: List[Tuple[str, str]] = [
 DAY_ORDER = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
 
+# ==============================================================================
+# SECTION 1: SCHEMAS & SEMANTIC INVARIANTS VALIDATION
+# ==============================================================================
+
+
 def _resolve_ref(ref: str, root_schema: dict) -> dict:
     if not ref.startswith("#/$defs/"):
         raise ValueError(f"Unsupported $ref target: {ref}")
@@ -182,6 +187,11 @@ def _has_verified_override(item: dict) -> bool:
     )
 
 
+# ==============================================================================
+# SECTION 2: DISPERSAL & RUNTIME CAPACITY ARITHMETIC (T1 / T2)
+# ==============================================================================
+
+
 def _esc(val: Any) -> str:
     return html_lib.escape("" if val is None else str(val), quote=True)
 
@@ -261,6 +271,11 @@ def _compact_band(band: dict) -> str:
     m_str = _short(band.get("M", []))
     r_str = band.get("R", "Audiobooks")
     return f"P: {p_str} · M: {m_str} · R: {r_str}"
+
+
+# ==============================================================================
+# SECTION 3: HTML COCKPIT RUNTIME MODEL & RENDERING (v0.5)
+# ==============================================================================
 
 
 def build_runtime_payload(cockpit: dict, stats: dict) -> dict:
@@ -921,6 +936,11 @@ def render_html(cockpit: dict, stats: dict) -> str:
 """
 
 
+# ==============================================================================
+# SECTION 4: OKF v0.2 BRIEF COMPILER & HELPERS
+# ==============================================================================
+
+
 def _yaml_scalar(val: Any) -> str:
     if isinstance(val, bool):
         return "true" if val else "false"
@@ -965,8 +985,55 @@ def _dump_yaml_lines(obj: Any, indent: int = 0) -> List[str]:
     return lines
 
 
+def _tag_for_item(it: dict, default_tag: str) -> str:
+    s = (it.get("srcRef") or "").lower()
+    if "evidence-" in s or "op-wp" in s or "openproject" in s:
+        return "OP"
+    if "gcal" in s or "calendar" in s:
+        return "CLK"
+    if "allocation" in s or "blueprint" in s or "dispersal" in s:
+        return "DSP"
+    return default_tag
+
+
+def _truncate(s: str, max_len: int) -> str:
+    s = (s or "").strip()
+    return s if len(s) <= max_len else s[: max_len - 1].rstrip() + "…"
+
+
+def _slim_bluf(text: str, max_words: int = 25) -> str:
+    """Format a crisp BLUF headline from text without hardcoding."""
+    text = (text or "").strip()
+    words = text.split()
+    if len(words) <= max_words:
+        return text
+    # Prefer first complete clause before semicolon or period
+    for sep in [";", "."]:
+        if sep in text:
+            first_clause = text.split(sep)[0].strip()
+            c_words = len(first_clause.split())
+            if 8 <= c_words <= max_words:
+                return first_clause + ("." if sep == "." else "")
+    # Otherwise truncate to max_words cleanly
+    return " ".join(words[:max_words]).rstrip(",;.:-") + "..."
+
+
+def _clean_goal_title(title: str) -> str:
+    """Strip trailing parentheticals from goal title to keep table compact."""
+    return re.sub(r"\s*\([^)]*\)$", "", title).strip()
+
+
+def _clean_wp_tag(wp: str) -> str:
+    """Format WP reference compactly, e.g. OP-WP#234 -> #234."""
+    if not wp or wp == "[OP-UNRESOLVED]":
+        return ""
+    wp_short = wp.replace("OP-WP#", "#")
+    wp_short = re.sub(r"\s*\([^)]*\)", "", wp_short)
+    return f"`{wp_short}`"
+
+
 def render_okf_brief(cockpit: dict, stats: dict) -> str:
-    """Emit crisp OKF v0.2 Report obeying D1-D12 without duplicating Cockpit tables or JSON rules."""
+    """Emit crisp OKF v0.2 Report obeying D1-D12 dynamically without duplicating Cockpit tables or JSON rules."""
     meta = cockpit["meta"]
     decisions = cockpit["decisions"]
     portfolios = cockpit["matrix1_portfolios"]
@@ -977,60 +1044,154 @@ def render_okf_brief(cockpit: dict, stats: dict) -> str:
 
     l1_total = sum(len(p["goals"]) for p in portfolios)
     l2_total = sum(len(p["nice"]) for p in portfolios)
-    ov_count = sum(1 for b in ("new", "ongoing") for it in decisions[b] if _has_verified_override(it))
+    ov_count = sum(1 for b in ("new", "ongoing") for it in decisions.get(b, []) if _has_verified_override(it))
 
+    # --- Section 01 Table Rows (Dynamic) ---
+    dec_rows = []
+    for item in decisions.get("new", []):
+        tag = _tag_for_item(item, "INT")
+        name_parts = item["name"].split(" · ", 1)
+        item_id = name_parts[0].strip()
+        policy = name_parts[1].strip() if len(name_parts) > 1 else item["name"].strip()
+        policy = _truncate(policy, 50)
+
+        if _has_verified_override(item):
+            sys_def = _truncate(str(item.get("sysDef", "")), 26)
+            op_ch = _truncate(str(item.get("opChoice", "")), 26)
+            delta = f"{sys_def} -> {op_ch}"
+        elif item.get("opChoice"):
+            delta = _truncate(str(item["opChoice"]), 36)
+        else:
+            delta = "—"
+
+        gate = f"`{item.get('gate', 'PROPOSED_FOR_G1')}`"
+        dec_rows.append(f"| `{item_id}` | New | {policy} | {delta} | {gate} | `[{tag}]` |")
+
+    for idx, item in enumerate(decisions.get("ongoing", []), start=1):
+        pol_id = f"POL-{idx:02d}"
+        name_parts = item["name"].split(" · ", 1)
+        title = name_parts[0].strip()
+        s_ref = (item.get("srcRef") or "").lower()
+        nm = item["name"].lower()
+
+        # Dynamic cross-reference detection
+        if "gcal" in s_ref or "calendar" in nm or "standing" in nm or "protected" in nm:
+            xref = " (cross-ref: §03)"
+            tag = "CLK"
+        elif "op" in s_ref or "openproject" in nm:
+            xref = " (cross-ref: §04)"
+            tag = "OP"
+        else:
+            xref = ""
+            tag = _tag_for_item(item, "CLK")
+
+        pol_desc = _truncate(f"{title}{xref}", 50)
+        if _has_verified_override(item):
+            sys_def = _truncate(str(item.get("sysDef", "")), 24)
+            op_ch = _truncate(str(item.get("opChoice", "")), 24)
+            delta = f"{sys_def} -> {op_ch}"
+        elif item.get("val"):
+            delta = _truncate(str(item["val"]), 36)
+        else:
+            delta = "—"
+
+        gate_val = item.get("gate", "CONFIRMED").replace("_INPUT", "")
+        dec_rows.append(f"| `{pol_id}` | Ongoing | {pol_desc} | {delta} | `{gate_val}` | `[{tag}]` |")
+
+    # --- Section 02 Slim Portfolio Rows (Dynamic) ---
     p_rows = []
     for rank, area in enumerate(portfolios, start=1):
-        goals_str = "; ".join(
-            f"{'⚡ ' if g['critical'] else ''}{g['title']} (`{g['wp']}`)"
-            for g in area["goals"]
-        )
-        cross = [cr["label"] for g in area["goals"] for cr in g.get("crossRepo", [])]
-        cross_str = ", ".join(cross) if cross else "—"
-        nice_str = ", ".join(n["title"] for n in area["nice"]) if area["nice"] else "—"
-        p_rows.append(f"| {rank} | **{area['name']}** | {goals_str} | {nice_str} | {cross_str} |")
+        g_parts = []
+        for g in area.get("goals", []):
+            crit = "⚡ " if g.get("critical") else ""
+            g_title = _clean_goal_title(g["title"])
+            wp_tag = _clean_wp_tag(g.get("wp", ""))
+            wp_str = f" ({wp_tag})" if wp_tag else ""
+            g_parts.append(f"{crit}{g_title}{wp_str}")
+        goals_str = "; ".join(g_parts) if g_parts else "—"
 
-    def _tag_for_item(it: dict, default_tag: str) -> str:
-        s = (it.get("srcRef") or "").lower()
-        if "evidence-" in s or "op-wp" in s:
-            return "OP"
-        if "gcal" in s:
-            return "CLK"
-        return default_tag
+        n_parts = [_clean_goal_title(n["title"]) for n in area.get("nice", [])]
+        nice_str = ", ".join(n_parts) if n_parts else "—"
 
-    dec_lines = []
-    for item in decisions["new"]:
-        ov_note = f" *(Override: `{item['sysDef']}` -> `{item['opChoice']}`)*" if _has_verified_override(item) else ""
-        dec_lines.append(f"- **`{item['name']}`** — `{item['val']}` (`G1: {item['gate']}`){ov_note} `[src: {_tag_for_item(item, 'INT')}]`")
-    for item in decisions["ongoing"]:
-        dec_lines.append(f"- **Ongoing:** `{item['name']}` — `{item['val']}` `[src: {_tag_for_item(item, 'CLK')}]`")
+        cross = [cr["label"] for g in area.get("goals", []) for cr in g.get("crossRepo", [])]
+        cross_str = ", ".join(dict.fromkeys(cross)) if cross else "—"
 
-    def_rows = [
-        f"| `{d['wp']}` | {d['title']} | {d['reason']} | {d['trigger']} |"
-        for d in residuals["longlist_deferrals"]
+        p_rows.append(f"| {rank} | **{area['name']}** | {_truncate(goals_str, 95)} | {_truncate(nice_str, 35)} | {cross_str} |")
+
+    # --- Section 03 Dynamic Tables (Calendar Collisions & Personal Focus) ---
+    # Group recurring calendar events dynamically by title, time, policy, and capacity delta
+    grouped_events = {}
+    for e in handoff.get("reconciled_calendar_events", []):
+        raw_title = e.get("title", "")
+        t_clean = re.sub(r"\s*\(\+[^)]*\)", "", raw_title).strip()
+        key = (t_clean, e.get("start"), e.get("end"), e.get("policy"), e.get("capacity_delta_min"))
+        if key not in grouped_events:
+            grouped_events[key] = []
+        grouped_events[key].append(e.get("date", ""))
+
+    cal_rows = []
+    for (title, start, end, policy, delta_min), dates in grouped_events.items():
+        if len(dates) == 1:
+            date_str = dates[0]
+        else:
+            first = dates[0]
+            rest_days = [d.split("-")[-1] for d in dates[1:] if d.rsplit("-", 1)[0] == first.rsplit("-", 1)[0]]
+            if len(rest_days) == len(dates) - 1:
+                date_str = f"{first}, {', '.join(rest_days)}"
+            else:
+                date_str = ", ".join(dates)
+        cal_rows.append(f"| `{date_str}` | {title} | `{start}–{end}` | `{policy}` | `{delta_min}m` |")
+
+    def _format_focus_list(items: list[str]) -> str:
+        cleaned = [it.replace("*_*_I3_P", "`*_*_I3_P`") for it in items]
+        return "; ".join(cleaned) or "not yet specified"
+
+    pf_rows = [
+        f"| **Mental** | `{stats['tp']['M']}m` in-Flow | {_truncate(_format_focus_list(pf.get('mental', [])), 105)} |",
+        f"| **Physical** | `{stats['tp']['P']}m` in-Flow + Course | {_truncate(_format_focus_list(pf.get('physical', [])), 105)} |",
+        f"| **Regeneration** | `{stats['tp']['R']}m` (`0 XP`) | {_truncate(_format_focus_list(pf.get('regeneration', [])), 105)} |",
     ]
+
+    # --- Section 04 Tables (Dynamic) ---
+    def_rows = [
+        f"| `{d['wp']}` | {_truncate(d['title'], 45)} | {_truncate(d['reason'], 60)} | {_truncate(d['trigger'], 65)} |"
+        for d in residuals.get("longlist_deferrals", [])
+    ]
+
+    primary_tags = {"CLK", "DSP", "INT", "GCAL", "OP"}
     prov_rows = [
         f"| `[{p['tag']}]` | `{p['ref']}` — {p['label']} | `{p['freshness']}` |"
-        for p in residuals["provenance_ledger"]
+        for p in residuals.get("provenance_ledger", [])
+        if p.get("tag") in primary_tags
     ]
-    cal_rows = [
-        f"| `{e['date']}` | {e['title']} | `{e['start']}–{e['end']}` | `{e['policy']}` | `{e['capacity_delta_min']}m` |"
-        for e in handoff["reconciled_calendar_events"]
-    ]
-    phys_list = "; ".join(pf["physical"]).replace("*_*_I3_P", "`*_*_I3_P`")
-    focus_lines = [
-        f"- **Mental (`{stats['tp']['M']}m` in-Flow):** {'; '.join(pf['mental']) or 'not yet specified'}",
-        f"- **Physical (`{stats['tp']['P']}m` in-Flow + Evening Course):** {phys_list or 'not yet specified'}",
-        f"- **Regeneration (`{stats['tp']['R']}m` breaks · `0 XP`):** {'; '.join(pf['regeneration']) or 'not yet specified'}",
-    ]
+    if not prov_rows and residuals.get("provenance_ledger"):
+        prov_rows = [
+            f"| `[{p['tag']}]` | `{p['ref']}` — {p['label']} | `{p['freshness']}` |"
+            for p in residuals["provenance_ledger"][:5]
+        ]
 
-    handoff_yaml = "\n".join(_dump_yaml_lines({"presentation_handoff": handoff}))
-    cockpit_ref = handoff["cockpit_html_ref"].replace("\\", "/")
+    op_tag = "[OP-ONLINE]" if meta.get("op_status") == "ONLINE" else "[OP-OFFLINE]"
+    conf_str = _truncate(residuals.get("confidence", "—"), 110)
+    assump_str = _truncate(residuals.get("assumptions", "—"), 110)
+    telemetry_line = f"> **Telemetry & Ledger:** OpenProject uses `{op_tag}` (`{meta.get('op_status', 'OFFLINE')}`). Confidence: {conf_str}. Assumptions: {assump_str}."
+
+    # --- Header & Links ---
+    cockpit_ref = handoff.get("cockpit_html_ref", "").replace("\\", "/")
     brief_dir = posixpath.dirname(handoff.get("brief_okf_ref", "").replace("\\", "/"))
-    cockpit_rel = posixpath.relpath(cockpit_ref, brief_dir) if brief_dir else posixpath.basename(cockpit_ref)
-    cockpit_name = posixpath.basename(cockpit_ref)
-    op_tag = "[OP-ONLINE]" if meta["op_status"] == "ONLINE" else "[OP-OFFLINE]"
-    op_state_line = f"OpenProject status uses `{op_tag}` (`{meta['op_status']}`); see Deferrals and 1-hop ledger below."
+    cockpit_rel = posixpath.relpath(cockpit_ref, brief_dir) if brief_dir and cockpit_ref else (posixpath.basename(cockpit_ref) or "precap-week-cockpit.html")
+    cockpit_name = posixpath.basename(cockpit_ref) or "Interactive Cockpit"
+
+    brief_basename = posixpath.basename(handoff.get("brief_okf_ref", ""))
+    handoff_basename = (
+        brief_basename.replace("-weekly-command-brief.okf.md", "-handoff.json")
+        if "-weekly-command-brief.okf.md" in brief_basename
+        else f"w{meta['week_id'].split('-W')[-1]}-reference-handoff.json"
+    )
+    handoff_rel_link = f"./{handoff_basename}"
+
+    direction_bluf = _slim_bluf(meta.get("direction_summary", ""), max_words=25)
+    next_action_str = meta.get("next_action", "—").strip()
+    review_needed_str = meta.get("review_needed", "—").strip()
 
     lines = [
         "---",
@@ -1038,40 +1199,36 @@ def render_okf_brief(cockpit: dict, stats: dict) -> str:
         f"id: PRECAP-WEEK-BRIEF-{meta['week_id']}",
         f'title: "Weekly Command Brief — {meta["week_id"]} ({meta["date_span_label"]})"',
         f'description: "OKF v0.2 executive weekly brief for {meta["week_id"]} compiling Stage 1A intake, 6 Portfolio Areas, Mon-Sun blueprint clock, T2 dispersal totals, and PrecapNextDay handoff."',
-        f"status: {'current' if handoff['operator_g1_status'] == 'APPROVED' else 'draft'}",
+        f"status: {'current' if handoff.get('operator_g1_status') == 'APPROVED' else 'draft'}",
         f"date: {today_str}",
         "tags: [weekly-orchestration, precap-week, command-brief, okf-v02]",
         "---",
         "",
         f"# Weekly Command Brief — {meta['week_id']} ({meta['date_span_label']})",
         "",
-        f"> **Result state:** `{handoff['result_state']}` · **G1 gate:** `{handoff['operator_g1_status']}`  ",
-        f"> **Direction:** {meta['direction_summary']}  ",
-        f"> **Next action:** `{meta['next_action']}`  ",
-        f"> **Review needed:** {meta['review_needed']}  ",
+        f"> **Result state:** `{handoff.get('result_state', 'UNKNOWN')}` · **G1 gate:** `{handoff.get('operator_g1_status', 'DRAFT')}`  ",
+        f"> **Direction:** {direction_bluf}  ",
+        f"> **Next action:** `{next_action_str}`  ",
+        f"> **Review needed:** {review_needed_str}  ",
         f"> **Interactive Cockpit (`v0.5`):** [{cockpit_name}]({cockpit_rel})",
         "",
         "## 00 · Portfolio Compass (`T1 / T2` Grounded)",
         "",
-        "Capacity and sprint metrics derive directly from the weekly blueprint and allocation JSON.",
-        "",
         "| Metric | Value | Source Basis |",
         "|---|---|---|",
-        f"| **Net Craft Capacity (`T1`)** | `{stats['net_craft_hours']}h / {stats['craft_hours']}h C` (`{stats['gross_hours']}h` gross) | `{stats['total_flows']}` Flows (`{stats['recap_min']}m` trailing recap inside `{stats['non_craft_hours']}h` P/M/R) `[src: CLK]` |",
+        f"| **Net Craft Capacity (`T1`)** | `{stats['net_craft_hours']}h / {stats['craft_hours']}h C` (`{stats['gross_hours']}h` gross) | `{stats['total_flows']}` Flows (`{stats['recap_min']}m` recap inside `{stats['non_craft_hours']}h` P/M/R) `[src: CLK]` |",
         f"| **Weekly Flows (`Mon–Sun`)** | `{stats['total_flows']}` (`{stats['wkd_flows']}` Wkd / `{stats['wknd_flows']}` Wknd) | Weekday `08:00–24:00` + Weekend `12:00–16:00` `[src: CLK]` |",
-        f"| **3x3 Craft Sprints (`C1–C3`)** | `{stats['craft_slots']}` sprints (`{stats['total_slots']}` slot_ids) | `3 × 30m` Craft per Flow + `DD-22A` P/M/R bands `[src: DSP]` |",
+        f"| **3x3 Craft Sprints (`C1–C3`)** | `{stats['craft_slots']}` sprints (`{stats['total_slots']}` slots) | `3 × 30m` Craft per Flow + `DD-22A` bands `[src: DSP]` |",
         f"| **6 Portfolio Areas** | `6 Areas · {l1_total} L1 · {l2_total} L2` | Canonical `06-PORTFOLIO` standard `[src: OP]` |",
-        f"| **G1 Readiness & Overrides** | `{handoff['operator_g1_status']}` (`{ov_count}` overrides) | OP: `{meta['op_status']}` · Cal: `{meta['calendar_status']}` `[src: INT]` |",
+        f"| **G1 Readiness & Overrides** | `{handoff.get('operator_g1_status', 'DRAFT')}` (`{ov_count}` overrides) | OP: `{meta.get('op_status', 'OFFLINE')}` · Cal: `{meta.get('calendar_status', 'ONLINE')}` `[src: INT]` |",
         "",
         "## 01 · Operator Decisions (`New` & `Ongoing` · `G1`)",
         "",
-        "Standard clock windows live solely in `02-weekly-dispersal/week-blueprint.json`.",
-        "",
-        *dec_lines,
+        "| ID | Bucket | Decision / Policy | Override Delta | Gate | Src |",
+        "|---|---|---|---|---|---|",
+        *dec_rows,
         "",
         "## 02 · Matrix 1 Overview (`6 Portfolio Areas`)",
-        "",
-        "Full `G|I|P|S|O|C` fields and `Tasks -> Subtasks` open interactively in the HTML Cockpit.",
         "",
         "| Rank | Portfolio Area | `L1` Priority Outcomes (`WP` Ref) | `L2` Nice | Cross-Repo Edges |",
         "|---|---|---|---|---|",
@@ -1079,17 +1236,15 @@ def render_okf_brief(cockpit: dict, stats: dict) -> str:
         "",
         "## 03 · Matrix 2 Calendar Collisions & Personal Focus",
         "",
-        "The full `Mon–Sun` hourly timetable lives inside Section `03` of the HTML Cockpit.",
-        "",
         "| Date | Event | Window | Policy | Capacity Delta |",
         "|---|---|---|---|---|",
         *cal_rows,
         "",
-        *focus_lines,
+        "| Dimension | In-Flow Budget | Focus & Protocols |",
+        "|---|---|---|",
+        *pf_rows,
         "",
         "## 04 · Residual Information & 1-Hop Provenance",
-        "",
-        op_state_line,
         "",
         "| `WP` Ref | Deferred Item | Reason | Revisit Trigger |",
         "|---|---|---|---|",
@@ -1099,24 +1254,29 @@ def render_okf_brief(cockpit: dict, stats: dict) -> str:
         "|---|---|---|",
         *prov_rows,
         "",
-        f"- **Confidence:** {residuals['confidence']}",
-        f"- **Assumptions:** {residuals['assumptions']}",
+        telemetry_line,
         "",
         "## 05 · Sequencing Orientation (`T2` Allocation)",
         "",
-        f"All `240` slot occurrences are bound dynamically by `allocate_week.py` (`DD-16`: zero BP floor).",
+        "| Metric | Allocation Value |",
+        "|---|---|",
+        f"| **Projected Yield (`[src: DSP]`)** | `{stats['total_flow_tp_min']:,}m` TP (`2,808m` slots + `72m` recap) · `{stats['total_projected_xp']:,.1f}` XP (`C {stats['xp']['C']:,.1f}`, `M {stats['xp']['M']:.2f}`, `P {stats['xp']['P']:.2f}`, `R 0.0`) · `BP {stats['bp']['total_bp']:.1f}` (`50/25/25`) |",
+        f"| **Gaussian Focus Coupling** | `σ = 6.0h` centered on `19:00` (`w_max = 1.5x`, zero Fri→Sat bleed) |",
         "",
-        f"- **Projected Yield (`[src: DSP]`):** `{stats['total_flow_tp_min']:,}m` TP (`2,808m` slots + `72m` recap) · `{stats['total_projected_xp']:,.1f}` XP (`C {stats['xp']['C']:,.1f}`, `M {stats['xp']['M']:.2f}`, `P {stats['xp']['P']:.2f}`, `R 0.0`) · `BP {stats['bp']['total_bp']:.1f}` (`50/25/25`).",
-        f"- **Gaussian Focus Coupling:** `σ = 6.0h` centered on `19:00` (`w_max = 1.5x`, zero Fri→Sat bleed).",
+        "## Downstream Handoff (`PrecapWeek -> PrecapNextDay`)",
         "",
-        "## Compact Downstream Handoff (`PrecapWeek -> PrecapNextDay`)",
+        f"> Machine handoff packet: [`fixtures/{handoff_basename}`]({handoff_rel_link}) (`{handoff.get('schema_version', 'PRECAP-WEEK-HANDOFF-v2.1')}`).",
         "",
-        "```yaml",
-        handoff_yaml,
-        "```",
-        "",
+        "| Packet ID | Week | Target Consumer | Result State | G1 Status |",
+        "|---|---|---|---|---|",
+        f"| `{handoff.get('packet_id', '—')}` | `{handoff.get('week', meta['week_id'])}` | `{handoff.get('next_consumer', 'PrecapNextDay')}` | `{handoff.get('result_state', '—')}` | `{handoff.get('operator_g1_status', '—')}` |",
     ]
     return "\n".join(lines)
+
+
+# ==============================================================================
+# SECTION 5: CLI ORCHESTRATION & COMPILATION ENTRYPOINT
+# ==============================================================================
 
 
 def main() -> int:

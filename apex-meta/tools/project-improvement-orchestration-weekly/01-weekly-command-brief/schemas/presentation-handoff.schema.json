@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://apexai-os-meta/schemas/presentation-handoff.schema.json",
   "title": "PrecapWeek Presentation Handoff (Single Downstream Contract)",
-  "description": "Sole machine-readable handoff emitted by PrecapWeek for PrecapNextDay. Owned centrally here so SPEC-PRECAP-WEEK-ITERATIONS.okf.md, PrecapWeek, and PrecapNextDay share identical field names and enums.",
+  "description": "Sole machine-readable handoff emitted by PrecapWeek for PrecapNextDay. Owned centrally here so SPEC-PRECAP-INTERFACES-HANDOFF.okf.md, PrecapWeek, and PrecapNextDay share identical field names and enums.",
   "type": "object",
   "additionalProperties": false,
   "required": [

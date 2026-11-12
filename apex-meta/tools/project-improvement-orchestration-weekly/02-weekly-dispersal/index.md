@@ -46,5 +46,5 @@ Next in product build: the slot-filling allocator (`T2`), Personal Epic JSON dat
 ## Related
 
 - Weekly Orchestration Ledger: `apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/DECISIONS.md`
-- Precap Week specification: `apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-PRECAP-WEEK-ITERATIONS.okf.md`
+- Precap Week specification: `apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-PRECAP-WEEK-MASTER.okf.md`
 - Sequencing decisions: [`../decisions.md`](../decisions.md) — open choice `N05`

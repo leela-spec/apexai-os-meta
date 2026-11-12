@@ -15,7 +15,10 @@ This bundle holds the **one authoritative home** for each Precap Week concern: U
 
 | File | Role | Description |
 |---|---|---|
-| [`SPEC-PRECAP-WEEK-ITERATIONS.okf.md`](SPEC-PRECAP-WEEK-ITERATIONS.okf.md) | **Specification** | Single canonical UI & domain spec (`00..05`, 6 Portfolios, `EM-13` `G\|I\|P\|S\|O\|C`, OP `## Heading` & epistemology, `<920px` non-`rowspan`, `T1/T2`). |
+| [`SPEC-PRECAP-WEEK-MASTER.okf.md`](SPEC-PRECAP-WEEK-MASTER.okf.md) | **Master Specification** | Master PrecapWeek architecture specification governing 6-Portfolio standard, Section 00/01, lifecycle, and capacity math. |
+| [`SPEC-MATRIX-1-PORTFOLIOS.okf.md`](SPEC-MATRIX-1-PORTFOLIOS.okf.md) | **Modular Specification** | Dedicated non-temporal portfolio specification governing goals, L1/L2 layout, and unified EM-13 `G\|I\|P\|S\|O\|C` drawers. |
+| [`SPEC-MATRIX-2-TEMPORAL-TIMETABLE.okf.md`](SPEC-MATRIX-2-TEMPORAL-TIMETABLE.okf.md) | **Modular Specification** | Dedicated temporal timetable specification governing Monday–Sunday schedule, blueprint clock, and Personal Focus Strip. |
+| [`SPEC-PRECAP-INTERFACES-HANDOFF.okf.md`](SPEC-PRECAP-INTERFACES-HANDOFF.okf.md) | **Modular Specification** | Dedicated interfaces specification governing machine schemas, Section 04 Residuals, and PrecapNextDay handoff. |
 | [`render_precap_cockpit.py`](render_precap_cockpit.py) | **Compiler & Validator** | Validating Python compiler (`stdlib`-only) emitting the `v0.5` HTML Cockpit, OKF v0.2 Brief (`D1–D12`), and handoff JSON from `schemas/` + `02-weekly-dispersal/`. |
 | [`schemas/operator-weekly-command-brief.schema.json`](schemas/operator-weekly-command-brief.schema.json) | **Schema (Stage 1A)** | Draft 2020-12 schema for lightweight Stage 1A Operator Weekly Command Brief intake. |
 | [`schemas/precap-week-cockpit.schema.json`](schemas/precap-week-cockpit.schema.json) | **Schema (Stage 1B)** | Draft 2020-12 schema for compiled 6-Portfolio Matrix 1/2 Cockpit payloads. |

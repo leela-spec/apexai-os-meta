@@ -7,7 +7,7 @@ flow template. Edit the constants here, re-run, commit both files.
 Grounding:
   Flow template         qmd #1a447e:47-57  (branch/label/minutes/lp_role arrays)
   3x3 = slots x iters   qmd #46ebe0:17-27, 48-49
-  Weekday flow spans    SPEC-PRECAP-WEEK-ITERATIONS.okf.md (live Matrix 2)
+  Weekday flow spans    SPEC-MATRIX-2-TEMPORAL-TIMETABLE.okf.md (live Matrix 2)
   Operator minutes      OD-29  (M 3, P 2, C 30 standard, recap 1, break 12)
   Weekend flow count    OD-33  (two flows)
   Weekday re-cut        OD-45..OD-48  (declared 2026-11-09, DD-32/DD-33 closed)

@@ -9,242 +9,30 @@ tags: [weekly-orchestration, decisions, governance, informatics, v1.0-ultra]
 
 # Durable Decisions — Weekly Orchestration Architecture
 
-## D001 [P0 | I95/E20/R10] — Production Weekly Orchestrator remains the canonical runtime control plane
-
-**Status:** locked
-
-**Decision:** Do not create a second permanent runtime orchestrator. The improvement project's Master Orchestrator repairs and verifies the existing production Weekly Orchestrator.
-
-**Rationale:** A second control plane would duplicate lifecycle/authority knowledge and increase drift risk.
-
-**Scope:** whole project
-
-**Source:** operator, 2026-08-17
-
----
-
-## D002 [P1 | I85/E15/R05] — Create a durable project-improvement coordination home
-
-**Status:** locked
-
-**Decision:** Maintain this folder as the token/context-resilient home for the redesign project so the Master can recover orientation across long/fresh chats.
-
-**Rationale:** Conversational context alone is too fragile for a multi-module architecture repair.
-
-**Scope:** improvement process only
-
-**Source:** operator, 2026-08-17
-
----
-
-## D003 — Repair global orchestration before detailed output modules
-
-**Status:** locked
-
-**Decision:** Module 00 audits and repairs the whole Weekly Orchestration lifecycle first. Detailed output modules follow bounded handovers.
-
-**Rationale:** Current evidence indicates the central loop itself contains stale or over-specified assumptions; module-only fixes would inherit them.
-
-**Scope:** module sequence
-
-**Source:** operator + repository review, 2026-08-17
-
----
-
-## D004 — Master verifies every module against the whole infrastructure
-
-**Status:** locked
-
-**Decision:** Completed module work returns to the Master. The Master independently inspects actual production changes and verifies cross-system compatibility before testing.
-
-**Scope:** every module
-
-**Source:** operator, 2026-08-17
-
----
-
-## D005 — Integrate first, then test fresh
-
-**Status:** locked
-
-**Decision:** Module design is integrated into actual production skill/agent/template files before testing. Testing then occurs in a fresh context against existing W34/example data.
-
-**Rationale:** Isolated mock examples do not prove the production path is encoded correctly; same-chat testing can benefit from hidden design context.
-
-**Scope:** every module
-
-**Source:** operator, 2026-08-17
-
----
-
-## D006 — Repeatability means bounded AI judgment, not identical prose
-
-**Status:** locked
-
-**Decision:** Process, ownership, inputs, transactions, persistence and gates should be contract-bound/repeatable. AI judgment remains valid for planning, synthesis, prioritization, prompt generation and interpretation where the task is inherently semantic.
-
-**Scope:** architecture
-
-**Source:** operator, 2026-08-17
-
----
-
-## D007 — Preserve superseded architecture in history/archive
-
-**Status:** locked
-
-**Decision:** When active architecture is replaced, move obsolete material to an explicit archive/history location instead of deleting it outright or leaving it active beside the replacement.
-
-**Rationale:** Prior designs can later prove useful, but active ambiguity must be removed.
-
-**Scope:** repository maintenance
-
-**Source:** operator, 2026-08-17
-
----
-
-## D008 — Human-facing output design already recovered is starting design authority
-
-**Status:** locked unless operator changes it during module design
-
-**Decision:** Human-first, result-card-first, progressive disclosure, minimum machine payload, no duplicate surfaces, readable flow cards and real prompt files are established starting intent. The project should wire/refine them, not rediscover them from zero.
-
-**Scope:** output modules
-
-**Source:** recovered operator-verified design + operator confirmation, 2026-08-17
-
----
-
-## D009 — No presumption that Sync, ProjectStatus, gates or universal envelopes are necessary
-
-**Status:** locked as evaluation rule
-
-**Decision:** These components may remain only when Module 00 demonstrates concrete current value and a named consumer. Existing presence is not sufficient justification.
-
-**Scope:** orchestration spine
-
-**Source:** operator review, 2026-08-17
-
----
-
-## D010 — Research skill/agent composition before changing topology
-
-**Status:** locked process rule
-
-**Decision:** Module 00 must run `00-orchestration-spine/01-ARCHITECTURE-RESEARCH-PROMPT.md` before reorganizing or retaining the current skill/agent topology by assumption.
-
-**Rationale:** Claude Code natively supports both Skills and Subagents, but native support does not prove that each current wrapper agent creates enough value to justify its context/instruction layer. The architecture must be selected from actual APEX requirements and current official Claude behavior.
-
-**Scope:** orchestration spine architecture
-
-**Source:** operator feedback + architecture review, 2026-08-17
-
----
-
-## D011 — Runtime activation requires entrypoint/contract behavior, not template presence
-
-**Status:** locked evaluation rule
-
-**Decision:** A promoted template is not considered integrated until the active production entrypoint and runtime path require/use the intended behavior and a fresh invocation can produce it without design-chat memory.
-
-**Rationale:** Previous activation validation reported promoted templates and passing fixtures while changing zero contracts, zero entrypoints and zero runtime behavior; current stage skills still encode the stale schema-first path.
-
-**Scope:** all output modules
-
-**Source:** repository evidence + operator direction, 2026-08-17
-
----
-
-## Open architecture question O001 — Skill/agent physical organization
-
-**Status:** resolved — see D012
-
-Current official Claude Code architecture treats Skills and Subagents as distinct composable primitives: Skills provide reusable instructions/workflows; Subagents provide isolated workers with separate context and may preload Skills. The unresolved APEX question was **not** whether this composition is supported, but whether each current custom weekly stage agent delivers enough isolation, permissions, model specialization, parallelism or reusable worker value to justify the extra layer.
-
-Resolved using `00-orchestration-spine/01-ARCHITECTURE-RESEARCH-PROMPT.md`. Accepted topology recorded in D012.
-
----
-
-## D012 — O001 resolved: skill-owned, selectively-forked weekly runtime topology
-
-**Status:** locked
-
-**Decision:** Accept the researched topology as final for Module 00. Six weekly stage components become directly-executable Skills invoked with isolated `context: fork` from the central `weekly-orchestrator`, replacing their wrapper agents. Two blind reviewer agents are retained as independent Subagents because their isolation/blind-review value is functional, not incidental. `apex-session` and `apex-sync` remain the durable-mutation and deterministic-read-side backbone. `PromptEngineer`, `AIRouting`, and `model-usage-log` are loaded only on demand, never preloaded by default.
-
-```okf
-O001_resolution:
-  status: accepted
-
-  composition:
-    main_session:
-      - weekly-orchestrator
-
-    forked_stage_skills:
-      - PrecapWeek
-      - PrecapNextDay
-      - raw-flow-dump-normalize_when_needed
-      - flow-recap_per_flow
-      - status-merge_per_batch
-      - ProjectStatus_when_requested
-
-    retained_custom_agents:
-      - apex-review-validity
-      - apex-review-alignment
-
-    direct_backbone:
-      - apex-session
-      - apex-sync
-
-    on_demand_dependencies:
-      - PromptEngineer
-      - AIRouting
-      - model-usage-log
-
-  removed_from_active_runtime:
-    - apex-precap-week
-    - apex-precap-next-day
-    - apex-evidence-normalize
-    - apex-flow-recap
-    - apex-status-merge
-    - apex-project-status
-```
-
-**Rationale:** The six wrapper agents added an instruction/context layer without unique isolation, permission, model-specialization, or parallelism value beyond what `context: fork` on the owning Skill already provides. The two review agents are kept because their functional value (blind, independent, read-only judgment) depends specifically on being separate Subagents that never see producer rationale or each other's verdict.
-
-**Scope:** orchestration spine architecture (Module 00 topology)
-
-**Source:** architecture research (`01-ARCHITECTURE-RESEARCH-PROMPT.md` result) + operator acceptance, 2026-08-17
-
----
-
-## D013 — Module 00 closed: forked-skill topology implemented and fresh-context verified
-
-**Status:** locked
-
-**Decision:** D012's topology is now live in production, not just decided. All twelve phases of `05-TARGET-STRUCTURE-IMPLEMENTATION-PLAN.md` are complete: central routing rewritten, all six stage Skills converted to self-contained fork workers, production routing switched and smoke-tested, `handoff-schema.md` simplified via per-field consumer audit, the authority/persistence map added, the six wrapper agents archived, role-doctrine loading cleaned up, static topology verification passed, and a fresh-context integration test (two independent subagents with no memory of this migration, given only a normal operator trigger and real repo state) passed without requiring any production fix. Full phase-by-phase provenance is in git history and `CURRENT-STATE.md`'s "Full phase record."
-
-**Rationale:** D011 requires that runtime activation be proven by entrypoint/contract behavior a fresh invocation can produce without design-chat memory — the fresh-context test is that proof, not a promise of it.
-
-**Scope:** Module 00 (`00-orchestration-spine`) only. Modules 01-08 (detailed output-artifact refinement) are separately scoped and not started.
-
-**Source:** implementation + fresh-context verification, 2026-08-17
-
----
-
-## Open question O002 — Is `workflow-process-design` an on-demand dependency of the accepted topology?
-
-**Status:** unresolved; found during the post-Module-00 repair pass, 2026-08-18
-
-D012's `on_demand_dependencies` lists `PromptEngineer`, `AIRouting`, and `model-usage-log` only. It omits the `Workflow&Processes` skill (frontmatter `name: workflow-process-design`) — yet `PrecapNextDay/SKILL.md` declares an explicit `workflow_process_unavailable` failure mode for exactly this dependency, and `PrecapNextDay/references/workflow-process-validation-contract.md` names it as an `authoritative_files` source.
-
-Two readings, not resolved here:
-
-- `workflow-process-design` is a real fourth on-demand dependency and D012 needs amending to include it.
-- `PrecapNextDay`'s failure mode and contract reference are themselves dead/aspirational content, and nothing actually depends on this skill in the live weekly loop.
-
-**Scope:** orchestration spine architecture (Module 00 topology) — an amendment here would touch D012 directly, so this is recorded as a question rather than silently resolved either way.
-
-**Source:** post-Module-00 repair-pass verification, 2026-08-18
+## Module 00 Locked Decisions Summary (`D001–D013`)
+
+> **Archived Verbatim:** Full verbatim text of `D001` through `D013`, `O001`, and `O002` is preserved at [`apex-meta/archive/weekly-orchestration/topology-pre-forked-skills-2026-08/MODULE-00-DECISIONS-VERBATIM.md`](../../archive/weekly-orchestration/topology-pre-forked-skills-2026-08/MODULE-00-DECISIONS-VERBATIM.md).
+
+| Decision | Status | Scope | Summary / Rationale |
+|---|---|---|---|
+| **D001** Production Weekly Orchestrator canonical control plane | locked | whole project | Do not create a second permanent runtime orchestrator; master repairs existing weekly-orchestrator. |
+| **D002** Durable project-improvement coordination home | locked | improvement process | Maintain coordination folder as context-resilient home across long chats. |
+| **D003** Repair global orchestration before detailed output modules | locked | module sequence | Module 00 audits/repairs central lifecycle first; detailed output modules follow. |
+| **D004** Master verifies every module against whole infrastructure | locked | every module | Completed module work returns to Master for independent whole-system verification. |
+| **D005** Integrate first, then test fresh | locked | every module | Integrate changes into production files before fresh-context testing on real W34 fixtures. |
+| **D006** Repeatability means bounded AI judgment | locked | architecture | Ownership, transactions, and gates are contract-bound; AI judgment reserved for semantic synthesis. |
+| **D007** Preserve superseded architecture in history/archive | locked | repo maintenance | Move obsolete material to explicit archive/history paths; eliminate active ambiguity. |
+| **D008** Human-facing output design starting authority | locked | output modules | Human-first, result-card-first, progressive disclosure, zero duplicate surfaces. |
+| **D009** No presumption of necessity | locked | orchestration spine | Components remain only with proven current value and named consumer. |
+| **D010** Research skill/agent composition before changing topology | locked | orchestration spine | Empirical research prompt (01-ARCHITECTURE-RESEARCH-PROMPT.md) before topology change. |
+| **D011** Runtime activation requires entrypoint/contract behavior | locked | output modules | Proven by active entrypoint behavior and fresh-context execution, not template presence. |
+| **D012** Skill-owned, selectively-forked weekly runtime topology | locked | orchestration spine | 6 stage components become fork workers; 2 blind reviewers retained; apex-session/sync backbone. |
+| **D013** Module 00 closed: forked-skill topology verified | locked | Module 00 | All 12 phases complete and fresh-context verified without production defects. |
+
+### Closed Questions (`O001`, `O002`)
+
+- **O001 (Skill/Agent physical topology):** CLOSED — Resolved by D012 (`context: fork` on Skills replacing 6 wrapper agents).
+- **O002 (`workflow-process-design` dependency):** CLOSED — Confirmed non-blocking/dead dependency; live on-demand dependencies remain PromptEngineer, AIRouting, model-usage-log per D012.
 
 ---
 
@@ -292,7 +80,7 @@ Two readings, not resolved here:
 
 ## D017 — M06=A superseded: Monday–Sunday planning with weekday/weekend regimes
 
-**Status:** superseded by Monday–Sunday amendment (2026-11-09) and canonical clock lock (2026-11-10).
+**Status:** superseded by D018 / D020 / Monday–Sunday canonical clock lock (`week-blueprint.json`).
 
 **Decision:** Weekly orchestration plans **Monday through Sunday** (both Saturday and Sunday active). Monday–Friday run the weekday regime (`08:00–24:00`, `4 × 120m` Flows); Saturday and Sunday run the weekend regime (`12:00–16:00`, `2 × 120m` Flows). Weekly Precap and `StatusMerge` run on Saturday or Sunday (`A-12` closed).
 
@@ -332,7 +120,7 @@ Two readings, not resolved here:
 
 **Decision:**
 1. **6-Portfolio Standard (`02-PORTFOLIO-COMPASS`):** Portfolio-level views, Matrix 1 grouping, and Craft (`C`) Epics use the 6 canonical Portfolio Areas: **`Leela`** (`OP #10`), **`IPOS`** (`OP #16`), **`Master of Arts`** (`OP #14`), **`Apex AI`** (`OP #8`), **`Mindful Bar`** (`OP null`), and **`Residual`** (`OP null`).
-2. **Unified `EM-13` (`G|I|P|S|O|C`):** Matrix 1 UI cards remain `L1 / L2` (no `L3` cubes), while expanded `Goal` and `Output` cells decompose into `Tasks -> Subtasks` with short drafts/examples (`Goal.acceptance`, `Input.exclusions`, `Output.redraft`). Cross-repo dependencies render inline via Option B `🔗 Cross-Repo:` clickable pills (`SPEC-PRECAP-WEEK-ITERATIONS.okf.md` §5.2).
+2. **Unified `EM-13` (`G|I|P|S|O|C`):** Matrix 1 UI cards remain `L1 / L2` (no `L3` cubes), while expanded `Goal` and `Output` cells decompose into `Tasks -> Subtasks` with short drafts/examples (`Goal.acceptance`, `Input.exclusions`, `Output.redraft`). Cross-repo dependencies render inline via Option B `🔗 Cross-Repo:` clickable pills (`SPEC-MATRIX-1-PORTFOLIOS.okf.md` §5).
 3. **`T2` Dispersal & Section `05` (`SEQ-D1..D4`):** `MasterOfArts/Sequencing/dispersal/` (mirrored to `02-weekly-dispersal/`) owns `EPICS-SCHEMA.md`, `epics.json`, `ALGORITHM.md`, `week-demand.json`, `build_slot_inventory.py`, and `allocate_week.py` (`week-allocation.json`). Evening physical courses (`18:30–19:30`) drive Gaussian coupling (`σ = 6.0h`, `19:00` midpoint, `w_max = 1.5x`, no Fri→Sat bleed); `R` rotates via weighted round-robin (`XP = 0`, `DD-16` no numeric BP floor).
 4. **Calendar Boundary (`Q10`):** `PrecapWeek` is strictly read-only for Google Calendar; gated `[FLOW]` event creation belongs exclusively to `PrecapNextDay` (`02-next-day-brief/HANDOVER-GOOGLE-CALENDAR-FLOW-EVENTS.md`).
 
@@ -347,7 +135,7 @@ Two readings, not resolved here:
 **Status:** locked and implemented (2026-11-11).
 
 **Decision:**
-1. **One Home Per Rule:** Consolidated all valid Precap Week UI/domain rules into [`01-weekly-command-brief/SPEC-PRECAP-WEEK-ITERATIONS.okf.md`](01-weekly-command-brief/SPEC-PRECAP-WEEK-ITERATIONS.okf.md), clock windows into [`02-weekly-dispersal/week-blueprint.json`](02-weekly-dispersal/week-blueprint.json), calendar deformation into [`.claude/skills/PrecapWeek/calendar-planning-guidance.md`](../../../.claude/skills/PrecapWeek/calendar-planning-guidance.md), and eliminated `16` redundant handover/blueprint/manifest files (`HANDOVER-02..06`, `precap-week-handovers/01..07`, `weekly-blueprint-standard.md`, `weekly-blueprint-meeting-example.md`, `package-manifest.md`, `01-weekly-command-brief/README.md`; preserved at pushed baseline SHA `ad10c483`).
+1. **One Home Per Rule:** Consolidated all valid Precap Week UI/domain rules into [`01-weekly-command-brief/SPEC-PRECAP-WEEK-MASTER.okf.md`](01-weekly-command-brief/SPEC-PRECAP-WEEK-MASTER.okf.md) and dedicated modular specifications ([`SPEC-MATRIX-1-PORTFOLIOS.okf.md`](01-weekly-command-brief/SPEC-MATRIX-1-PORTFOLIOS.okf.md), [`SPEC-MATRIX-2-TEMPORAL-TIMETABLE.okf.md`](01-weekly-command-brief/SPEC-MATRIX-2-TEMPORAL-TIMETABLE.okf.md), [`SPEC-PRECAP-INTERFACES-HANDOFF.okf.md`](01-weekly-command-brief/SPEC-PRECAP-INTERFACES-HANDOFF.okf.md)), clock windows into [`02-weekly-dispersal/week-blueprint.json`](02-weekly-dispersal/week-blueprint.json), calendar deformation into [`.claude/skills/PrecapWeek/calendar-planning-guidance.md`](../../../.claude/skills/PrecapWeek/calendar-planning-guidance.md), and eliminated `16` redundant handover/blueprint/manifest files (`HANDOVER-02..06`, `precap-week-handovers/01..07`, `weekly-blueprint-standard.md`, `weekly-blueprint-meeting-example.md`, `package-manifest.md`, `01-weekly-command-brief/README.md`; preserved at pushed baseline SHA `ad10c483`).
 2. **Machine-Readable Background & Compiler:** Added Draft 2020-12 JSON schemas in [`01-weekly-command-brief/schemas/`](01-weekly-command-brief/schemas/precap-week-cockpit.schema.json) and deterministic `stdlib`-only Python compiler [`render_precap_cockpit.py`](01-weekly-command-brief/render_precap_cockpit.py) generating both the preserved interactive `v0.5` HTML Cockpit and OKF v0.2 Weekly Command Briefs + `PrecapNextDay` handoff JSON.
 3. **Preserved Downstream Compatibility:** Retained `Weekly_Command_Brief` / `weekly_plan_packet` (`handoff_envelope`) and `presentation_handoff` contracts for `weekly-orchestrator` and `PrecapNextDay`.
 

@@ -45,6 +45,6 @@ Single YAML `presentation_handoff` block strictly validating against `schemas/pr
 
 ## Authority Boundaries
 
-- Cockpit rules & `G|I|P|S|O|C`: [`SPEC-PRECAP-WEEK-ITERATIONS.okf.md`](../../../apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-PRECAP-WEEK-ITERATIONS.okf.md)
+- Cockpit rules & `G|I|P|S|O|C`: [`SPEC-PRECAP-WEEK-MASTER.okf.md`](../../../apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-PRECAP-WEEK-MASTER.okf.md) and [`SPEC-MATRIX-1-PORTFOLIOS.okf.md`](../../../apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-MATRIX-1-PORTFOLIOS.okf.md)
 - Machine Handoff Contract: [`presentation-handoff.schema.json`](../../../apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/schemas/presentation-handoff.schema.json)
 - Option Framing Doctrine: [`meta-strategy-doctrine.md`](../weekly-orchestrator/references/roles/meta-strategy-doctrine.md)

@@ -46,8 +46,14 @@ Do not duplicate rules owned by the canonical specification or machine files bel
 
 ```yaml
 supporting_files:
-  - path: ../../../apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-PRECAP-WEEK-ITERATIONS.okf.md
+  - path: ../../../apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-PRECAP-WEEK-MASTER.okf.md
     read_when: [always_for_00_to_05_ux_spec, unified_em13_GIPSOC, op_epistemology, mobile_non_rowspan]
+  - path: ../../../apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-MATRIX-1-PORTFOLIOS.okf.md
+    read_when: [authoring_or_validating_matrix_1_goals_and_gipsoc]
+  - path: ../../../apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-MATRIX-2-TEMPORAL-TIMETABLE.okf.md
+    read_when: [authoring_or_validating_matrix_2_timetable_and_collisions]
+  - path: ../../../apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/SPEC-PRECAP-INTERFACES-HANDOFF.okf.md
+    read_when: [emitting_or_validating_schemas_residuals_and_handoff]
   - path: ../../../apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/render_precap_cockpit.py
     read_when: [compiling_html_cockpit_okf_brief_or_handoff, running_validate_only]
   - path: ../../../apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/schemas/operator-weekly-command-brief.schema.json
