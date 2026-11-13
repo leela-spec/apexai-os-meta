@@ -1,0 +1,890 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Platform capability evidence for proposed Apex design; not accepted installation state",
+  "claims": [
+    {
+      "claim_id": "P-CLA-01",
+      "source_ids": [
+        "EXT-CLAUDE-01"
+      ],
+      "statement": "CLAUDE.md ancestors concatenate at launch; descendant files load on file interaction. Importing a document loads its contents; prose asking to read it is discretionary.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Claude CLI",
+        "Claude local integrations"
+      ],
+      "version_condition": "Current opened docs",
+      "design_implication": "Keep a concise native entrypoint; distinguish imported context from linked references.",
+      "probe_ids": [
+        "PROBE-01"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-CLA-02",
+      "source_ids": [
+        "EXT-CLAUDE-01"
+      ],
+      "statement": "Native AGENTS.md starts in v2.1.277; default uses it only without ancestor/current CLAUDE.md or CLAUDE.local.md. Plugin option IDs changed at v2.1.285; pre-2.1.281 availability had exceptions. Native AGENTS loading does not fire InstructionsLoaded.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Claude CLI"
+      ],
+      "version_condition": ">=2.1.277, with 2.1.281/285 qualifications",
+      "design_implication": "A root AGENTS file does not prove Claude loaded it; retain an explicit import adapter until validated.",
+      "probe_ids": [
+        "PROBE-01"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-CLA-03",
+      "source_ids": [
+        "EXT-CLAUDE-02"
+      ],
+      "statement": "Skills use .claude/skills/<name>/SKILL.md or ~/.claude/skills/<name>/SKILL.md. Descriptions support model selection; slash invocation is explicit. disable-model-invocation suppresses autonomous invocation; user-invocable:false only hides the user command.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Claude CLI",
+        "Claude local integrations"
+      ],
+      "version_condition": "Current docs; probe installed frontmatter support",
+      "design_implication": "Select coherent procedures, not every reference; test invocation and source reading separately.",
+      "probe_ids": [
+        "PROBE-02"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-CLA-04",
+      "source_ids": [
+        "EXT-CLAUDE-02"
+      ],
+      "statement": "Invoked skill content persists, but allowed-tools grants expire at the next user message. Compaction reattaches up to 5,000 tokens per skill within 25,000 total, newest first; older skills can disappear.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Claude CLI"
+      ],
+      "version_condition": "Current documentation, no local test",
+      "design_implication": "Never treat a past invocation or tool allowance as durable task state; reload consequential constraints on recovery.",
+      "probe_ids": [
+        "PROBE-04"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-CLA-05",
+      "source_ids": [
+        "EXT-CLAUDE-03"
+      ],
+      "statement": "Hook settings have hooks[event] arrays with matchers and handlers. Prompt injection uses UserPromptSubmit additionalContext; SessionStart supports startup, resume, compact, clear, fork. PreToolUse uses tool_name/tool_input and permissionDecision in hookSpecificOutput.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Claude CLI"
+      ],
+      "version_condition": "Current docs; validate exact event availability",
+      "design_implication": "Use distinct event encoders; prompt hooks reach chat-only tasks without requiring file tools.",
+      "probe_ids": [
+        "PROBE-03",
+        "PROBE-05"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-CLA-06",
+      "source_ids": [
+        "EXT-CLAUDE-03"
+      ],
+      "statement": "Command exit 2 blocks only applicable events. Other failures usually continue; onFailure:block for command/http requires v2.1.295+. Match Bash and PowerShell. @ file attachments may bypass tool hooks.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Claude CLI"
+      ],
+      "version_condition": "onFailure >=2.1.295; attachment behavior varies",
+      "design_implication": "A read trace based only on tools is incomplete; cover failures and separate native permissions from hook checks.",
+      "probe_ids": [
+        "PROBE-05",
+        "PROBE-09"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-CLA-07",
+      "source_ids": [
+        "EXT-CLAUDE-04"
+      ],
+      "statement": "Custom agents use .claude/agents/*.md or ~/.claude/agents/*.md with required name/description. Explicit tools restrict access. Plugin agent hooks, mcpServers, permissionMode fields are ignored. Regular subagents start separately; forks inherit conversation.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Claude CLI"
+      ],
+      "version_condition": "Current docs; plugin and normal agents differ",
+      "design_implication": "Pass scoped evidence and rules explicitly; verifier role should use a read-only native tool allowlist.",
+      "probe_ids": [
+        "PROBE-06"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-CLA-08",
+      "source_ids": [
+        "EXT-CLAUDE-05"
+      ],
+      "statement": "Settings priority is managed, --settings, local project, shared project, user; list fields often merge. JSON must parse; headless sessions can skip invalid non-managed configuration and continue. SchemaStore may lag current CLI keys.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Claude CLI"
+      ],
+      "version_condition": "Per-key exceptions exist",
+      "design_implication": "Read loaded settings and run doctor; shape checks alone cannot prove a configuration applied.",
+      "probe_ids": [
+        "PROBE-07"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-CLA-09",
+      "source_ids": [
+        "EXT-CLAUDE-07"
+      ],
+      "statement": "The documented key is permissions.defaultMode. Current auto/bypassPermissions values are ignored in project/local settings; bypass accepted those scopes before v2.1.257. VS Code initiation reads user/managed/--settings values.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Claude CLI",
+        "Claude VS Code"
+      ],
+      "version_condition": "Scope change >=2.1.257",
+      "design_implication": "A repository top-level defaultMode:bypassPermissions is not evidence of effective bypass; preserve as observed text and probe runtime.",
+      "probe_ids": [
+        "PROBE-07"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-CLA-10",
+      "source_ids": [
+        "EXT-CLAUDE-06"
+      ],
+      "statement": "Permission rules are enforced by the host; prompt instructions do not change authority. Bare-tool denies remove tools, scoped denies block matches. Permission mode and tool preapproval are separate from tool availability.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Claude CLI"
+      ],
+      "version_condition": "Current docs",
+      "design_implication": "Do not use skill allowed-tools as a tool restriction or research evidence as execution authorization.",
+      "probe_ids": [
+        "PROBE-05",
+        "PROBE-07"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-CLA-11",
+      "source_ids": [
+        "EXT-CLAUDE-09"
+      ],
+      "statement": "Regular claude -p discovers normal customizations; --bare skips hooks, skills, agents, plugins, MCP, memory and CLAUDE.md auto-discovery, with explicit-load exceptions. Bare mode does not use subscription OAuth login.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Claude CLI headless"
+      ],
+      "version_condition": "Current docs; future -p default change mentioned but not assumed",
+      "design_implication": "Pin invocation mode; a scripted probe must verify discovery before interpreting adherence.",
+      "probe_ids": [
+        "PROBE-08"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-CLA-12",
+      "source_ids": [
+        "EXT-CLAUDE-05",
+        "EXT-CLAUDE-11"
+      ],
+      "statement": "Cloud project threads do not apply repository settings hooks/permissions/env. Single-repository cloud sessions outside project threads can read shared settings. Hosted multi-repository sessions differ; workstation user/local settings do not transfer.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Claude hosted cloud"
+      ],
+      "version_condition": "Surface and session topology conditional",
+      "design_implication": "Use a separate cloud capability record; never claim local hook coverage in hosted sessions.",
+      "probe_ids": [
+        "PROBE-10"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-CLA-13",
+      "source_ids": [
+        "EXT-CLAUDE-13"
+      ],
+      "statement": "Current Agent SDK defaults discover user/project skills. Explicit settingSources can disable that discovery; skills option controls model invocation. Init stream lists only user-invocable skills.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Claude Agent SDK Python",
+        "Claude Agent SDK TypeScript"
+      ],
+      "version_condition": "Current docs; older SDK advice may differ",
+      "design_implication": "Record SDK and CLI dependency versions; assert expected skills before running an evaluation.",
+      "probe_ids": [
+        "PROBE-08"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-CLA-14",
+      "source_ids": [
+        "EXT-CLAUDE-14",
+        "EXT-CLAUDE-12"
+      ],
+      "statement": "SDK callbacks are a distinct integration contract from shell-command JSON hooks, despite using the Claude agent loop.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Claude Agent SDK"
+      ],
+      "version_condition": "Package/version specific",
+      "design_implication": "Keep SDK a separate adapter profile; no new API harness is necessary for the proposed CLI-first design.",
+      "probe_ids": [
+        "PROBE-08"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-CLA-15",
+      "source_ids": [
+        "EXT-CLAUDE-08"
+      ],
+      "statement": "Latest release visible in the opened changelog is 2.1.322 dated 2026-11-10.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Claude Code"
+      ],
+      "version_condition": "Observed 2026-11-12; not a workstation version",
+      "design_implication": "Use feature-specific minima rather than assuming installed latest.",
+      "probe_ids": [
+        "PROBE-00"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-AG-01",
+      "source_ids": [
+        "EXT-AGY-02"
+      ],
+      "statement": "Antigravity discovers workspace folders and ancestors through repo root, not descendants when files are touched. Shared customization root is .agents/ or ~/.gemini/config/. Legacy folder aliases remain recognized.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Antigravity App",
+        "Antigravity CLI"
+      ],
+      "version_condition": "Current opened docs; search excerpt conflicts",
+      "design_implication": "Put scoped rules in discovered root and use globs or explicit routing; do not copy Claude descendant discovery assumptions.",
+      "probe_ids": [
+        "PROBE-01"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-AG-02",
+      "source_ids": [
+        "EXT-AGY-01"
+      ],
+      "statement": "AGENTS.md/GEMINI.md are always-on Markdown. Modular rules require trigger: always_on, model_decision, glob, or manual; invalid spellings can silently discard rules. CLI lacks manual rule @ mentions.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Antigravity App",
+        "Antigravity CLI",
+        "Antigravity IDE"
+      ],
+      "version_condition": "Current documentation",
+      "design_implication": "Validate frontmatter; manual rules require CLI fallback through a skill or explicit read.",
+      "probe_ids": [
+        "PROBE-01",
+        "PROBE-02"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-AG-03",
+      "source_ids": [
+        "EXT-AGY-01"
+      ],
+      "statement": "@[label](path) inlines content; @filename is a reference. Per-rule limit is 24,000 bytes after expansion; aggregate always-on/global budget is 20,000 tokens with pointer demotion.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Antigravity App",
+        "Antigravity CLI",
+        "Antigravity IDE"
+      ],
+      "version_condition": "Current docs, not a recommended target size",
+      "design_implication": "Avoid inlining the full registry or reference tree; content availability does not prove delivery.",
+      "probe_ids": [
+        "PROBE-04"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-AG-04",
+      "source_ids": [
+        "EXT-AGY-03"
+      ],
+      "statement": "Current skills are folders with SKILL.md. Workspace .agents/skills and global ~/.gemini/config/skills are shared; CLI additionally reads ~/.gemini/antigravity-cli/skills and ~/.gemini/skills. IDE supports legacy ~/.gemini/antigravity/skills.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Antigravity App",
+        "Antigravity CLI",
+        "Antigravity IDE"
+      ],
+      "version_condition": "Current docs; older CLI page conflicts",
+      "design_implication": "Use portable bundle shape and shared current roots, with explicit per-surface projections.",
+      "probe_ids": [
+        "PROBE-02"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-AG-05",
+      "source_ids": [
+        "EXT-AGY-03"
+      ],
+      "statement": "Skill names/descriptions are shown each turn; relevant bodies are read on demand. Slash commands are available; CLI /skills reload or a new conversation refreshes newly added commands.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Antigravity App",
+        "Antigravity CLI",
+        "Antigravity IDE"
+      ],
+      "version_condition": "Verify per-surface invocation UX",
+      "design_implication": "Do not infer semantic adherence from discovery or slash-command existence.",
+      "probe_ids": [
+        "PROBE-02",
+        "PROBE-04"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-AG-06",
+      "source_ids": [
+        "EXT-AGY-04"
+      ],
+      "statement": "Hooks use .agents/hooks.json or ~/.gemini/config/hooks.json, not CLI settings.json. Top-level keys name hooks. Events: SessionStart, PreToolUse, PostToolUse, PreInvocation, PostInvocation, Stop. Payloads use camelCase; timeout is seconds.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Antigravity App",
+        "Antigravity CLI",
+        "Antigravity IDE"
+      ],
+      "version_condition": "Current shared hooks page; local support unverified",
+      "design_implication": "Translate payloads; do not deploy Claude/Gemini hook JSON unchanged.",
+      "probe_ids": [
+        "PROBE-03",
+        "PROBE-05"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-AG-07",
+      "source_ids": [
+        "EXT-AGY-04"
+      ],
+      "statement": "PreToolUse reads toolCall.name/args and returns decision/reason. PreInvocation can inject ephemeralMessage through injectSteps. PostToolUse returns {}; PostInvocation can force_continue or terminate. No dedicated compaction event appears in this reference.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Antigravity App",
+        "Antigravity CLI",
+        "Antigravity IDE"
+      ],
+      "version_condition": "Current documented event set; absence is documentation scope only",
+      "design_implication": "Use idempotent pre-invocation recovery plus checkpoint file; cap continuation retries.",
+      "probe_ids": [
+        "PROBE-03",
+        "PROBE-04"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-AG-08",
+      "source_ids": [
+        "EXT-AGY-05"
+      ],
+      "statement": "Custom agents are documented for App/CLI: .agents/agents/<name>.md or <name>/agent.md, plus global ~/.gemini/config/agents. Fields include name, description, tools, mainAgent, subagent, model, skills. Misspelled tool names may hang.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Antigravity App",
+        "Antigravity CLI"
+      ],
+      "version_condition": "Standalone IDE parity not established by this page",
+      "design_implication": "Create separate native role files and validate exact tool names; do not deploy an IDE agent claim without a probe.",
+      "probe_ids": [
+        "PROBE-06"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-AG-09",
+      "source_ids": [
+        "EXT-AGY-05"
+      ],
+      "statement": "Normal subagents start without parent conversation history. Workspace modes may inherit/share or create worktrees.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Antigravity App",
+        "Antigravity CLI"
+      ],
+      "version_condition": "Current docs",
+      "design_implication": "Pass task envelope and explicit no-branch boundary; do not enable branch workspaces in a main-only run.",
+      "probe_ids": [
+        "PROBE-06"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-AG-10",
+      "source_ids": [
+        "EXT-AGY-06"
+      ],
+      "statement": "CLI permission lists live in ~/.gemini/antigravity-cli/settings.json, with deny > ask > allow. Workspace files are ordinarily allowed. Windows normalization and command matching differ from naive string matching.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Antigravity CLI"
+      ],
+      "version_condition": "Current docs; account/preset variations apply",
+      "design_implication": "Separate customization distribution from operator permission policy; test Windows paths and command coverage.",
+      "probe_ids": [
+        "PROBE-07",
+        "PROBE-09"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-AG-11",
+      "source_ids": [
+        "EXT-AGY-07"
+      ],
+      "statement": "Headless agy -p has JSON/streaming output. Unobtainable approval can soft-deny a tool while exiting 0. Unknown pinned model exits with error rather than silently selecting another.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Antigravity CLI headless"
+      ],
+      "version_condition": "Current docs",
+      "design_implication": "Require actual artifact and denial checks, not exit zero alone; pin surface and model.",
+      "probe_ids": [
+        "PROBE-08"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-AG-12",
+      "source_ids": [
+        "EXT-AGY-08"
+      ],
+      "statement": "Gemini migration changes extension packaging and workspace skill/MCP locations; Antigravity MCP uses standalone mcp_config.json with serverUrl for remote endpoints. Its broad identical-rules claim conflicts with current discovery details.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Antigravity CLI"
+      ],
+      "version_condition": "Migration not observed locally",
+      "design_implication": "Migrate deliberately by component with preimages; keep Gemini as a distinct compatibility profile.",
+      "probe_ids": [
+        "PROBE-11"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-AG-13",
+      "source_ids": [
+        "EXT-AGY-09",
+        "EXT-AGY-14"
+      ],
+      "statement": "Current migration guidance says workflows are deprecated but remain working for now. /migrate-workflows is App-only from 2.12.0; CLI/IDE use manual migration.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Antigravity App",
+        "Antigravity CLI",
+        "Antigravity IDE"
+      ],
+      "version_condition": "Earlier indexed cutoff claim not established by current canonical page",
+      "design_implication": "Propose workflow-to-skill mapping without asserting an outage or executing migration.",
+      "probe_ids": [
+        "PROBE-11"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-AG-14",
+      "source_ids": [
+        "EXT-AGY-11"
+      ],
+      "statement": "Opened changelog lists App 2.31.0 dated 2026-11-09 and CLI 1.5.5 dated 2026-11-10; rollouts are gradual.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Antigravity App",
+        "Antigravity CLI"
+      ],
+      "version_condition": "Observed 2026-11-12, no workstation inspection",
+      "design_implication": "A historical App 2.8.1 says nothing about present CLI version.",
+      "probe_ids": [
+        "PROBE-00"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-AG-15",
+      "source_ids": [
+        "EXT-AGY-12",
+        "EXT-AGY-13"
+      ],
+      "statement": "Antigravity SDK is a Python runtime distinct from the managed cloud API. It has decorator-based lifecycle hooks and session persistence.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Antigravity SDK Python",
+        "Antigravity managed cloud API"
+      ],
+      "version_condition": "Current docs; not installed",
+      "design_implication": "Do not claim hooks.json gives SDK/API parity; CLI-first plan needs no SDK adoption.",
+      "probe_ids": [
+        "PROBE-10"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-GEM-01",
+      "source_ids": [
+        "EXT-GEMINI-01"
+      ],
+      "statement": "Gemini CLI uses global, workspace and just-in-time GEMINI.md ancestry; /memory show exposes concatenated context and /memory reload refreshes it.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Gemini CLI"
+      ],
+      "version_condition": "Current docs",
+      "design_implication": "Do not confuse Gemini JIT behavior with current Antigravity root-only discovery.",
+      "probe_ids": [
+        "PROBE-01"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-GEM-02",
+      "source_ids": [
+        "EXT-GEMINI-02"
+      ],
+      "statement": "Gemini skills discover from built-in, extension, user, workspace tiers. .agents/skills aliases .gemini/skills. activate_skill requests consent and exposes bundled resources after approval.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Gemini CLI"
+      ],
+      "version_condition": "Current docs; effective consent depends on host policy",
+      "design_implication": "Shared package shape is plausible; activation authority and consent remain platform-specific.",
+      "probe_ids": [
+        "PROBE-02"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-GEM-03",
+      "source_ids": [
+        "EXT-GEMINI-03"
+      ],
+      "statement": "Gemini hooks are in settings.json under hooks[event]; command timeout is milliseconds. BeforeAgent adds per-turn context; AfterAgent can reject final responses and retry. PreCompress is available. Exit codes other than 0/2 continue with warnings.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Gemini CLI"
+      ],
+      "version_condition": "Current docs",
+      "design_implication": "Use dedicated encoding, preserve retry guard, and do not port Antigravity seconds as milliseconds.",
+      "probe_ids": [
+        "PROBE-03",
+        "PROBE-04",
+        "PROBE-05"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-GEM-04",
+      "source_ids": [
+        "EXT-GEMINI-04"
+      ],
+      "statement": "Gemini custom agents use .gemini/agents/*.md or ~/.gemini/agents/*.md. Markdown frontmatter supports tools/model/kind; omitted tools inherit parent access. Current docs say subagents are enabled by default.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Gemini CLI"
+      ],
+      "version_condition": "Page reports update 2026-06-08; version probe required",
+      "design_implication": "Explicit read-only tool lists for verifiers; no assumption from older experimental flag naming.",
+      "probe_ids": [
+        "PROBE-06"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-GEM-05",
+      "source_ids": [
+        "EXT-GEMINI-05"
+      ],
+      "statement": "Settings files include system-defaults, user, project and system override scopes; environment/CLI have additional precedence. hooksConfig.enabled and skills.enabled can disable mechanisms. Official repository publishes settings.schema.json.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Gemini CLI"
+      ],
+      "version_condition": "Current documented configuration",
+      "design_implication": "Record effective settings, trust and enabled state alongside file hashes.",
+      "probe_ids": [
+        "PROBE-00",
+        "PROBE-07"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-GEM-06",
+      "source_ids": [
+        "EXT-GEMINI-06"
+      ],
+      "statement": "Release notes include 0.64.0 atomic state persistence and recovery, 0.63.0 bounded tool output, and 0.59.0 fail-closed workspace trust. Latest visible announcement is not proof of installed or latest binary.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Gemini CLI"
+      ],
+      "version_condition": "Release dates through 2026-10-13 visible",
+      "design_implication": "Revalidate old resumption/trust assumptions on the actual version.",
+      "probe_ids": [
+        "PROBE-00",
+        "PROBE-04"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-OAI-01",
+      "source_ids": [
+        "EXT-OAI-03"
+      ],
+      "statement": "Codex builds guidance at launch: global override or AGENTS.md, then one override/AGENTS/fallback file per directory from root to cwd. The default combined limit is 32 KiB; it does not discover deeper directories in that launch chain.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Codex CLI/local"
+      ],
+      "version_condition": "Current opened documentation",
+      "design_implication": "Make launch location and instruction hashes part of the fingerprint; explicitly route newly entered scopes.",
+      "probe_ids": [
+        "PROBE-01"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-OAI-02",
+      "source_ids": [
+        "EXT-OAI-02"
+      ],
+      "statement": "Skills discover from .agents/skills at cwd/ancestors through repository root, user ~/.agents/skills, /etc/codex/skills, and bundled sources. Initial metadata uses 2% of context by default (8,000 characters if unknown); descriptions can shorten and skills disappear from that list. Explicit and implicit invocation coexist.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Codex CLI/local"
+      ],
+      "version_condition": "Current opened documentation",
+      "design_implication": "Keep descriptions discriminative; confirm catalog inclusion and body reading independently.",
+      "probe_ids": [
+        "PROBE-02",
+        "PROBE-12"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-OAI-03",
+      "source_ids": [
+        "EXT-OAI-01"
+      ],
+      "statement": "UserPromptSubmit and SessionStart deliver context. PreModelRequest/PostModelRequest are diagnostic only. Prompt/agent handlers parse but are skipped.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Codex CLI/local"
+      ],
+      "version_condition": "Current opened documentation",
+      "design_implication": "Route chat before the turn; never design a Codex model-event enforcement gate.",
+      "probe_ids": [
+        "PROBE-03",
+        "PROBE-04"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-OAI-04",
+      "source_ids": [
+        "EXT-OAI-01"
+      ],
+      "statement": "Hooks combine across layers; nonmanaged definitions require exact-hash trust. Local Bash, apply_patch, MCP and function paths are covered; hosted/special paths can bypass them. write_stdin does not repeat PreToolUse.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Codex CLI/local"
+      ],
+      "version_condition": "Current opened documentation",
+      "design_implication": "Model the observed tool/event coverage; do not claim an execution security boundary.",
+      "probe_ids": [
+        "PROBE-05",
+        "PROBE-09"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-OAI-05",
+      "source_ids": [
+        "EXT-OAI-01",
+        "EXT-OAI-13"
+      ],
+      "statement": "PreToolUse ask, legacy approve and continue:false parse but are unsupported; failure can continue execution. Deny and bounded additionalContext have documented envelopes.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Codex CLI/local"
+      ],
+      "version_condition": "Current opened documentation",
+      "design_implication": "Require semantic allowlisting in addition to JSON Schema validation.",
+      "probe_ids": [
+        "PROBE-05",
+        "PROBE-13"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-OAI-06",
+      "source_ids": [
+        "EXT-OAI-01"
+      ],
+      "statement": "Work Cloud does not load local hook scripts. Eligible managed cloud orchestration uses Global MCP hooks; errors can fail open.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Work Cloud",
+        "Codex local"
+      ],
+      "version_condition": "Current opened documentation",
+      "design_implication": "Treat cloud integration as a separate optional deployment, not a file-copy adapter.",
+      "probe_ids": [
+        "PROBE-10"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-OAI-07",
+      "source_ids": [
+        "EXT-OAI-05",
+        "EXT-OAI-06"
+      ],
+      "statement": "Config precedence is CLI, trusted project, selected profile, user, cloud defaults, system, built-in. Since 0.134.0, profiles use ~/.codex/<name>.config.toml; old profiles tables and the profile selector are unsupported.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Codex CLI/local"
+      ],
+      "version_condition": "Profile migration >=0.134.0; current configuration precedence",
+      "design_implication": "Generate current profile files only after version confirmation; preserve old source for review.",
+      "probe_ids": [
+        "PROBE-07",
+        "PROBE-11"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-OAI-08",
+      "source_ids": [
+        "EXT-OAI-07",
+        "EXT-OAI-09"
+      ],
+      "statement": "approval_policy=\"untrusted\" is retired; project trust_level=\"untrusted\" is distinct and disables project configuration. Sandbox and approvals remain separate. Custom permission profiles must not be mixed with sandbox_mode.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Codex CLI/local"
+      ],
+      "version_condition": "Current opened documentation",
+      "design_implication": "Do not turn an obsolete key into broader authority; select an explicit operator-approved host policy.",
+      "probe_ids": [
+        "PROBE-07"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-OAI-09",
+      "source_ids": [
+        "EXT-OAI-04"
+      ],
+      "statement": "Custom .codex/agents/*.toml files require name, description and developer_instructions. Children inherit parent permissions, provider and MCP; those cannot be overridden by the agent file.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Codex CLI/local"
+      ],
+      "version_condition": "Current opened documentation",
+      "design_implication": "Read-only prose is a role instruction, not isolation. Launch the parent in the needed sandbox.",
+      "probe_ids": [
+        "PROBE-06"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-OAI-10",
+      "source_ids": [
+        "EXT-OAI-08"
+      ],
+      "statement": "codex exec is the noninteractive surface; --full-auto is retired. A required enabled MCP server failing initialization makes exec fail.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Codex CLI/local"
+      ],
+      "version_condition": "Current opened documentation",
+      "design_implication": "Record flags and expected dependencies; score artifacts and events, not only process success.",
+      "probe_ids": [
+        "PROBE-08"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-OAI-11",
+      "source_ids": [
+        "EXT-OAI-10"
+      ],
+      "statement": "The TypeScript SDK starts and resumes local threads. Removed codex mcp-server integrations should migrate to app server.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Codex TypeScript SDK",
+        "Codex app server"
+      ],
+      "version_condition": "Current opened documentation",
+      "design_implication": "An SDK harness is optional integration work, not a prerequisite for native CLI activation.",
+      "probe_ids": [
+        "PROBE-08",
+        "PROBE-11"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-OAI-12",
+      "source_ids": [
+        "EXT-OAI-11"
+      ],
+      "statement": "Starlark prefix rules govern commands outside the sandbox; the strictest match wins. Local .rules files are not automatically Work Cloud policy.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Codex CLI/local"
+      ],
+      "version_condition": "Current opened documentation",
+      "design_implication": "Keep execpolicy separate from domain rules and conversational routing.",
+      "probe_ids": [
+        "PROBE-07",
+        "PROBE-10"
+      ],
+      "installed_verification": "not_executed"
+    },
+    {
+      "claim_id": "P-OAI-13",
+      "source_ids": [
+        "EXT-OAI-12"
+      ],
+      "statement": "The opened changelog lists Codex CLI 0.167.2 on 2026-11-11.",
+      "status": "documented_capability",
+      "surfaces": [
+        "Codex CLI/local"
+      ],
+      "version_condition": "Published 0.167.2; no operator version observed",
+      "design_implication": "Treat release availability separately from the operator installation.",
+      "probe_ids": [
+        "PROBE-00"
+      ],
+      "installed_verification": "not_executed"
+    }
+  ]
+}

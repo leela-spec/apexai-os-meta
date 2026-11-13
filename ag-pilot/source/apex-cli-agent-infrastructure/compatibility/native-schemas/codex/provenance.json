@@ -1,0 +1,62 @@
+[
+  {
+    "name": "pre-tool-use.command.input.schema.json",
+    "blob_sha": "48dd4c571010a664e40cb174123c3bc746f12e34",
+    "url": "https://github.com/openai/codex/blob/rust-v0.167.2/codex-rs/hooks/schema/generated/pre-tool-use.command.input.schema.json",
+    "release": "rust-v0.167.2",
+    "retrieved": "2026-11-12",
+    "sha256": "fabed428f0fe75767c5700208b166da5faef4e031d601dfc8bff2f96d340c682",
+    "evidence_kind": "official_release_schema",
+    "runtime_verified": false,
+    "git_blob_sha_verified": true,
+    "copy_status": "byte_identical_to_fetched_upstream_blob"
+  },
+  {
+    "name": "pre-tool-use.command.output.schema.json",
+    "blob_sha": "6730b27fd4fc80f8075d64346a554a1cfc94470a",
+    "url": "https://github.com/openai/codex/blob/rust-v0.167.2/codex-rs/hooks/schema/generated/pre-tool-use.command.output.schema.json",
+    "release": "rust-v0.167.2",
+    "retrieved": "2026-11-12",
+    "sha256": "e684f81c63fbb5972892f6a848b49fec68c8ce137931651093d2dd1da56a1dd6",
+    "evidence_kind": "official_release_schema",
+    "runtime_verified": false,
+    "git_blob_sha_verified": true,
+    "copy_status": "byte_identical_to_fetched_upstream_blob"
+  },
+  {
+    "name": "user-prompt-submit.command.output.schema.json",
+    "blob_sha": "97875c108b9345bbe5518bb1968ce12c67db7484",
+    "url": "https://github.com/openai/codex/blob/rust-v0.167.2/codex-rs/hooks/schema/generated/user-prompt-submit.command.output.schema.json",
+    "release": "rust-v0.167.2",
+    "retrieved": "2026-11-12",
+    "sha256": "5e290303db710f3ccc12f4a2744e8586e7749b3ca2b6bf9f57781ed75bf17b2b",
+    "evidence_kind": "official_release_schema",
+    "runtime_verified": false,
+    "git_blob_sha_verified": true,
+    "copy_status": "byte_identical_to_fetched_upstream_blob"
+  },
+  {
+    "name": "session-start.command.output.schema.json",
+    "blob_sha": "1dd51e001030cb6b260114da3461cbe9d77ba944",
+    "url": "https://github.com/openai/codex/blob/rust-v0.167.2/codex-rs/hooks/schema/generated/session-start.command.output.schema.json",
+    "release": "rust-v0.167.2",
+    "retrieved": "2026-11-12",
+    "sha256": "f375e6de1c59ecbabd8c1aff05a67976d0f3aa2ef061808838de4c7c20be1c71",
+    "evidence_kind": "official_release_schema",
+    "runtime_verified": false,
+    "git_blob_sha_verified": true,
+    "copy_status": "byte_identical_to_fetched_upstream_blob"
+  },
+  {
+    "name": "stop.command.output.schema.json",
+    "blob_sha": "a2bac59cd12a7a02de5ce5b259e68263cba74b2f",
+    "url": "https://github.com/openai/codex/blob/rust-v0.167.2/codex-rs/hooks/schema/generated/stop.command.output.schema.json",
+    "release": "rust-v0.167.2",
+    "retrieved": "2026-11-12",
+    "sha256": "dc2b30e84c97beca5825aa64ca46e1337e402781dc5a9142b67111d10523f15c",
+    "evidence_kind": "official_release_schema",
+    "runtime_verified": false,
+    "git_blob_sha_verified": true,
+    "copy_status": "byte_identical_to_fetched_upstream_blob"
+  }
+]

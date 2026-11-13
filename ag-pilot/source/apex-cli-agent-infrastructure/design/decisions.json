@@ -1,0 +1,2903 @@
+{
+  "schema_version": "apex_design_decisions.proposal.v1",
+  "source_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+  "status": "proposed_for_operator_review",
+  "estimate_semantics": "All option/question estimates are new, coarse, uncalibrated judgments under WP-07: impact, empirical grounding/verification, and downside/complexity. They are neither recorded source ratings nor measured effects. Authority certainty is separate from empirical efficacy. I/E/R are never aggregated; the distinct mandatory EM-07 criterion rubric appears in examples/architecture-comparison.md.",
+  "authority": "Current operator task and current owners outrank this proposal. No accepted domain meaning is changed. D-07 conditionally revisits physical carriers; D-09/D-24 update dated capability assumptions.",
+  "decisions": [
+    {
+      "id": "D-01",
+      "title": "Improve the existing system without a new runtime framework",
+      "problem": "Which composition closes activation and verification gaps with proportionate maintenance?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 95,
+        "evidence": 60,
+        "risk": 50,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L3 deployment review flagged; this continuous-run artifact is an autonomous decision presentation, not a completed interactive EM-06a session",
+      "originating_decisions": [
+        "DEC-08 rejects a tiny shared abstraction; DEC-12/13 retain reduced core; handover14 asks that all-reference skills remain a serious option."
+      ],
+      "repository_evidence": [
+        "apex-meta/informatics/final/candidates/01-decision-register.md §§DEC-08,12,13",
+        "apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/HANDOVER-14-APEX-RULE-REGISTRY-AND-ACTIVATION-INTEGRATION.md §§3,7",
+        "apex-meta/informatics/final/operations/17-READ-TRACE-PILOT-AND-BASE-REF-FRAGILITY-FINDINGS.md Executive verdict"
+      ],
+      "external_evidence": [
+        "EEMP-02",
+        "EEMP-03",
+        "EEMP-05",
+        "EXT-OAI-01",
+        "EXT-CLAUDE-02"
+      ],
+      "options": [
+        {
+          "label": "Improved existing files only",
+          "mechanism": "Repair pointers and metadata; use current carriers and direct source reads without new activation components.",
+          "grounding": "A chat ranking loads EM-06 only when the model recognizes the existing XML condition.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 80,
+            "evidence": 70,
+            "risk": 10,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Retain as baseline and full degraded mode; alone it leaves important missed-read cases unresolved.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Selective native composition",
+          "mechanism": "Keep owners and core; add a design-time activation index, three workflow candidates, optional bounded hook adapters, and independent outcome checks.",
+          "grounding": "A governed test spec selects one workflow, loads FA/EM owners, and validates the resulting spec.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 90,
+            "evidence": 70,
+            "risk": 30,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected; pilot before claiming reliable adoption.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Registry router service",
+          "mechanism": "Run a separate semantic classifier/service on every request and return an active-rule bundle.",
+          "grounding": "Every typo, chat answer and engineering turn incurs routing and service dependencies.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 80,
+            "evidence": 45,
+            "risk": 75,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Defer: no measured routing-scale problem justifies another service or model dependency.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "All reference files as skills",
+          "mechanism": "Wrap each reference in skill metadata and expose all through native discovery.",
+          "grounding": "QA, file architecture, governance schemas and each small adapter become independent selectable units.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 85,
+            "evidence": 60,
+            "risk": 50,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Retain as evaluation arm; definitions and overlapping triggers create selection and ownership costs.",
+          "option_id": "D",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "One Apex skill",
+          "mechanism": "Use one explicit entrypoint that branches internally into every reference.",
+          "grounding": "The operator invokes the same skill for a ranking, typo and long research task.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 70,
+            "evidence": 55,
+            "risk": 40,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject as universal default; a thin orientation index can still be useful.",
+          "option_id": "E",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "All rules always loaded",
+          "mechanism": "Inline the detailed owner corpus into every session.",
+          "grounding": "The typo task receives governance and Q&A requirements it does not need.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 65,
+            "evidence": 60,
+            "risk": 60,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject globally; preserve only the current universal core and justified critical slices.",
+          "option_id": "F",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "option_id": "G",
+          "label": "Native scoped rules only",
+          "mechanism": "Use native path scopes and direct references without new workflow packages.",
+          "grounding": "A governed specification path can load formatting constraints, while a conversational ranking has no file event.",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "estimate": {
+            "tier": "P1",
+            "impact": 70,
+            "evidence": 65,
+            "risk": 35,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "documented_capability",
+              "design_inference"
+            ],
+            "basis": "Scope semantics are documented; outcomes on this Apex case suite are unmeasured."
+          },
+          "disposition": "Retain as a packaging arm and component; insufficient alone for chat-only activation.",
+          "cost_to_reverse": "Remove only the pilot scoped projection; keep the native core and unchanged canonical owners."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "This composition addresses conversational routing and narrow preconditions while preserving the proven file owners. Vendor documentation establishes mechanisms; retained failures and studies establish why they need separate evaluation. No study proves this whole composition wins in Apex.",
+      "tradeoff": "More metadata and per-surface maintenance than native-only; less runtime complexity than a central service.",
+      "primary_failure_mode": "The optional skill is selected incorrectly or an uncovered action is mistaken for enforced execution.",
+      "affected_components": [
+        "03-architecture.md",
+        "registry/rules.json",
+        "examples/workflows/",
+        "evaluation/evaluation-plan.md"
+      ],
+      "adoption_stage": "S2",
+      "reconsider_if": "A controlled same-content trial finds no outcome benefit over improved existing files, or selection failures persist enough to justify a different packaging strategy.",
+      "requires_deeper_operator_review_before_deployment": true
+    },
+    {
+      "id": "D-02",
+      "title": "Preserve the live XML and canonical detailed owners",
+      "problem": "Where does rule meaning live, and what may the registry own?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 95,
+        "evidence": 70,
+        "risk": 25,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L2-style autonomous review presentation; not a claim of a completed interactive EM-06a session",
+      "originating_decisions": [
+        "DEC-01/02/03 preserve single owners; DEC-17 selects named tags; current ultra XML supersedes 22-rule candidates."
+      ],
+      "repository_evidence": [
+        "apex-meta/informatics/final/candidates/01-decision-register.md §§DEC-01..09,17",
+        "apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml",
+        "apex-meta/informatics/final/specs/writing-profile.md WP-23"
+      ],
+      "external_evidence": [
+        "EEMP-13"
+      ],
+      "options": [
+        {
+          "label": "Registry becomes the policy master",
+          "mechanism": "Move normative definitions into JSON and generate every source.",
+          "grounding": "Editing XML.authoring in JSON would rewrite the established authoring contract.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 80,
+            "evidence": 45,
+            "risk": 70,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject: would silently change accepted ownership and require a separate migration decision.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Registry owns activation metadata",
+          "mechanism": "Keep canonical text in current owners; record identities, source hashes, trigger/delivery/verification metadata and frozen evidence excerpts.",
+          "grounding": "WP-07 remains in writing-profile.md; its registry record points to that section and preserves authored metrics.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 95,
+            "evidence": 70,
+            "risk": 15,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Only prose cross-references",
+          "mechanism": "Keep all routing relationships in prose and native files with no structured coverage view.",
+          "grounding": "A new tag can appear in XML without an obvious unmapped activation/verification row.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 65,
+            "evidence": 70,
+            "risk": 20,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Insufficient for the requested populated lifecycle registry.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "The registry fills a coordination gap without overruling the domain contract. Snapshot quotes make review self-contained but never become a second normative source.",
+      "tradeoff": "Metadata can drift even when definitions do not; source change requires a targeted registry update.",
+      "primary_failure_mode": "A reviewer treats a frozen excerpt or proposed activation as accepted current policy.",
+      "affected_components": [
+        "registry/rules.json",
+        "registry/rule-registry.schema.json",
+        "registry/history.json",
+        "evidence/repository-sources.json"
+      ],
+      "adoption_stage": "S1",
+      "reconsider_if": "The operator explicitly authorizes a new canonical serialization and a source-preserving migration plan.",
+      "requires_deeper_operator_review_before_deployment": false
+    },
+    {
+      "id": "D-03",
+      "title": "Keep universal context selection outside optional skills",
+      "problem": "Should the context rule itself require skill activation or a hard token budget?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 90,
+        "evidence": 65,
+        "risk": 25,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L2-style autonomous review presentation; not a claim of a completed interactive EM-06a session",
+      "originating_decisions": [
+        "A06 selected sufficiency over smallest context and rejected a dedicated deeper artifact; live XML context/recovery are current."
+      ],
+      "repository_evidence": [
+        "apex-meta/informatics/final/research/01-universal-instruction-research/module-deepening/A06-context-engineering-progressive-disclosure/README.md §§7,9,10",
+        "apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml <context>,<recovery>"
+      ],
+      "external_evidence": [
+        "EEMP-01",
+        "EEMP-08",
+        "EEMP-12",
+        "EXT-OAI-02"
+      ],
+      "options": [
+        {
+          "label": "Hard universal token ceiling",
+          "mechanism": "Refuse deeper context after one fixed limit on every task.",
+          "grounding": "A long research task drops a load-bearing source to meet a token target.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 55,
+            "evidence": 40,
+            "risk": 65,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject: the Codex skill-list budget is not a universal correctness ceiling.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Always-on sufficient-context invariant",
+          "mechanism": "Keep the live compact rule; retrieve the next needed owner/source and use durable state for long work.",
+          "grounding": "A short typo stays short; an architecture study expands when an actual conflict requires another owner.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 95,
+            "evidence": 70,
+            "risk": 20,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Optional context-management skill",
+          "mechanism": "Make context selection itself depend on selecting a separate skill.",
+          "grounding": "The same routing miss that hides a rule also hides the rule for restoring it.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 60,
+            "evidence": 45,
+            "risk": 45,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject as the universal mechanism; a separate context-audit task may later justify a skill.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "The invariant governs whether deeper procedures are loaded; placing it behind optional selection is circular. Current native budget facts inform testing, not doctrine.",
+      "tradeoff": "Sufficiency requires judgment and cannot be guaranteed by a numerical ceiling.",
+      "primary_failure_mode": "Excessively narrow retrieval omits a constraint while appearing efficient.",
+      "affected_components": [
+        "03-architecture.md",
+        "examples/workflows/apex-research-cycle/SKILL.md.example",
+        "evaluation/cases.json"
+      ],
+      "adoption_stage": "S1",
+      "reconsider_if": "Measured context pressure identifies a repeatable domain-specific budget or audit need without dropping material constraints.",
+      "requires_deeper_operator_review_before_deployment": false
+    },
+    {
+      "id": "D-04",
+      "title": "Package coherent procedures, retain references and schemas",
+      "problem": "Which existing material deserves a separately discoverable skill?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 90,
+        "evidence": 60,
+        "risk": 40,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L3 deployment review flagged; this continuous-run artifact is an autonomous decision presentation, not a completed interactive EM-06a session",
+      "originating_decisions": [
+        "The retained brief explicitly asks to compare all references as skills; Hermes D05 accepts shared-source direction with a pilot, not a mass conversion."
+      ],
+      "repository_evidence": [
+        "apex-meta/informatics/final/research/11-infrastructure-evidence-index/sources/infrastructure-activation-research-brief.md §2",
+        "apex-meta/epics/hermes-multi-repo-orchestration-v2/decisions/D05-SHARED-SKILL-SOURCE.md Promotion gate",
+        "apex-meta/informatics/final/specs/file-architecture.md FA-03"
+      ],
+      "external_evidence": [
+        "EEMP-02",
+        "EEMP-03",
+        "EEMP-04",
+        "EEMP-13",
+        "EXT-OAI-02",
+        "EXT-CLAUDE-02"
+      ],
+      "options": [
+        {
+          "label": "Every reference independently selectable",
+          "mechanism": "Add a SKILL.md wrapper to each owner and small subrule.",
+          "grounding": "A decision task must choose among QA, bake-off, metrics and evidence fragments.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 85,
+            "evidence": 60,
+            "risk": 50,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Evaluation contender; reject as the default until retrieval benefit exceeds metadata and fragmentation costs.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Three workflow candidates with owner references",
+          "mechanism": "Provide decision-support, governed-authoring and long-research workflows; retain definition files and machine schemas in place.",
+          "grounding": "Test-spec creation reads the task-spec owner and the actual frontmatter/patch schemas as needed.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 95,
+            "evidence": 70,
+            "risk": 25,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected as a bounded pilot, not a mandatory final skill count.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Direct references only",
+          "mechanism": "Use XML cues plus explicit reads; expose no new skills.",
+          "grounding": "The operator can still request EM-06 directly on an unsupported host.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 75,
+            "evidence": 70,
+            "risk": 10,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Keep as fallback and baseline.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "Each candidate has a recognizable task, ordered work and useful result. File schemas and isolated constraints are inputs to those workflows rather than independent user jobs.",
+      "tradeoff": "A workflow can be too broad or fail to open its references; metadata tuning is still necessary.",
+      "primary_failure_mode": "Selection of a similarly named skill loads the wrong owner or skips a dependency.",
+      "affected_components": [
+        "examples/workflows/",
+        "registry/rules.json",
+        "evaluation/cases.json"
+      ],
+      "adoption_stage": "S2",
+      "reconsider_if": "Same-content trials show finer-grained or direct-reference packaging has better useful outcomes and acceptable maintenance cost.",
+      "requires_deeper_operator_review_before_deployment": true
+    },
+    {
+      "id": "D-05",
+      "title": "Recognize task intent, including chat-only decisions",
+      "problem": "How do rankings and Q&A activate without any file event?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 90,
+        "evidence": 60,
+        "risk": 35,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L3 deployment review flagged; this continuous-run artifact is an autonomous decision presentation, not a completed interactive EM-06a session",
+      "originating_decisions": [
+        "EM-06 excludes routine reversible choices; the current brief explicitly includes conversational answers and misleading triggers."
+      ],
+      "repository_evidence": [
+        "apex-meta/informatics/final/specs/execution-modes/qa-decision-matrix.md §§2,2.1,2.3",
+        "apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml <trade_off>"
+      ],
+      "external_evidence": [
+        "EXT-OAI-02",
+        "EXT-CLAUDE-02",
+        "EXT-AGY-03",
+        "EEMP-03",
+        "EEMP-04"
+      ],
+      "options": [
+        {
+          "label": "Keyword-only trigger",
+          "mechanism": "Match compare/rank/Q&A tokens and inject a matrix.",
+          "grounding": "A request to fix a typo in the word ranking accidentally starts a decision workflow.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 60,
+            "evidence": 50,
+            "risk": 60,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject as sole selector; keywords may provide hints only.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Semantic native selection plus explicit override",
+          "mechanism": "Match the requested outcome and exclusions; use native skill descriptions and an explicit invocation path; material uncertainty is resolved in context.",
+          "grounding": "Which CLI architecture fits Apex? selects decision support even when no file is created.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 90,
+            "evidence": 70,
+            "risk": 30,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Write-hook activation only",
+          "mechanism": "Wait for a file write to select downstream rules.",
+          "grounding": "A complete conversational architecture recommendation has no trigger event.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 45,
+            "evidence": 70,
+            "risk": 40,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject for answers; retain as an additional signal for governed file operations.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "The task is the requested decision, not a vocabulary item or file extension. The existing XML obligation remains active when automatic selection fails.",
+      "tradeoff": "Native selection is probabilistic; explicit invocation improves recoverability but adds operator effort when needed.",
+      "primary_failure_mode": "A negative or quoted trigger is treated as user intent.",
+      "affected_components": [
+        "examples/workflows/apex-decision-support/SKILL.md.example",
+        "examples/end-to-end-flows.md",
+        "evaluation/cases.json"
+      ],
+      "adoption_stage": "S2",
+      "reconsider_if": "Measured false positives or misses justify changed descriptions, smaller procedure boundaries, or a bounded router after simpler repairs fail.",
+      "requires_deeper_operator_review_before_deployment": true
+    },
+    {
+      "id": "D-06",
+      "title": "Use native scope as a signal, not universal policy coverage",
+      "problem": "Which rule scopes can safely be delegated to native loaders?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 90,
+        "evidence": 70,
+        "risk": 40,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L2-style autonomous review presentation; not a claim of a completed interactive EM-06a session",
+      "originating_decisions": [
+        "Five-plane path-scoping is intent; historical claims about descendants and AGENTS behavior are surface-specific."
+      ],
+      "repository_evidence": [
+        "apex-meta/informatics/final/specs/file-architecture.md §§2,FA-03",
+        "apex-meta/informatics/final/research/01-universal-instruction-research/07-TIER-A-COVERAGE-AND-LIVE-AGENT-AUDIT.md §§4.3,6"
+      ],
+      "external_evidence": [
+        "EXT-OAI-03",
+        "EXT-CLAUDE-01",
+        "EXT-AGY-01",
+        "EXT-AGY-02"
+      ],
+      "options": [
+        {
+          "label": "One path rule copied everywhere",
+          "mechanism": "Assume every native loader reads nested instructions when a file is touched.",
+          "grounding": "An Antigravity descendant rule is assumed to apply despite its workspace/ancestor discovery boundary.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 65,
+            "evidence": 35,
+            "risk": 60,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject: documented loading semantics differ.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Per-surface scope plus task fallback",
+          "mechanism": "Project path constraints through each verified loader; preserve intent-based source reads for new paths, chat and unverified profiles.",
+          "grounding": "A governed spec outside the discovered ancestor chain still loads its owner through the workflow.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 90,
+            "evidence": 70,
+            "risk": 25,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Always load all scoped rules",
+          "mechanism": "Eliminate path uncertainty by loading every subtree rule into the core.",
+          "grounding": "A code typo inherits unrelated documentation requirements.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 55,
+            "evidence": 65,
+            "risk": 55,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject as blanket solution.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "The shared layer owns meaning, while the native adapter owns actual scope and limitations. A declared path pattern is never logged as successful loading without evidence.",
+      "tradeoff": "Each surface needs an explicit discovery probe and documented fallback.",
+      "primary_failure_mode": "A newly created path or alternate working directory bypasses the expected scope.",
+      "affected_components": [
+        "compatibility/compatibility.md",
+        "compatibility/probe-plan.json",
+        "03-architecture.md"
+      ],
+      "adoption_stage": "S1",
+      "reconsider_if": "A native loader change establishes broader reliable scope and the same negative tests still pass.",
+      "requires_deeper_operator_review_before_deployment": false
+    },
+    {
+      "id": "D-07",
+      "title": "Revisit physical carrier duplication only after exact loader probes",
+      "problem": "Can newer native AGENTS support replace byte-identical vendor copies?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 90,
+        "evidence": 65,
+        "risk": 50,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L3 deployment review flagged; this continuous-run artifact is an autonomous decision presentation, not a completed interactive EM-06a session",
+      "originating_decisions": [
+        "DEC-21/22 selected physical copies because standalone loaders and imports differed; named-tag and equal-behavior intent remain."
+      ],
+      "repository_evidence": [
+        "apex-meta/informatics/final/candidates/01-decision-register.md §§DEC-21,22; Standalone CLI Loader Behavior",
+        "apex-meta/informatics/final/operations/18-APEX-CARRIER-MAP.md"
+      ],
+      "external_evidence": [
+        "EXT-OAI-03",
+        "EXT-CLAUDE-01",
+        "EXT-AGY-01"
+      ],
+      "options": [
+        {
+          "label": "Immediately replace all carriers with stubs",
+          "mechanism": "Convert every vendor file into a pointer/import to AGENTS.md.",
+          "grounding": "A host whose import or fallback rule differs silently loses core constraints.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 80,
+            "evidence": 45,
+            "risk": 70,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject before probes; a prose pointer is not an import.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Keep copies forever",
+          "mechanism": "Preserve the old physical pattern regardless of new support.",
+          "grounding": "A current native AGENTS loader may inject duplicate contract copies.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 70,
+            "evidence": 70,
+            "risk": 30,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Safe interim only; permanent duplication misses a real simplification opportunity.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Retain current carriers; pilot one verified projection",
+          "mechanism": "Test precedence, one-copy loading, exact semantic parity and recovery per profile; replace only redundant tested copies after approval.",
+          "grounding": "Claude v2.1.277+ support is evaluated alongside CLAUDE precedence and configuration IDs rather than assumed from its version.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 95,
+            "evidence": 70,
+            "risk": 25,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "C",
+      "selection_reason": "New primary evidence invalidates the universal no-native-AGENTS premise, not the original equal-behavior requirement. This is a conditional capability revision to DEC-21/22, not an authorized rewrite.",
+      "tradeoff": "Temporary duplication persists until native behavior is measured.",
+      "primary_failure_mode": "Both carriers load, or neither does, despite matching disk hashes.",
+      "affected_components": [
+        "design/integration-map.json",
+        "compatibility/probe-plan.json",
+        "03-architecture.md"
+      ],
+      "adoption_stage": "S3",
+      "reconsider_if": "The exact target loader demonstrates one canonical discovery path under startup, nested cwd, resume and delegation conditions.",
+      "requires_deeper_operator_review_before_deployment": true
+    },
+    {
+      "id": "D-08",
+      "title": "Separate semantic guidance from enforceable hook preconditions",
+      "problem": "Which rules should a hook block, advise about, or leave to review?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 95,
+        "evidence": 60,
+        "risk": 55,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L3 deployment review flagged; this continuous-run artifact is an autonomous decision presentation, not a completed interactive EM-06a session",
+      "originating_decisions": [
+        "Q002 favors hard gates for high-risk cases; current Multi-Agent architecture deliberately has no hook layer; Round2 intervention is confounded."
+      ],
+      "repository_evidence": [
+        "apex-meta/kb/claude-code-orchestration-design/log/operator-phase1-review-decisions-20260702.md Q002",
+        "apex-meta/orchestration/ARCHITECTURE.md §6",
+        "apex-meta/informatics/final/research/10-ultra-upgrade-validation/01-results-and-verdict.md"
+      ],
+      "external_evidence": [
+        "EXT-OAI-01",
+        "EXT-CLAUDE-03",
+        "EXT-AGY-04",
+        "EEMP-14"
+      ],
+      "options": [
+        {
+          "label": "Block on all semantic rules",
+          "mechanism": "Translate each requirement into a regex or model judgment gate.",
+          "grounding": "An answer is blocked because a lexical phrase is missing although the required reasoning is present.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 80,
+            "evidence": 40,
+            "risk": 75,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject: imprecise gates create false denials and a second semantic policy.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Narrow covered preconditions; soft semantic reminders",
+          "mechanism": "Gate only explicit, measurable preconditions on verified events; use brief context and independent review for judgment rules.",
+          "grounding": "A confirmed patch target outside the authorized set is denied; an architecture answer is checked against EM-06 after composition.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 95,
+            "evidence": 70,
+            "risk": 30,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected; exact candidate gate requires later approval and probe.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "No hooks anywhere",
+          "mechanism": "Rely on prompts, skills and final evaluation for every action.",
+          "grounding": "A covered premature write cannot be interrupted by the shared layer.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 70,
+            "evidence": 70,
+            "risk": 15,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Baseline and unsupported-surface fallback; insufficient where a demonstrated hard boundary is valuable.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "Hooks can enforce only the action and condition they observe. They cannot establish correct intent, comprehension or useful output merely by firing.",
+      "tradeoff": "Coverage is intentionally incomplete and must be visible.",
+      "primary_failure_mode": "A tool bypass, disabled hook or ambiguous parser is logged as a successful guard.",
+      "affected_components": [
+        "03-architecture.md",
+        "examples/native/",
+        "evaluation/evaluation-plan.md"
+      ],
+      "adoption_stage": "S3",
+      "reconsider_if": "A predicate lacks a reliable normalized event or incurs material false denials; then keep it advisory or remove it.",
+      "requires_deeper_operator_review_before_deployment": true
+    },
+    {
+      "id": "D-09",
+      "title": "Share policy inputs, adapt native events separately",
+      "problem": "How much hook implementation should be cross-CLI?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 90,
+        "evidence": 65,
+        "risk": 45,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L3 deployment review flagged; this continuous-run artifact is an autonomous decision presentation, not a completed interactive EM-06a session",
+      "originating_decisions": [
+        "Handover13 proposed shared Python/thin adapters; the proposal snapshot is not installed and its capability claims need refresh."
+      ],
+      "repository_evidence": [
+        "apex-meta/informatics/final/operations/handovers/HANDOVER-13-CROSS-CLI-HOOK-ARCHITECTURE-AND-REPOSITORY-ORGANIZATION.md",
+        "apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/cross-cli-hook-architecture.md"
+      ],
+      "external_evidence": [
+        "EXT-OAI-01",
+        "EXT-OAI-13",
+        "EXT-CLAUDE-03",
+        "EXT-AGY-04",
+        "EXT-GEMINI-03"
+      ],
+      "options": [
+        {
+          "label": "One universal event envelope",
+          "mechanism": "Accept identical event names, payload keys and decision responses on all hosts.",
+          "grounding": "Claude hookSpecificOutput is sent to an Antigravity hook with different response fields.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 45,
+            "evidence": 25,
+            "risk": 75,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject: concrete schemas and event effects differ.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Pure bounded policy plus thin native adapters",
+          "mechanism": "Keep source IDs, authorized target/state and predicates shared; parse and emit native formats in separate adapters with fixtures.",
+          "grounding": "The same read-receipt requirement is mapped to a covered Codex PreToolUse or supported Antigravity pre-tool event.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 90,
+            "evidence": 70,
+            "risk": 30,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected design boundary; supplied canary is illustrative, not the production guard.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Independent full implementations",
+          "mechanism": "Each host owns separate rule text and policy logic.",
+          "grounding": "Updating a source-read condition requires three policy edits.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 75,
+            "evidence": 70,
+            "risk": 50,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject as default because semantic drift becomes routine.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "Only the small common policy data is portable. Native adapters own lifecycle, trust, denial semantics, tool names and unsupported paths.",
+      "tradeoff": "Adapter fixtures and documentation must track native releases.",
+      "primary_failure_mode": "Schema-valid output has unsupported runtime meaning, such as Codex ask or continue:false in PreToolUse.",
+      "affected_components": [
+        "examples/native/",
+        "compatibility/compatibility.md",
+        "design/integration-map.json"
+      ],
+      "adoption_stage": "S3",
+      "reconsider_if": "A host cannot expose the required event or reliable identity, in which case use the direct-reference fallback and report the missing coverage.",
+      "requires_deeper_operator_review_before_deployment": true
+    },
+    {
+      "id": "D-10",
+      "title": "Treat missing or failed hooks as unavailable coverage",
+      "problem": "What happens when a guard is disabled, untrusted, malformed or misses a tool?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 95,
+        "evidence": 65,
+        "risk": 50,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L3 deployment review flagged; this continuous-run artifact is an autonomous decision presentation, not a completed interactive EM-06a session",
+      "originating_decisions": [
+        "Retained benchmark fixture fails open for some errors and unknown tools; hosted/local enforcement differ."
+      ],
+      "repository_evidence": [
+        "apex-meta/informatics/final/research/10-ultra-upgrade-validation/fixtures/armB_hook_agy.py",
+        "apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml <ground>,<recovery>"
+      ],
+      "external_evidence": [
+        "EXT-OAI-01",
+        "EXT-CLAUDE-03",
+        "EXT-AGY-04"
+      ],
+      "options": [
+        {
+          "label": "Assume no denial means pass",
+          "mechanism": "Treat a missing hook result as successful policy approval.",
+          "grounding": "A disabled handler yields the same green status as a validated receipt.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 30,
+            "evidence": 25,
+            "risk": 90,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Force all failures closed globally",
+          "mechanism": "Deny every tool when any optional hook is unavailable.",
+          "grounding": "A read-only typo explanation is blocked by a missing optional post-tool observer.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 65,
+            "evidence": 40,
+            "risk": 70,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject globally; fail-closed can be correct for a narrowly approved mandatory gate with a reliable host contract.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Expose coverage state and choose task-specific fallback",
+          "mechanism": "Mark covered_verified, unavailable, bypassed, or unknown; use native permissions and explicit procedure/review; stop only the action that lacks a required precondition.",
+          "grounding": "A high-risk canonical mutation waits for its actual authority predicate, while safe source reading continues.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 95,
+            "evidence": 70,
+            "risk": 25,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "C",
+      "selection_reason": "The hook is not the permission system. A meaningful missing guarantee must constrain the specific dependent action without imposing ritual on unrelated work.",
+      "tradeoff": "The orchestrating agent must understand unknown versus deny and communicate the material limitation.",
+      "primary_failure_mode": "A fail-open native path is concealed behind a generic success flag.",
+      "affected_components": [
+        "03-architecture.md",
+        "evaluation/cases.json",
+        "compatibility/probe-plan.json"
+      ],
+      "adoption_stage": "S3",
+      "reconsider_if": "Runtime evidence proves a stronger native guarantee for a specific event and approved action class.",
+      "requires_deeper_operator_review_before_deployment": true
+    },
+    {
+      "id": "D-11",
+      "title": "Count observed delivery separately from source access attempts",
+      "problem": "What is a valid source-read receipt?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 90,
+        "evidence": 70,
+        "risk": 35,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L2-style autonomous review presentation; not a claim of a completed interactive EM-06a session",
+      "originating_decisions": [
+        "Routing pilots and trace scorers show that search hits, basenames and failed tools can be miscounted as reads."
+      ],
+      "repository_evidence": [
+        "apex-meta/informatics/final/research/08-read-trace-routing-experiments/artifacts/stage1/score_stage1_corrected.py read detection",
+        "apex-meta/informatics/final/research/10-ultra-upgrade-validation/score_eval.py §§trace parsing,deterministic_checks"
+      ],
+      "external_evidence": [
+        "EEMP-14"
+      ],
+      "options": [
+        {
+          "label": "Presence or attempted read",
+          "mechanism": "Check whether the source path appears in text, a Glob or an issued command.",
+          "grounding": "An unsuccessful Glob with no delivered content gets credit.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 20,
+            "evidence": 30,
+            "risk": 80,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject; synthetic counterexample executed.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Successful delivered source/version/section before action",
+          "mechanism": "Observe content delivery and success; bind receipt to source hash, task, session epoch and relevant section; invalidate on source/task changes.",
+          "grounding": "A successful read of the governing authoring section precedes the governed write.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 95,
+            "evidence": 70,
+            "risk": 25,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected; native auto-load evidence uses host trace where available.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Require full-file read every time",
+          "mechanism": "Always reload all owners before each write.",
+          "grounding": "The second paragraph edit repeats the entire governance corpus.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 60,
+            "evidence": 65,
+            "risk": 50,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject as default; expand a slice only when needed for sufficient context.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "A receipt proves access to known bytes. Independent checks still determine adherence and outcome. Unknown native loading remains unknown, not fabricated from directory presence.",
+      "tradeoff": "Some hosts cannot expose exact delivered bytes, so receipt quality differs by profile.",
+      "primary_failure_mode": "A stale receipt survives compaction, hash changes or delegation and is reused for a different task.",
+      "affected_components": [
+        "03-architecture.md",
+        "examples/activation-state.schema.json",
+        "evaluation/evaluation-plan.md"
+      ],
+      "adoption_stage": "S3",
+      "reconsider_if": "A cheaper observable can be shown to preserve delivery fidelity on the same adversarial traces.",
+      "requires_deeper_operator_review_before_deployment": false
+    },
+    {
+      "id": "D-12",
+      "title": "Keep independent semantic review proportionate",
+      "problem": "Who verifies correctness beyond syntax and the author’s own rubric?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 90,
+        "evidence": 65,
+        "risk": 35,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L2-style autonomous review presentation; not a claim of a completed interactive EM-06a session",
+      "originating_decisions": [
+        "XML target rejects self-authored criteria as substitutes; Detective validity and alignment are separate blind lenses."
+      ],
+      "repository_evidence": [
+        "apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml <target>",
+        "apex-meta/orchestration/workflows/detective-review.md",
+        "apex-meta/orchestration/schemas/review-verdict.schema.md"
+      ],
+      "external_evidence": [
+        "EEMP-14",
+        "EEMP-10"
+      ],
+      "options": [
+        {
+          "label": "Author checklist only",
+          "mechanism": "Let the creator declare its artifact complete using chosen checks.",
+          "grounding": "An empty report passes a line-count test and is called useful.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 45,
+            "evidence": 45,
+            "risk": 75,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject for material outcomes.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Independent check using original requirements and artifact",
+          "mechanism": "Give a reviewer original task, source owners and actual output without the creator’s verdict; use separate validity/alignment lenses when the named system is active.",
+          "grounding": "The reviewer detects a correct JSON registry whose workflow ignores chat rankings.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 95,
+            "evidence": 70,
+            "risk": 25,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected; ordinary typo work needs bounded inspection, not a new review fleet.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Always invoke a different external model family",
+          "mechanism": "Treat provider diversity as required independence for every task.",
+          "grounding": "A trivial edit requires another provider account and unapproved data transfer.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 70,
+            "evidence": 50,
+            "risk": 65,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject as blanket rule; contrary to current scoped system boundaries without approval.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "Evidence and task separation are necessary; model identity alone is insufficient. This package’s independent artifact review is bounded and is not a claim that the repository Detective workflow ran.",
+      "tradeoff": "Review can still share blind spots and adds cost on material work.",
+      "primary_failure_mode": "The reviewer sees only the author’s rationale or tests and ratifies the same mistake.",
+      "affected_components": [
+        "evaluation/evaluation-plan.md",
+        "07-validation-report.md",
+        "03-architecture.md"
+      ],
+      "adoption_stage": "S2",
+      "reconsider_if": "Repeated misses identify a specific missing lens or evidence source, not merely a desire for more agents.",
+      "requires_deeper_operator_review_before_deployment": false
+    },
+    {
+      "id": "D-13",
+      "title": "Persist task state in files, recover at the next supported boundary",
+      "problem": "How do constraints survive long research, compaction, interruption and delegation?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 95,
+        "evidence": 60,
+        "risk": 45,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L3 deployment review flagged; this continuous-run artifact is an autonomous decision presentation, not a completed interactive EM-06a session",
+      "originating_decisions": [
+        "Current recovery/iterative rules and local-engine lock use durable files; Hermes D09 defers shared external memory."
+      ],
+      "repository_evidence": [
+        "apex-meta/informatics/final/specs/execution-modes/iterative-execution.md",
+        "apex-meta/local-orchestration-engine/OPERATOR-DECISION-LOCK-2026-08-08-R3-LOCAL-MODEL.md §§8,13",
+        "apex-meta/epics/hermes-multi-repo-orchestration-v2/DECISIONS.md D09"
+      ],
+      "external_evidence": [
+        "EEMP-08",
+        "EEMP-09",
+        "EEMP-15",
+        "EXT-OAI-01",
+        "EXT-CLAUDE-01",
+        "EXT-AGY-04",
+        "EXT-CLAUDE-03"
+      ],
+      "options": [
+        {
+          "label": "Transcript or memory only",
+          "mechanism": "Rely on the model’s retained summary or vendor history.",
+          "grounding": "After interruption, a rejected option reappears as accepted.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 50,
+            "evidence": 55,
+            "risk": 70,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject as sole authoritative state.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Existing run state plus optional activation sidecar",
+          "mechanism": "Persist target, authorization, decisions, unresolved sources, next action and hashes in the owning run files; use a small proposed sidecar only for coverage receipts.",
+          "grounding": "After compaction, reload the current task record and the one owner needed for the next action.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 95,
+            "evidence": 70,
+            "risk": 25,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected; no new database or scheduler.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "New universal memory service",
+          "mechanism": "Centralize all histories, state and rule decisions in a service.",
+          "grounding": "Two project boards are mirrored into a new cross-repository authority.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 75,
+            "evidence": 45,
+            "risk": 75,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Defer: violates the intended project-truth separation without a proven need and approval.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "Recovery is an idempotent work step. Native compaction events can assist but are not required; Antigravity can use the next supported invocation or explicit restart.",
+      "tradeoff": "Checkpoints need deliberate updates and can still contain misleading summaries.",
+      "primary_failure_mode": "The first resumed action uses stale authorization or promotes an unverified candidate.",
+      "affected_components": [
+        "03-architecture.md",
+        "examples/activation-state.schema.json",
+        "examples/workflows/apex-research-cycle/SKILL.md.example",
+        "evaluation/cases.json"
+      ],
+      "adoption_stage": "S2",
+      "reconsider_if": "File-based recovery fails reproducibly at required scale and an approved store offers a measurable advantage without changing authority.",
+      "requires_deeper_operator_review_before_deployment": true
+    },
+    {
+      "id": "D-14",
+      "title": "Reuse roles and preserve orchestration boundaries",
+      "problem": "Does shared infrastructure create a new agent system?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 95,
+        "evidence": 70,
+        "risk": 40,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L3 deployment review flagged; this continuous-run artifact is an autonomous decision presentation, not a completed interactive EM-06a session",
+      "originating_decisions": [
+        "Weekly and Multi-Agent are separate; Plan-Sync-Session is shared backbone; Alfred and Meta Ops remain main accountabilities."
+      ],
+      "repository_evidence": [
+        ".claude/CLAUDE.md Orchestration systems",
+        "apex-meta/orchestration/CURRENT-SYSTEM-MANIFEST.yaml",
+        "apex-meta/orchestration/ARCHITECTURE.md §§2..7",
+        ".claude/skills/weekly-orchestrator/SKILL.md"
+      ],
+      "external_evidence": [
+        "EXT-OAI-04",
+        "EXT-CLAUDE-04",
+        "EXT-AGY-05"
+      ],
+      "options": [
+        {
+          "label": "Merge orchestration into one dispatcher",
+          "mechanism": "A new runtime automatically selects Weekly, Multi-Agent and Plan from task text.",
+          "grounding": "Mentioning a weekly report starts the named system without operator activation.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 70,
+            "evidence": 35,
+            "risk": 85,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject: changes accepted system meaning and authorization.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Shared delivery capability, separate systems",
+          "mechanism": "Reuse current role doctrine and bounded native adapters only within the explicitly selected system; ad hoc research delegation remains distinct.",
+          "grounding": "Weekly consumes its existing confirmed Session feed and Sync output; it does not acquire a new Plan stage.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 95,
+            "evidence": 70,
+            "risk": 15,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Create dedicated rule agents for every layer",
+          "mechanism": "Add a routing agent, registry agent, hook agent and recovery agent to ordinary work.",
+          "grounding": "A simple governed document passes through a new multi-agent chain.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 65,
+            "evidence": 35,
+            "risk": 65,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject absent a repeated accountability gap.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "A capability can serve two systems without becoming either system’s orchestrator. File authority and explicit activation remain independent of role labels.",
+      "tradeoff": "Platform-native role fields differ; thin wrappers may still be necessary.",
+      "primary_failure_mode": "A helpful skill invocation is mistaken for activation of the named orchestration system.",
+      "affected_components": [
+        "03-architecture.md",
+        "design/integration-map.json",
+        "examples/native/"
+      ],
+      "adoption_stage": "S1",
+      "reconsider_if": "The operator explicitly approves changed orchestration doctrine and associated handoff/authority contracts.",
+      "requires_deeper_operator_review_before_deployment": true
+    },
+    {
+      "id": "D-15",
+      "title": "Preserve permission boundaries and probe effective configuration",
+      "problem": "How should the malformed or ineffective Claude permission setting be handled?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 95,
+        "evidence": 70,
+        "risk": 60,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L3 deployment review flagged; this continuous-run artifact is an autonomous decision presentation, not a completed interactive EM-06a session",
+      "originating_decisions": [
+        "Repository has top-level defaultMode; project intent and effective runtime policy are distinct."
+      ],
+      "repository_evidence": [
+        ".claude/settings.json",
+        ".claude/CLAUDE.md Global boundaries",
+        "AGENTS.md Git Dispatch"
+      ],
+      "external_evidence": [
+        "EXT-CLAUDE-07",
+        "EXT-CLAUDE-05",
+        "EXT-OAI-09",
+        "EXT-OAI-04"
+      ],
+      "options": [
+        {
+          "label": "Move bypassPermissions to a current key automatically",
+          "mechanism": "Repair the syntax to make the apparent bypass setting effective.",
+          "grounding": "The design run expands a project’s permission posture while claiming a harmless config cleanup.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 20,
+            "evidence": 20,
+            "risk": 95,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject: unauthorized and potentially disallowed by current scope rules.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Record the defect and inspect effective mode later",
+          "mechanism": "Provide a read-only probe for version, setting precedence and actual permission behavior; prepare a least-privilege task profile only after explicit approval.",
+          "grounding": "An operator reviews the effective mode rather than inferring it from one JSON field.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 95,
+            "evidence": 70,
+            "risk": 15,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Assume project file is authoritative",
+          "mechanism": "Document bypass as the installed state.",
+          "grounding": "An agent tries an action under permissions the runtime does not grant.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 35,
+            "evidence": 15,
+            "risk": 80,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject: source text does not establish loaded policy.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "Current Claude docs place defaultMode under permissions and restrict project/local auto/bypass settings. Codex subagent prompts likewise cannot supply an independent sandbox.",
+      "tradeoff": "The package cannot certify installed permission behavior without workstation access.",
+      "primary_failure_mode": "A schema cleanup inadvertently broadens permissions or a read-only role is treated as sandbox enforcement.",
+      "affected_components": [
+        "compatibility/probe-plan.json",
+        "design/integration-map.json",
+        "examples/native/"
+      ],
+      "adoption_stage": "S1",
+      "reconsider_if": "An authorized installed-profile audit establishes the precise effective setting and desired posture.",
+      "requires_deeper_operator_review_before_deployment": true
+    },
+    {
+      "id": "D-16",
+      "title": "Pilot shared skill sources without mass relocation",
+      "problem": "Where should portable skills and platform wrappers live?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 85,
+        "evidence": 65,
+        "risk": 40,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L3 deployment review flagged; this continuous-run artifact is an autonomous decision presentation, not a completed interactive EM-06a session",
+      "originating_decisions": [
+        "Hermes D05 accepts shared-source direction conditional on a pilot; existing .claude skills and .agents QMD remain live."
+      ],
+      "repository_evidence": [
+        "apex-meta/epics/hermes-multi-repo-orchestration-v2/decisions/D05-SHARED-SKILL-SOURCE.md",
+        ".claude/skills/apex-plan/SKILL.md",
+        ".agents/skills/qmd/SKILL.md"
+      ],
+      "external_evidence": [
+        "EXT-OAI-02",
+        "EXT-CLAUDE-02",
+        "EXT-AGY-03",
+        "EEMP-13"
+      ],
+      "options": [
+        {
+          "label": "Relocate all skills to .agents immediately",
+          "mechanism": "Move existing sources and symlink every vendor root.",
+          "grounding": "A functioning Session procedure changes its path on three hosts at once.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 85,
+            "evidence": 50,
+            "risk": 70,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject before D05 pilot and loader verification.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Keep current owners; pilot one new portable workflow",
+          "mechanism": "Use .agents/skills as a proposed canonical location only for the new pilot; deliver a supported adapter/copy where needed and track its origin/hash.",
+          "grounding": "Decision-support is tested in one isolated project while existing Plan/Sync/Session paths remain unchanged.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 90,
+            "evidence": 70,
+            "risk": 25,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Independent vendor-owned copies",
+          "mechanism": "Author separate task semantics in each native root.",
+          "grounding": "Three QA skills diverge when EM-06 changes.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 60,
+            "evidence": 65,
+            "risk": 55,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject as default; generated/scoped projections are allowed without redefining ownership.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "This makes D05 concrete without pretending its promotion gate is complete. Symlinks, plugins and copies have different host support and trust implications.",
+      "tradeoff": "A temporary projection may duplicate bytes; discovery and drift still need checking.",
+      "primary_failure_mode": "Same-name skills resolve ambiguously, or a supported symlink is mistaken for universal support.",
+      "affected_components": [
+        "03-architecture.md",
+        "design/integration-map.json",
+        "examples/workflows/"
+      ],
+      "adoption_stage": "S2",
+      "reconsider_if": "The shared-source pilot proves a supported distribution method for each selected profile and no domain owner changes.",
+      "requires_deeper_operator_review_before_deployment": true
+    },
+    {
+      "id": "D-17",
+      "title": "Extend existing distribution checks with honest status",
+      "problem": "How are carriers, native adapters and source versions kept aligned?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 85,
+        "evidence": 70,
+        "risk": 40,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L3 deployment review flagged; this continuous-run artifact is an autonomous decision presentation, not a completed interactive EM-06a session",
+      "originating_decisions": [
+        "Existing carrier sync and vendor drift tools already own comparisons; some roots are workstation-specific and unavailable master can exit zero."
+      ],
+      "repository_evidence": [
+        "apex-meta/informatics/final/tools/apex_carrier_sync.py",
+        "apex-meta/informatics/final/tools/check_vendor_drift.py",
+        "apex-meta/informatics/final/operations/18-APEX-CARRIER-MAP.md"
+      ],
+      "external_evidence": [
+        "EXT-OAI-01",
+        "EEMP-07"
+      ],
+      "options": [
+        {
+          "label": "New distribution framework",
+          "mechanism": "Replace existing tools with a universal installer and daemon.",
+          "grounding": "Every source change triggers an autonomous multi-repository deployment.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 65,
+            "evidence": 35,
+            "risk": 80,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject absent demonstrated benefit and explicit deployment authorization.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Bounded extensions to current tools",
+          "mechanism": "Parameterize selected roots, include adapter/schema assets, separate skipped/unknown/drift/in-sync, preview exact scoped changes and preserve rollback bytes.",
+          "grounding": "Unavailable master produces unknown, while a hook config hash mismatch is a review item.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 90,
+            "evidence": 70,
+            "risk": 25,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected; implementation remains a proposal.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Keep checks unchanged",
+          "mechanism": "Only compare today’s Markdown/vendor manifests and infer success from exit code.",
+          "grounding": "A changed JSON hook configuration escapes the Markdown-only check.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 55,
+            "evidence": 70,
+            "risk": 50,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Insufficient for new adapter assets.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "Reuse comparison logic and make its boundaries explicit. Refreshing a manifest is not evidence that drift is correct, and matching bytes is not proof of activation.",
+      "tradeoff": "Native parsing and hash scopes add maintenance to existing scripts.",
+      "primary_failure_mode": "An automatic manifest rewrite blesses unintended drift or normalizes a missing source as synchronized.",
+      "affected_components": [
+        "design/integration-map.json",
+        "03-architecture.md",
+        "evaluation/cases.json"
+      ],
+      "adoption_stage": "S3",
+      "reconsider_if": "A bounded extension becomes more complex than its value, or a platform-supported distribution unit removes the same failure with less infrastructure.",
+      "requires_deeper_operator_review_before_deployment": true
+    },
+    {
+      "id": "D-18",
+      "title": "Resolve missing pointers with exact scoped patches",
+      "problem": "How should known navigation defects be made reviewable without rewriting owners?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 85,
+        "evidence": 85,
+        "risk": 10,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L2-style autonomous review presentation; not a claim of a completed interactive EM-06a session",
+      "originating_decisions": [
+        "GS-02/EM-01 prohibit whole-file rewrites; DEC-03 preserves the actual patch schema; source audit identifies exact defects."
+      ],
+      "repository_evidence": [
+        "AGENTS.md Informatics & Knowledge Routing",
+        "apex-meta/informatics/final/specs/standard.md",
+        "apex-meta/informatics/final/specs/execution-modes/patch-discipline.md",
+        "apex-meta/informatics/final/specs/governance-schemas.md GS-02,GS-09"
+      ],
+      "external_evidence": [],
+      "options": [
+        {
+          "label": "Rewrite and consolidate documents",
+          "mechanism": "Regenerate affected files to remove broken links and simplify layout.",
+          "grounding": "A one-link fix changes unrelated rules and formatting.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 50,
+            "evidence": 30,
+            "risk": 85,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject; unnecessary scope and loss of byte-preserving review.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Pinned exact-match proposal per file",
+          "mechanism": "Record original hash, unique old/new text, purpose and constraints; require a fresh preflight before any later application.",
+          "grounding": "The AGENTS governance link is corrected to final/specs/standard.md without changing its surrounding instructions.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 95,
+            "evidence": 85,
+            "risk": 10,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "executed_artifact_or_scorer_diagnostics",
+              "repository_observation",
+              "design_inference"
+            ],
+            "basis": "Exact source inspection and executed unique-match/source-integrity checks or synthetic scorer counterexamples support this narrow repair. They do not measure native agent effectiveness."
+          },
+          "disposition": "Selected; no proposal is applied by this package.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Only document the defect",
+          "mechanism": "Leave the implementer to reconstruct every link correction.",
+          "grounding": "Operator approval still requires another design pass to determine the replacement path.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 45,
+            "evidence": 70,
+            "risk": 10,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Insufficiently concrete for this assignment.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "Each correction is reviewable, bounded and anchored to authenticated current bytes. The correct governance-schemas relative link is explicitly retained.",
+      "tradeoff": "A changed source hash invalidates the exact proposal and requires reinspection.",
+      "primary_failure_mode": "A stale patch matches unintended text or introduces a link based on a guessed owner.",
+      "affected_components": [
+        "design/pointer-patch-proposals.json",
+        "design/integration-map.json"
+      ],
+      "adoption_stage": "S1",
+      "reconsider_if": "A later revision has already fixed the pointer, or new source authority changes the intended destination.",
+      "requires_deeper_operator_review_before_deployment": false
+    },
+    {
+      "id": "D-19",
+      "title": "Use current retrieval policy with authenticated fallback",
+      "problem": "What if QMD is absent, stale or semantically over-triggered?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 85,
+        "evidence": 70,
+        "risk": 25,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L2-style autonomous review presentation; not a claim of a completed interactive EM-06a session",
+      "originating_decisions": [
+        "DEC-QMD-01..06 own current Windows search behavior; the skill body adds a conceptual-query exception not present in the stricter owner."
+      ],
+      "repository_evidence": [
+        "apex-meta/informatics/final/operations/07-INTEGRATION-PLAN-AND-OPERATIONAL-DECISIONS.md §2",
+        ".agents/skills/qmd/SKILL.md §1",
+        "apex-meta/informatics/final/research/11-infrastructure-evidence-index/03-retrieval-and-gaps.md"
+      ],
+      "external_evidence": [],
+      "options": [
+        {
+          "label": "Require QMD for every task",
+          "mechanism": "Block online processors or load all indexed material by default.",
+          "grounding": "An authenticated GitHub source is available but work stops because local search is missing.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 30,
+            "evidence": 30,
+            "risk": 60,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject; user explicitly permits targeted online retrieval.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Owner-scoped retrieval, direct source validation",
+          "mechanism": "For the current Windows profile, keyword first and hybrid only after zero hits; otherwise use authorized targeted repository search/read. Verify the actual owner revision.",
+          "grounding": "A source discovered in an old QMD index is re-read at the pinned GitHub revision before it enters the registry.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 90,
+            "evidence": 70,
+            "risk": 20,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected; propose only a narrow skill/owner alignment after approval.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Semantic search as authority",
+          "mechanism": "Treat the highest-ranked retrieved passage as current policy.",
+          "grounding": "A historical candidate outranks the live 23-rule XML in search.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 45,
+            "evidence": 25,
+            "risk": 80,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject: retrieval rank is not source authority.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "QMD is a discovery aid with documented scope and freshness limits. No daemon, new collection or indexing change is needed for this package.",
+      "tradeoff": "Direct retrieval can be slower than local search, but avoids claiming unverified local state.",
+      "primary_failure_mode": "A plausible historical excerpt is promoted into current truth.",
+      "affected_components": [
+        "03-architecture.md",
+        "design/integration-map.json",
+        "evidence/repository-sources.json"
+      ],
+      "adoption_stage": "S1",
+      "reconsider_if": "The owning QMD policy is explicitly changed for a verified WSL or other profile and its trade-offs are accepted.",
+      "requires_deeper_operator_review_before_deployment": false
+    },
+    {
+      "id": "D-20",
+      "title": "Repair evaluator meaning before measuring adoption",
+      "problem": "Can the retained evaluators certify activation and useful outcomes?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 95,
+        "evidence": 85,
+        "risk": 25,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L2-style autonomous review presentation; not a claim of a completed interactive EM-06a session",
+      "originating_decisions": [
+        "DEC-06 requires replacement tests to cover more; target rule distinguishes useful output from shape; retained runner is simulation."
+      ],
+      "repository_evidence": [
+        "apex-meta/informatics/final/candidates/01-decision-register.md DEC-06",
+        "apex-meta/informatics/final/tools/agent_eval_runner.py",
+        "apex-meta/informatics/final/research/10-ultra-upgrade-validation/score_eval.py",
+        "apex-meta/informatics/final/research/08-read-trace-routing-experiments/artifacts/stage1/score_stage1_corrected.py"
+      ],
+      "external_evidence": [
+        "EEMP-10",
+        "EEMP-14"
+      ],
+      "options": [
+        {
+          "label": "Reuse reported pass flags unchanged",
+          "mechanism": "Run the existing graders and accept their total score as adherence.",
+          "grounding": "A failed validator or empty artifact still receives deterministic pass.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 30,
+            "evidence": 25,
+            "risk": 85,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject; executed counterexamples show the proxy is unsound.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Keep useful fixtures, replace insufficient predicates",
+          "mechanism": "Separate applicability, delivery, adherence and outcome; require successful checker execution, nonempty meaningful artifacts and scoped mutation diffs.",
+          "grounding": "The same typo case fails if an unrelated file changes even when the typo is corrected.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 95,
+            "evidence": 85,
+            "risk": 20,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "executed_artifact_or_scorer_diagnostics",
+              "repository_observation",
+              "design_inference"
+            ],
+            "basis": "Exact source inspection and executed unique-match/source-integrity checks or synthetic scorer counterexamples support this narrow repair. They do not measure native agent effectiveness."
+          },
+          "disposition": "Selected; new native trials remain unexecuted.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Manual judgment only",
+          "mechanism": "Discard all structural and trace checks.",
+          "grounding": "A reviewer must manually find a failed JSON parse in every run.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 70,
+            "evidence": 65,
+            "risk": 40,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject alone; deterministic evidence remains useful within its measured scope.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "Synthetic probes establish failure possibility, not invalid historical scores. Existing cases are valuable once their observation contracts are made honest.",
+      "tradeoff": "Historical results are not directly comparable to a revised scorer without re-scoring available traces.",
+      "primary_failure_mode": "Unknown/missing validator evidence is converted to zero errors.",
+      "affected_components": [
+        "evaluation/scorer_probe.py",
+        "evaluation/evaluation-plan.md",
+        "evaluation/cases.json"
+      ],
+      "adoption_stage": "S1",
+      "reconsider_if": "A predicate is independently shown to measure the intended property on positive and adversarial fixtures.",
+      "requires_deeper_operator_review_before_deployment": false
+    },
+    {
+      "id": "D-21",
+      "title": "Separate packaging comparisons from hook/reminder causality",
+      "problem": "Which evaluation design can support a mechanism claim?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 90,
+        "evidence": 70,
+        "risk": 35,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L2-style autonomous review presentation; not a claim of a completed interactive EM-06a session",
+      "originating_decisions": [
+        "Round2 B-AGY combines hooks and reminders; baseline and deliberation arms do not isolate the effect."
+      ],
+      "repository_evidence": [
+        "apex-meta/informatics/final/research/10-ultra-upgrade-validation/01-results-and-verdict.md",
+        "apex-meta/informatics/final/research/10-ultra-upgrade-validation/preregistration.md",
+        "apex-meta/informatics/final/research/08-read-trace-routing-experiments/01-findings-and-protocol.md"
+      ],
+      "external_evidence": [
+        "EEMP-02",
+        "EEMP-05",
+        "EEMP-06",
+        "EEMP-14"
+      ],
+      "options": [
+        {
+          "label": "One challenger versus old baseline",
+          "mechanism": "Compare the whole new stack against an older configuration and attribute gains to hooks.",
+          "grounding": "A better reminder is credited to a tool gate.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 50,
+            "evidence": 40,
+            "risk": 65,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject for causal attribution; end-to-end comparison may still show package-level usefulness.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Architecture arms plus a separate factorial",
+          "mechanism": "Hold task, model, content, permissions and scoring constant for packaging arms; within the selected packaging vary hook on/off and reminder on/off.",
+          "grounding": "The same chat ranking and governed spec are observed in all four reminder/hook cells.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 95,
+            "evidence": 70,
+            "risk": 30,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Only token and latency benchmarks",
+          "mechanism": "Choose the cheapest configuration without semantic outcomes.",
+          "grounding": "A concise but incorrect recommendation wins.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 30,
+            "evidence": 35,
+            "risk": 75,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject: cost is a separate reported outcome, not the target.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "This preserves the combined-intervention limitation and distinguishes selection benefit from source-content and enforcement benefit. Balanced ordering and repeated fresh sessions limit carryover.",
+      "tradeoff": "More trials are required; no sample count alone guarantees external validity.",
+      "primary_failure_mode": "Model drift, unbalanced context or shared state confounds the apparent treatment effect.",
+      "affected_components": [
+        "evaluation/evaluation-plan.md",
+        "evaluation/cases.json",
+        "examples/architecture-comparison.md"
+      ],
+      "adoption_stage": "S2",
+      "reconsider_if": "The operator chooses a narrower practical outcome question, in which case report package-level association without mechanism attribution.",
+      "requires_deeper_operator_review_before_deployment": false
+    },
+    {
+      "id": "D-22",
+      "title": "Preserve raw priorities and separate all scoring concepts",
+      "problem": "How are original priorities, new estimates, reading ranks and empirical reliability represented?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 90,
+        "evidence": 70,
+        "risk": 15,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L2-style autonomous review presentation; not a claim of a completed interactive EM-06a session",
+      "originating_decisions": [
+        "WP-07 owns unaggregated I/E/R; GS-04 delegates; old NVS and bake-off criterion weights have distinct provenance."
+      ],
+      "repository_evidence": [
+        "apex-meta/informatics/final/specs/writing-profile.md WP-07",
+        "apex-meta/informatics/final/specs/governance-schemas.md GS-04",
+        "apex-meta/informatics/final/specs/execution-modes/bake-off.md §§3.1,3.2",
+        "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/index.md"
+      ],
+      "external_evidence": [
+        "EEMP-06"
+      ],
+      "options": [
+        {
+          "label": "One composite rank",
+          "mechanism": "Aggregate I/E/R, source count and reading rank into a single confidence score.",
+          "grounding": "An easy-to-read source with many citations outranks a contradictory live owner.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 35,
+            "evidence": 20,
+            "risk": 75,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject: violates raw metric meaning and creates false precision.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Separate preserved and estimated dimensions",
+          "mechanism": "Retain exact authored tags; store null for unscored source rules; label this matrix’s values as new judgments; report empirical counts separately.",
+          "grounding": "XML.authoring inherits no invented WP-07 score; WP-07 retains its original raw tag.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 95,
+            "evidence": 70,
+            "risk": 10,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Discard all numeric tags",
+          "mechanism": "Replace recorded values with vague high/medium/low confidence.",
+          "grounding": "The operator loses original I/E/R distinctions and historical comparability.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 50,
+            "evidence": 45,
+            "risk": 35,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject for source fidelity.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "Never aggregate I/E/R into a sum, weighted product or NVS. When the EM-07/GS-13 bake-off trigger applies, retain its four phases and separate weighted criterion matrix. The architecture comparison supplies that rubric with explicitly estimated criterion values; it does not convert them into empirical reliability or rule authority.",
+      "tradeoff": "Reviewers must interpret multiple dimensions instead of one seductive number.",
+      "primary_failure_mode": "A new estimate is mistaken for a source-authored value or measured probability.",
+      "affected_components": [
+        "registry/rules.json",
+        "registry/history.json",
+        "design/decisions.json",
+        "02-decisions.md",
+        "examples/architecture-comparison.md"
+      ],
+      "adoption_stage": "S1",
+      "reconsider_if": "The operator approves a change to the owning bake-off rubric or a distinct criterion model. Current mandatory criterion comparison and original raw I/E/R remain separate until then.",
+      "requires_deeper_operator_review_before_deployment": false
+    },
+    {
+      "id": "D-23",
+      "title": "Resolve authorization conflicts without automatic persistence",
+      "problem": "How do align, sync and handover apply to this read-only continuous run?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 95,
+        "evidence": 70,
+        "risk": 20,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L2-style autonomous review presentation; not a claim of a completed interactive EM-06a session",
+      "originating_decisions": [
+        "Current operator authorization outranks source prompts; EM-14 scopes persistence; root Git Dispatch ignores unrelated dirty files."
+      ],
+      "repository_evidence": [
+        "AGENTS.md Git Dispatch",
+        "apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml <align>,<sync>,<handover>",
+        "apex-meta/informatics/final/specs/execution-modes/handover.md EM-14",
+        "apex-meta/informatics/final/specs/execution-modes/qa-decision-matrix.md EM-06a"
+      ],
+      "external_evidence": [],
+      "options": [
+        {
+          "label": "Literal isolated command execution",
+          "mechanism": "Wait, stage unrelated files, push or install because a quoted source says to do so.",
+          "grounding": "A research task modifies main despite the operator’s explicit prohibition.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 10,
+            "evidence": 10,
+            "risk": 100,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Current scoped authorization controls actions",
+          "mechanism": "Complete the requested package; record conflicts; make later repository mutations contingent on specific approval and fresh scope verification.",
+          "grounding": "Deliver one ZIP without a branch, commit or deployment.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 100,
+            "evidence": 70,
+            "risk": 5,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Treat every ambiguity as a stop",
+          "mechanism": "Pause for confirmation on routine file grouping and research choices.",
+          "grounding": "The package stops after an inventory instead of creating reviewable artifacts.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 35,
+            "evidence": 25,
+            "risk": 50,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject: current assignment authorizes autonomous routine design work.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "The original domain meaning is preserved while the operator’s present task boundary determines what may execute. Silence is not deployment approval.",
+      "tradeoff": "Some compressed owner wording still needs explicit reconciliation in a later authorized change.",
+      "primary_failure_mode": "Historical execution prose is promoted to current authorization.",
+      "affected_components": [
+        "00-START-HERE.md",
+        "design/integration-map.json",
+        "evaluation/evaluation-plan.md"
+      ],
+      "adoption_stage": "S0",
+      "reconsider_if": "The operator explicitly authorizes a subsequent scoped installation or repository persistence task.",
+      "requires_deeper_operator_review_before_deployment": false
+    },
+    {
+      "id": "D-24",
+      "title": "Keep SDK, hosted and bare surfaces as explicit profiles",
+      "problem": "Can local interactive capability claims be reused in automation and cloud?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 90,
+        "evidence": 70,
+        "risk": 45,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L3 deployment review flagged; this continuous-run artifact is an autonomous decision presentation, not a completed interactive EM-06a session",
+      "originating_decisions": [
+        "Retained audits mix surfaces; current Codex profiles, MCP server removal and Claude bare mode change automation assumptions."
+      ],
+      "repository_evidence": [
+        "apex-meta/informatics/final/research/01-universal-instruction-research/05-INSTRUCTION-ACCESS-AND-SERIALIZATION-MATRIX.md",
+        "apex-meta/informatics/final/research/11-infrastructure-evidence-index/07-current-web-research.md"
+      ],
+      "external_evidence": [
+        "EXT-OAI-05",
+        "EXT-OAI-06",
+        "EXT-OAI-08",
+        "EXT-OAI-10",
+        "EXT-CLAUDE-09",
+        "EXT-AGY-07",
+        "EXT-CLAUDE-11",
+        "EXT-CLAUDE-12",
+        "EXT-CLAUDE-13",
+        "EXT-AGY-12",
+        "EXT-AGY-13"
+      ],
+      "options": [
+        {
+          "label": "Assume CLI parity",
+          "mechanism": "Use one invocation recipe for local, cloud, SDK and bare operation.",
+          "grounding": "A Claude --bare job is expected to discover the same hooks and skills as normal print mode.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 30,
+            "evidence": 25,
+            "risk": 80,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Separate capability profiles and boot contracts",
+          "mechanism": "Declare surface, version, roots, settings, trust, permission mode, event coverage and durable-history behavior before interpreting traces.",
+          "grounding": "Codex exec --json gives event evidence but structured output alone does not prove correct behavior.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 95,
+            "evidence": 70,
+            "risk": 20,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Exclude all automation surfaces",
+          "mechanism": "Limit the package to interactive CLI forever.",
+          "grounding": "A future approved headless run has no reproducible startup contract.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 55,
+            "evidence": 70,
+            "risk": 25,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Too narrow; supply unexecuted probes rather than unsupported parity claims.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "Documented migrations and scope differences change concrete configuration. They do not imply the operator upgraded or migrated a profile.",
+      "tradeoff": "The compatibility matrix is larger and must be maintained by surface.",
+      "primary_failure_mode": "A successful exit code masks a soft-denied action or an unloaded customization.",
+      "affected_components": [
+        "compatibility/compatibility.md",
+        "compatibility/probe-plan.json",
+        "examples/native/"
+      ],
+      "adoption_stage": "S1",
+      "reconsider_if": "A provider documents and a probe confirms a common contract for the relevant profiles.",
+      "requires_deeper_operator_review_before_deployment": true
+    },
+    {
+      "id": "D-25",
+      "title": "Defer plugins, MCP policy services and model/hardware selection",
+      "problem": "Which adjacent infrastructure choices are material now?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 85,
+        "evidence": 65,
+        "risk": 30,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L2-style autonomous review presentation; not a claim of a completed interactive EM-06a session",
+      "originating_decisions": [
+        "Q003/Q005 stage project skills before plugins/MCP policy; Hermes D06/D09/D10 and local LM decisions retain separate scope and deferrals."
+      ],
+      "repository_evidence": [
+        "apex-meta/kb/claude-code-orchestration-design/log/operator-phase1-review-decisions-20260702.md Q003,Q005",
+        "apex-meta/epics/hermes-multi-repo-orchestration-v2/DECISIONS.md D06,D09,D10",
+        "apex-meta/local-orchestration-engine/OPERATOR-DECISION-LOCK-2026-08-08-R3-LOCAL-MODEL.md"
+      ],
+      "external_evidence": [
+        "EEMP-07",
+        "EEMP-13",
+        "EXT-OAI-02"
+      ],
+      "options": [
+        {
+          "label": "Adopt a platform plugin and memory/model stack now",
+          "mechanism": "Bundle routing, connectivity, state and provider choice into one deployment.",
+          "grounding": "A rule activation improvement turns into a new local-model and scheduler project.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 65,
+            "evidence": 35,
+            "risk": 80,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject for this package’s implementation scope.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Define interfaces; defer unproven infrastructure",
+          "mechanism": "Use files/native skills and existing tools; revisit plugins for distribution only after a shared-source pilot, and model/runtime choices under their own locks.",
+          "grounding": "A later plugin may carry the same verified workflow without becoming its semantic owner.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 95,
+            "evidence": 70,
+            "risk": 15,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Prohibit plugins or MCP permanently",
+          "mechanism": "Freeze a file-only design even if supported distribution becomes simpler.",
+          "grounding": "A future maintained native package cannot replace manual copies.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 50,
+            "evidence": 35,
+            "risk": 30,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject as unnecessary rigidity.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "Connectivity is not doctrine, a plugin is not evaluation, and local hardware does not determine rule authority. Keeping these choices separate prevents accidental scope expansion.",
+      "tradeoff": "Potential distribution conveniences are postponed until justified by actual friction.",
+      "primary_failure_mode": "The infrastructure design is used as implicit approval for an unrelated platform migration.",
+      "affected_components": [
+        "03-architecture.md",
+        "design/integration-map.json",
+        "evaluation/evaluation-plan.md"
+      ],
+      "adoption_stage": "S4",
+      "reconsider_if": "A measured deployment problem and explicit operator authorization justify a separate bounded integration.",
+      "requires_deeper_operator_review_before_deployment": false
+    },
+    {
+      "id": "D-26",
+      "title": "Adopt by dependency-aware stages and rollback evidence",
+      "problem": "What can be approved next without approving the whole architecture at once?",
+      "status": "proposed_for_operator_review",
+      "question_estimate": {
+        "tier": "P1",
+        "impact": 95,
+        "evidence": 65,
+        "risk": 45,
+        "origin": "new_design_estimate_not_measurement",
+        "basis": "New coarse review judgment using WP-07. Authority/source fidelity is separate from empirical grounding. Evidence is capped at the established-standard range unless executed source/score diagnostics directly support the narrow choice."
+      },
+      "review_depth": "L3 deployment review flagged; this continuous-run artifact is an autonomous decision presentation, not a completed interactive EM-06a session",
+      "originating_decisions": [
+        "Current assignment is review-only; D05 requires pilot/promotion gates; existing authority-state code enforcement remains open."
+      ],
+      "repository_evidence": [
+        "apex-meta/epics/hermes-multi-repo-orchestration-v2/decisions/D05-SHARED-SKILL-SOURCE.md",
+        "apex-meta/orchestration/schemas/authority-state.schema.md §§8,9",
+        "apex-meta/informatics/final/specs/execution-modes/task-specification.md"
+      ],
+      "external_evidence": [
+        "EXT-OAI-01",
+        "EEMP-14"
+      ],
+      "options": [
+        {
+          "label": "Deploy the complete proposal in one pass",
+          "mechanism": "Install registry, skills, hooks and new carriers across repositories together.",
+          "grounding": "A failure cannot be isolated to routing, loading, permissions or source drift.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 55,
+            "evidence": 30,
+            "risk": 90,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject.",
+          "option_id": "A",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Scoped approval and evidence gates",
+          "mechanism": "Repair source/measurement defects, probe one profile, pilot one workflow, then add a justified guard and expand only after outcome evidence.",
+          "grounding": "A pilot can be removed by restoring captured pre-change bytes without touching unrelated skills.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 95,
+            "evidence": 70,
+            "risk": 20,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Selected.",
+          "option_id": "B",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        },
+        {
+          "label": "Another abstract research handover",
+          "mechanism": "Ask for a new design run before producing concrete changes or cases.",
+          "grounding": "The operator must reconstruct integration choices again.",
+          "estimate": {
+            "tier": "P1",
+            "impact": 20,
+            "evidence": 20,
+            "risk": 45,
+            "origin": "new_design_estimate_not_measurement",
+            "evidence_kind": [
+              "repository_authority_or_observation",
+              "documented_capability_or_empirical_analogy",
+              "design_inference"
+            ],
+            "basis": "The cited sources support the constraints and mechanism. This is an uncalibrated estimate of empirical grounding/verification, not a measured option effect; no native architecture trial was run."
+          },
+          "disposition": "Reject: this package provides the concrete design and review decisions now.",
+          "option_id": "C",
+          "grounding_status": "illustrative_application_of_actual_Apex_surface_not_executed",
+          "cost_to_reverse": "Before installation: revise the proposal. After an approved isolated pilot: remove or restore only the selected scoped files/profile; retain source owners and recorded evidence."
+        }
+      ],
+      "selected_option": "B",
+      "selection_reason": "Stages expose dependencies and isolate failures. The next operator action is to approve a concrete bounded slice, not to authorize an unknown universal installer.",
+      "tradeoff": "Full rollout is slower than a single broad change, but rollback and attribution remain tractable.",
+      "primary_failure_mode": "A completed structural check is treated as installation acceptance or authority promotion.",
+      "affected_components": [
+        "evaluation/evaluation-plan.md",
+        "design/integration-map.json",
+        "00-START-HERE.md",
+        "07-validation-report.md"
+      ],
+      "adoption_stage": "S0",
+      "reconsider_if": "A stage lacks a material risk or adds no information; remove that ceremony rather than adding another gate.",
+      "requires_deeper_operator_review_before_deployment": true
+    }
+  ]
+}

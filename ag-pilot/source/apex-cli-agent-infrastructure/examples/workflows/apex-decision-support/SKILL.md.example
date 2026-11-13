@@ -1,0 +1,50 @@
+---
+name: apex-decision-support
+description: Compare material Apex alternatives, answer consequential architecture Q&A, and produce evidence-grounded rankings using the existing decision owners. Use for explicit options or a real operator decision, including chat-only answers. Do not use for a routine reversible choice, a direct factual lookup, quoted comparison language, or ordinary use of the word ranking.
+---
+
+# Apex decision support — proposed inert workflow example
+
+**Review status:** this `.example` file is not an installed skill. Its name and description illustrate the portable Agent Skills shape. The host's discovery roots, invocation and permissions require the package's installed-version probes. No `allowed-tools` declaration or extra permission is implied.
+
+## Source ownership and applicable rules
+
+This workflow owns only the proposed sequence for selecting, delivering and applying existing owners. It does not redefine decision semantics. Registry identities link to [rules.json](../../../registry/rules.json).
+
+| Registry identity | Canonical owner to open when applicable | Existing owner IDs |
+|---|---|---|
+| `XML.trade_off` | `apex-meta/informatics/final/specs/execution-modes/bake-off.md:12–30`; `apex-meta/informatics/final/specs/execution-modes/qa-decision-matrix.md:12–28,44–58` | EM-07; EM-06; EM-06a |
+| `XML.ground`, `XML.hold_position`, `XML.target` | `apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml:3,22–24` | Current XML semantics; these remain active core rules |
+| `XML.pointers` | `apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml:74` | Conditional reference obligation |
+| `XML.schemas` if emitting/validating a governed decision record | `apex-meta/informatics/final/specs/governance-schemas.md:81–84` | GS-12; GS-13 |
+
+The repository root and approved source revision come from the active task/profile, not from a workstation path embedded here. Resolve the table against that root. A proposed source receipt can record identity and delivery time; it cannot make an unread or stale source authoritative.
+
+## Trigger and exclusions
+
+Select this procedure when the user asks which architecture, workflow, tool or material approach to adopt, or requests consequential options or rankings. A conversational answer can activate it without any file write. The actual question and stakes determine applicability; matching one word does not.
+
+Do not select it for a simple source-file lookup, an agreed bounded implementation step with no new material choice, proofreading the word “recommendation”, or a quotation describing somebody else's decision. A routine reversible implementation detail follows EM-06's exclusion. Do not add a six-field alignment pause to a direct question; `XML.align` has its own conditions and owner.
+
+## Procedure
+
+1. Identify the decision, non-negotiable constraints and current authorization. Keep existing accepted choices within scope. If the user asks for review only, the output remains a proposal.
+2. List and open the matched `XML.trade_off` references before the governed answer. Read the exact primary internal/external evidence needed for the candidates. Discovery metadata, search hits and source summaries do not substitute for delivered owner content.
+3. Apply EM-06/EM-06a at the decision's appropriate L0–L3 depth. Preserve the owner-required question, alternatives, mechanism, grounding, raw I/E/R, recommendation, rationale and rejection notes. Copy recorded authored dimensions exactly; mark newly estimated dimensions as proposed estimates.
+4. When the task is an actual multi-candidate bake-off, follow EM-07's four phases: hard gating, its weighted criterion comparison, ranked verdicts, and reviewable prototypes/decision conditions. Explain the selected criterion weights and distinguish them from raw I/E/R; never aggregate I/E/R into a reliability score. Label design estimates and do not fabricate measurements to fill a table. Changing the owned rubric requires a separately reviewed owner change.
+5. Distinguish documented capability, installed observation, retained source-reported execution, simulation, inference and proposal. Explain which evidence would change the recommendation. A prior reminder-plus-hook result cannot establish hook-only causation.
+6. Before answering, independently check source fidelity, serious alternatives, operator boundaries and usefulness. For a chat-only task, the answer itself is the deliverable; no state file or repository mutation is required merely because this workflow ran.
+
+## Supporting-reference packaging
+
+Keep the existing owner files canonical. A future approved distribution may include an exact, hashed reference projection when the host cannot access the source repository. The projection manifest must name original root-relative path, revision, destination and hash. This template does not create a second authored copy or a separate selectable skill for every matrix definition.
+
+The real comparison baseline is the operator's question in `apex-meta/informatics/final/research/11-infrastructure-evidence-index/sources/infrastructure-activation-research-brief.md:25–47`: evaluate all-reference skills, selected workflow skills, native rules, hooks/injection and combinations. The [worked flow](../../end-to-end-flows.md#1-chat-only-ranking-and-material-qa) is illustrative and uses that baseline.
+
+## Outcome check and recovery
+
+Check both dimensions independently: were the required sources delivered before the answer, and did the answer actually resolve the question accurately? A successful read does not validate the recommendation. A structured table without concrete mechanisms or causal accuracy fails the useful-outcome check.
+
+If the host has no usable prompt/final-answer hook, perform the same owner selection/read/check directly. If a different skill was initially chosen, inspect its scope, reject the mismatch and record the recovery; do not borrow authority from its name. If the owner is inaccessible, state the exact access limit and give only a bounded answer supported by available evidence; do not claim full conformance. On a narrow operator correction, revise only the challenged item unless new evidence invalidates more (`XML.hold_position`).
+
+**Failure guard:** no lexical router, skills listing, hook call, receipt or polished ranking proves that a material decision is correct. Do not install, purchase, commit or deploy a recommended option without the authorization that action requires.

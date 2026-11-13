@@ -1,0 +1,10 @@
+{
+  "status": "root_supplied_tool_observation",
+  "command": "codex --version",
+  "environment": "research container for this run; not Apex operator workstation",
+  "observed_on": "2026-11-12",
+  "native_capability_execution": false,
+  "operator_installed_version": "unknown",
+  "limitation": "This version fingerprint proves only a binary reported a version; no adapter behavior or policy was tested.",
+  "reported_version": "0.167.0-alpha.4"
+}

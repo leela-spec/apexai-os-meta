@@ -1,0 +1,2533 @@
+{
+  "schema_version": "apex_history.proposal.v1",
+  "status": "evidence_only",
+  "source_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+  "crosswalk": [
+    {
+      "historical_number": "01",
+      "current_rule_id": "XML.target",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 38,
+          "end": 38
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 01 | [**`rule-01-target.md`**](rule-01-target.md) | `<target>` | 56 | 40 | −16 BPE (−28.6%) | 36 | `AD-01`, `AD-09`, `AD-12` | `RP-05` (SpecBench), `RP-07` (FixedBench) |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "02",
+      "current_rule_id": "XML.product_first",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 39,
+          "end": 39
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 02 | [**`rule-02-product-first.md`**](rule-02-product-first.md) | `<product_first>` | 62 | 46 | −16 BPE (−25.8%) | 32 | `AD-09`, `AD-10`, `AD-12` | `RP-05`, `RP-07` (Action bias) |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "03",
+      "current_rule_id": "XML.scope",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 40,
+          "end": 40
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 03 | [**`rule-03-scope.md`**](rule-03-scope.md) | `<scope>` | 43 | 38 | −5 BPE (−11.6%) | 30 | `AD-05`, `AD-18`, `WP-09` | `RP-07` (Scope creep benchmark) |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "04",
+      "current_rule_id": "XML.communication",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 41,
+          "end": 41
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 04 | [**`rule-04-communication.md`**](rule-04-communication.md) | `<communication>` | 73 | 64 | −9 BPE (−12.3%) | 53 | `AD-17`, `WP-02`..`05` | `RP-04` (Cool Blue register) |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "05",
+      "current_rule_id": "XML.hold_position",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 42,
+          "end": 42
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 05 | [**`rule-05-hold-position.md`**](rule-05-hold-position.md) | `<hold_position>` | 55 | 47 | −8 BPE (−14.5%) | 38 | `AD-22`, `WP-25` | `RP-04` (Anti-sycophancy defense) |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "06",
+      "current_rule_id": "XML.ground",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 43,
+          "end": 43
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 06 | [**`rule-06-ground.md`**](rule-06-ground.md) | `<ground>` | 81 | 70 | −11 BPE (−13.6%) | 50 | `AD-06`, `AD-19`, `AD-20` | `RP-03` (McMillan 2026), `RP-05` |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "07",
+      "current_rule_id": "XML.reuse",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 44,
+          "end": 44
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 07 | [**`rule-07-reuse.md`**](rule-07-reuse.md) | `<reuse>` | 56 | 40 | −16 BPE (−28.6%) | 36 | `AD-11`, `AD-14`, `WP-23` | `RP-09` (Default behavior audit) |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "08",
+      "current_rule_id": "XML.context",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 45,
+          "end": 45
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 08 | [**`rule-08-context.md`**](rule-08-context.md) | `<context>` | 42 | 42 | 0 BPE (0.0%) | 36 | `AD-04`, `EM-03`, `EM-10` | `RP-03` (Context engineering), `RP-09` |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "09",
+      "current_rule_id": "XML.recovery",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 46,
+          "end": 46
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 09 | [**`rule-09-recovery.md`**](rule-09-recovery.md) | `<recovery>` | 38 | 34 | −4 BPE (−10.5%) | 34 | `AD-07`, `AD-16`, `AD-21` | `RP-09` (Incidental failure handling) |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "10",
+      "current_rule_id": "XML.stop_repairing",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 47,
+          "end": 47
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 10 | [**`rule-10-stop-repairing.md`**](rule-10-stop-repairing.md) | `<stop_repairing>` | 41 | 35 | −6 BPE (−14.6%) | 42 | `AD-02`, `AD-07`, `AD-24` | `RP-07` (Two-strike rule), `RP-09` |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "11",
+      "current_rule_id": "XML.current_truth",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 48,
+          "end": 48
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 11 | [**`rule-11-current-truth.md`**](rule-11-current-truth.md) | `<current_truth>` | 38 | 38 | 0 BPE (0.0%) | 38 | `AD-15`, `FA-01`, `FA-09` | `RP-03`, `RP-09` (No inline changelogs) |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "12",
+      "current_rule_id": "XML.surgical",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 49,
+          "end": 49
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 12 | [**`rule-12-surgical.md`**](rule-12-surgical.md) | `<surgical>` | 15 | 16 | +1 BPE (+6.7%) | 13 | `AD-03`, `EM-01`, `GS-02` | `RP-01` (Anti-whole-file rewrite) |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "13",
+      "current_rule_id": "XML.editing",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 50,
+          "end": 50
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 13 | [**`rule-13-editing.md`**](rule-13-editing.md) | `<editing>` | 75 | 67 | −8 BPE (−10.7%) | 62 | `AD-23`, `EM-01`, `EM-08` | `RP-01`, `RP-08` (Escalation cue) |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "14",
+      "current_rule_id": "XML.new_machinery",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 51,
+          "end": 51
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 14 | [**`rule-14-new-machinery.md`**](rule-14-new-machinery.md) | `<new_machinery>` | 70 | 68 | −2 BPE (−2.9%) | 59 | `AD-10`, `AD-13`, `AD-25` | `RP-07` (Pre-action blocker requirement) |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "15",
+      "current_rule_id": "XML.detour",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 52,
+          "end": 52
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 15 | [**`rule-15-detour.md`**](rule-15-detour.md) | `<detour>` | 44 | 40 | −4 BPE (−9.1%) | 40 | `AD-05`, `AD-10`, `AD-12` | `RP-07` (Challenge question) |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "16",
+      "current_rule_id": "XML.authoring",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 53,
+          "end": 53
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 16 | [**`rule-16-authoring.md`**](rule-16-authoring.md) | `<authoring>` | 123 | 113 | −10 BPE (−8.1%) | 105 | `FA-02`, `FA-06`, `FA-10` | `RP-08`, `RP-09` (Frontmatter & ranking) |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "17",
+      "current_rule_id": "XML.trade_off",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 54,
+          "end": 54
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 17 | [**`rule-17-trade-off.md`**](rule-17-trade-off.md) | `<trade_off>` | 77 | 77 | 0 BPE (0.0%) | 75 | `EM-06`, `EM-07`, `GS-12` | `RP-08`, `RP-09` (Decision matrix) |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "18",
+      "current_rule_id": "XML.handover",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 55,
+          "end": 55
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 18 | [**`rule-18-handover.md`**](rule-18-handover.md) | `<handover>` | 85 | 78 | −7 BPE (−8.2%) | 78 | `AD-06`, `EM-02`, `EM-09` | `RP-08` (4D delegation contract) |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "19",
+      "current_rule_id": "XML.iterative",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 56,
+          "end": 56
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 19 | [**`rule-19-iterative.md`**](rule-19-iterative.md) | `<iterative>` | 88 | 85 | −3 BPE (−3.4%) | 85 | `AD-04`, `EM-10`, `EM-11` | `RP-08`, `RP-09` (Route ladder & MMM) |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "20",
+      "current_rule_id": "XML.schemas",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 57,
+          "end": 57
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 20 | [**`rule-20-schemas.md`**](rule-20-schemas.md) | `<schemas>` | 64 | 64 | 0 BPE (0.0%) | 62 | `GS-01`, `GS-09`, `GS-10` | `RP-08`, `RP-09` (Schema conformance) |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "21",
+      "current_rule_id": "XML.sync",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 58,
+          "end": 58
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 21 | [**`rule-21-sync.md`**](rule-21-sync.md) | `<sync>` | 53 | 52 | −1 BPE (−1.9%) | 51 | `AD-23`, `EM-12`, `WP-25` | `RP-09`, `RP-10` (Git dispatch priority) |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "22",
+      "current_rule_id": "XML.pointers",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 59,
+          "end": 59
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 22 | [**`rule-22-pointers.md`**](rule-22-pointers.md) | `<pointers>` | 32 | 33 | +1 BPE (+3.1%) | 31 | `AD-26`, `WP-18`, `WP-25` | `RP-08`, `RP-09`, `RP-10` (JIT pointers) |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    },
+    {
+      "historical_number": "23",
+      "current_rule_id": "XML.align",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+        "section": "Governed 22-Rule Semantic Block Knowledge Base",
+        "lines": {
+          "start": 60,
+          "end": 60
+        },
+        "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+        "quote": "| 23 | [**`rule-23-align.md`**](rule-23-align.md) | `<align>` | 179 (2026-11-07) | 191 cl / 198 o2 | +12 (+6.7%) | 149 cl / 156 o2 | `EM-13` | `SpecBench`, `FixedBench`, Patton, `operations/15,17` |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_semantic_analysis_not_runtime_authority",
+      "reconciliation": "Current XML source text governs; historical options and token counts are not installed measurements."
+    }
+  ],
+  "decision_records": [
+    {
+      "decision_id": "DEC-01",
+      "recorded_status": "APPLIED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 29,
+          "end": 29
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-01** | Delete duplicated **blocks** (≥8 lines: schemas, tables, JSON, catalogs); do not delete duplicated short rules in the same pass | Contradiction between large copies is the expensive failure; a restated one-line invariant is not | `APPLIED` |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-02",
+      "recorded_status": "APPLIED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 30,
+          "end": 30
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-02** | `file-architecture.md` owns the OKF frontmatter contracts; `governance-schemas.md` states the validation view only | Ownership follows the load path — `FA` is what a file-creation task loads | `APPLIED` |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-03",
+      "recorded_status": "APPLIED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 31,
+          "end": 31
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-03** | `patch_intent.v1` lives in **one artifact outside the bundle**; the spec states the operative contract and links it | The embedded copy had already drifted, dropping every `maxLength` bound the real schema enforces | `APPLIED` |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-04",
+      "recorded_status": "APPLIED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 32,
+          "end": 32
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-04** | Duplicate `FA-04` resolved by moving the second rule to `FA-13`, not renumbering `FA-05..FA-12` | Disturb one durable ID rather than eight live cross-references | `APPLIED` |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-05",
+      "recorded_status": "APPLIED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 33,
+          "end": 33
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-05** | `standard.md` §2 precedence ladder extended; the modular suite governs every subject it covers | Two documents each claiming override authority is the measured failure mode | `APPLIED` |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-06",
+      "recorded_status": "APPLIED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 34,
+          "end": 34
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-06** | A test may be rewritten only when a rule legitimately changed owner, and the replacement must test *more* than the original | `test_tas_02` now validates the authoritative schema **and** that the spec agrees with it | `APPLIED` |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-07",
+      "recorded_status": "APPLIED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 35,
+          "end": 35
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-07** | `general-informatics-router.md` stays byte-identical to baseline; its 500-token ceiling is not relaxed for a comment | Weakening a gate to admit a nice-to-have is how ceilings stop meaning anything | `APPLIED` |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-08",
+      "recorded_status": "APPLIED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 36,
+          "end": 36
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-08** | `D8` (duplicated `estimate_tokens`) deliberately **not** fixed | Creating a shared module to deduplicate a 4-line function fails `AD-25` and `AD-13` | `APPLIED` |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-09",
+      "recorded_status": "APPLIED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 37,
+          "end": 37
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-09** | Three new rules added: `WP-23` single-owner instruction reuse, `WP-24` clickable file references, `WP-25` terminal-position operative content | Two from operator lore never codified; one from positional-attention research at zero token cost | `APPLIED` |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-M1",
+      "recorded_status": "OPEN_OR_TEST_QUEUE",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 205,
+          "end": 205
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-M1** | An IF-clause inside an already-loaded file saves **zero** tokens. All branches are in context regardless of which matches. | Unchanged always-on tokens are paid per session (discounted 78.5%–90% by prompt prefix caching per `RP-09`). The ~1,000-token figure is an operational heuristic, not a hard cliff (`RP-03`). |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-M2",
+      "recorded_status": "OPEN_OR_TEST_QUEUE",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 206,
+          "end": 206
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-M2** | Gates in the always-on file still buy two real things: they prevent downstream file reads (2,400–4,200 tokens each), and they reduce the number of instructions competing for compliance. | Gating the always-on block is worth doing — for precision and downstream savings, not for its own cost. |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-M3",
+      "recorded_status": "OPEN_OR_TEST_QUEUE",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 207,
+          "end": 207
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-M3** | Within plain Markdown files without runtime loader support, a conditional branch saves tokens **when it crosses a file boundary** (whereas native harness features like Claude Code `.claude/rules/` `paths:` frontmatter and on-demand Skills also defer tokens natively per `RP-03`). | Basis of `DEC-16` for mutually exclusive adapters, qualified by `RP-03` so we do not over-fragment into micro-files. |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-M4",
+      "recorded_status": "OPEN_OR_TEST_QUEUE",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 208,
+          "end": 208
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-M4** | The finalized `v1.0` contract block measures **`1,632` repo tokens (`1,350` BPE)** in `3A` and **`1,586` repo tokens (`1,314` BPE)** in `3B` (+`295` repo tokens for Layer 2 repo context = `1,881`–`1,927` repo tokens total). | Comfortably within the 1,024-token prefix-cache minimum and ~1,200–1,800 BPE operational band (`RP-09`). |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-M5",
+      "recorded_status": "OPEN_OR_TEST_QUEUE",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 209,
+          "end": 209
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-M5** | A worked example is not duplication. | `execution-modes.md` §2.2 illustrates `EM-06`; deleting it would be DRY cargo-culting. `WP-17` mandates such examples. |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-M6",
+      "recorded_status": "OPEN_OR_TEST_QUEUE",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 210,
+          "end": 210
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-M6** | `okf_validator.py` enforces frontmatter `id:` uniqueness but is blind to in-body rule IDs. | `D1` survived a green validator and 185 tests. Pytest guard added; `RBL-06` proposes promoting it. |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-O1",
+      "recorded_status": "OPEN_OR_TEST_QUEUE",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 228,
+          "end": 228
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-O1** | Install the contract into `AGENTS.md` (Step 1)? | Yes / No / After the test | **After the test** — Step 1 is reversible, but the read-trace result changes how much of it is worth doing | `04-empirical-test-protocol.md` |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-O2",
+      "recorded_status": "OPEN_OR_TEST_QUEUE",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 229,
+          "end": 229
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-O2** | Do Step 2 — delete the 8 restatements from modules? | Yes / Step 1 only | **Yes, after Step 1 runs in practice** | `DEC-O1` |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-O3",
+      "recorded_status": "OPEN_OR_TEST_QUEUE",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 230,
+          "end": 230
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-O3** | Split `execution-modes.md` into per-adapter files? | Yes / No / Only if the test passes | **Only if the test passes** | Test |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-O4",
+      "recorded_status": "OPEN_OR_TEST_QUEUE",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 231,
+          "end": 231
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-O4** | Should the three research threads run before or after the empirical test? | Before / After / Parallel | **Parallel** — the vector-retrieval question could change the architecture, so it should not wait on a test of the current one | — |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-O5",
+      "recorded_status": "OPEN_OR_TEST_QUEUE",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 232,
+          "end": 232
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-O5** | Is my reduced-form wording acceptable? | Accept / Revise / Rewrite | **Needs your eye** — every reduced rule is a lossy compression of a rule you wrote, `<always>` especially | — |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-O6",
+      "recorded_status": "OPEN_OR_TEST_QUEUE",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 233,
+          "end": 233
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-O6** | Does `AGENTS.md`'s existing content merge or stay? | Merge / Keep separate / Replace | **See the merge map** in [03-BLUEPRINT-agents.md](03-BLUEPRINT-agents.md) | — |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-17",
+      "recorded_status": "OPEN_OR_TEST_QUEUE",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 350,
+          "end": 350
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-17** | **Named tags vs bullets** — **DECIDED: named tags.** Operator decision on clarity grounds, measured cost 17 tokens. Still queued as a *confirmation* test, not a blocking one | Whether per-rule tags measurably worsen rule application | Tags measurably worse → revisit; otherwise the operator's clarity preference stands |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-18",
+      "recorded_status": "OPEN_OR_TEST_QUEUE",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 351,
+          "end": 351
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-18** | `<surgical>` always-on stub | Whether the 18-token stub is needed, i.e. whether whole-file rewrites occur when patch discipline is gated only | Gated-only shows no rewrites → **drop the stub** |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-19",
+      "recorded_status": "OPEN_OR_TEST_QUEUE",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 352,
+          "end": 352
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-19** | `<stop_repairing>` placement | Whether an agent inside a repair loop acts on an always-on stopping rule at all, and whether gating it would be worse | Ignored in both placements → the rule needs a different mechanism entirely, not a different location |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-20",
+      "recorded_status": "OPEN_OR_TEST_QUEUE",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 353,
+          "end": 353
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-20** | `<new_machinery>` + `<detour>` as the drift replacement | Whether observable-action gates actually fire before drift, where the self-diagnosis gate could not | Agents add scripts and propose detours without the gates firing → **the observable-action principle fails** and drift needs a non-instruction mechanism |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-22",
+      "recorded_status": "FINALIZED_V1",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 417,
+          "end": 417
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-22** | **Two-Layer Separation & `base_ref=\"apex-meta/informatics/\"` Portability (`Option 2A` + `5A`)** | [RESULTS-09](ResearchOfFile10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-09-efficiency-audit.md) & [RESULTS-10](ResearchOfFile10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-10-surface-layering.md) (Rank 1 & Rank 3). Layer 1 (`<apex_contract v=\"1.0\" base_ref=\"apex-meta/informatics/\">`) declares the bundle path once on the root tag and uses short relative `ref=\"...\"` filenames inside the block (saving ~25 tokens and making Layer 1 100% portable across repositories). Layer 2 (Live Infrastructure Banner, WSL2 ext4/`/mnt/c` constraint, Completion Reporting) resides outside `<apex_contract>` in the same file ([03-BLUEPRINT-agents.md](03-BLUEPRINT-agents.md)). Also retains `DEC-21` physical byte-identical carriers across `AGENTS.md`, `CLAUDE.md`, and `GEMINI.md` (Option A) as the sole safe baseline today because naive Option C stubs fail in standalone CLIs (Claude Code CLI ignores `AGENTS.md` when `CLAUDE.md` exists; Gemini CLI ignores `AGENTS.md` by default) and IDE rule injectors ignore CLI `@import` preprocessors. Accompanied by explicit `WARN` on Antigravity dual-carrier injection and operator guidance (`context.fileName: AGENTS.md`). | `FINALIZED_V1` |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-23",
+      "recorded_status": "FINALIZED_V1",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 418,
+          "end": 418
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-23** | **Ratify Candidate `3A` as Sole Production Blueprint Default & Relegate `3B` to Benchmark Arm B2** | [RESULTS-03](ResearchOfFile10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-03-currency-check.md), [RESULTS-06](ResearchOfFile10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-06-condition-syntax.md), [RESULTS-08](ResearchOfFile10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-08-deepen-when-mechanics.md), [RESULTS-09](ResearchOfFile10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-09-efficiency-audit.md), and Challenger 2 stress-test. Dropped all 5 unparsed `deepen_when=` attributes and preserved 100% of their second-threshold escalation triggers via concise inline `Open ref for ...` cues across all 6 `ref=` rules (`<editing>`, `<authoring>`, `<trade_off>`, `<handover>`, `<iterative>`, `<schemas>`). Formally ratifies [13-candidate-3A-xml.md](13-candidate-3A-xml.md) (`1,632` repo tokens / `1,350` BPE) as exclusive production blueprint default for `AGENTS.md`. Relegates [14-candidate-3B-hybrid.md](14-candidate-3B-hybrid.md) (`1,586` repo tokens / `1,314` BPE) to experimental benchmark Arm B2 in [04-empirical-test-protocol.md](04-empirical-test-protocol.md) because `3B` saves only 36 BPE tokens (2.67%) and zero prompt-cache blocks while suffering table pipe-escaping fragility (`\\|`) and cell wrapping under narrow viewports. | `FINALIZED_V1` |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-24",
+      "recorded_status": "FINALIZED_V1",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Decision register table",
+        "lines": {
+          "start": 419,
+          "end": 419
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "| **DEC-24** | **Empirical Wording Upgrades for `<target>`, `<communication>`, and `<new_machinery>` (`RP-04`, `RP-05`, `RP-07`)** | (1) `<target>` ([RESULTS-05](ResearchOfFile10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-05-self-authored-criteria.md) *SpecBench* & [RESULTS-07](ResearchOfFile10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-07-over-building.md) *FixedBench*): adds positive requirement-by-requirement final validation check, treats self-authored tests as supporting evidence rather than replacement criteria, and explicitly legitimizes concluding *\"no change is needed\"*. (2) `<communication>` ([RESULTS-04](ResearchOfFile10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-04-register-terminology.md)): adopts **Insights Discovery Cool Blue** analytical register and replaces `\"No hedging\"` with `\"State uncertainty plainly when evidence is incomplete; avoid empty hedges\"`. (3) `<new_machinery>` ([RESULTS-07](ResearchOfFile10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-07-over-building.md)): requires naming the exact requirement, blocker, or material risk before adding scripts, tests, gates, or abstractions. Synchronized into canonical library modules (`writing-profile.md` & `anti-drift-rules.md`). | `FINALIZED_V1` |",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Recorded status preserved in its historical scope; current implementation and later owner must be checked separately."
+    },
+    {
+      "decision_id": "DEC-10",
+      "recorded_status": "SUPERSEDED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "`DEC-10`",
+        "lines": {
+          "start": 46,
+          "end": 55
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "### `DEC-10` — \"Modules must restate universal invariants to stay self-sufficient\" → `SUPERSEDED`\n\n| | |\n|---|---|\n| **What I held** | Under one-gate-one-file routing, a module loaded alone must contain every rule it needs. So `AD-03` restating `EM-01`, `AD-08` restating `WP-01` etc. is correct, and the fix is to bind their wording with `Canonical:` markers. |\n| **Why I held it** | True *given the architecture as it existed* — nothing guaranteed a universal invariant was in context when a module loaded. |\n| **What changed it** | Discovering that `general-informatics-router.md` was never installed, and that the intended design puts the contract **inside `AGENTS.md`**, which is always loaded. Once that is true, the invariant is already in context and the restatement buys nothing. |\n| **Replaced by** | `DEC-12` below. |\n| **Live artifact of the old view** | 23 `Canonical: XX-NN` markers across the five modules (3 `WP`, 5 `FA`, 2 `EM`, 6 `AD`, 7 `GS`). **Harmless today** — they are accurate cross-references. Under `DEC-12` Step 2, the 8 universal ones become deletable. |\n",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Earlier restatement rule replaced by DEC-12 proposal; do not delete actual load-bearing summaries without proving delivery."
+    },
+    {
+      "decision_id": "DEC-11",
+      "recorded_status": "SUPERSEDED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "`DEC-11`",
+        "lines": {
+          "start": 56,
+          "end": 64
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "### `DEC-11` — \"Apply one uniform CROSS_LINK policy to all duplicated rules\" → `SUPERSEDED`\n\n| | |\n|---|---|\n| **What I held** | Every short duplicated rule is retained and wording-bound, regardless of how many copies exist. |\n| **What changed it** | The established practice is a **threshold**, not a uniform policy. Fowler's Rule of Three: one or two copies, leave alone; at three or more, extract. I applied the Metz/AHA half (\"duplication is cheaper than the wrong abstraction\") and skipped the Fowler half. |\n| **Measured consequence** | 8 of 13 duplicated concepts cross the threshold: Substance Over Ceremony (5 copies), whole-file rewrite ban (5), instruction parsimony (4), step-by-step context (4), TARGET dominance (4), top-loaded primacy (3), durable IDs (3), residual name eradication (3). The remaining 5 sit at 2 copies and correctly stay. |\n| **Replaced by** | `DEC-12`. |\n",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Uniform short-copy policy replaced by threshold reasoning; mechanical ownership remains current."
+    },
+    {
+      "decision_id": "DEC-12",
+      "recorded_status": "PROPOSED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "`DEC-12`",
+        "lines": {
+          "start": 130,
+          "end": 143
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "### `DEC-12` — Universal invariants move into an always-on contract `PROPOSED`\n\nThe 8 Rule-of-Three concepts are stated **once**, in a contract block embedded in `AGENTS.md`.\nBecause that file is always loaded, the invariants are already in context whenever any module\nloads — so modules stop restating them. **No pointer, no hop, no copy.**\n\nTwo steps, deliberately separated:\n\n- **Step 1 (reversible, nothing can break):** install the contract into `AGENTS.md`; stop `index.md`\n  carrying invariants and IF-clauses. The five modules are **unchanged** — their copies become\n  harmless redundancy rather than load-bearing redundancy.\n- **Step 2 (only after Step 1 runs in practice):** delete the 8 restatements from the modules;\n  rewrite `test_olt_07`, which currently asserts the duplication by name across five files.\n",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Always-on invariants proposal; current master XML exists but installed carriers require separate evidence."
+    },
+    {
+      "decision_id": "DEC-13",
+      "recorded_status": "PROPOSED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "`DEC-13`",
+        "lines": {
+          "start": 144,
+          "end": 149
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "### `DEC-13` — Reduced-form rules in the contract, not bare pointers `PROPOSED`\n\nThe always-on block carries writing, file-architecture, anti-drift, and task-adapter rules **in reduced form**, not merely links to them — because an agent writes prose, touches files, and faces scope/drift boundaries on nearly every task, while deep reference files (`execution-modes.md`, `index.md`, `governance-schemas.md`) stay behind `when=` + `ref=` gates.\n\nMeasured (`v1.0` finalized): **`1,632` repo tokens (`1,350` BPE tokens)** in `v1.0-3A` ([13-candidate-3A-xml.md](13-candidate-3A-xml.md)) or **`1,586` repo tokens (`1,314` BPE tokens)** in `v1.0-3B` ([14-candidate-3B-hybrid.md](14-candidate-3B-hybrid.md)) across 12 unconditional invariants, 9 conditional rules, and 1 terminal `<pointers>` guard.\n",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Reduced form mechanism retained; historical token counts are not current measurements."
+    },
+    {
+      "decision_id": "DEC-14",
+      "recorded_status": "PROPOSED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "`DEC-14`",
+        "lines": {
+          "start": 150,
+          "end": 154
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "### `DEC-14` — `index.md` is a bundle index only `PROPOSED`\n\nIt stops carrying invariants and dispatch gates. Its job is OKF validation entry and human\nnavigation. Nothing reads it at runtime.\n",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Historical index-only claim is overtaken by current XML authoring index reference; record conflict."
+    },
+    {
+      "decision_id": "DEC-15",
+      "recorded_status": "PROPOSED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "`DEC-15`",
+        "lines": {
+          "start": 155,
+          "end": 159
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "### `DEC-15` — `general-informatics-router.md` becomes a labelled portable artifact `PROPOSED`\n\nOnce `AGENTS.md` carries the live contract, the router file is explicitly a derivative kept for\nembedding into *other* repositories. It is labelled as such and is not a second live router.\n",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Router derivative intent; observed current index still includes dispatch."
+    },
+    {
+      "decision_id": "DEC-16",
+      "recorded_status": "PROPOSED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "`DEC-16`",
+        "lines": {
+          "start": 160,
+          "end": 198
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "### `DEC-16` — Conditional branches must cross a file boundary `PROPOSED` ★ new\n\n**This is the newest decision and the highest-leverage one.** It did not exist as an option before\nthe mechanical correction in `DEC-M3` below — docs 05 and 06 could not have contained it.\n\n> A conditional branch only saves tokens when the branch target is a **separate file**. An\n> IF-clause pointing at a *section* of a file the agent is already reading saves nothing.\n\nConsequence: a monolithic on-demand file whose parts are mutually exclusive should be **split into\none file per branch**, each with its own gate.\n\nFirst application — `execution-modes.md`, measured:\n\n| Section | Tokens |\n|---|---:|\n| Core invariants + dispatch | 599 |\n| Adapter 1 — Q&A Decision Matrix | 627 |\n| Adapter 2 — Bake-Off Rubric | 444 |\n| Adapter 3 — Exact-Match Patch | 713 |\n| Adapter 4 — Handover | 475 |\n| Adapter 5 — Iterative / MMM | 1,034 |\n| Adapter 6 — Git Sync | 167 |\n| **Monolithic read today** | **4,208** |\n\nA patch task would load **713 instead of 4,208 — an 83% cut** on the heaviest module in the suite.\n\n**Status is `PROPOSED`, with operator endorsement noted, pending\n[04-empirical-test-protocol.md](04-empirical-test-protocol.md).** The token arithmetic is\ndeterministic and not in question. What is in question is whether an agent honours the gate. If the\nread-trace test shows agents read every candidate file regardless of gating, this split buys\nnothing and `DEC-16` fails. That condition is recorded in Part F so the test stays honest rather\nthan confirmatory.\n\n**Not every module should be split.** `anti-drift-rules.md` is the counter-case: its rules apply\ntogether rather than exclusively, so splitting it would add hops without removing content. The\ncriterion is **mutual exclusivity of the branches**, not file size.\n\n---\n",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "File-boundary token saving is conditional on successful route activation; pointer failures challenge adherence premise."
+    },
+    {
+      "decision_id": "DEC-21",
+      "recorded_status": "OPERATOR_RECORDED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "Part F2",
+        "lines": {
+          "start": 256,
+          "end": 260
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "## Part F2 — `DEC-21`: which instruction surfaces carry the contract\n\n**Operator decision: all of them.** *\"All AIs are going to get the same thing because this is how I\nwant all AIs to work.\"*\n",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Same semantics across tools; exact physical carrier strategy remains version/surface-dependent. Do not equate global carrier policy with repo root mirrors."
+    },
+    {
+      "decision_id": "DEC-17",
+      "recorded_status": "OPERATOR_DECIDED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "`DEC-17` — RESOLVED",
+        "lines": {
+          "start": 373,
+          "end": 390
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "### `DEC-17` — RESOLVED: named tags\n\n**Operator decision: named tags, because they read more clearly.**\n\nThe evidence above argues against tags for this content type, but it argues on **token-efficiency**\ngrounds — and the measured difference here is 17 tokens, 1.3% (`DEC-C2`). At that magnitude the\nefficiency argument has no force, and the decision turns entirely on clarity, which is the\noperator's call and which named tags win.\n\nRecorded honestly: **this decision goes against the literature's direction while being consistent\nwith its magnitude.** The published results showing XML worse (96.4% vs 97.6% accuracy) came with a\n31% token overhead; our overhead is 1.3%, so that trade is not the one being made here. Kept in the\ntest queue as a **confirmation** test rather than a blocking one — the block ships with tags unless\nthe test shows them actively harmful.\n\n**Consequence:** the `v0.4` block in\n[07-contract-block-v0.4.md](07-contract-block-v0.4.md) uses one named tag per rule throughout.\n",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Named tags selected for clarity; do not reverse based on generic format advice."
+    },
+    {
+      "decision_id": "DEC-W1",
+      "recorded_status": "WITHDRAWN",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "`DEC-W1`",
+        "lines": {
+          "start": 65,
+          "end": 71
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "### `DEC-W1` — \"Audit the 3,031-token always-on tier\" → `WITHDRAWN`\n\nI measured `CLAUDE.md` + `.claude/CLAUDE.md` + `AGENTS.md` and called the total a problem to fix.\nThe operator states those files are placeholders awaiting exactly this work. **That number is not a\ndefect — it is the budget the new contract must fit inside.** The decision was malformed and is\nwithdrawn, not answered.\n",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Placeholder always-on token count was not a defect."
+    },
+    {
+      "decision_id": "DEC-W2",
+      "recorded_status": "WITHDRAWN",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "`DEC-W2`",
+        "lines": {
+          "start": 72,
+          "end": 79
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "### `DEC-W2` — \"Decide whether `index.md` is a guaranteed kernel\" → `WITHDRAWN`\n\nMalformed question. `index.md` is **not the runtime router and never was**. The prior design states\nthe contract block belongs embedded in `AGENTS.md` and that agents should not be told to read the\npilot file at runtime\n([08-TIER-A-XML-EMBEDDED-PILOT-v0.2.md](../../../../handoff/universal-ai-instruction-system/08-TIER-A-XML-EMBEDDED-PILOT-v0.2.md)).\nReplaced by `DEC-14`.\n",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Index guaranteed-kernel question was malformed at that historical stage."
+    },
+    {
+      "decision_id": "DEC-C1",
+      "recorded_status": "CORRECTED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "`DEC-C1`",
+        "lines": {
+          "start": 80,
+          "end": 96
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "### `DEC-C1` — \"The named-tag design is the operator's own\" → `CORRECTED`\n\nIn [06-contract-block-revision-proposal.md](06-contract-block-revision-proposal.md) §1 I justified\nadopting one-named-tag-per-rule by calling it *\"your own prior design\"* and said I had *\"regressed\nfrom it.\"*\n\n**I did not verify that.** Checked afterwards: `08-TIER-A-XML-EMBEDDED-PILOT-v0.2.md` is committed\nunder the operator's git identity, but every commit touching it follows this repository's\nAI-assisted pattern (`docs(agent-contract): deepen C01 …`). It carries no authorship marker, and\n`standard.md` shows the repo does mark AI generation when the convention is applied\n(`generated: { by: gemini-3.7-flash }`). Absence of a marker is not evidence of human authorship.\n\n**Correct statement:** it is a prior candidate in this repository, most likely AI-drafted, carrying\nno more authority than my own draft. Appealing to it as operator design was an unverified appeal to\nauthority, and it is exactly what `<ground>` forbids. The design choice has to stand on evidence —\nsee `DEC-17`.\n",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Git authorship identity did not prove human origin or operator endorsement."
+    },
+    {
+      "decision_id": "DEC-C2",
+      "recorded_status": "CORRECTED",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+        "section": "`DEC-C2`",
+        "lines": {
+          "start": 97,
+          "end": 114
+        },
+        "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+        "quote": "### `DEC-C2` — \"Named tags cost ~150 tokens more than bullets\" → `CORRECTED`\n\nAlso from the revision proposal. **Measured: the difference is 17 tokens**, 1.3% of the block.\n\nThe estimate was wrong because bullets still need a label (`- Target: `) which costs nearly what a\ntag pair costs (`<target>` … `</target>`). Actual accounting of the v0.3 → v0.4 growth of +585:\n\n| Source of growth | Tokens | Share |\n|---|---:|---:|\n| Three rules that did not exist (`product_first`, `new_machinery`, `detour`) | 226 | 39% |\n| `trade_off` + `schemas` promoted from one-line pointers to full blocks | 187 | 32% |\n| `editing` expanded from one line to the full protocol + overcorrection | 123 | 21% |\n| `ground` expanded to carry checkable-ambiguity | 44 | 7% |\n| **Named tags** | **17** | **3%** |\n\n**The growth is new content, not formatting.** The proposal misattributed it, which would have sent\nreview effort at the wrong target.\n",
+        "evidence_class": "repository_observed"
+      },
+      "interpretation": "Actual prior tag overhead 17 tokens, not estimate 150; historical report not remeasured now."
+    }
+  ],
+  "retired_rule_ids": [
+    {
+      "id": "GS-16",
+      "replacement": "WP-20"
+    },
+    {
+      "id": "GS-18",
+      "replacement": "GS-04"
+    },
+    {
+      "id": "GS-19",
+      "replacement": "GS-17"
+    }
+  ],
+  "failure_guard": "Never load this history as current instruction or silently promote recorded proposals/experiments to accepted state.",
+  "retained_change_proposals": [
+    {
+      "change_id": "C01",
+      "recorded_priority_raw": "[P0 \\| I94/E90/R10]",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Overview of the 12 Step-by-Step Changes",
+        "lines": {
+          "start": 25,
+          "end": 25
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "| **C01** | Layer 1 ([apex_contract_v1.0_ultra.xml](../../specs/apex_contract_v1.0_ultra.xml)) | `<deliberation>` + `<communication>` | Topic 7: Pro-thinking principles vs. anti-drift overfitting | +85 tok | `[P0 \\| I94/E90/R10]` |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_proposal",
+      "current_reconciliation": "Proposed deliberation tag is absent from current XML; current package must not add private-reasoning instructions or treat Arm C as a demonstrated improvement."
+    },
+    {
+      "change_id": "C02",
+      "recorded_priority_raw": "[P1 \\| I88/E95/R05]",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Overview of the 12 Step-by-Step Changes",
+        "lines": {
+          "start": 26,
+          "end": 26
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "| **C02** | Layer 1 ([apex_contract_v1.0_ultra.xml](../../specs/apex_contract_v1.0_ultra.xml)) | `<links>` (New Tag) | Topic 4 & Checklist #3: Clickable file links everywhere | +58 tok | `[P1 \\| I88/E95/R05]` |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_proposal",
+      "current_reconciliation": "Proposed links tag is absent from current XML. WP-24 already owns file-link ergonomics; preserve current owner and label new always-on tag unadopted."
+    },
+    {
+      "change_id": "C03",
+      "recorded_priority_raw": "[P0 \\| I94/E92/R08]",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Overview of the 12 Step-by-Step Changes",
+        "lines": {
+          "start": 27,
+          "end": 27
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "| **C03** | Layer 1 ([apex_contract_v1.0_ultra.xml](../../specs/apex_contract_v1.0_ultra.xml)) | `<align>` | Checklist #5: Unified 6-field contract + live working file in repo | +18 tok | `[P0 \\| I94/E92/R08]` |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_proposal",
+      "current_reconciliation": "Proposed Intent/Input & Sources/Process & Skills/Output/DoD/Examples schema differs from current EM-13 Goal/Input/Process/Skills/Output/Redraft. Current owning schema governs."
+    },
+    {
+      "change_id": "C04",
+      "recorded_priority_raw": "[P0 \\| I95/E95/R05]",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Overview of the 12 Step-by-Step Changes",
+        "lines": {
+          "start": 28,
+          "end": 28
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "| **C04** | Layer 1 ([apex_contract_v1.0_ultra.xml](../../specs/apex_contract_v1.0_ultra.xml)) | `<reuse>` | Checklist #7: Deterministic first — link `path#heading`, never rewrite reasoning/research, move via script | +26 tok | `[P0 \\| I95/E95/R05]` |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_proposal",
+      "current_reconciliation": "Expanded deterministic-first/link-do-not-rewrite wording is a proposal; existing current reuse, patch and WP-23 rules supply applicable meaning without silently changing XML."
+    },
+    {
+      "change_id": "C05",
+      "recorded_priority_raw": "[P0 \\| I93/E92/R08]",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Overview of the 12 Step-by-Step Changes",
+        "lines": {
+          "start": 29,
+          "end": 29
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "| **C05** | Layer 1 ([apex_contract_v1.0_ultra.xml](../../specs/apex_contract_v1.0_ultra.xml)) | `<context>` & `<iterative>` | Checklist #2 & #5: 3-part Input Priority Ledger, Meta-Layer First matrix, live working file | +24 tok | `[P0 \\| I93/E92/R08]` |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_proposal",
+      "current_reconciliation": "Current context/iterative and EM-10 already support prioritized durable step work. Repository persistence remains authorization-dependent; no live-write mandate for this run."
+    },
+    {
+      "change_id": "C06",
+      "recorded_priority_raw": "[P0 \\| I96/E96/R05]",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Overview of the 12 Step-by-Step Changes",
+        "lines": {
+          "start": 30,
+          "end": 30
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "| **C06** | Layer 1 ([apex_contract_v1.0_ultra.xml](../../specs/apex_contract_v1.0_ultra.xml)) | `<recovery>` | Checklist #6: Wrong-Blocker Guard (unrelated dirty files like `.claude/settings.json` never block execution) | +28 tok | `[P0 \\| I96/E96/R05]` |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_proposal",
+      "current_reconciliation": "Current AGENTS and EM-14 already scope dirty-file handling. Retain general incidental-failure rule; avoid overfitting always-on guidance to a named settings file."
+    },
+    {
+      "change_id": "C07",
+      "recorded_priority_raw": "[P1 \\| I90/E92/R08]",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Overview of the 12 Step-by-Step Changes",
+        "lines": {
+          "start": 31,
+          "end": 31
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "| **C07** | Layer 1 ([apex_contract_v1.0_ultra.xml](../../specs/apex_contract_v1.0_ultra.xml)) | `<authoring>` | Checklist #3: Bidirectional file topology (parent/contains/owns/excludes/neighbours) & `path#heading` links | +14 tok | `[P1 \\| I90/E92/R08]` |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_proposal",
+      "current_reconciliation": "FA-14 is proposed, absent from the inspected current FA owner (FA-01..13). Useful topology can appear in this design without claiming FA-14 accepted."
+    },
+    {
+      "change_id": "C08",
+      "recorded_priority_raw": "[P0 \\| I96/E94/R06]",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Overview of the 12 Step-by-Step Changes",
+        "lines": {
+          "start": 32,
+          "end": 32
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "| **C08** | Layer 1 ([apex_contract_v1.0_ultra.xml](../../specs/apex_contract_v1.0_ultra.xml)) | `<handover>` | Topic 5 & Checklist #4, #5, #6: Step Close-Out (`EM-14`), Continuation Proposal, Scoped Preflight Guard | +34 tok | `[P0 \\| I96/E94/R06]` |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_proposal",
+      "current_reconciliation": "EM-14 now exists in current handover owner; proposed separate EM-09a/b IDs are not current declarations. Keep current six-field Continuation schema and actual gate limits."
+    },
+    {
+      "change_id": "C09",
+      "recorded_priority_raw": "[P0 \\| I96/E96/R05]",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Overview of the 12 Step-by-Step Changes",
+        "lines": {
+          "start": 33,
+          "end": 33
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "| **C09** | Layer 1 ([apex_contract_v1.0_ultra.xml](../../specs/apex_contract_v1.0_ultra.xml)) | `<sync>` | Checklist #1: `sync`/`synch` = pull + push, no unauthorized deletion, commit out-of-scope dirty files separately, link `git-sync.md` | +22 tok | `[P0 \\| I96/E96/R05]` |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_proposal",
+      "current_reconciliation": "Standalone execution-modes/git-sync.md exists at pinned SHA and owns an EM-12 adapter. Current XML.sync still has no ref; distinguish existing file from proposed pointer addition."
+    },
+    {
+      "change_id": "C10",
+      "recorded_priority_raw": "[P0 \\| I95/E96/R08]",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Overview of the 12 Step-by-Step Changes",
+        "lines": {
+          "start": 34,
+          "end": 34
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "| **C10** | Layer 2 ([carrier-layer2-shared.md](../../specs/carrier-layer2-shared.md)) | `## OpenProject & Agent Skills Routing` | Topic 1 & Topic 3: 3-bullet Compressed Hybrid Gate; retire duplicate `~/.gemini/config/GEMINI.md` | −348 tok | `[P0 \\| I95/E96/R08]` |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_proposal",
+      "current_reconciliation": "OpenProject compressed gate and retirement of a workstation file are proposed. Current shared Layer 2 lacks that block. External skill/client implementation and installed duplicate loading are unverified here; do not install or hard-code the historical local path."
+    },
+    {
+      "change_id": "C11",
+      "recorded_priority_raw": "[P0 \\| I92/E98/R04]",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Overview of the 12 Step-by-Step Changes",
+        "lines": {
+          "start": 35,
+          "end": 35
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "| **C11** | Layer 2 ([carrier-layer2-shared.md](../../specs/carrier-layer2-shared.md)) | `## Personal Windows development defaults` & `## Completion Reporting` | Evict Leela-specific Flutter rule to Leela repo; move precedence bullet to Workstation section (`T16`) | −36 tok | `[P0 \\| I92/E98/R04]` |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_proposal",
+      "current_reconciliation": "Flutter remains in current shared Layer 2; proposed eviction is not demonstrated adoption. Scope host/project advice before moving or deleting any current content."
+    },
+    {
+      "change_id": "C12",
+      "recorded_priority_raw": "[P1 \\| I95/E85/R12]",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Overview of the 12 Step-by-Step Changes",
+        "lines": {
+          "start": 36,
+          "end": 36
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "| **C12** | Root Carriers ([AGENTS.md](../../../../../AGENTS.md), [GEMINI.md](../../../../../GEMINI.md)) | Full File Deduplication | Topic 6 & Checklist #1: Deduplicate repeated Layer 1 rules & align Git Dispatch with full `sync`/`synch` | −1,200 tok | `[P1 \\| I95/E85/R12]` |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_proposal",
+      "current_reconciliation": "Root AGENTS currently retains Directness/Core Intent/Scope. Deduplication remains a version/surface-tested proposal; preserve root dispatch and verify effective loading before removing reduced safeguards."
+    }
+  ],
+  "retained_change_options": [
+    {
+      "option_id": "C01-A",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 53,
+          "end": 53
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C01-A (Two-Plane Cognitive Decoupling — `<deliberation>` + Scoped `<communication>`)**: `[P0 | I94/E90/R10]` (+85 tokens). Adds a dedicated `<deliberation>` tag for non-trivial tasks targeting internal reasoning (decompose invariants, generate $\\ge 2$ hypotheses, disconfirm against live artifacts, define proof before mutating) and scopes `<communication apply_to=\"external_output_only\">`.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P0 | I94/E90/R10]",
+        "tier": "P0",
+        "impact": 94,
+        "evidence": 90,
+        "risk": 10
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "Proposed deliberation tag is absent from current XML; current package must not add private-reasoning instructions or treat Arm C as a demonstrated improvement."
+    },
+    {
+      "option_id": "C01-B",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 54,
+          "end": 54
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C01-B (Diffuse Inline Folding into `<target>`/`<align>`)**: `[P1 | I78/E65/R25]` (+35 tokens). Mixes cognitive prompting into task restatement; fails to unbind `<communication>` from internal thinking.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P1 | I78/E65/R25]",
+        "tier": "P1",
+        "impact": 78,
+        "evidence": 65,
+        "risk": 25
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "Proposed deliberation tag is absent from current XML; current package must not add private-reasoning instructions or treat Arm C as a demonstrated improvement."
+    },
+    {
+      "option_id": "C01-C",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 55,
+          "end": 55
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C01-C (1-Line JIT Pointer `<reasoning ref=\"...\">`)**: `[P2 | I82/E75/R35]` (+18 tokens). Fails due to Law `L-3` ([01-findings-and-protocol.md](../08-read-trace-routing-experiments/01-findings-and-protocol.md)): models skip judgment-gate `ref` pointers under neutral prompts.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P2 | I82/E75/R35]",
+        "tier": "P2",
+        "impact": 82,
+        "evidence": 75,
+        "risk": 35
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "Proposed deliberation tag is absent from current XML; current package must not add private-reasoning instructions or treat Arm C as a demonstrated improvement."
+    },
+    {
+      "option_id": "C02-A",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 77,
+          "end": 77
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C02-A (Dedicated `<links>` Tag in Layer 1)**: `[P1 | I88/E95/R05]` (+58 tokens). Applies across all chat responses, reports, and documentation; mandates forward slashes (`/`), `#L{line}` anchors, and plain code font with `(uncreated)` for non-existent files.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P1 | I88/E95/R05]",
+        "tier": "P1",
+        "impact": 88,
+        "evidence": 95,
+        "risk": 5
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "Proposed links tag is absent from current XML. WP-24 already owns file-link ergonomics; preserve current owner and label new always-on tag unadopted."
+    },
+    {
+      "option_id": "C02-B",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 78,
+          "end": 78
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C02-B (Append 1 Clause inside `<communication>`)**: `[P2 | I72/E85/R20]` (+15 tokens). Omits Windows `/` normalization and the uncreated-file guard, risking broken IDE links.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P2 | I72/E85/R20]",
+        "tier": "P2",
+        "impact": 72,
+        "evidence": 85,
+        "risk": 20
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "Proposed links tag is absent from current XML. WP-24 already owns file-link ergonomics; preserve current owner and label new always-on tag unadopted."
+    },
+    {
+      "option_id": "C03-A",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 106,
+          "end": 106
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C03-A (Unified 6-Field Contract with Paired `Input & Sources` / `Process & Skills` + Live Repo File)**: `[P0 | I94/E92/R08]` (+18 tokens). Unifies `<align>`, `<iterative>`, and `<handover>` on `Intent`, `Input & Sources`, `Process & Skills`, `Output`, `DoD`, `Examples / Redraft`—preserving the failure guards of `Sources` and `Skills` ([task-specification.md:22-25](../../specs/execution-modes/task-specification.md#L22-L25)) while adding `Intent`, `DoD`, and live working-file persistence.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P0 | I94/E92/R08]",
+        "tier": "P0",
+        "impact": 94,
+        "evidence": 92,
+        "risk": 8
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "Proposed Intent/Input & Sources/Process & Skills/Output/DoD/Examples schema differs from current EM-13 Goal/Input/Process/Skills/Output/Redraft. Current owning schema governs."
+    },
+    {
+      "option_id": "C03-B",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 107,
+          "end": 107
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C03-B (Drop `Sources` and `Skills` to Fit `Intent` and `DoD`)**: `[P2 | I68/E80/R40]` (0 tokens). Loses explicit source listing and skill disclosure guards.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P2 | I68/E80/R40]",
+        "tier": "P2",
+        "impact": 68,
+        "evidence": 80,
+        "risk": 40
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "Proposed Intent/Input & Sources/Process & Skills/Output/DoD/Examples schema differs from current EM-13 Goal/Input/Process/Skills/Output/Redraft. Current owning schema governs."
+    },
+    {
+      "option_id": "C04-A",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 135,
+          "end": 135
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C04-A (Inline Deterministic-First & Link-Don't-Rewrite inside `<reuse>`)**: `[P0 | I95/E95/R05]` (+26 tokens). Puts the rule directly into always-on Layer 1 `<reuse>` and expands `WP-23` / `AD-23` in Plane 4.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P0 | I95/E95/R05]",
+        "tier": "P0",
+        "impact": 95,
+        "evidence": 95,
+        "risk": 5
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "Expanded deterministic-first/link-do-not-rewrite wording is a proposal; existing current reuse, patch and WP-23 rules supply applicable meaning without silently changing XML."
+    },
+    {
+      "option_id": "C04-B",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 136,
+          "end": 136
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C04-B (Keep Only in `writing-profile.md` `WP-23`)**: `[P2 | I45/E90/R65]` (0 tokens). Fails in 97% of neutral runs when `writing-profile.md` is not opened.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P2 | I45/E90/R65]",
+        "tier": "P2",
+        "impact": 45,
+        "evidence": 90,
+        "risk": 65
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "Expanded deterministic-first/link-do-not-rewrite wording is a proposal; existing current reuse, patch and WP-23 rules supply applicable meaning without silently changing XML."
+    },
+    {
+      "option_id": "C05-A",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 158,
+          "end": 158
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C05-A (Inline 3-Part Input Ledger in `<context>` + Unified 6-Field Live File & Meta-Layer First in `<iterative>`)**: `[P0 | I93/E92/R08]` (+24 tokens). Ensures multi-step sessions maintain a live working file in the repo and build the rough meta-layer matrix first even when `iterative-execution.md` is not opened.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P0 | I93/E92/R08]",
+        "tier": "P0",
+        "impact": 93,
+        "evidence": 92,
+        "risk": 8
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "Current context/iterative and EM-10 already support prioritized durable step work. Repository persistence remains authorization-dependent; no live-write mandate for this run."
+    },
+    {
+      "option_id": "C05-B",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 159,
+          "end": 159
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C05-B (Defer Entirely to `iterative-execution.md`)**: `[P2 | I55/E85/R50]` (0 tokens). Vulnerable to uninvoked `ref` skipping.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P2 | I55/E85/R50]",
+        "tier": "P2",
+        "impact": 55,
+        "evidence": 85,
+        "risk": 50
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "Current context/iterative and EM-10 already support prioritized durable step work. Repository persistence remains authorization-dependent; no live-write mandate for this run."
+    },
+    {
+      "option_id": "C06-A",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 183,
+          "end": 183
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C06-A (Explicit Non-Blocker Clause in `<recovery>` + Scoped Preflight Rule in `<handover>`/`handover.md`)**: `[P0 | I96/E96/R05]` (+28 tokens). Directly immunizes agents against halting on unrelated dirty files (`M .claude/settings.json`) or baseline failures outside their target write set, and forbids handover authors from writing blanket clean-tree stop conditions.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P0 | I96/E96/R05]",
+        "tier": "P0",
+        "impact": 96,
+        "evidence": 96,
+        "risk": 5
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "Current AGENTS and EM-14 already scope dirty-file handling. Retain general incidental-failure rule; avoid overfitting always-on guidance to a named settings file."
+    },
+    {
+      "option_id": "C06-B",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 184,
+          "end": 184
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C06-B (Add `ref=\"specs/anti-drift-rules.md\"` to `<recovery>` Only)**: `[P2 | I50/E85/R55]` (+6 tokens). Agents already convinced they hit a stop condition will not open `anti-drift-rules.md`.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P2 | I50/E85/R55]",
+        "tier": "P2",
+        "impact": 50,
+        "evidence": 85,
+        "risk": 55
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "Current AGENTS and EM-14 already scope dirty-file handling. Retain general incidental-failure rule; avoid overfitting always-on guidance to a named settings file."
+    },
+    {
+      "option_id": "C07-A",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 204,
+          "end": 204
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C07-A (Add Compact Topology & `path#heading` Clause Inline in `<authoring>` + `FA-14` in `file-architecture.md`)**: `[P1 | I90/E92/R08]` (+14 tokens in Layer 1). Ensures governed docs always include bidirectional ownership links even when `file-architecture.md` is not opened.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P1 | I90/E92/R08]",
+        "tier": "P1",
+        "impact": 90,
+        "evidence": 92,
+        "risk": 8
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "FA-14 is proposed, absent from the inspected current FA owner (FA-01..13). Useful topology can appear in this design without claiming FA-14 accepted."
+    },
+    {
+      "option_id": "C07-B",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 205,
+          "end": 205
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C07-B (Create a Separate `link-rules.md` Module Only)**: `[P2 | I60/E85/R45]` (0 tokens in Layer 1). Adds another file hop that `08-read-trace-routing-experiments` (`L-1`/`L-3`) proved agents skip (`1/36`).",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P2 | I60/E85/R45]",
+        "tier": "P2",
+        "impact": 60,
+        "evidence": 85,
+        "risk": 45
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "FA-14 is proposed, absent from the inspected current FA owner (FA-01..13). Useful topology can appear in this design without claiming FA-14 accepted."
+    },
+    {
+      "option_id": "C08-A",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 230,
+          "end": 230
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C08-A (Expand `<handover>` to Cover Step Close-Out, Continuation Proposal, and Scoped Preflight + Add `EM-14`/`EM-09a`/`EM-09b` to `handover.md`)**: `[P0 | I96/E94/R06]` (+34 tokens). `<handover>` had a **100% (9/9) gate-open rate** in Stage 1 ([01-findings-and-protocol.md:158](../08-read-trace-routing-experiments/01-findings-and-protocol.md#L158)), making it the most reliable lifecycle gate in the contract.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P0 | I96/E94/R06]",
+        "tier": "P0",
+        "impact": 96,
+        "evidence": 94,
+        "risk": 6
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "EM-14 now exists in current handover owner; proposed separate EM-09a/b IDs are not current declarations. Keep current six-field Continuation schema and actual gate limits."
+    },
+    {
+      "option_id": "C08-B",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 231,
+          "end": 231
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C08-B (Add a Separate 24th Tag `<step_closeout>`)**: `[P1 | I88/E90/R15]` (+55 tokens). Increases tag count when `<handover>` naturally owns step/session boundary transitions.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P1 | I88/E90/R15]",
+        "tier": "P1",
+        "impact": 88,
+        "evidence": 90,
+        "risk": 15
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "EM-14 now exists in current handover owner; proposed separate EM-09a/b IDs are not current declarations. Keep current six-field Continuation schema and actual gate limits."
+    },
+    {
+      "option_id": "C09-A",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 257,
+          "end": 257
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C09-A (Add `ref=\"specs/execution-modes/git-sync.md\"` + Inline All 3 Clauses in `<sync>`)**: `[P0 | I96/E96/R05]` (+22 tokens). Guarantees immediate deterministic execution without losing or skipping out-of-scope dirty files.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P0 | I96/E96/R05]",
+        "tier": "P0",
+        "impact": 96,
+        "evidence": 96,
+        "risk": 5
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "Standalone execution-modes/git-sync.md exists at pinned SHA and owns an EM-12 adapter. Current XML.sync still has no ref; distinguish existing file from proposed pointer addition."
+    },
+    {
+      "option_id": "C09-B",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 258,
+          "end": 258
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C09-B (Add `ref` Attribute Only)**: `[P2 | I60/E85/R45]` (+6 tokens). Agents executing fast git commands rarely pause to read a reference file first.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P2 | I60/E85/R45]",
+        "tier": "P2",
+        "impact": 60,
+        "evidence": 85,
+        "risk": 45
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "Standalone execution-modes/git-sync.md exists at pinned SHA and owns an EM-12 adapter. Current XML.sync still has no ref; distinguish existing file from proposed pointer addition."
+    },
+    {
+      "option_id": "C10-A",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 293,
+          "end": 293
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C10-A (`TOPIC1-OPT2` Compressed Hybrid Gate in `carrier-layer2-shared.md` + Retire `~/.gemini/config/GEMINI.md`)**: `[P0 | I95/E96/R08]` (45 tokens vs. 393 tokens baseline = **−348 tokens saved per turn**). Keeps the trigger, mandatory `opCall.js` route, and negative boundary (`never PostgreSQL or browser`), while delegating operational flags, endpoints, and auth details to `SKILL.md`.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P0 | I95/E96/R08]",
+        "tier": "P0",
+        "impact": 95,
+        "evidence": 96,
+        "risk": 8
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "OpenProject compressed gate and retirement of a workstation file are proposed. Current shared Layer 2 lacks that block. External skill/client implementation and installed duplicate loading are unverified here; do not install or hard-code the historical local path."
+    },
+    {
+      "option_id": "C10-B",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 294,
+          "end": 294
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C10-B (`TOPIC1-OPT1` Pure 1-Line Trigger)**: `[P1 | I70/E92/R45]` (22 tokens). High risk (`R45`) of ad-hoc Python bypass on connection errors.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P1 | I70/E92/R45]",
+        "tier": "P1",
+        "impact": 70,
+        "evidence": 92,
+        "risk": 45
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "OpenProject compressed gate and retirement of a workstation file are proposed. Current shared Layer 2 lacks that block. External skill/client implementation and installed duplicate loading are unverified here; do not install or hard-code the historical local path."
+    },
+    {
+      "option_id": "C10-C",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 295,
+          "end": 295
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C10-C (`TOPIC1-OPT3` Status Quo 15-Line Block)**: `[P2 | I65/E95/R30]` (155 tokens). Violates `WP-23` single-owner reuse.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P2 | I65/E95/R30]",
+        "tier": "P2",
+        "impact": 65,
+        "evidence": 95,
+        "risk": 30
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "OpenProject compressed gate and retirement of a workstation file are proposed. Current shared Layer 2 lacks that block. External skill/client implementation and installed duplicate loading are unverified here; do not install or hard-code the historical local path."
+    },
+    {
+      "option_id": "C12-A",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 365,
+          "end": 365
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C12-A (Candidate 2 Strict Repo-Specific Carrier — Deduplicate & Align Git Dispatch)**: `[P0 | I95/E85/R12]` (**−1,200 tokens per turn**). Keeps only `apexai-os-meta` repo-specific architecture pointers, informatics routing, and the clarified Git Dispatch distinction (scoped push vs. full `sync`/`synch`).",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P0 | I95/E85/R12]",
+        "tier": "P0",
+        "impact": 95,
+        "evidence": 85,
+        "risk": 12
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "Root AGENTS currently retains Directness/Core Intent/Scope. Deduplication remains a version/surface-tested proposal; preserve root dispatch and verify effective loading before removing reduced safeguards."
+    },
+    {
+      "option_id": "C12-B",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+        "section": "Research Alternatives",
+        "lines": {
+          "start": 366,
+          "end": 366
+        },
+        "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+        "quote": "  - **Option C12-B (Keep Redundant Prose in `AGENTS.md` / `GEMINI.md`)**: `[P2 | I40/E90/R60]` (0 tokens saved). Perpetuates 1,200-token waste and `sync` vs. `Ignore` contradictions.",
+        "evidence_class": "repository_observed"
+      },
+      "authored_metrics": {
+        "raw": "[P2 | I40/E90/R60]",
+        "tier": "P2",
+        "impact": 40,
+        "evidence": 90,
+        "risk": 60
+      },
+      "status": "source_author_estimate_not_measured_reliability",
+      "current_reconciliation": "Root AGENTS currently retains Directness/Core Intent/Scope. Deduplication remains a version/surface-tested proposal; preserve root dispatch and verify effective loading before removing reduced safeguards."
+    }
+  ],
+  "finalization_dispositions": [
+    {
+      "record_id": "DEC-12",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 61,
+          "end": 61
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`DEC-12`** | Move universal invariants into always-on contract (Step 1 install $\\rightarrow$ Step 2 delete module copies) | Two-step rollout so nothing breaks during transition. | **`RP-01`, `RP-09`, `RP-10` — CONFIRMED:** Two-step rollout is safe and sound. Step 1 installs `<apex_contract v=\"1.0\">`; Step 2 deletes the 8 Rule-of-Three restatements from the 5 modules after Step 1 is live. | **`READY FOR STEP 1 INSTALLATION`:** Blueprint finalized in [03-BLUEPRINT-agents.md](../03-BLUEPRINT-agents.md). Module restatements remain in place until Step 1 is applied to live `AGENTS.md`/`CLAUDE.md`/`GEMINI.md`. |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "DEC-13",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 62,
+          "end": 62
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`DEC-13`** | Reduced-form rules in the contract, not bare pointers | Claimed `\"721 tokens total (<always> 303, <writing> 140, <files> 113, <dispatch> 133)\"` (stale `v0.3` figure). | **`RP-09` & `RESULTS-11` §1 — PRINCIPLE CONFIRMED, NUMBER STALE:** Reduced-form inline summaries prevent 2,400–4,200 token module reads on 80%+ of tasks, but the `721`-token figure was from the retired 4-tag `v0.3` block. | **`UPDATED IN THIS PASS (Gap 2)`:** Updated `DEC-13` in [01-decision-register.md](../01-decision-register.md) to report the exact `v1.0` metrics (`1,632` repo tokens / `1,350` BPE for `3A`; `1,586` repo tokens / `1,314` BPE for `3B`). |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "DEC-14",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 63,
+          "end": 63
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`DEC-14`** | `index.md` becomes a bundle navigation index only (post-Step 1) | Stops carrying universal invariants and dispatch gates once `AGENTS.md` carries `<apex_contract>`. | **`RP-02` & `RP-10` — CONFIRMED:** Eliminates duplicate router maintenance once Step 1 is live. | **`STAGED FOR STEP 1`:** During specification phase, `index.md` keeps its 5 `<informatics>` tags so existing `test_cis_08` passes; stripped at Step 1 installation. |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "DEC-15",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 64,
+          "end": 64
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`DEC-15`** | `general-informatics-router.md` becomes a labelled portable derivative | Labelled for embedding into other repos once `AGENTS.md` carries `<apex_contract>`. | **`RP-10` — CONFIRMED (Superseded in part by `base_ref`):** `<apex_contract v=\"1.0\" base_ref=\"...\">` is itself 100% portable across repos. | **`STAGED FOR STEP 1`:** Kept intact for current test suite (`test_rcb_01`); becomes a portable derivative after Step 1. |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "DEC-16",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 65,
+          "end": 65
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`DEC-16`** | Split `execution-modes.md` (4,208 tokens) into per-adapter files | Proposed splitting `execution-modes.md` into 6 files because an in-file branch saves 0 tokens once loaded. | **`RP-01` & `RP-03` — QUALIFIED (`NEEDS_TEST`):** Splitting helps **only if** agents honor gates and don't speculatively read sibling files ([McMillan 2026](https://www.alphaxiv.org/abs/2605.10039) found modular split docs can *increase* exploratory tool calls). | **`GATED ON EMPIRICAL TEST (Arm B1 vs. C)`:** Do **not** split `execution-modes.md` prematurely. Run [04-empirical-test-protocol.md](../04-empirical-test-protocol.md) (`T1`–`T10`) first; split only if `Arm B1` bloat `< 20%` and `B1` beats `C` by `> 15pp`. |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "DEC-17",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 66,
+          "end": 66
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`DEC-17`** | Named XML tags vs. bullets for unconditional rules | Operator chose named XML tags for clarity; `DEC-17` cited two blog posts claiming XML hurts short prompts. | **`RP-01`, `RP-06`, `RESULTS-11` §2 — OPERATOR CHOICE VINDICATED:** The two blog posts (`ud.com.hk`, `dev.to`) were low-rigor. Peer-reviewed studies show format sensitivity is model-dependent (`RP-01`), and named XML tags provide clean rule handles (`3A` ratified as production default). | **`RATIFIED (`FINALIZED_V1`)`:** Named XML tags kept for all 12 unconditional rules in both `3A` and `3B`, and for all 22 rules in production default `3A`. |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "DEC-18",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 67,
+          "end": 67
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`DEC-18`** | `<surgical>` 18-token always-on stub | Keep always-on stub until tested whether gated `<editing>` alone prevents full-file rewrites. | **`RP-07` & `RP-09` — KEEP PENDING ABLATION:** High catastrophic downside if removed prematurely; 18 tokens is negligible. | **`KEPT IN v1.0 + QUEUED IN ARM E (`T11`)`:** Tested in [04-empirical-test-protocol.md](../04-empirical-test-protocol.md) §12 (`Arm E`). |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "DEC-19",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 68,
+          "end": 68
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`DEC-19`** | `<stop_repairing>` always-on placement | Test whether an agent in a 2-strike loop obeys an always-on stopping rule. | **`RP-07` — KEEP + ADD PRE-ACTION GATE:** Loops resist passive prose rules once sunk-cost momentum starts, so keep `<stop_repairing>` and test in `Arm F`. | **`KEPT IN v1.0 + QUEUED IN ARM F (`T12`)`:** Tested in [04-empirical-test-protocol.md](../04-empirical-test-protocol.md) §12 (`Arm F`). |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "DEC-20",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 69,
+          "end": 69
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`DEC-20`** | `<new_machinery>` + `<detour>` observable-action triggers | Replaced self-diagnosed `\"when drifting\"` with observable action triggers (`when=\"about to add a script...\"`). | **`RP-07` ([FixedBench](https://arxiv.org/abs/2605.07769)) — CONFIRMED & STRENGTHENED:** Observable action triggers are far stronger than self-diagnosis, and `RP-07` strengthened `<new_machinery>` by requiring naming the exact blocker/risk first. | **`UPGRADED IN v1.0 + QUEUED IN ARM G (`T13`–`T14`)`:** Wording upgraded in `3A`/`3B` and `AD-25`; behavioral test ready in `04-empirical-test-protocol.md` (`Arm G`). |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "DEC-21",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 70,
+          "end": 70
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`DEC-21`** | Multi-surface carrier synchronization (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`) | Proposed byte-identical contract block across the 3 root carriers verified by `pytest`, rejecting `@path` imports. | **`RP-02`, `RP-03`, `RP-10` — NUANCED:** `RP-10` noted `@AGENTS.md` works in Claude Code/Gemini CLIs, **but** our `/teamwork-preview` stress-test proved IDE rule injectors (Antigravity, Cursor, Copilot, Windsurf) do **not** expand CLI `@import` directives and Claude Code CLI ignores `AGENTS.md` when `CLAUDE.md` exists. | **`RATIFIED (`Option A` Byte-Identical Carriers + Antigravity `WARN`)`:** Physical byte-identical `<apex_contract>` across `AGENTS.md`, `CLAUDE.md`, `GEMINI.md` enforced by `pytest` at Step 1 installation, plus explicit `context.fileName: AGENTS.md` guidance for Antigravity (`DEC-21` / `DEC-22`). |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "DEC-22",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 71,
+          "end": 71
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`DEC-22`** | Two-Layer Carrier Architecture + `base_ref=\"apex-meta/informatics/\"` | Separated Layer 1 (portable contract) from Layer 2 (repo-specific banner, WSL2 `/mnt/c`, completion rule). | **`RP-09` & `RP-10` (Rank 1 & Rank 3) — ADOPTED:** Eliminates 140 tokens of duplicate `Git Dispatch` rules and makes `<apex_contract>` 100% portable across repositories. | **`FINALIZED_V1`:** Implemented in [03-BLUEPRINT-agents.md](../03-BLUEPRINT-agents.md), [13-candidate-3A-xml.md](../13-candidate-3A-xml.md), and [14-candidate-3B-hybrid.md](../14-candidate-3B-hybrid.md). |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "DEC-23",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 72,
+          "end": 72
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`DEC-23`** | Candidate `3A` (Pure XML) vs. Candidate `3B` (Hybrid XML + Table) + `deepen_when=` removal | `3A` (`1,632` repo / `1,350` BPE) vs. `3B` (`1,586` repo / `1,314` BPE); all 5 `deepen_when=` attributes removed. | **`RP-06`, `RP-08`, `RP-09` + Teamwork Stress-Test:** Dropping `deepen_when=` is ratified (`RP-08`), with inline `Open ref for ...` cues restored across all 6 `ref=` rules (`Gap 1`). `3A` is ratified as the sole production default because `3B` saves only 36 BPE tokens (0 cache blocks) while introducing pipe-escaping fragility. | **`FINALIZED_V1`:** `3A` ratified as production default; `3B` retained as Benchmark Arm B2 in [04-empirical-test-protocol.md](../04-empirical-test-protocol.md). |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "DEC-24",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 73,
+          "end": 73
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`DEC-24`** | Empirical wording upgrades (`<target>`, `<communication>`, `<new_machinery>`) | Integrated `RP-04` (`Cool Blue` + warranted uncertainty), `RP-05` (`SpecBench` positive check), and `RP-07` (`FixedBench` no-op legitimacy + pre-action blocker naming). | **`RP-04`, `RP-05`, `RP-07` — ADOPTED:** Highest-evidence behavioral improvements in the research corpus. | **`FINALIZED_V1`:** Applied in `3A`, `3B`, `writing-profile.md` (`WP-04`, `WP-12`), and `anti-drift-rules.md` (`AD-01`, `AD-17`, `AD-25`). |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "DEC-M1",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 74,
+          "end": 74
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`DEC-M1`** | In-file IF-clause token mechanics | Claimed `\"A ~1,000-token always-on budget is a hard budget.\"` | **`RP-03` & `RP-09` (`RESULTS-11` §2) — REFUTED HARD CLIFF:** In-file branches are indeed paid on load, **but** `~1,000 tokens` is a folk heuristic with zero empirical cliff, and unchanged prefixes receive a **78.5%–90% prompt-cache discount**. | **`UPDATED IN THIS PASS (Gap 2)`:** Corrected `DEC-M1` in [01-decision-register.md](../01-decision-register.md) to state prompt-cache economics and remove the false `\"hard budget\"` claim. |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "DEC-M2",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 75,
+          "end": 75
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`DEC-M2`** | Gates in always-on file prevent 2,400–4,200 token downstream module reads | Gating buys downstream file-read avoidance and lower instruction competition. | **`RP-01`, `RP-03`, `RP-09` — CONFIRMED:** Each avoided module read saves 2,400–4,200 uncached tokens (far outweighing the cached ~1,350 BPE contract prefix). | **`RATIFIED`:** Preserved in [01-decision-register.md](../01-decision-register.md). |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "DEC-M3",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 76,
+          "end": 76
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`DEC-M3`** | File boundary required for token savings | Claimed `\"A conditional branch saves tokens ONLY when it crosses a file boundary.\"` | **`RP-02` & `RP-03` (`RESULTS-11` §2 line 70) — QUALIFIED:** True for plain static Markdown files, **but** do not universalize the word *\"only\"*: native harness mechanisms (Claude Code `.claude/rules/` `paths:` frontmatter, on-demand Skills) also defer tokens natively. | **`UPDATED IN THIS PASS (Gap 2 + Gap 4)`:** Qualified `DEC-M3` in [01-decision-register.md](../01-decision-register.md) AND added `paths:` YAML frontmatter to [.claude/rules/informatics.md](../../../../../.claude/rules/informatics.md). |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "DEC-M4",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 77,
+          "end": 77
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`DEC-M4`** | Size of reduced-form contract | Claimed `\"A functional reduced form of the whole system measures 721 tokens.\"` (stale `v0.3` figure). | **`RP-09` (`RESULTS-11` §1) — SUPERSEDED BY `v0.5`/`v1.0`:** Full 22-rule contract is `1,632` repo tokens (`1,350` BPE) in `3A` and `1,586` repo tokens (`1,314` BPE) in `3B`. | **`UPDATED IN THIS PASS (Gap 2)`:** Updated `DEC-M4` and the `Measured cost per task type` table in [01-decision-register.md](../01-decision-register.md). |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "DEC-M5",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 78,
+          "end": 78
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`DEC-M5`** | Worked example (`execution-modes.md` §2.2) is not duplication | Keep the Riverpod/Bloc worked example illustrating `EM-06`. | **`RP-09` — CONFIRMED:** Concrete examples anchor structured output compliance (`WP-17`). | **`RATIFIED`:** Kept intact in `execution-modes.md` §2.2. |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "DEC-M6",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 79,
+          "end": 79
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`DEC-M6`** | `okf_validator.py` blind to in-body rule IDs | Added `test_canonical_ownership.py` (`TestDurableRuleIdUniqueness`) to enforce unique `WP/FA/EM/AD/GS-XX` IDs. | **`RBL-06` — CONFIRMED:** Enforced by `pytest` (`test_canonical_ownership.py`) today; optional promotion into `okf_validator.py` remains a non-blocking backlog item. | **`ENFORCED BY PYTEST`:** 196/196 tests passing; `standard.md` and `migration.md` also given unique frontmatter `id:`s in this pass (`Gap 3`). |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "RBL-01",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 89,
+          "end": 89
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`RBL-01`** | Empirical directive-count thresholds per model tier (`WP-19` `~50 / ~80 / ~100` vs. `IFScale` `~150–200`) | Resolved by `RP-03` ([RESULTS-03](../ResearchOfFile10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-03-currency-check.md)) & [DeepReasoning/03](../../DeepReasoning/03-research-backlog-and-open-questions.md) §2: [IFScale (Jaroslawicz et al., 2025)](https://arxiv.org/abs/2507.11538) shows frontier reasoning models hold high compliance up to ~150–200 instructions, while `WP-19`'s `~40–100` target is a conservative **per-file modularity orientation** (not a model-identification rule). | **`RESOLVED` (`WP-19` clarified)** |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "RBL-02",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 90,
+          "end": 90
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`RBL-02`** | XML vs. Markdown conditional routing efficacy (`<informatics when=... ref=...>` vs. Markdown table) | Resolved by `RP-01` ([RESULTS-01](../ResearchOfFile10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-01-gating-efficacy.md)) and `RP-06` ([RESULTS-06](../ResearchOfFile10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-06-condition-syntax.md)): Both Candidates `3A` (Pure XML) and `3B` (Hybrid XML + Table) are authored and paired for head-to-head testing in `04-empirical-test-protocol.md` (`Arm B1` vs. `Arm B2`), with `3A` ratified as production default (`DEC-23`). | **`RESOLVED` (`DEC-23` + `04-empirical-test-protocol.md`)** |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "RBL-03",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 91,
+          "end": 91
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`RBL-03`** | Calibration of `[P<tier> \\| I/E/R]` raw estimates without synthetic math | Resolved in `WP-06`, `EM-06`, `GS-12`, and `GS-13`: Raw 1–100 estimates serve as human-auditable trade-off anchors; synthetic weighted formulas remain banned (`test_sre_04`). | **`RESOLVED` (Enforced by `test_sre_04`)** |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "RBL-04",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 92,
+          "end": 92
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`RBL-04`** | Automated STE sentence-length counting in `okf_validator.py` (strip inline code & `[P0 \\| I/E/R]` prefixes before counting words) | `okf_validator.py` currently emits `12 Advisories` (`0 Errors`) when `[P0 \\| I/E/R]` prefixes or inline code tokens push a bullet over 25 words. Remains an optional future enhancement to `okf_validator.py` (non-blocking because advisories do not fail CI). | **`OPEN — OPTIONAL TOOLING ENHANCEMENT (P3)`** |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "RBL-05",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 93,
+          "end": 93
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`RBL-05`** | Cross-OS link portability (`file:///c:/GitDev/...` vs. relative Markdown links) | Resolved in `WP-18` and enforced mechanically by `TestLinkPortability` in [test_canonical_ownership.py](../../../../tests/test_canonical_ownership.py) (`test_no_machine_specific_absolute_links` + `test_relative_links_resolve`). | **`RESOLVED & MECHANICALLY ENFORCED`** |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "RBL-06",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 94,
+          "end": 94
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`RBL-06`** | Promote in-body rule-ID uniqueness (`WP-XX`, `FA-XX`, `EM-XX`, `AD-XX`, `GS-XX`) from `pytest` into `okf_validator.py` | Already enforced on every test run by `TestDurableRuleIdUniqueness` and `TestCanonicalPointerIntegrity` in [test_canonical_ownership.py](../../../../tests/test_canonical_ownership.py). Promoting it into `okf_validator.py` is optional cleanup. | **`ENFORCED BY PYTEST (Optional Validator Port)`** |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "RBL-07",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 95,
+          "end": 95
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`RBL-07`** | Two-Strike Subsystem Tracker persistence across subagent boundaries | Codified in `AD-02`, `AD-24`, and `EM-05` (per-subsystem strike counts belong in the step's progress/handover artifact). Behavioral compliance under repair loops is tested in `04-empirical-test-protocol.md` (`DEC-19` / `Arm F`, Task `T12`). | **`QUEUED IN EMPIRICAL TEST (`Arm F` / `T12`)`** |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    },
+    {
+      "record_id": "RBL-08",
+      "source": {
+        "repository": "leela-spec/apexai-os-meta",
+        "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+        "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+        "section": "Decision/backlog disposition",
+        "lines": {
+          "start": 96,
+          "end": 96
+        },
+        "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+        "quote": "| **`RBL-08`** | Token-budget elasticity for multi-adapter files (`execution-modes.md` 4,208 tokens vs. per-adapter file split `DEC-16`) | Framed as the primary hypothesis of [04-empirical-test-protocol.md](../04-empirical-test-protocol.md) (`Arm B1` split vs. `Arm C` monolithic). | **`QUEUED IN EMPIRICAL TEST (`DEC-16` / `Arm B1 vs. C`)`** |",
+        "evidence_class": "repository_observed"
+      },
+      "status": "historical_source_reported_disposition",
+      "limit": "Claims of installed behavior, test counts, timing and percentages remain source-reported and date-scoped; current owners and later experiments govern."
+    }
+  ],
+  "cross_record_conflicts": [
+    {
+      "id": "HIST-C12-TIER",
+      "finding": "C12 overview uses P1 while option C12-A detail uses P0 with the same I95/E85/R12. Both original tags are preserved; neither is promoted into current rule priority."
+    },
+    {
+      "id": "HIST-SCHEMA-C03",
+      "finding": "Change-ledger C03 six fields are superseded in the inspected current EM-13 owner. Do not regenerate current task fields from the older proposal."
+    },
+    {
+      "id": "HIST-COUNTS",
+      "finding": "Finalization dossier historical 22/97 counts and older rule assignments disagree with current 23/100 roster. Use current source extraction for coverage, retain old numbers only as historical claims."
+    }
+  ]
+}

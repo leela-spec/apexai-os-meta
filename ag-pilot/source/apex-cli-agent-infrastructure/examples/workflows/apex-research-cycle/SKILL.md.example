@@ -1,0 +1,63 @@
+---
+name: apex-research-cycle
+description: Conduct multi-stage Apex research or multi-module work with selective evidence delivery, file-backed findings, bounded delegation and recovery from interruption. Use when work genuinely spans stages or cannot finish in one pass. Do not use for a direct lookup, trivial correction, single bounded action, or to activate Weekly Orchestrator or Multi-Agent Orchestration implicitly.
+---
+
+# Apex research cycle — proposed inert workflow example
+
+**Review status:** this `.example` is not installed. It proposes a portable workflow around existing Apex owners, with native recovery hooks only where the selected host proves support. It does not start an orchestration system, grant tools, or authorize repository persistence.
+
+## Source ownership and applicable rules
+
+| Registry identity | Canonical source owner | Existing owner IDs |
+|---|---|---|
+| `XML.iterative` | `apex-meta/informatics/final/specs/execution-modes/iterative-execution.md:12–50` | EM-10 routes and iterations; EM-11 upward invalidation |
+| `XML.handover` | `apex-meta/informatics/final/specs/execution-modes/handover.md:12–49` | EM-09 bounded delegation; EM-14 close-out |
+| `XML.align` when applicable | `apex-meta/informatics/final/specs/execution-modes/task-specification.md:12–39` | EM-13 and existing six fields |
+| `XML.context`, `XML.recovery`, `XML.stop_repairing` | `apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml:28–32` | Current core rules |
+| `XML.ground`, `XML.scope`, `XML.hold_position`, `XML.target` | `apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml:3,18,22–24` | Current evidence, scope, correction and outcome obligations |
+
+The [registry](../../../registry/rules.json) records selection and delivery metadata; these sources own behavior. Current operator instructions and scoped accepted choices outrank research proposals. Pin the actual source revision and refresh anchors when it changes.
+
+## Trigger and exclusions
+
+Use this workflow for the current assignment's long evidence synthesis/design work, another genuine research process, or multiple dependent implementation modules. Choose the existing EM-10 route: Route 0 for a clear bounded action, Route 1 for a compact nontrivial step, Route 2 for research or multiple modules. Do not create a recovery scaffold for a direct factual answer or typo.
+
+Delegating a source check to a native subagent does not implicitly activate Apex's named Multi-Agent Orchestration. Weekly Orchestrator, Multi-Agent Orchestration and their shared capability backbone remain distinct. Follow their operating owners if the operator explicitly invokes one; this procedure cannot supersede them.
+
+## Procedure
+
+1. Reconstruct the authorized goal, exclusions, authoritative sources and accepted decisions. Use the existing six-field contract only when EM-13 requires it. An already authorized continuous research task continues without an invented approval pause.
+2. Build the Input & Priority Ledger from source authority and task relevance. Read only the current stage's sources, expanding when a conflict, owning contract or validation need requires it. A ranked reading guide is navigation, not evidence reliability or a cap on necessary sources.
+3. Use EM-10's existing file-backed iteration pattern. Maintain a compact master/implementation map and per-stage findings only at the scale warranted by the task. Distill findings with exact source anchors, status, important contrary evidence and unresolved questions. Do not replace original owners with an uncited summary.
+4. For parallel work, send the existing EM-09 four-dimensional packet below. Name the actual deliverable and independent acceptance criterion. Give each worker bounded sources/scope and require it to establish its own effective loading. A child receipt does not prove parent or sibling context.
+5. At a useful boundary or before a supported interruption, update the existing work file with completed outputs, current source identities, active constraints, narrow corrections, unresolved blockers and the next actionable step. Keep this state in its current owner; avoid a second competing memory database. A native compaction hook can help persistence but must not be assumed to fire.
+6. On resumption, inspect current artifact state and source identity, then open the applicable detailed owners. Reconcile stale or missing checkpoints with observed files before continuing. Preserve authorization and settled choices; avoid repeating completed side effects. Evaluate the first resumed action as well as the final output.
+7. Consolidate findings into the requested product and verify each requirement independently. Apply EM-11 by revising only the layer invalidated by evidence. For a review-only package, deliver the proposal; EM-14 does not authorize a live push or installation.
+
+## Existing handoff contract, reused exactly
+
+The following headings reproduce the owning EM-09 field names for a reusable packet. Their content is task-specific; they are not a new schema or hidden-reasoning request.
+
+```text
+Input & Priority Ledger
+  Authoritative files with revision/anchors; priority; relevant facts; exclusions.
+Process
+  Required transformation and anti-drift boundaries.
+Output (Predefined Meta-Layer & Examples)
+  Target paths, structure, depth and a representative expected form.
+Definition of Done (DoD & Independent Verification)
+  Objective outcome and independent checks; explicit execution status.
+```
+
+The return report uses the owner's five components: **Observation; Logic Chain; Caveats; Conclusion; Verification Method**. Provide public evidence and decision rationale under “Logic Chain”; do not request private chain of thought. Major-step continuation uses EM-14's existing six fields and `path#heading` links. Any proposed activation or source-delivery receipt stays an evaluation sidecar and grants no authority.
+
+## Outcome check and recovery
+
+A recovered task succeeds only when it preserves the original objective, source authority, accepted decisions, narrow corrections, completed outputs, pending work and authorization boundaries, and then produces a useful result. A parseable checkpoint alone is insufficient. Explicitly distinguish an actual compaction/resume trial from a long-context stress task or an illustrated replay.
+
+If a hook is missed or disabled, recover from the last verified work file and observable output state. If no reliable checkpoint exists, reopen the minimum owners and originating evidence needed to re-establish the frontier; record the uncertainty instead of manufacturing memory. If the source revision changed, revalidate affected claims and patch anchors. After two non-progressing repair attempts, choose the narrowest intent-preserving alternative.
+
+The [long-research flow](../../end-to-end-flows.md#3-long-research-interruption-resumption-and-delegation) uses the actual assignment and retained owners as its baseline; its event sequence is an unexecuted illustration.
+
+**Failure guard:** source delivery, child reports and recovery files support the work; they do not substitute for the final product, independent verification or current operator authorization. Never claim this template has demonstrated compaction reliability or installed support.

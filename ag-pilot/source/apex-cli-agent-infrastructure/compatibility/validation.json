@@ -1,0 +1,69 @@
+{
+  "validation_scope": "Compatibility subpackage and native examples only",
+  "status": "executed_offline_artifact_validation",
+  "date": "2026-11-12",
+  "counts": {
+    "sources": 47,
+    "claims": 49,
+    "planned_native_probes": 14,
+    "offline_cases": 38
+  },
+  "checks": [
+    {
+      "check": "identity_uniqueness",
+      "passed": true,
+      "detail": "47 sources, 49 capability claims, 14 native probe definitions"
+    },
+    {
+      "check": "claim_source_links",
+      "passed": true,
+      "detail": "Every claim resolves its primary sources"
+    },
+    {
+      "check": "claim_probe_links",
+      "passed": true,
+      "detail": "Every claim resolves its planned validation probes"
+    },
+    {
+      "check": "source_claim_links",
+      "passed": true,
+      "detail": "Source-to-claim links resolve"
+    },
+    {
+      "check": "native_probes_unexecuted",
+      "passed": true,
+      "detail": "No native host activation or adherence result is claimed"
+    },
+    {
+      "check": "machine_artifact_parseability",
+      "passed": true,
+      "detail": "19 JSON and 2 TOML artifacts parsed"
+    },
+    {
+      "check": "offline_fixtures_pass",
+      "passed": true,
+      "detail": "10 general encoder/parse checks and 28 Codex schema/semantic/integrity checks; no native execution"
+    },
+    {
+      "check": "upstream_blob_integrity",
+      "passed": true,
+      "detail": "5 schemas plus LICENSE and NOTICE match upstream Git blob identities"
+    },
+    {
+      "check": "link_README.md_../../compatibility/native-schemas/codex/README.md",
+      "passed": true,
+      "detail": "Package relative Markdown link"
+    },
+    {
+      "check": "read_only_boundaries",
+      "passed": true,
+      "detail": "Native examples are named examples, not installed skill directories"
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "No native host process was launched for a capability probe.",
+    "No operator environment or effective configuration was inspected.",
+    "Passing narrow semantic fixture checks does not establish task adherence or complete host conformance."
+  ]
+}

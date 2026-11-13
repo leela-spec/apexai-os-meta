@@ -1,0 +1,12 @@
+{
+  "apex-context-canary": {
+    "enabled": false,
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "\"<PYTHON_EXECUTABLE>\" \"<ABSOLUTE_NATIVE_EXAMPLES_DIR>/hook_envelope_probe.py\" --platform antigravity --event PreInvocation",
+        "timeout": 5
+      }
+    ]
+  }
+}

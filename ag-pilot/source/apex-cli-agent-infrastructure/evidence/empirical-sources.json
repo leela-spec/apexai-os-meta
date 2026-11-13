@@ -1,0 +1,296 @@
+{
+  "status": "research_source_register",
+  "date": "2026-11-12",
+  "sources": [
+    {
+      "id": "EEMP-01",
+      "title": "How Many Instructions Can LLMs Follow at Once?",
+      "url": "https://arxiv.org/html/2507.11538v1",
+      "publication_or_revision_date": "2025-07-15",
+      "version": "v1",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "3 IFScale",
+        "4 Experiments",
+        "6 Conclusion and Limitations"
+      ],
+      "supports_findings_section": "EEMP-01",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-02",
+      "title": "SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks",
+      "url": "https://arxiv.org/html/2602.12670v1",
+      "publication_or_revision_date": "2026-02-13",
+      "version": "v1",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "3 Experimental Setup",
+        "4 Results",
+        "5.1 Limitations",
+        "Appendix C"
+      ],
+      "supports_findings_section": "EEMP-02",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-03",
+      "title": "How Well Do Agentic Skills Work in the Wild",
+      "url": "https://arxiv.org/html/2604.04323v1",
+      "publication_or_revision_date": "2026-04-06",
+      "version": "v1",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "3 Skill Usage in Realistic Settings",
+        "4 Refinement",
+        "Appendix B"
+      ],
+      "supports_findings_section": "EEMP-03",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-04",
+      "title": "SkillRouter: Retrieve-and-Rerank Skill Selection for LLM Agents at Scale",
+      "url": "https://arxiv.org/html/2603.22455v1",
+      "publication_or_revision_date": "2026-03-23",
+      "version": "v1",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "2 Benchmark",
+        "3 Signals",
+        "5 Evaluation",
+        "Limitations"
+      ],
+      "supports_findings_section": "EEMP-04",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-05",
+      "title": "Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents?",
+      "url": "https://arxiv.org/html/2602.11988v1",
+      "publication_or_revision_date": "2026-02-12",
+      "version": "v1",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "3 AGENTbench",
+        "4 Evaluation",
+        "5 Limitations"
+      ],
+      "supports_findings_section": "EEMP-05",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-06",
+      "title": "Do Context Files Help Coding Agents? A Two-Agent Ablation Study on Real Repositories",
+      "url": "https://arxiv.org/html/2607.27250v1",
+      "publication_or_revision_date": "2026-07-28",
+      "version": "v1",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "3 Method",
+        "4.5 Power",
+        "5 Discussion",
+        "Limitations"
+      ],
+      "supports_findings_section": "EEMP-06",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-07",
+      "title": "Scanning the Harness: Configuration Exposures in AI Coding-Agent Supply Chains",
+      "url": "https://arxiv.org/html/2609.07360v3",
+      "publication_or_revision_date": "2026-09-25",
+      "version": "v3",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "3 Study Design",
+        "3.5 Semantic Correction",
+        "4 Results",
+        "6 Threats to Validity"
+      ],
+      "supports_findings_section": "EEMP-07",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-08",
+      "title": "Towards Reliable Context Compression for Long-Horizon Agents: An Empirical Study of Execution Instability",
+      "url": "https://arxiv.org/html/2608.06503v2",
+      "publication_or_revision_date": "2026-10-14",
+      "version": "v2",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "3 Behavioral Effects",
+        "4 TRACE",
+        "5 Preliminary Experiments",
+        "7 Conclusion"
+      ],
+      "supports_findings_section": "EEMP-08",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-09",
+      "title": "AutoCompact: Learning When to Compact Context in Long-Horizon Coding Agents",
+      "url": "https://arxiv.org/pdf/2610.02163",
+      "publication_or_revision_date": "2026-10-01",
+      "version": "paper retrieved 2026-11-12",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "2 Method",
+        "3.1 Experimental Setup",
+        "3.3 Ablations",
+        "Conclusion"
+      ],
+      "supports_findings_section": "EEMP-09",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-10",
+      "title": "Instruction-Following Evaluation for Large Language Models",
+      "url": "https://arxiv.org/html/2311.07911v1",
+      "publication_or_revision_date": "2023-11-14",
+      "version": "v1",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "2 Verifiable instructions",
+        "2.2 Metrics",
+        "4 Discussion"
+      ],
+      "supports_findings_section": "EEMP-10",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-11",
+      "title": "LIFBench: Evaluating the Instruction Following Performance and Stability of Large Language Models in Long-Context Scenarios",
+      "url": "https://aclanthology.org/2025.acl-long.803.pdf",
+      "publication_or_revision_date": "2025-07",
+      "version": "ACL 2025",
+      "source_type": "original_peer_reviewed_study",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "3 Benchmark",
+        "4 Evaluation",
+        "5 Analysis"
+      ],
+      "supports_findings_section": "EEMP-11",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-12",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "url": "https://arxiv.org/html/2307.03172v3",
+      "publication_or_revision_date": "2023-11-20",
+      "version": "v3",
+      "source_type": "original_peer_reviewed_study",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "2 Multi-document QA",
+        "3 Retrieval",
+        "4 Position sensitivity",
+        "5 More context"
+      ],
+      "supports_findings_section": "EEMP-12",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-13",
+      "title": "Agent Skills Specification",
+      "url": "https://agentskills.io/specification",
+      "publication_or_revision_date": null,
+      "version": "unversioned live specification retrieved 2026-11-12",
+      "source_type": "open_specification",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "Frontmatter",
+        "allowed-tools",
+        "Progressive disclosure",
+        "Validation"
+      ],
+      "supports_findings_section": "EEMP-13",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-14",
+      "title": "Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/research/demystifying-evals-for-ai-agents",
+      "publication_or_revision_date": "2026-01-09",
+      "version": "live document retrieved 2026-11-12",
+      "source_type": "vendor_engineering_guidance",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "Structure of an evaluation",
+        "Non-determinism",
+        "Check the transcripts"
+      ],
+      "supports_findings_section": "EEMP-14",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-15",
+      "title": "Effective context engineering for AI agents",
+      "url": "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents",
+      "publication_or_revision_date": "2025-09-29",
+      "version": "live document retrieved 2026-11-12",
+      "source_type": "vendor_engineering_guidance",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "Context engineering",
+        "Anatomy of context",
+        "Context retrieval"
+      ],
+      "supports_findings_section": "EEMP-15",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    }
+  ],
+  "access_notes": [
+    {
+      "url": "https://arxiv.org/html/2610.02163v1",
+      "status": "HTML retrieval failed; primary PDF was opened instead"
+    },
+    {
+      "url": "https://arxiv.org/html/2608.16370v1",
+      "status": "HTML retrieval failed; abstract lead excluded from substantive conclusions"
+    }
+  ],
+  "id": "APEX-INFRA-EMPIRICAL-SOURCES-20261112",
+  "source_authority": "Primary external evidence supports capability and mechanism proposals; it does not amend Apex domain owners or establish installed behavior."
+}

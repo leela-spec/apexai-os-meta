@@ -1,0 +1,50 @@
+---
+name: apex-governed-authoring
+description: Create or revise a governed Apex knowledge or specification artifact, including a test specification, using its existing index, schema and execution owners. Use only for an actual governed deliverable. Do not use for chat prose, code, logs, a filename lookup, a trivial typo, or a quoted reference to a test.
+---
+
+# Apex governed authoring — proposed inert workflow example
+
+**Review status:** this `.example` is a reviewable packaging proposal, not an installed capability. Adapt its location and host-specific permissions only after approval and discovery probes. The procedure preserves existing canonical definitions and grants no repository mutation authority.
+
+## Source ownership and applicable rules
+
+| Registry identity | Canonical owner to deliver | Existing owner IDs or scope |
+|---|---|---|
+| `XML.authoring` | `apex-meta/informatics/final/index.md:15–23`; applicable owners under `apex-meta/informatics/final/specs/` | Current bundle navigation; FA/WP rules remain in their owners |
+| `XML.schemas` | `apex-meta/informatics/final/specs/governance-schemas.md:17–48,52–84,111–130` | GS-01–08, conditional GS-09–13, GS-20–22 |
+| `XML.align` when its condition actually holds | `apex-meta/informatics/final/specs/execution-modes/task-specification.md:12–39,55–65` | EM-13; approved-step and direct-question exemptions |
+| `XML.editing`, `XML.surgical` for an existing file | `apex-meta/informatics/final/specs/execution-modes/patch-discipline.md:12–26,41–42` | EM-08; EM-01 remains the rewrite prohibition owner |
+| `XML.target`, `XML.scope`, `XML.new_machinery`, `XML.pointers` | `apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml:3,18,42–44,74` | Current core and conditional obligations |
+
+Use [registry/rules.json](../../../registry/rules.json) to trace activation metadata. Resolve source paths at the task's declared repository revision. Do not treat the research index's historical “production” label for a candidate as authority over the live XML master.
+
+## Trigger and exclusions
+
+Select this workflow when the authorized output is a new, revised or validated governed knowledge/specification file. The retained brief explicitly identifies test-specification creation as a candidate coherent workflow at `apex-meta/informatics/final/research/11-infrastructure-evidence-index/sources/infrastructure-activation-research-brief.md:35–47`.
+
+Chat-only explanations, ordinary source code, logs and direct lookups are excluded by `XML.authoring`. A one-word typo does not require opening the whole governance corpus. An approved bounded step does not need repeated alignment. If the task is unapproved and nontrivial, apply EM-13's exact conditions rather than inventing a new permission convention.
+
+## Procedure
+
+1. Establish the specific artifact, destination, permitted changes and useful completion criterion. Reuse the existing artifact/template/validator where it fits. Name the requirement or material risk before proposing any new test, script or schema.
+2. Open `index.md` and the applicable owner sections before authoring. Deliver the actual target file range before proposing an existing-file change. Follow referenced canonical schema paths to the owning file; inspect and report a stale locator instead of inventing a replacement schema.
+3. Use the declared artifact type and exact schema. Apply flat frontmatter and required fields from the owner. Keep authored priority tiers and raw I/E/R distinct. A proposed artifact gets a proposed/draft status; a template does not assert accepted operator state.
+4. For existing files, create or apply only authorized exact-match blocks/AST intents. Copy old text from the inspected source and preserve unrelated bytes. For `patch_intent.v1`, use its existing machine schema; a proposed activation receipt is not an additional allowed field.
+5. For a test specification, define the actual task and fixture, source revision, expected applicability, successful owner delivery, final requirement satisfaction, useful outcome, negative controls and execution status. Use real retained cases where available. Separate semantic oracles from shape/schema checks. Do not label a planned test as executed.
+6. Verify the complete artifact against the user's requested result and the applicable owners. A validator must actually run successfully to support a validator-pass claim. Missing executable, invalid JSON, an empty file or a trace that merely mentions a command fails that claim. Independent review checks whether the content is sufficient and correct.
+7. Deliver the authorized result and exact verification boundary. Close-out follows the applicable detailed EM-14 owner and current task authorization; a source's generic sync language does not authorize a commit or push in a review-only task.
+
+## Reusable reference arrangement
+
+This skill would contain its short procedure and refer to existing specifications. A test-specification template can be added as a supporting reference after its need and canonical schema are established. It should not become an independent skill merely to expose a handful of fields. The package's [evaluation cases](../../../evaluation/cases.json) are proposed evaluation data, not a new canonical Apex schema.
+
+The source baseline for this example is the current assignment's request for evaluation artifacts, together with the retained T1/T3/T4 cases in `apex-meta/informatics/final/research/10-ultra-upgrade-validation/preregistration.md:45–57`. The [governed-specification flow](../../end-to-end-flows.md#2-governed-test-specification-creation) illustrates that bounded use without a live write or agent run.
+
+## Outcome check and recovery
+
+For a test specification, ask whether another operator can execute the case and independently decide if the result solves the actual task. A file that merely has the right headings is incomplete. For a narrow edit, inspect the exact changed-path set and all bytes outside the authorized target. Preserve scope even when a validator suggests unrelated cleanup.
+
+If hooks are unavailable, direct source delivery and post-change checks remain available within authorized scope. If a required authority/schema is inaccessible, preserve the attempted locator and error, continue independent parts, and mark the affected conformance claim unresolved. After two unsuccessful repairs that do not advance the deliverable, pivot under `XML.stop_repairing`; do not build a new harness to conceal the blocker.
+
+**Failure guard:** the created artifact must be meaningful, reviewable and within scope. Neither a schema pass nor an existing handover instruction expands permission to modify live files, install a workflow or publish the result.

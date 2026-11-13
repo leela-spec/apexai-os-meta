@@ -1,0 +1,76 @@
+{
+  "execution_status": "executed_offline_simulation",
+  "native_platform_execution": false,
+  "semantic_adherence_measured": false,
+  "purpose": "Check JSON parseability and platform-specific envelope conversion, including negative fixtures.",
+  "results": [
+    {
+      "case": "claude_context_envelope",
+      "passed": true,
+      "stdout": {
+        "hookSpecificOutput": {
+          "hookEventName": "UserPromptSubmit",
+          "additionalContext": "APEX_PROBE_CONTEXT: This is a delivery canary, not authorization or compliance evidence."
+        }
+      },
+      "exit_code": 0
+    },
+    {
+      "case": "antigravity_context_envelope",
+      "passed": true,
+      "stdout": {
+        "injectSteps": [
+          {
+            "ephemeralMessage": "APEX_PROBE_CONTEXT: This is a delivery canary, not authorization or compliance evidence."
+          }
+        ]
+      },
+      "exit_code": 0
+    },
+    {
+      "case": "gemini_context_envelope",
+      "passed": true,
+      "stdout": {
+        "hookSpecificOutput": {
+          "additionalContext": "APEX_PROBE_CONTEXT: This is a delivery canary, not authorization or compliance evidence."
+        }
+      },
+      "exit_code": 0
+    },
+    {
+      "case": "claude_invalid_event_or_payload",
+      "passed": true,
+      "exit_code": 1,
+      "stderr": "This example supports only documented context-delivery events"
+    },
+    {
+      "case": "antigravity_invalid_event_or_payload",
+      "passed": true,
+      "exit_code": 1,
+      "stderr": "Missing Antigravity invocation number"
+    },
+    {
+      "case": "gemini_invalid_event_or_payload",
+      "passed": true,
+      "exit_code": 1,
+      "stderr": "Wrong Gemini event payload"
+    },
+    {
+      "case": "antigravity-hooks.example.json_parse",
+      "passed": true
+    },
+    {
+      "case": "claude-settings.example.json_parse",
+      "passed": true
+    },
+    {
+      "case": "codex-hooks.example.json_parse",
+      "passed": true
+    },
+    {
+      "case": "gemini-settings.example.json_parse",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

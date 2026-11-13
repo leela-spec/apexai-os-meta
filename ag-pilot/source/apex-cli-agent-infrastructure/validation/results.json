@@ -1,0 +1,184 @@
+{
+  "schema_version": "apex_package_validation.v1",
+  "execution_status": "executed_artifact_checks",
+  "created_at_utc": "2026-11-12T18:29:35.053832+00:00",
+  "source_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+  "command": "python validation/validate_package.py",
+  "runtime": {
+    "python": "3.12.14",
+    "jsonschema": "4.26.0",
+    "PyYAML": "6.0.3"
+  },
+  "checks": [
+    {
+      "id": "PKG-PARSE",
+      "status": "pass",
+      "detail": {
+        "json_files": 44,
+        "toml_files": 2
+      },
+      "errors": []
+    },
+    {
+      "id": "REG-SCHEMA-IDENTITY-OWNERS",
+      "status": "pass",
+      "detail": {
+        "rules": 145,
+        "owner_chains_checked": 145
+      },
+      "errors": []
+    },
+    {
+      "id": "REG-CURRENT-XML-COVERAGE",
+      "status": "pass",
+      "detail": {
+        "current_tags": 23,
+        "explicit_xml_refs": 7,
+        "exact_set_equality": true
+      },
+      "errors": []
+    },
+    {
+      "id": "REG-SOURCE-QUOTES-PRIORITIES",
+      "status": "pass",
+      "detail": {
+        "source_excerpts_checked": 145,
+        "authored_raw_tags_checked": 100,
+        "unscored_records_remain_null": 45
+      },
+      "errors": []
+    },
+    {
+      "id": "EVIDENCE-BYTE-FIDELITY",
+      "status": "pass",
+      "detail": {
+        "snapshots": 83,
+        "exact_path_404_records": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "DECISIONS-ALTERNATIVES-EVIDENCE",
+      "status": "pass",
+      "detail": {
+        "decisions": 26,
+        "options": 82,
+        "external_sources": 62
+      },
+      "errors": []
+    },
+    {
+      "id": "INTEGRATION-TRACEABILITY",
+      "status": "pass",
+      "detail": {
+        "entries": 95,
+        "existing_source_entries": 83,
+        "new_target_entries": 12
+      },
+      "errors": []
+    },
+    {
+      "id": "PATCH-PROPOSALS-EXACTNESS",
+      "status": "pass",
+      "detail": {
+        "proposals": 6,
+        "files": 3,
+        "applied": false
+      },
+      "errors": []
+    },
+    {
+      "id": "EVALUATION-COVERAGE-STATUS",
+      "status": "pass",
+      "detail": {
+        "cases": 22,
+        "focused_xml_id_coverage": 23,
+        "explicit_negative_cases": 5,
+        "native_agent_trials_executed": 0
+      },
+      "errors": []
+    },
+    {
+      "id": "CAPABILITY-CLAIMS-PROBES",
+      "status": "pass",
+      "detail": {
+        "claims": 49,
+        "unexecuted_native_probes": 14
+      },
+      "errors": []
+    },
+    {
+      "id": "PROPOSED-STATE-SCHEMA-BOUNDARY",
+      "status": "pass",
+      "detail": {
+        "positive_fixture": 1,
+        "invalid_authority_or_execution_fixtures_rejected": 2
+      },
+      "errors": []
+    },
+    {
+      "id": "CRITERION-ARITHMETIC-STATUS",
+      "status": "pass",
+      "detail": {
+        "estimated_candidates": 7,
+        "IER_aggregations": 0
+      },
+      "errors": []
+    },
+    {
+      "id": "EXECUTED-DIAGNOSTIC-EVIDENCE",
+      "status": "pass",
+      "detail": {
+        "offline_native_encoding_schema_checks": 38,
+        "synthetic_scorer_counterexamples": 4,
+        "pinned_upstream_schema_license_files": 7,
+        "scope": "Recorded executions plus exact release-copy checks; actual reproduction commands in report. Not native adherence trials."
+      },
+      "errors": []
+    },
+    {
+      "id": "AUTHORED-OKF-FRONTMATTER",
+      "status": "pass",
+      "detail": {
+        "authored_documents": 16,
+        "native_and_frozen_source_exclusions": "Native configuration examples use their platform schemas; frozen repository sources are unmodified evidence."
+      },
+      "errors": []
+    },
+    {
+      "id": "AUTHORED-LOCAL-LINKS",
+      "status": "pass",
+      "detail": {
+        "local_file_links_checked": 161,
+        "frozen_snapshot_links": "Preserved as evidence; known original defects have exact unapplied proposals."
+      },
+      "errors": []
+    },
+    {
+      "id": "PACKAGE-COMPLETENESS-SANITY",
+      "status": "pass",
+      "detail": {
+        "required_artifacts": 15,
+        "source_snapshots_included": true,
+        "production_installation": "not_performed"
+      },
+      "errors": []
+    },
+    {
+      "id": "MANIFEST-INVENTORY-HASHES",
+      "status": "pass",
+      "detail": {
+        "self_hash": "manifest.json intentionally excluded",
+        "scope": "All other delivered files"
+      },
+      "errors": []
+    }
+  ],
+  "passed": true,
+  "limits": [
+    "No native loading, hook invocation, permission or agent adherence trial.",
+    "No empirical architecture win established.",
+    "Source fidelity and structure do not replace independent semantic review.",
+    "Manifest verification is required separately when assembly mode skips it."
+  ]
+}

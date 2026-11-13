@@ -1,0 +1,321 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apex.local/schemas/deterministic-markdown-patcher2/patch-intent-schema.json",
+  "title": "patch_intent",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "intents"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "patch_intent.v1"
+    },
+    "intents": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/intent"
+      }
+    }
+  },
+  "$defs": {
+    "intent": {
+      "type": "object",
+      "required": [
+        "intent_id",
+        "operation",
+        "target",
+        "safety"
+      ],
+      "additionalProperties": false,
+      "not": {
+        "anyOf": [
+          {
+            "required": [
+              "old_text"
+            ]
+          },
+          {
+            "required": [
+              "required_old_text"
+            ]
+          },
+          {
+            "required": [
+              "line_number"
+            ]
+          },
+          {
+            "required": [
+              "line_start"
+            ]
+          },
+          {
+            "required": [
+              "line_end"
+            ]
+          },
+          {
+            "required": [
+              "line_range"
+            ]
+          },
+          {
+            "required": [
+              "hunk"
+            ]
+          },
+          {
+            "required": [
+              "diff_hunks"
+            ]
+          },
+          {
+            "required": [
+              "unified_diff"
+            ]
+          }
+        ]
+      },
+      "properties": {
+        "intent_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]{2,80}$"
+        },
+        "operation": {
+          "type": "string",
+          "enum": [
+            "inspect",
+            "locate",
+            "extract-span",
+            "replace-once",
+            "replace-heading-section",
+            "frontmatter-set",
+            "diff",
+            "apply-intent",
+            "validate-intent"
+          ]
+        },
+        "target": {
+          "$ref": "#/$defs/target"
+        },
+        "hints": {
+          "$ref": "#/$defs/hints"
+        },
+        "replacement": {
+          "$ref": "#/$defs/replacement"
+        },
+        "frontmatter": {
+          "$ref": "#/$defs/frontmatter"
+        },
+        "validation": {
+          "$ref": "#/$defs/validation"
+        },
+        "safety": {
+          "$ref": "#/$defs/safety"
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 2000
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "operation": {
+                "enum": [
+                  "replace-once",
+                  "replace-heading-section"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "replacement"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "operation": {
+                "const": "frontmatter-set"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "frontmatter"
+            ]
+          }
+        }
+      ]
+    },
+    "target": {
+      "type": "object",
+      "required": [
+        "target_file_guess"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "target_file_guess": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "heading_path": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "maxItems": 12
+        },
+        "frontmatter_required": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "hints": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "nearby_phrases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "maxItems": 10
+        },
+        "symbol_or_section_names": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "maxItems": 10
+        },
+        "frontmatter_keys": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "maxItems": 20
+        }
+      }
+    },
+    "replacement": {
+      "type": "object",
+      "required": [
+        "content"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string",
+          "minLength": 1
+        },
+        "content_role": {
+          "type": "string",
+          "enum": [
+            "section_body",
+            "span_replacement",
+            "generated_block",
+            "config_value"
+          ]
+        },
+        "preserve_surrounding_formatting": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "frontmatter": {
+      "type": "object",
+      "required": [
+        "set"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "set": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": true
+        },
+        "create_if_missing": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "expected_phrases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "maxItems": 20
+        },
+        "forbidden_phrases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "maxItems": 20
+        },
+        "commands": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "maxItems": 20
+        }
+      }
+    },
+    "safety": {
+      "type": "object",
+      "required": [
+        "require_unique_match",
+        "fail_on_ambiguity"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "require_unique_match": {
+          "type": "boolean",
+          "const": true
+        },
+        "fail_on_ambiguity": {
+          "type": "boolean",
+          "const": true
+        },
+        "allow_full_file_rewrite": {
+          "type": "boolean",
+          "const": false
+        },
+        "max_files_touched": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 50,
+          "default": 1
+        }
+      }
+    }
+  }
+}

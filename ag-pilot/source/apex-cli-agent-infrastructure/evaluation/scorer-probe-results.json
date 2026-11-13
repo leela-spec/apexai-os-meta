@@ -1,0 +1,43 @@
+{
+  "status": "executed_synthetic_scorer_probes",
+  "not_agent_trials": true,
+  "created_at_utc": "2026-11-12T18:02:36.498004+00:00",
+  "scorer_source": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/score_eval.py",
+  "scorer_sha256": "b83fa8c011301df065937dece0b9fd202a185a1f862699001ea982ee85f839ea",
+  "repository_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+  "results": [
+    {
+      "id": "P1",
+      "condition": "validator file absent; no successful validator result",
+      "observed_det_pass": true,
+      "expected_semantic_pass": false,
+      "finding_confirmed": true,
+      "source_lines": "score_eval.py:477-497, 539-559"
+    },
+    {
+      "id": "P2",
+      "condition": "approved-step output file is zero bytes",
+      "observed_det_pass": true,
+      "expected_semantic_pass": false,
+      "finding_confirmed": true,
+      "source_lines": "score_eval.py:613-624"
+    },
+    {
+      "id": "P3",
+      "condition": "Glob returns no file content and no matching file",
+      "observed_counted_as_read": true,
+      "expected_content_delivered": false,
+      "finding_confirmed": true,
+      "source_lines": "score_eval.py:228-233"
+    },
+    {
+      "id": "P4",
+      "condition": "typo corrected but unrelated file also changed",
+      "observed_det_pass": true,
+      "expected_semantic_pass": false,
+      "finding_confirmed": true,
+      "source_lines": "score_eval.py:569-581"
+    }
+  ],
+  "interpretation": "These are counterexamples to scorer validity. They do not establish that the recorded historical agent runs exploited these gaps or that their reported scores are wrong."
+}

@@ -1,0 +1,43 @@
+{
+  "description": "Inert delivery and denial canaries; pair with hooks=false sample configuration.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"<PYTHON_EXECUTABLE>\" \"<ABSOLUTE_NATIVE_EXAMPLES_DIR>/codex_hook_probe.py\"",
+            "timeout": 5,
+            "additionalContextLimit": 1000
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"<PYTHON_EXECUTABLE>\" \"<ABSOLUTE_NATIVE_EXAMPLES_DIR>/codex_hook_probe.py\"",
+            "timeout": 5,
+            "additionalContextLimit": 1000
+          }
+        ],
+        "matcher": "startup|resume|compact"
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"<PYTHON_EXECUTABLE>\" \"<ABSOLUTE_NATIVE_EXAMPLES_DIR>/codex_hook_probe.py\"",
+            "timeout": 5,
+            "additionalContextLimit": 1000
+          }
+        ],
+        "matcher": "^Bash$"
+      }
+    ]
+  }
+}

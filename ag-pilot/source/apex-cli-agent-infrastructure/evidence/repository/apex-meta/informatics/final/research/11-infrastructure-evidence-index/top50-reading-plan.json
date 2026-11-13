@@ -1,0 +1,1392 @@
+{
+  "title": "Apex infrastructure top-50 reading plan",
+  "checked_date": "2026-11-12",
+  "source_revision": "2bdf9887a020c03732f619d9a5bf7b8a22e4f48c",
+  "file_hash_basis": "Canonical Git blob bytes at source_revision. Local checkout line endings can differ; slice hashes normalize line endings.",
+  "path_base": "repository-root",
+  "ranking_basis": "Editorial reading priority: operator intent, live owners, discriminating evidence, then topic-specific reuse and lineage. Not a measured reliability score or normative rule-priority tier.",
+  "initial_ranks": [
+    1,
+    2,
+    3,
+    5,
+    9
+  ],
+  "range_semantics": "Inclusive and 1-based; at most 40 lines per window. Re-find sections and refresh citations on changed hashes. Read surrounding material when needed.",
+  "entries": [
+    {
+      "rank": 1,
+      "reading_priority": "Read now",
+      "repository_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/sources/infrastructure-activation-research-brief.md",
+      "source_role": "Retained operator brief",
+      "reason_to_read": "Recover the activation problem and all-references-as-skills alternative without preselecting a hybrid.",
+      "question_to_answer": "Which operator needs extend beyond file-write gates?",
+      "line_count": 108,
+      "file_sha256": "2f032e7f1779ac281eab73ad6ca6d33307df77173738114b3fcbdd2892604508",
+      "read_ranges": [
+        {
+          "start_line": 1,
+          "end_line": 35,
+          "section_hint": "## 1. Why did the previous research miss this?",
+          "normalized_slice_sha256": "89f14c75f7e2b0112717fc82d8a85fdf67fce0167d7e86cf3667cf3ed23dac97"
+        },
+        {
+          "start_line": 65,
+          "end_line": 88,
+          "section_hint": "## 4. What the Pro research will investigate",
+          "normalized_slice_sha256": "2052c925841f19dd0f4b04cffaeb03a45b5d8d46d528570fd29ebbe93ac57f95"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "reading_priority": "Read now",
+      "repository_path": "apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml",
+      "source_role": "Live normative owner",
+      "reason_to_read": "Establish the current rules, conditional references, and authority boundaries.",
+      "question_to_answer": "Which current tags and meaningful subrules need activation?",
+      "line_count": 76,
+      "file_sha256": "0cbaa3e994b5ff0ba2e489623ae6ee3b58d63988a2a225b11df9b5cdee132b0b",
+      "read_ranges": [
+        {
+          "start_line": 1,
+          "end_line": 40,
+          "section_hint": "<apex_contract v=\"1.0-ultra\" base_ref=\"apex-meta/informatics/final/\">",
+          "normalized_slice_sha256": "79678d7456d32a9c54a279ec6cd9dad706098f1fd33f267926aa09a521e07647"
+        },
+        {
+          "start_line": 41,
+          "end_line": 76,
+          "section_hint": "<apex_contract v=\"1.0-ultra\" base_ref=\"apex-meta/informatics/final/\">",
+          "normalized_slice_sha256": "64da550abb9effcf1dc53ad864fc228dc9a23f2fc5e6dbf885236f3e96e05476"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "reading_priority": "Read now",
+      "repository_path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/01-results-and-verdict.md",
+      "source_role": "Source-reported empirical result",
+      "reason_to_read": "Read measured outcomes, combined-intervention attribution, isolation limits, and negative cases.",
+      "question_to_answer": "Which findings transfer to a new CLI and which do not?",
+      "line_count": 83,
+      "file_sha256": "ee34d49c6d8513a8d91854fe45dd7e9b1f27f43cde403bef839a5c634f4bfecb",
+      "read_ranges": [
+        {
+          "start_line": 20,
+          "end_line": 51,
+          "section_hint": "## 1. Benchmark Outcome Summary (`n=5` / `n=3`, `gemini-3.8-flash-low`)",
+          "normalized_slice_sha256": "05b9bfe9c1485ead0049f23c6b0182daaf4fa55e364ea1482ad5da9506e18d43"
+        },
+        {
+          "start_line": 55,
+          "end_line": 83,
+          "section_hint": "## 3. Hypotheses `H1`–`H5` Verdicts",
+          "normalized_slice_sha256": "5160aae4cd2eff1f979da81e816b921c6746853ea5af60f53c9e35daaac2e9d9"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "reading_priority": "Read before design",
+      "repository_path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/index.md",
+      "source_role": "Research synthesis and proposals",
+      "reason_to_read": "Recover pointer failures, selective skill gates, and thinking-plane hypotheses already studied.",
+      "question_to_answer": "Which prior alternatives need new evidence rather than rediscovery?",
+      "line_count": 583,
+      "file_sha256": "af6b5903ab60ce53b8c4ec71375366bc7459548308bf2cca4829e61a574fb151",
+      "read_ranges": [
+        {
+          "start_line": 95,
+          "end_line": 124,
+          "section_hint": "## 3. Topic 2: `ref` / `when` Conditional Triggers and Uninvoked Reference Risks",
+          "normalized_slice_sha256": "714749b62e2489e48df10f199f989f0eb944d40c42838427c4302de82950d1b6"
+        },
+        {
+          "start_line": 224,
+          "end_line": 257,
+          "section_hint": "## 5. Topic 3: Explicit Skill Invocation Triggers and Dispatch Architecture",
+          "normalized_slice_sha256": "a95d227a9ca73fb4b442ff041fb4e6fa6a7e01aed4fff0e3e15ff9775ced501a"
+        },
+        {
+          "start_line": 389,
+          "end_line": 418,
+          "section_hint": "## 9. Topic 7: Pro-Thinking Prompting Principles Linkage",
+          "normalized_slice_sha256": "398bc3128c03f292f81b0f19c8032cb214520979b833029076257ebdc78b9ae2"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "reading_priority": "Read now",
+      "repository_path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+      "source_role": "Historical decisions with mixed statuses",
+      "reason_to_read": "Preserve settled, superseded, proposed, and falsifiable positions in their original scope.",
+      "question_to_answer": "What decision and falsification condition would the proposed change affect?",
+      "line_count": 431,
+      "file_sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+      "read_ranges": [
+        {
+          "start_line": 22,
+          "end_line": 58,
+          "section_hint": "## Part A — Settled decisions",
+          "normalized_slice_sha256": "be0344d94dccc8419f87feb232a39ada366840f6ebba47f95c5ce8458c3377ee"
+        },
+        {
+          "start_line": 128,
+          "end_line": 164,
+          "section_hint": "## Part C — Architecture position",
+          "normalized_slice_sha256": "a4b005baa14073f7b3a478495cdf41acade2eb737b34b81eaf06c4398e975272"
+        },
+        {
+          "start_line": 237,
+          "end_line": 253,
+          "section_hint": "## Part F — Falsification conditions",
+          "normalized_slice_sha256": "ab79fb9864a70af6f472d61651e9e164cd72e831e42e3e38b9e61f49c6cd7c9e"
+        },
+        {
+          "start_line": 411,
+          "end_line": 431,
+          "section_hint": "## Part H — Finalized `v1.0` Decisions After `ResearchOfFile10` (`DEC-22`..`DEC-24`)",
+          "normalized_slice_sha256": "ef6bec136e06c2d57f3e81f7981acac3405a469aaa9b0409cd61f1cde50bc4a4"
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "reading_priority": "Read before design",
+      "repository_path": "apex-meta/informatics/final/operations/18-APEX-CARRIER-MAP.md",
+      "source_role": "Distribution owner and recorded state",
+      "reason_to_read": "Locate existing canonical carriers, sync responsibilities, and recorded gaps.",
+      "question_to_answer": "Which distribution mechanism can be reused and which state needs refreshing?",
+      "line_count": 102,
+      "file_sha256": "a8a380f6424e9d90d0846a1f49adbad2a215763fc7a79ef7b58244ddd0e4ddb9",
+      "read_ranges": [
+        {
+          "start_line": 12,
+          "end_line": 50,
+          "section_hint": "## At a glance",
+          "normalized_slice_sha256": "a9705442d01efb9300b97d5349181e0fcc24a432ef0665809e65a13c7db1edba"
+        },
+        {
+          "start_line": 52,
+          "end_line": 89,
+          "section_hint": "## 3. Open gaps",
+          "normalized_slice_sha256": "a1a73da002aa7588cdbde97648650efcb26782f8d3ec1f7cfff2229c6c1ddb10"
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "reading_priority": "Read before design",
+      "repository_path": "AGENTS.md",
+      "source_role": "Repository operating instructions",
+      "reason_to_read": "Establish committed Git dispatch, scope, and knowledge governance; compare environment claims with current operator instructions.",
+      "question_to_answer": "What repository constraints must the next design preserve?",
+      "line_count": 51,
+      "file_sha256": "c7f660b441ba3ecbcb767e2997fa2c08b33c02c5eaa0fb8206e991a4e8124c39",
+      "read_ranges": [
+        {
+          "start_line": 1,
+          "end_line": 40,
+          "section_hint": "# Codex Operating Note",
+          "normalized_slice_sha256": "4534d4b0fcd322075b00cc63ac44d38583f1242a21885673d1137514b097e9f3"
+        },
+        {
+          "start_line": 41,
+          "end_line": 51,
+          "section_hint": "## Core Intent Execution",
+          "normalized_slice_sha256": "6e3179bee670d6c68412a5e912acb7a7d651d56d2a3d8e3f550b98711ca2bcf2"
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "reading_priority": "Read before design",
+      "repository_path": ".claude/CLAUDE.md",
+      "source_role": "Project routing surface",
+      "reason_to_read": "Keep Weekly Orchestrator, Multi-Agent Orchestration, and the shared backbone distinct.",
+      "question_to_answer": "Which routing boundaries would an over-unified layout collapse?",
+      "line_count": 53,
+      "file_sha256": "9583973b6f008980ac19ea05536792add5082d00eac50ef2f0bc2f5a7c7b5d0e",
+      "read_ranges": [
+        {
+          "start_line": 1,
+          "end_line": 31,
+          "section_hint": "# APEX OS",
+          "normalized_slice_sha256": "65fe37d4bc35d0db0ae30b9804c9e075017f34f01059e8009c6b31ce1041821c"
+        },
+        {
+          "start_line": 33,
+          "end_line": 53,
+          "section_hint": "## Navigation",
+          "normalized_slice_sha256": "6e2bfbeb8497bcf2c5f99e4386728bc0935a976dfac61820bef1ff74cd7fec1b"
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "reading_priority": "Read now",
+      "repository_path": "apex-meta/orchestration/CURRENT-SYSTEM-MANIFEST.yaml",
+      "source_role": "Current operating manifest",
+      "reason_to_read": "Map doctrine, runtime roles, deterministic tools, and state to their actual owners.",
+      "question_to_answer": "Which components are live and which are supporting or historical?",
+      "line_count": 83,
+      "file_sha256": "b83a25a0a6d2a06a91f0c95cade1b1847522905a66fe64d09ba4d0b5ff354b39",
+      "read_ranges": [
+        {
+          "start_line": 5,
+          "end_line": 39,
+          "section_hint": "# workspace metadata as system truth. Every path classified live must resolve in the checkout.",
+          "normalized_slice_sha256": "d2696d7d41259595b832d016211fee13b742034bad0ff6ca295289a0918a2d5f"
+        },
+        {
+          "start_line": 40,
+          "end_line": 76,
+          "section_hint": "# workspace metadata as system truth. Every path classified live must resolve in the checkout.",
+          "normalized_slice_sha256": "c4bdbb9ed56bd7101a7f3466b024c87fb69f7546a67909da794c1548c52922f1"
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "reading_priority": "Read before design",
+      "repository_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/cross-cli-hook-architecture.md",
+      "source_role": "Proposed design snapshot",
+      "reason_to_read": "Identify native-hook assumptions, payload differences, and unverified rollout claims.",
+      "question_to_answer": "Which capabilities require fresh official documentation or runtime probes?",
+      "line_count": 296,
+      "file_sha256": "69213f89257483f3153242d1fd36f570488d290f69330e598b367711126aef5d",
+      "read_ranges": [
+        {
+          "start_line": 17,
+          "end_line": 43,
+          "section_hint": "## 1. Authority, evidence, and explicit corrections",
+          "normalized_slice_sha256": "1d95076bb206954b958469a513e236aa929c6da5ee800a831301917036636ed7"
+        },
+        {
+          "start_line": 44,
+          "end_line": 68,
+          "section_hint": "## 2. Native lifecycle compatibility",
+          "normalized_slice_sha256": "d8e4fed0645c45a315dd55410598bd8f72463dabb999750c25bbae21c3d3455a"
+        },
+        {
+          "start_line": 274,
+          "end_line": 296,
+          "section_hint": "## 8. Rollout and measurable acceptance",
+          "normalized_slice_sha256": "e1254ffd0bbcca99ea2893c39e858cabc38d468b4cfa1b4d05072f0ae9d98634"
+        }
+      ]
+    },
+    {
+      "rank": 11,
+      "reading_priority": "Read before design",
+      "repository_path": "apex-meta/informatics/final/research/01-universal-instruction-research/05-INSTRUCTION-ACCESS-AND-SERIALIZATION-MATRIX.md",
+      "source_role": "Foundational research",
+      "reason_to_read": "Separate representation, loading, invocation, and enforcement.",
+      "question_to_answer": "Which mechanism does the proposed representation change actually alter?",
+      "line_count": 155,
+      "file_sha256": "bae470850b258b2fc2a2cb323ffb439391b8f0b8e6ce11ab4d24c4900ef22c21",
+      "read_ranges": [
+        {
+          "start_line": 11,
+          "end_line": 49,
+          "section_hint": "## Core distinction",
+          "normalized_slice_sha256": "1a38761e5553c93bb3ba9886307ab960bf431a21e39efdbacd8c32a2416b54bb"
+        },
+        {
+          "start_line": 126,
+          "end_line": 155,
+          "section_hint": "## Best cross-agent access stack",
+          "normalized_slice_sha256": "0dc01b88ce6112e9321c368c7e0479eb71f6aba3367fe3689c65ce8d48638e4d"
+        }
+      ]
+    },
+    {
+      "rank": 12,
+      "reading_priority": "Read before design",
+      "repository_path": "apex-meta/informatics/final/operations/17-READ-TRACE-PILOT-AND-BASE-REF-FRAGILITY-FINDINGS.md",
+      "source_role": "Historical small pilot",
+      "reason_to_read": "Read failed pointer assumptions, base-ref fragility, and the explicit pilot limits.",
+      "question_to_answer": "What failed and how strong is the evidence?",
+      "line_count": 208,
+      "file_sha256": "149f236b6a4e1ac32f78f6bf2f65d3c9ea41ed09c1cd38622caa4f532f0752d4",
+      "read_ranges": [
+        {
+          "start_line": 22,
+          "end_line": 49,
+          "section_hint": "## 0. Executive verdict",
+          "normalized_slice_sha256": "970b1b1f369952b044ca0fee41f3388edeab2bdf4347226360e8d31e552cbfc5"
+        },
+        {
+          "start_line": 110,
+          "end_line": 148,
+          "section_hint": "## 4. Root cause 1 — gate honouring correlates with task structure, not gate wording",
+          "normalized_slice_sha256": "32da995c41de3694f77b6cf804998ec66e09558550567470ab924665a0a58b37"
+        },
+        {
+          "start_line": 198,
+          "end_line": 208,
+          "section_hint": "## 10. What this file does not claim",
+          "normalized_slice_sha256": "9ecff0661f2d032b88cbf1f6d26c70060800df6394b087b6da0f3cdade9a042d"
+        }
+      ]
+    },
+    {
+      "rank": 13,
+      "reading_priority": "Read before design",
+      "repository_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/HANDOVER-14-APEX-RULE-REGISTRY-AND-ACTIVATION-INTEGRATION.md",
+      "source_role": "Earlier proposed research requirements",
+      "reason_to_read": "Preserve rule-level intent, realistic evaluations, and research-only boundaries from retained source material.",
+      "question_to_answer": "Which substantive requirements must the processing assignment retain?",
+      "line_count": 138,
+      "file_sha256": "cbb478aeaf1f5b001e3fa3ae8eac31ca1add673186b117259b1e45f553ded683",
+      "read_ranges": [
+        {
+          "start_line": 23,
+          "end_line": 42,
+          "section_hint": "## 2. Diagnosis — evidence, not a new invented architecture",
+          "normalized_slice_sha256": "f956ddfa471dd87adce077060ab66b878850fe77653ed6e9b58d06a17fdf1ec4"
+        },
+        {
+          "start_line": 75,
+          "end_line": 110,
+          "section_hint": "## 6. Per-rule registry contract to design and populate",
+          "normalized_slice_sha256": "36134070b550ecd06acf4cdef0bb5649d4b28bc5ed49baedb086c32d805b728b"
+        },
+        {
+          "start_line": 127,
+          "end_line": 138,
+          "section_hint": "## 10. Execution and authority boundaries",
+          "normalized_slice_sha256": "16f2db925a0a10e4302050c7d6ad64a1386ab6f07d4d90b019c5bc303f3da5ed"
+        }
+      ]
+    },
+    {
+      "rank": 14,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/specs/standard.md",
+      "source_role": "Normative standard",
+      "reason_to_read": "Establish precedence, five-plane ownership, procedure boundaries, and provenance.",
+      "question_to_answer": "What can external research improve without overriding accepted semantics?",
+      "line_count": 170,
+      "file_sha256": "6a25eaf2ecc4dcfb3dd2ab2fecf28e3c767f698cadaecd3171aa3fddbc8de553",
+      "read_ranges": [
+        {
+          "start_line": 13,
+          "end_line": 52,
+          "section_hint": "## 1. Purpose, Scope, and Non-Scope",
+          "normalized_slice_sha256": "efdfca03ef71e97e091342f896c5edeaa2226450950c5797aad66a54f3ba9a18"
+        },
+        {
+          "start_line": 53,
+          "end_line": 60,
+          "section_hint": "## 3. Five-Plane Information Architecture",
+          "normalized_slice_sha256": "27e22c78c0747afc13cde409166bcc54acd96e7c48f1683fb1e680cfaa72e642"
+        },
+        {
+          "start_line": 99,
+          "end_line": 138,
+          "section_hint": "## 7. Progressive Disclosure and Context Delivery",
+          "normalized_slice_sha256": "0b8e268b16f8f319378db9cb25f3dece84eb535c9e9d07ff97ba1d9e9df1c68c"
+        },
+        {
+          "start_line": 139,
+          "end_line": 139,
+          "section_hint": "## 12. Validation Classes",
+          "normalized_slice_sha256": "8d8a22ed8c8bf9a13320d62d2c802556c33059e76457691854dc07e1cd6471db"
+        }
+      ]
+    },
+    {
+      "rank": 15,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/specs/file-architecture.md",
+      "source_role": "Normative file architecture",
+      "reason_to_read": "Preserve current-truth separation, metadata contracts, layered roles, and bundle boundaries.",
+      "question_to_answer": "Where should each proposed owner and artifact live?",
+      "line_count": 165,
+      "file_sha256": "0ac27e4741819fd3c3785f4e2ce35d85f477c9439695cb466bee20ff1d8ea8f0",
+      "read_ranges": [
+        {
+          "start_line": 15,
+          "end_line": 53,
+          "section_hint": "## 1. Critical Architecture Invariants",
+          "normalized_slice_sha256": "e7eb93c6b3156284d3924f8b271064116e600968f476fb1275284496798ae2f5"
+        },
+        {
+          "start_line": 55,
+          "end_line": 94,
+          "section_hint": "## 3. OKF v0.2 Frontmatter Schemas",
+          "normalized_slice_sha256": "5b25a6722b156d91210e5fbd227fbee1a5e739a1b3bc451fc3adc779b2043628"
+        },
+        {
+          "start_line": 95,
+          "end_line": 95,
+          "section_hint": "#### Concept Frontmatter Schema:",
+          "normalized_slice_sha256": "a99b8ca42f9299860b487655128a9c71814e1285ba558e60b7474f19bd4a872e"
+        },
+        {
+          "start_line": 118,
+          "end_line": 145,
+          "section_hint": "## 4. Bundle Layout & Directory Topology",
+          "normalized_slice_sha256": "f10ed734d5daebd0e49ca1df0e83127ac405db2aeee5f6c243f0cd9b4deff960"
+        }
+      ]
+    },
+    {
+      "rank": 16,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/specs/writing-profile.md",
+      "source_role": "Normative writing and evidence profile",
+      "reason_to_read": "Preserve source grounding, raw I/E/R meaning, canonical ownership, and communication requirements.",
+      "question_to_answer": "How must findings and material operator choices be represented?",
+      "line_count": 93,
+      "file_sha256": "ff354300a39c873de0c51322f8f4f579ce54f8bd3f1bbb5541b911274244c6c9",
+      "read_ranges": [
+        {
+          "start_line": 12,
+          "end_line": 39,
+          "section_hint": "## 1. Core Language, Clarity & Primacy Invariants",
+          "normalized_slice_sha256": "acb078717e4fe1ec50877d6b6490c87cb96373ab60b2da9247c1534a9969f5e2"
+        },
+        {
+          "start_line": 53,
+          "end_line": 67,
+          "section_hint": "## 3. Identification, Examples & Instruction Parsimony",
+          "normalized_slice_sha256": "292ca92067c3aee34268fb081cd63c9a14cc0f1d9810f8f46b0320d841827164"
+        },
+        {
+          "start_line": 79,
+          "end_line": 93,
+          "section_hint": "## 4. Traceability & Reference Grounding",
+          "normalized_slice_sha256": "2a33fc663dbf3e6f64dd091255ebfdbd9c3f418de086b2c5f5c2c7c043b37092"
+        }
+      ]
+    },
+    {
+      "rank": 17,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/specs/anti-drift-rules.md",
+      "source_role": "Normative operational constraints",
+      "reason_to_read": "Identify narrow-scope, recovery, evidence, and anti-overcorrection requirements.",
+      "question_to_answer": "Which existing failure guards should the architecture retain?",
+      "line_count": 75,
+      "file_sha256": "9f429c36a53b9c0276053afcaf20741460c881c1613418ed60881f0f85d73229",
+      "read_ranges": [
+        {
+          "start_line": 17,
+          "end_line": 50,
+          "section_hint": "## 1. Critical Operational & Anti-Drift Invariants",
+          "normalized_slice_sha256": "f428a37b599f53773ac5c1fc08cc295af337c020c654b643ddedab362b8833fa"
+        },
+        {
+          "start_line": 52,
+          "end_line": 75,
+          "section_hint": "## 3. Anti-Overcorrection, Asset Preservation & Gate Governance",
+          "normalized_slice_sha256": "40502cf929023fba227e685d0623ffc19e591db93f2c00fe886fcbd0386c2fc5"
+        }
+      ]
+    },
+    {
+      "rank": 18,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/specs/governance-schemas.md",
+      "source_role": "Normative governance owner",
+      "reason_to_read": "Locate declared serialization and decision contracts before inventing new ones.",
+      "question_to_answer": "Which schemas can be reused and what would require a new contract?",
+      "line_count": 134,
+      "file_sha256": "e4fc66bb8f0818e12a8dbe3916b28990e29ee6ae32165a059c4e2bde8e367ba1",
+      "read_ranges": [
+        {
+          "start_line": 17,
+          "end_line": 50,
+          "section_hint": "## 1. Critical Governance Invariants",
+          "normalized_slice_sha256": "8d6bda3536372ec2ebdde0d8d053f9f06f265808eeef2d939f1bcb0a474448a3"
+        },
+        {
+          "start_line": 81,
+          "end_line": 109,
+          "section_hint": "### 2.3 Decision Matrix & Bake-Off Governance Schemas",
+          "normalized_slice_sha256": "20f739ba5e8ff3aa9baccd98a52905124f8a690045f3944d7fe540f9e8a00475"
+        }
+      ]
+    },
+    {
+      "rank": 19,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/specs/execution-modes/task-specification.md",
+      "source_role": "Normative task adapter",
+      "reason_to_read": "Read the alignment trigger, approved-step boundary, six fields, and proportionality.",
+      "question_to_answer": "How should activation distinguish new tasks from approved bounded continuation?",
+      "line_count": 65,
+      "file_sha256": "85484fe3bff8a4ae92f32f2a77b9d5ba851421221c8274c9379932b322e4e65a",
+      "read_ranges": [
+        {
+          "start_line": 10,
+          "end_line": 41,
+          "section_hint": "## 8. Adapter 7: Task Specification Contract",
+          "normalized_slice_sha256": "4d83166f15773c6b7106792a2676daa5b86db3ce2d3836aa81fabe49d6f08564"
+        },
+        {
+          "start_line": 43,
+          "end_line": 65,
+          "section_hint": "### 8.3 Named Reasoning Framework Declaration Inside `Process`",
+          "normalized_slice_sha256": "376a76b5bb7567d2d2a3a89223185d67ad61a576a180eb24a5833d40b740a4a4"
+        }
+      ]
+    },
+    {
+      "rank": 20,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/specs/execution-modes/iterative-execution.md",
+      "source_role": "Normative iteration adapter",
+      "reason_to_read": "Map existing file-backed iteration and context rules to state recovery.",
+      "question_to_answer": "What state must survive without rereading the corpus?",
+      "line_count": 52,
+      "file_sha256": "583133b554a67d215c168b09dac07f71220ac9e7a0131b5d3def883da46d76d9",
+      "read_ranges": [
+        {
+          "start_line": 10,
+          "end_line": 40,
+          "section_hint": "## 6. Adapter 5: Iterative Context & MMM Execution",
+          "normalized_slice_sha256": "74c58a7f50fd2c41d0e8666ce93c24a6ce479da2e1b943cdc631c5f047c1ef13"
+        },
+        {
+          "start_line": 42,
+          "end_line": 52,
+          "section_hint": "### 6.3 Macro-Meso-Micro (MMM) Decomposition & Bottom-Up Return",
+          "normalized_slice_sha256": "967ef751ae0b2943a4cf3ffde07b7971d2d7c66fdaad1a9143d9f0043a2ce813"
+        }
+      ]
+    },
+    {
+      "rank": 21,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/specs/execution-modes/handover.md",
+      "source_role": "Normative lifecycle adapter",
+      "reason_to_read": "Understand close-out and context-transfer rules as requirements, not a request to create a handover.",
+      "question_to_answer": "Which completion duties need visibility, enforcement, or output checking?",
+      "line_count": 51,
+      "file_sha256": "00b3e0b40e7cb67dced95657de8bc936292138fdf16524ed778e26f8a51518f7",
+      "read_ranges": [
+        {
+          "start_line": 10,
+          "end_line": 37,
+          "section_hint": "## 5. Adapter 4: Handover & Handoff Protocol",
+          "normalized_slice_sha256": "a6391c17e379045f955503f3ac87538db7ab2f7630ffdebeb502389680f716c3"
+        },
+        {
+          "start_line": 39,
+          "end_line": 51,
+          "section_hint": "### 5.4 Scoped Git Preflight Guard",
+          "normalized_slice_sha256": "e102889e54a3eab4d0c63e3c2cffc51e18da02fd117d7fb042f83992148b9800"
+        }
+      ]
+    },
+    {
+      "rank": 22,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/specs/execution-modes/qa-decision-matrix.md",
+      "source_role": "Normative conversational adapter",
+      "reason_to_read": "Recover chat-only applicability and complete material alternatives with raw I/E/R.",
+      "question_to_answer": "How does a response rule activate when no file write occurs?",
+      "line_count": 60,
+      "file_sha256": "a16b0226570883a45e5fb247cce8fc4c9ee76c2498d043b0475960ef1102ba2e",
+      "read_ranges": [
+        {
+          "start_line": 10,
+          "end_line": 27,
+          "section_hint": "## 2. Adapter 1: Q&A Decision Matrix",
+          "normalized_slice_sha256": "60c10689168990204301f8c785cd1ea2710ec2413811e5b4ef9e7644e756f7ca"
+        },
+        {
+          "start_line": 42,
+          "end_line": 60,
+          "section_hint": "### 2.3 Intensity Lever",
+          "normalized_slice_sha256": "93c152571af1a8a1d158219925ceba7ff38cca90937b092a79283b1dc87d7c5c"
+        }
+      ]
+    },
+    {
+      "rank": 23,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/specs/execution-modes/bake-off.md",
+      "source_role": "Normative comparison adapter",
+      "reason_to_read": "Reuse the established comparison procedure and failure-mode requirements.",
+      "question_to_answer": "What evidence and working examples should architecture comparison include?",
+      "line_count": 39,
+      "file_sha256": "00a10c860c72e19f5c264ace38ffaad970be5c15c82243d454c37bf449dfcd0a",
+      "read_ranges": [
+        {
+          "start_line": 10,
+          "end_line": 39,
+          "section_hint": "## 3. Adapter 2: Comparison & Bake-Off Rubric",
+          "normalized_slice_sha256": "cda82b9ec304ab95829beee92cca2fda39dae3d1ca64d062c70fe876fb42c592"
+        }
+      ]
+    },
+    {
+      "rank": 24,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/specs/execution-modes/patch-discipline.md",
+      "source_role": "Normative editing adapter",
+      "reason_to_read": "Preserve exact-match editing and schema ownership.",
+      "question_to_answer": "Which tool actions can be independently checked?",
+      "line_count": 72,
+      "file_sha256": "6951891dffe343c7dd8f20252a922d5fc7d54de5d65a20d4f37b6d139ee0dbf2",
+      "read_ranges": [
+        {
+          "start_line": 10,
+          "end_line": 39,
+          "section_hint": "## 4. Adapter 3: Exact-Match Patch Discipline",
+          "normalized_slice_sha256": "372e700694a1995332b5f82913fae9063e5fde1cb43d668001b3ced41097cc3b"
+        },
+        {
+          "start_line": 41,
+          "end_line": 72,
+          "section_hint": "### 4.2 Mode B: Structured AST Patch Intent (`patch_intent.v1`)",
+          "normalized_slice_sha256": "d8ca5671c6555e34c781b6801dffc5dbb12b75925b96a6eba3fbfe5159ad4ce8"
+        }
+      ]
+    },
+    {
+      "rank": 25,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/index.md",
+      "source_role": "Corpus navigation with historical descriptions",
+      "reason_to_read": "Find research buckets and rule lineage while detecting stale master terminology.",
+      "question_to_answer": "Which evidence beyond this top 50 must a specific question reopen?",
+      "line_count": 111,
+      "file_sha256": "ddec5dc24de305a22ae25092eea10eaa93931c7d65c8eae05ae575d27a702c3b",
+      "read_ranges": [
+        {
+          "start_line": 11,
+          "end_line": 25,
+          "section_hint": "# Apex Informatics Final Architecture & Unified Research Corpus",
+          "normalized_slice_sha256": "5f08e8dbe221178f399d57f4a783ec375d82bfe2efb7f2245efec9436358d1e3"
+        },
+        {
+          "start_line": 67,
+          "end_line": 82,
+          "section_hint": "### 2.1 Research Directory Index",
+          "normalized_slice_sha256": "82426e775eb90f2945128e47dcbd7839a9c00502e990b5be6371a9741c7ecea3"
+        },
+        {
+          "start_line": 84,
+          "end_line": 111,
+          "section_hint": "## 3. Rule-to-Research Mapping Matrix",
+          "normalized_slice_sha256": "60195cd24c72c462027162ad5c8b9180a6af8a5d267a331eeaea6c6803ed54ee"
+        }
+      ]
+    },
+    {
+      "rank": 26,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/specs/carrier-layer2-shared.md",
+      "source_role": "Shared workstation layer",
+      "reason_to_read": "Separate machine-specific routing and environment constraints from the portable constitution.",
+      "question_to_answer": "What belongs in workstation adapters instead of universal policy?",
+      "line_count": 35,
+      "file_sha256": "8a7fe4858fcc4accd4ebd1e58f44e5b581e47cbe0c79d031b281cdcd66ae41d8",
+      "read_ranges": [
+        {
+          "start_line": 1,
+          "end_line": 35,
+          "section_hint": "Document root / structured content",
+          "normalized_slice_sha256": "8a7fe4858fcc4accd4ebd1e58f44e5b581e47cbe0c79d031b281cdcd66ae41d8"
+        }
+      ]
+    },
+    {
+      "rank": 27,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/preregistration.md",
+      "source_role": "Preregistered protocol and amendment",
+      "reason_to_read": "Check hypotheses, arms, isolation assumptions, and amendments.",
+      "question_to_answer": "Did the reported verdict test the intended mechanism?",
+      "line_count": 78,
+      "file_sha256": "ad835707475b0a223baae70053e4d66de0e87f0cdd79b4a1ad7d63997006802a",
+      "read_ranges": [
+        {
+          "start_line": 20,
+          "end_line": 45,
+          "section_hint": "## 1. Hypotheses and Falsification Thresholds (`H1`–`H5`)",
+          "normalized_slice_sha256": "7e87b0bf15ca34a49c5ff235c1991f60d4855aa5598950e5d69db78f3648f39e"
+        },
+        {
+          "start_line": 47,
+          "end_line": 78,
+          "section_hint": "## 3. Probe Suite (`T1`–`T6`) and Seeded Fixtures",
+          "normalized_slice_sha256": "d54e3a28d81dd8b8d321d5f26a50573ed29be7733c5a275c3dea30e5325b4387"
+        }
+      ]
+    },
+    {
+      "rank": 28,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/fixtures/armB_hook_agy.py",
+      "source_role": "Executable experimental fixture",
+      "reason_to_read": "Inspect read tracking, write gating, and close-out handling in actual code.",
+      "question_to_answer": "What does the fixture enforce, miss, or falsely block?",
+      "line_count": 484,
+      "file_sha256": "88a0fda3b2b98aaa4e220ecdd843753bdaa7c9aa1ba0c8ac1cb94b4032e869a9",
+      "read_ranges": [
+        {
+          "start_line": 212,
+          "end_line": 246,
+          "section_hint": "def _handle_pretool(event: dict[str, Any], cwd: str) -> int:",
+          "normalized_slice_sha256": "1eb0d672824f4a2511afac4847b7115b198754960ddfd0ecdc4cac6e19fc9c39"
+        },
+        {
+          "start_line": 274,
+          "end_line": 306,
+          "section_hint": "def _handle_pretool(event: dict[str, Any], cwd: str) -> int:",
+          "normalized_slice_sha256": "d42231c89bcbf6cd4e17ffe17ce3b40801aa5927b872ef54ab570cd25322ccaa"
+        },
+        {
+          "start_line": 348,
+          "end_line": 380,
+          "section_hint": "def _handle_stop(event: dict[str, Any], cwd: str) -> int:",
+          "normalized_slice_sha256": "6056ecb1f5eff3a733d33fd0231bf88acbd7720704d3b33de48423d3d3e17d81"
+        }
+      ]
+    },
+    {
+      "rank": 29,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/score_eval.py",
+      "source_role": "Scoring implementation",
+      "reason_to_read": "Inspect trace interpretation and representative outcome checks before reusing metrics.",
+      "question_to_answer": "Which results are scorer judgments rather than semantic correctness?",
+      "line_count": 837,
+      "file_sha256": "b83fa8c011301df065937dece0b9fd202a185a1f862699001ea982ee85f839ea",
+      "read_ranges": [
+        {
+          "start_line": 108,
+          "end_line": 138,
+          "section_hint": "def parse_jsonl_trace(",
+          "normalized_slice_sha256": "92eabf8c1d544d9fb8a164185d482158e8d1d3395718f1b9c9314a0735b0182b"
+        },
+        {
+          "start_line": 520,
+          "end_line": 552,
+          "section_hint": "def score_cell(",
+          "normalized_slice_sha256": "2ade840bc54a0e615c737b78e3416a279bbba471d637374f90d7cc2e06071d20"
+        },
+        {
+          "start_line": 646,
+          "end_line": 676,
+          "section_hint": "def score_cell(",
+          "normalized_slice_sha256": "c3e07d7d8d44a219526f455c896ffe3e11f84d45304f581a34a5cc8378df70d4"
+        }
+      ]
+    },
+    {
+      "rank": 30,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/tools/agent_eval_runner.py",
+      "source_role": "Simulation code, not measured agent behavior",
+      "reason_to_read": "Identify simulated carrier outcomes explicitly to prevent unsupported empirical claims.",
+      "question_to_answer": "Which results are hard-coded illustrations rather than real agent execution?",
+      "line_count": 373,
+      "file_sha256": "e99ad844212421a1ef610e1643451d0bb92fcf5dae79b93fb4afaea84bd62cc0",
+      "read_ranges": [
+        {
+          "start_line": 89,
+          "end_line": 116,
+          "section_hint": "class TaskScenario:",
+          "normalized_slice_sha256": "34aeac4c4ea04234c79b9056a6ececc319a8eb3655f1cdcde0af0db993c093d5"
+        },
+        {
+          "start_line": 145,
+          "end_line": 178,
+          "section_hint": "def simulate_carrier_execution(carrier: CarrierProfile, scenario: TaskScenario) -> Dict[str, Any]:",
+          "normalized_slice_sha256": "c9c36f5520e20c9eb584e1384ec848cb750073c4c5fdca5b60bd96c8bac3d38f"
+        }
+      ]
+    },
+    {
+      "rank": 31,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/research/08-read-trace-routing-experiments/01-findings-and-protocol.md",
+      "source_role": "Experiment report with corrected scoring",
+      "reason_to_read": "Recover read-trace evidence, limitations, and corrected stage-one outcomes.",
+      "question_to_answer": "What changed after scoring correction and what is actually established?",
+      "line_count": 208,
+      "file_sha256": "0af42bbc5202abdf650d81f6895c68c391e02299df792c5f69d8ab21fba63707",
+      "read_ranges": [
+        {
+          "start_line": 19,
+          "end_line": 43,
+          "section_hint": "## Summary",
+          "normalized_slice_sha256": "6fb2f8291135da90c8465d60a54f9e96e95378511ac3aa05a14bf057e1041174"
+        },
+        {
+          "start_line": 85,
+          "end_line": 108,
+          "section_hint": "## Findings",
+          "normalized_slice_sha256": "e28cb883012d3afa9849699d7049283c1e8e6e793cdc3348f249989f9e613897"
+        },
+        {
+          "start_line": 135,
+          "end_line": 167,
+          "section_hint": "## Stage 1 results (protocol v2, 2026-11-07)",
+          "normalized_slice_sha256": "024cbc947e37f7535386d2fbf45962d3e6d8a1d5e32058edafad3458244c8e99"
+        }
+      ]
+    },
+    {
+      "rank": 32,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/research/08-read-trace-routing-experiments/03-design-review-routing-carriers.md",
+      "source_role": "Historical design review",
+      "reason_to_read": "Separate trigger rules, carrier blueprints, evidence, and adoption.",
+      "question_to_answer": "Which routes exist on paper versus in actual loading behavior?",
+      "line_count": 51,
+      "file_sha256": "32912e1ad88d3ea9db8df1ddc78ce0e119807ecf338dd761e9260dbfe43e9d32",
+      "read_ranges": [
+        {
+          "start_line": 12,
+          "end_line": 51,
+          "section_hint": "## Summary",
+          "normalized_slice_sha256": "1e027136f151d0cff2120f5739946136393e2314dc45e42bcdd35a09d20a32ab"
+        }
+      ]
+    },
+    {
+      "rank": 33,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/research/08-read-trace-routing-experiments/artifacts/stage1/score_stage1_corrected.py",
+      "source_role": "Corrected scorer implementation",
+      "reason_to_read": "Inspect validation and baseline adjustment behind old scores.",
+      "question_to_answer": "What correction prevents misleading arm comparisons?",
+      "line_count": 252,
+      "file_sha256": "e575f5a2fb135244d65b250bbe0308fc0a72ddcfafb11fc8ede86af6db387c1f",
+      "read_ranges": [
+        {
+          "start_line": 91,
+          "end_line": 129,
+          "section_hint": "def frontmatter_ok(text: str) -> bool:",
+          "normalized_slice_sha256": "42d981e5e6e42751e6107a768a0f9eb2011a7d4c585e7924a6fecd9551c34f69"
+        },
+        {
+          "start_line": 137,
+          "end_line": 175,
+          "section_hint": "def score(name: str) -> dict:",
+          "normalized_slice_sha256": "dc418db0563051a612b1ffe6a9f2f949a986cd2360007a19ae7491b5500d2360"
+        }
+      ]
+    },
+    {
+      "rank": 34,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/research/01-universal-instruction-research/04-FRAMEWORK-LANDSCAPE-MATRIX.md",
+      "source_role": "Historical vendor landscape",
+      "reason_to_read": "Reuse platform discovery while marking capability claims for refresh.",
+      "question_to_answer": "Which mechanisms were considered and what vendor changes could alter the choice?",
+      "line_count": 182,
+      "file_sha256": "3dcedec89ad73b81f253e13c6b769c61e506cf83af3604a7e40e51431461882b",
+      "read_ranges": [
+        {
+          "start_line": 19,
+          "end_line": 55,
+          "section_hint": "## Executive finding",
+          "normalized_slice_sha256": "48ddea404ba9ebc71516f6118e24e6af179f720f42980bbd7b6f4aa7d3d6335f"
+        },
+        {
+          "start_line": 59,
+          "end_line": 95,
+          "section_hint": "### AGENTS.md",
+          "normalized_slice_sha256": "f3e1b33a8f02663e1c282a6109ffc1c75d4264ba6c5f1f26ff254e571808bc7f"
+        },
+        {
+          "start_line": 118,
+          "end_line": 155,
+          "section_hint": "### Kiro",
+          "normalized_slice_sha256": "a05ed8d7ef6417717b6093613123cb8895441990df09a82620bd8819cbc88573"
+        }
+      ]
+    },
+    {
+      "rank": 35,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/research/01-universal-instruction-research/07-TIER-A-COVERAGE-AND-LIVE-AGENT-AUDIT.md",
+      "source_role": "Historical instruction and agent audit",
+      "reason_to_read": "Recover ownership, representation caveats, and specialist-agent findings.",
+      "question_to_answer": "Which earlier conclusions still match current owners and runtime surfaces?",
+      "line_count": 250,
+      "file_sha256": "06c6c0e356e71a18d310c74a2649a55e42a5f9f7f9f7b0ebb21716fb53f8c949",
+      "read_ranges": [
+        {
+          "start_line": 11,
+          "end_line": 47,
+          "section_hint": "## Executive answer",
+          "normalized_slice_sha256": "a6f547e575e9e31ece3bbf5be6fe23d0cbc4f5a883778d335c4b44f77c86065b"
+        },
+        {
+          "start_line": 49,
+          "end_line": 88,
+          "section_hint": "## 2. Is the compact XML architecture best practice?",
+          "normalized_slice_sha256": "062cb2c06ba7d72be32716f7516274e70d4db52facf633d541d86887ad538dcc"
+        },
+        {
+          "start_line": 89,
+          "end_line": 89,
+          "section_hint": "### Current Informatics XML wording: GOOD PROTOTYPE, NOT YET FINAL BEST-PRACTICE WORDING",
+          "normalized_slice_sha256": "8f6a851eb627d7e2e4b0a5ab151906a6dc0cd93e83de98b8e3fc1c6dd8e43520"
+        },
+        {
+          "start_line": 179,
+          "end_line": 210,
+          "section_hint": "## 5. Specialist agent audit (`.claude/agents/`)",
+          "normalized_slice_sha256": "14764307413dd00a4fa6ecc64c79348520b8707fc73c2d305b34f47876ee6c3d"
+        }
+      ]
+    },
+    {
+      "rank": 36,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/research/01-universal-instruction-research/module-deepening/A06-context-engineering-progressive-disclosure/README.md",
+      "source_role": "Deep context research and proposed contract",
+      "reason_to_read": "Recover sufficient-context intent, exclusions, and the selection model.",
+      "question_to_answer": "How does the design avoid starvation and uncontrolled context loading?",
+      "line_count": 585,
+      "file_sha256": "9ad30c58e0a3336c0ca9cf5835fc7f52601a780fd7ce6baddb83a383a07e1c89",
+      "read_ranges": [
+        {
+          "start_line": 11,
+          "end_line": 39,
+          "section_hint": "## 1. Final decision",
+          "normalized_slice_sha256": "c1969b0a67008fe0c3040f32cad7069a651c2277a7a8ac013f4c9691604eddce"
+        },
+        {
+          "start_line": 220,
+          "end_line": 258,
+          "section_hint": "## 3. Semantic contract",
+          "normalized_slice_sha256": "83b4a28ad6377d184314eb7bdd553aa4cc721d3210835ca2bd2f5ffbe48097b6"
+        },
+        {
+          "start_line": 260,
+          "end_line": 292,
+          "section_hint": "## 4. Context-selection model",
+          "normalized_slice_sha256": "9853d3c391921bdd781e00825eaff3f62e2e0d02f7df9f42cda72ac229953898"
+        }
+      ]
+    },
+    {
+      "rank": 37,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/research/02-deep-reasoning/06-how-the-routing-actually-works.md",
+      "source_role": "Historical diagnosis and alternatives",
+      "reason_to_read": "Read corrected premises and router alternatives without adopting old installation state.",
+      "question_to_answer": "Which earlier assumption was withdrawn and which option remains relevant?",
+      "line_count": 362,
+      "file_sha256": "661c39b781f85c54bb97640e02eded5ac45905f502a03a6332020ea673e46b20",
+      "read_ranges": [
+        {
+          "start_line": 19,
+          "end_line": 58,
+          "section_hint": "## 0. First, two corrections to what I told you",
+          "normalized_slice_sha256": "8bdfbfa408d3c72f4d9a5e3fccb46c26b89678cf277c0b5cc493da2326e9f040"
+        },
+        {
+          "start_line": 59,
+          "end_line": 60,
+          "section_hint": "## 1. Vocabulary — three words, no jargon",
+          "normalized_slice_sha256": "316deeb28892b1cdebfe5c12c2cd620b5b8f29289c1ffe3d4f5fc1b2e6a4ea7d"
+        },
+        {
+          "start_line": 103,
+          "end_line": 141,
+          "section_hint": "## 3. How it ACTUALLY works right now",
+          "normalized_slice_sha256": "79d6ba4301bd8110c5677371000bad824ebf2c28a99d55f1f738511007d39305"
+        },
+        {
+          "start_line": 202,
+          "end_line": 240,
+          "section_hint": "### Option C — Hybrid: invariants always-on, routing table always-on, details on demand",
+          "normalized_slice_sha256": "27a0712f2dc648ed5d48d00630d4bca7bdc6bb605e739a31fc9cbe6ffb91ad0e"
+        }
+      ]
+    },
+    {
+      "rank": 38,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+      "source_role": "Historical reconciliation audit",
+      "reason_to_read": "Reuse rule, decision, and backlog crosswalks instead of repeating finalization analysis.",
+      "question_to_answer": "What was already resolved and what genuinely remains open?",
+      "line_count": 171,
+      "file_sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+      "read_ranges": [
+        {
+          "start_line": 19,
+          "end_line": 53,
+          "section_hint": "## 1. Complete Comparison of All 22 `<apex_contract v=\"1.0\">` Rules (`v0.5` $\\rightarrow$ `ResearchOfFile10` $\\rightarrow$ `v1.0`)",
+          "normalized_slice_sha256": "69cd16bef120a1b42dc791f89f7d230f7b46b79db66ab84dfa12251edf2ad4f5"
+        },
+        {
+          "start_line": 55,
+          "end_line": 94,
+          "section_hint": "## 2. Complete Comparison of All 19 Decisions in `01-decision-register.md` (`DEC-12`..`DEC-24` & `DEC-M1`..`DEC-M6`)",
+          "normalized_slice_sha256": "972ba94acd1d4466ad429cbc2e2ac383a827311682c40e48a1aecd591efeff7a"
+        },
+        {
+          "start_line": 95,
+          "end_line": 98,
+          "section_hint": "## 3. Complete Disposition of All 8 Research Backlog Items (`RBL-01`..`RBL-08`)",
+          "normalized_slice_sha256": "709ac1d3b3d952fbef7345e4eeb858aaec251589ae2287de90d1861214d53db1"
+        }
+      ]
+    },
+    {
+      "rank": 39,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+      "source_role": "Historical semantic decomposition with updates",
+      "reason_to_read": "Locate atomic rule analyses and explicit reconciliation to the live master.",
+      "question_to_answer": "Where is each rule intent grounded and how does the old roster map forward?",
+      "line_count": 102,
+      "file_sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+      "read_ranges": [
+        {
+          "start_line": 13,
+          "end_line": 34,
+          "section_hint": "# Layered Rule Knowledge Base (Rules 01–22 & Plane 4 Module Audits)",
+          "normalized_slice_sha256": "43ba3fd8c9999f7d457243bcab5ea6086447e096d0795e9ed2b338019e2cf0d7"
+        },
+        {
+          "start_line": 36,
+          "end_line": 65,
+          "section_hint": "## 1. Governed 22-Rule Semantic Block Knowledge Base",
+          "normalized_slice_sha256": "ee135b1191e16e8a42492ae6c8d3d30809106f43ac57820e6dbd85d868c0b506"
+        },
+        {
+          "start_line": 81,
+          "end_line": 102,
+          "section_hint": "## 3. Methodological Framework & Scoring Criteria",
+          "normalized_slice_sha256": "f16a4e35e97840f5d33c9ce6613eb56afe2d21b35bea83c8fb27d975549edf00"
+        }
+      ]
+    },
+    {
+      "rank": 40,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+      "source_role": "Proposed change ledger",
+      "reason_to_read": "Recover proposed changes and rationales while requiring separate adoption evidence.",
+      "question_to_answer": "Was each proposal adopted, rejected, or overtaken by later findings?",
+      "line_count": 478,
+      "file_sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+      "read_ranges": [
+        {
+          "start_line": 13,
+          "end_line": 38,
+          "section_hint": "## At a Glance",
+          "normalized_slice_sha256": "2f20fcb551d148d950962f4567fbecf577cd22837ca1d77e4d2177ad6053398c"
+        },
+        {
+          "start_line": 87,
+          "end_line": 123,
+          "section_hint": "### Change C03: Unified 6-Field Task Specification & Live Working-File Persistence (`<align>`)",
+          "normalized_slice_sha256": "a77a0e1d5aaf1beb27169b547b6e9614f0410173cde6596621e4b323e757a2fd"
+        },
+        {
+          "start_line": 216,
+          "end_line": 240,
+          "section_hint": "### Change C08: Step Close-Out (`EM-14`), Continuation Proposal, & Scoped Preflight (`<handover>`)",
+          "normalized_slice_sha256": "b835bfe8ea088194752b06534918b1337bd930b5d34bbd7a16be3c05f3208dc4"
+        }
+      ]
+    },
+    {
+      "rank": 41,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/orchestration/ARCHITECTURE.md",
+      "source_role": "Orchestration design owner",
+      "reason_to_read": "Keep permissions, reviews, role topology, context economy, and non-goals aligned.",
+      "question_to_answer": "Which existing mechanism should the next architecture reuse?",
+      "line_count": 89,
+      "file_sha256": "e3bd6e3ad87fea9b32d8fb612356d1f6f2893fb9dde5db7a928a3c572660c44c",
+      "read_ranges": [
+        {
+          "start_line": 14,
+          "end_line": 50,
+          "section_hint": "## Scope and activation",
+          "normalized_slice_sha256": "209c2f1b92e68ad975f898135527829eb17c03245e5dbd25d0a6673f018dbbf2"
+        },
+        {
+          "start_line": 52,
+          "end_line": 89,
+          "section_hint": "## 3. Permission model (Q6, Q7, Q8 + research P1)",
+          "normalized_slice_sha256": "b98a4f9a81c54c919c65af5dea4e1c9c544944ef201d24649ad8f88de773bb25"
+        }
+      ]
+    },
+    {
+      "rank": 42,
+      "reading_priority": "Read by topic",
+      "repository_path": ".claude/skills/AIRouting/SKILL.md",
+      "source_role": "Existing task-routing procedure",
+      "reason_to_read": "Read the current routing advisor and its boundaries before proposing another classifier.",
+      "question_to_answer": "What responsibility already exists and what remains outside the skill?",
+      "line_count": 310,
+      "file_sha256": "06b52efc17705116b5684f424ed147076eb12e4bc6efa2be6bda308ab115ce5e",
+      "read_ranges": [
+        {
+          "start_line": 9,
+          "end_line": 39,
+          "section_hint": "## Skill Contract",
+          "normalized_slice_sha256": "5ca485affc28cf2aebcefcf93bd6143c562276bbd8c0e360e9e328b6bc52eb53"
+        },
+        {
+          "start_line": 187,
+          "end_line": 203,
+          "section_hint": "## Procedure",
+          "normalized_slice_sha256": "f157214e01688023ac30bc26b6fc417fa198a4318f820db607724811d9d674e8"
+        },
+        {
+          "start_line": 293,
+          "end_line": 310,
+          "section_hint": "## Completion Gate",
+          "normalized_slice_sha256": "ca3cbfd42ee1eb9216b5aa514807fa8b9be8c48c03e1160bf696c37e1462bb71"
+        }
+      ]
+    },
+    {
+      "rank": 43,
+      "reading_priority": "Read by topic",
+      "repository_path": ".agents/skills/qmd/SKILL.md",
+      "source_role": "Current retrieval procedure",
+      "reason_to_read": "Reuse bounded keyword-first retrieval without assuming QMD exists in the online processor.",
+      "question_to_answer": "What authenticated-repository fallback replaces unavailable local tools?",
+      "line_count": 60,
+      "file_sha256": "f12c774d704149fcd7047ac66e36e17d04ff50af15c26f7a829bca01d246d359",
+      "read_ranges": [
+        {
+          "start_line": 16,
+          "end_line": 37,
+          "section_hint": "## 1. Core Operating Protocols (Mandatory Invariants)",
+          "normalized_slice_sha256": "b22bcfd47589a42230e75faab8d8641cd1ed306bd56178e4f2ce6b1d0c73e870"
+        },
+        {
+          "start_line": 39,
+          "end_line": 60,
+          "section_hint": "## 2. Typical Operational Loop",
+          "normalized_slice_sha256": "15d4aae5bb0c6c5052f85a396cf3629e62d9e5126fe6aea2a38ad5f0d89309b2"
+        }
+      ]
+    },
+    {
+      "rank": 44,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/kb/claude-code-orchestration-design/wiki/summaries/claude-mechanism-decision-model.md",
+      "source_role": "Precursor synthesis and reopen conditions",
+      "reason_to_read": "Recover the existing mechanism ladder and doctrine-versus-runtime limits.",
+      "question_to_answer": "Which agent, skill, and hook boundaries were already reasoned through?",
+      "line_count": 144,
+      "file_sha256": "3235aca48aa227cc85e707a9e70ae0cd7e3f7b5e06b7781ed6e47a3beec031ab",
+      "read_ranges": [
+        {
+          "start_line": 37,
+          "end_line": 54,
+          "section_hint": "## Core Summary",
+          "normalized_slice_sha256": "90ed2fd5170751fb6d7742494cfe696ec6346c4ec28c190a1d59fa85d972342a"
+        },
+        {
+          "start_line": 85,
+          "end_line": 109,
+          "section_hint": "## Key Claims",
+          "normalized_slice_sha256": "d72cc861d4773d6d7147e8d68fef34ae6bcbbb504e233ed3a8cf98737e9af488"
+        },
+        {
+          "start_line": 122,
+          "end_line": 144,
+          "section_hint": "## Uncertainty / Raw Source Reopen Triggers",
+          "normalized_slice_sha256": "1bbcd34638fea8155819ea7fb3bf6260a513ab5145bae682e40ace0bcf1eb27f"
+        }
+      ]
+    },
+    {
+      "rank": 45,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/kb/claude-code-orchestration-design/log/operator-phase1-review-decisions-20260702.md",
+      "source_role": "Original operator decisions scoped to KB compilation",
+      "reason_to_read": "Preserve actual approval scope, enforcement policy, packaging, and deferred work.",
+      "question_to_answer": "What did the operator accept and what was explicitly not authorized?",
+      "line_count": 151,
+      "file_sha256": "c411e68bbdaa3a7529e53bd4e3c72703e1a935378434f2143decb87f01588119",
+      "read_ranges": [
+        {
+          "start_line": 13,
+          "end_line": 40,
+          "section_hint": "## 1. Scope clarification",
+          "normalized_slice_sha256": "59b99f5f69759ac1e1f9466c97321d9bc0bb471ede9a1089dad321e42f582e7d"
+        },
+        {
+          "start_line": 42,
+          "end_line": 80,
+          "section_hint": "## 2. Operator decisions",
+          "normalized_slice_sha256": "bbf28e6a053f49ddcd9046133dce9baee497c0ed5af3e7716e3b666f98cf7669"
+        },
+        {
+          "start_line": 82,
+          "end_line": 120,
+          "section_hint": "## 2. Operator decisions",
+          "normalized_slice_sha256": "9f326ef52e9553cee85106da869ded3e0c6467ab1a5458779dcc2973d2032ee4"
+        }
+      ]
+    },
+    {
+      "rank": 46,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/epics/hermes-multi-repo-orchestration-v2/DECISIONS.md",
+      "source_role": "Hermes-specific decisions and pilot gates",
+      "reason_to_read": "Reuse shared-skill, role, retrieval, memory, and autonomy decisions within their domain.",
+      "question_to_answer": "Which choices transfer and which are environment-specific?",
+      "line_count": 78,
+      "file_sha256": "c981d4545da0f3fabf3fbc02030056521d33a4b5173c6c4117c0b8f97db2f2de",
+      "read_ranges": [
+        {
+          "start_line": 8,
+          "end_line": 42,
+          "section_hint": "## D01 — Apex control plane",
+          "normalized_slice_sha256": "d6bf24ec61a805f084117080233261ef3199c97af043824f2a61e7b6fb0bf6c7"
+        },
+        {
+          "start_line": 44,
+          "end_line": 78,
+          "section_hint": "## D07 — Canonical WSL workspace",
+          "normalized_slice_sha256": "ab746e412c61ff535f320f6572b8605fde23a54bbc535f3b6b768d0d118dfbae"
+        }
+      ]
+    },
+    {
+      "rank": 47,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/local-orchestration-engine/OPERATOR-DECISION-LOCK-2026-08-08-R3-LOCAL-MODEL.md",
+      "source_role": "Dated local-execution decision lock",
+      "reason_to_read": "Preserve planner-routed selection and evaluated model+harness+runtime boundaries.",
+      "question_to_answer": "What constraints require fresh measurements before being revisited?",
+      "line_count": 295,
+      "file_sha256": "c1519f6eb933d030d6f948e95742a0ff52e4a9332b862f546f1051255361bb64",
+      "read_ranges": [
+        {
+          "start_line": 39,
+          "end_line": 62,
+          "section_hint": "## 2. Core operating law",
+          "normalized_slice_sha256": "2e5b1e903342696260db858787bb2cfb3c16a36b2847a7ee42d66f3eff002483"
+        },
+        {
+          "start_line": 173,
+          "end_line": 200,
+          "section_hint": "## 8. Planner-routed model selection",
+          "normalized_slice_sha256": "6263c13c94ce01aba86b07046c2093ea15b1fe5afd6611b7bd8af51a24a15ca4"
+        },
+        {
+          "start_line": 220,
+          "end_line": 255,
+          "section_hint": "## 10. Model + harness + runtime is the evaluated system",
+          "normalized_slice_sha256": "1b47cc60199aa941f08407d44ace9846da0c3d87fc72bdbdd7ddba23df1c581a"
+        }
+      ]
+    },
+    {
+      "rank": 48,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/tools/apex_carrier_sync.py",
+      "source_role": "Existing distribution implementation",
+      "reason_to_read": "Inspect targets, master selection, normalization, and mutation modes for reuse.",
+      "question_to_answer": "Can existing synchronization support distribution without another policy owner?",
+      "line_count": 237,
+      "file_sha256": "1f4bf20caff55533ce0446429990ebb3e7c7dd62c3f36448cadf694319e0b64d",
+      "read_ranges": [
+        {
+          "start_line": 1,
+          "end_line": 38,
+          "section_hint": "#!/usr/bin/env python3",
+          "normalized_slice_sha256": "025ae16116d28529d76a8ee6070b750d999563c36a170a25b22a13c31eeddc4d"
+        },
+        {
+          "start_line": 101,
+          "end_line": 135,
+          "section_hint": "def tool_master(source):",
+          "normalized_slice_sha256": "c358a4f4c481ce0a8f662eb1c159e56fef0348bf235e3ce2294e625cb922e0f3"
+        },
+        {
+          "start_line": 160,
+          "end_line": 194,
+          "section_hint": "def main():",
+          "normalized_slice_sha256": "5e29353ed2968e55091fad839c70d322147de264fcd0e5aa60de27b3a4dba204"
+        }
+      ]
+    },
+    {
+      "rank": 49,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/informatics/final/tools/check_vendor_drift.py",
+      "source_role": "Existing integrity implementation",
+      "reason_to_read": "Check exactly what the drift detector compares and what it does not establish.",
+      "question_to_answer": "Which integrity claim is enforced versus merely documented?",
+      "line_count": 107,
+      "file_sha256": "4ea61059eecca812936db0b1f5e573b89a5cc598c7d16ae987b140b75e41ecb7",
+      "read_ranges": [
+        {
+          "start_line": 1,
+          "end_line": 32,
+          "section_hint": "#!/usr/bin/env python3",
+          "normalized_slice_sha256": "9bb2937c3f399af3ad70beb4afd0be6d1b3ece6a8c282b15d2e95805942d10bb"
+        },
+        {
+          "start_line": 62,
+          "end_line": 98,
+          "section_hint": "def check() -> int:",
+          "normalized_slice_sha256": "4cf2d6e8835edb9f497eedd39cac946abbdbb03f7ae0a0afa02a609df850d3aa"
+        }
+      ]
+    },
+    {
+      "rank": 50,
+      "reading_priority": "Read by topic",
+      "repository_path": "apex-meta/SmallSkills/Prompting/ProThinkingPrompt/01_PRO_THINKING_PROMPT_DESIGN_STANDARD.md",
+      "source_role": "Existing prompt-design method",
+      "reason_to_read": "Keep the assignment target-first, evidence-led, autonomous in method, and explicit about outputs.",
+      "question_to_answer": "Does the prompt define a usable final product without scripting private reasoning?",
+      "line_count": 424,
+      "file_sha256": "f5cdb1b8e5af2d157f1e8e46d03cf38cc2799a220caca9d8d576a8e8ff77f606",
+      "read_ranges": [
+        {
+          "start_line": 23,
+          "end_line": 62,
+          "section_hint": "## 2. Primary design principle",
+          "normalized_slice_sha256": "519202144bdc495ee38436a78e920ea36a3d21845af3054727357aa8005c9951"
+        },
+        {
+          "start_line": 63,
+          "end_line": 84,
+          "section_hint": "### Opening target",
+          "normalized_slice_sha256": "e85719dd6a85f26209bf5e76d339c26532d2fddf68586f9ea9bd1c8aa9213e54"
+        },
+        {
+          "start_line": 172,
+          "end_line": 211,
+          "section_hint": "### F. Current research",
+          "normalized_slice_sha256": "2a6303b6ebd202481384def8d5c11ab447c0165c088233bdeea9a190d21c4447"
+        },
+        {
+          "start_line": 212,
+          "end_line": 218,
+          "section_hint": "### G. Findings and synthesis",
+          "normalized_slice_sha256": "5a53cb9b6f3c0a2e632ccdaf4b054ebef2fe0b80e360e1fa08cf249dccb4fdee"
+        },
+        {
+          "start_line": 314,
+          "end_line": 350,
+          "section_hint": "### L. Delivery",
+          "normalized_slice_sha256": "714fddd7582c8a97f7329d02993c8cc3c91cacecd828dbd6313b97d404ea3233"
+        }
+      ]
+    }
+  ]
+}

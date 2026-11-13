@@ -1,0 +1,232 @@
+{
+  "execution_status": "executed_unchanged_retained_validator",
+  "native_platform_execution": false,
+  "source_sha256": "5ae9899f20df5a44327b9aa7b0c7522fa5efc7934cac89e27f88ee7612ac9dc2",
+  "dependency_sha256": "527957bc39b6a8f94bba4f5049f8f571771c1c05ced46d9ba392a65ed3beae25",
+  "excluded_subtrees": [
+    "evidence/repository",
+    "examples/native",
+    "compatibility/native-schemas"
+  ],
+  "projection_note": "Exclusions preserve native configuration schemas and frozen evidence. The final package validator checks every snapshot and machine file separately.",
+  "returncode": 1,
+  "report": {
+    "target": "<temporary-authored-document-projection>",
+    "okf_errors": 0,
+    "apex_profile_errors": 9,
+    "advisory_warnings": 21,
+    "findings": [
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "00-START-HERE.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (34 words > 25-30 words): 'Follow one rule end to end: for example  → the live bake-off...'",
+        "line": null
+      },
+      {
+        "severity": "APEX_PROFILE_ERROR",
+        "path": "02-decisions.md",
+        "rule": "GS-13",
+        "message": "bake-off is missing 4/4 required phase markers (discovery, evaluation matrix, ranked verdicts, prototypes) -- reject per GS-13",
+        "line": null
+      },
+      {
+        "severity": "APEX_PROFILE_ERROR",
+        "path": "02-decisions.md",
+        "rule": "GS-13",
+        "message": "bake-off comparison table is missing required column 'Primary Failure Mode'",
+        "line": null
+      },
+      {
+        "severity": "APEX_PROFILE_ERROR",
+        "path": "02-decisions.md",
+        "rule": "GS-12",
+        "message": "decision matrix names 0 option(s); GS-12 requires >=2",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "01-findings.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (37 words > 25-30 words): 'Keep the current rule owners and orchestration boundaries.**...'",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "01-findings.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (32 words > 25-30 words): 'The reading route began with all seven named sources and exp...'",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "01-findings.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (36 words > 25-30 words): 'Four isolated synthetic probes executed here demonstrate tha...'",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "01-findings.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (33 words > 25-30 words): 'Its design consequences are concrete: keep the no-framework ...'",
+        "line": null
+      },
+      {
+        "severity": "APEX_PROFILE_ERROR",
+        "path": "01-findings.md",
+        "rule": "GS-13",
+        "message": "bake-off is missing 4/4 required phase markers (discovery, evaluation matrix, ranked verdicts, prototypes) -- reject per GS-13",
+        "line": null
+      },
+      {
+        "severity": "APEX_PROFILE_ERROR",
+        "path": "01-findings.md",
+        "rule": "GS-13",
+        "message": "bake-off comparison table is missing required column 'Primary Failure Mode'",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "07-validation-report.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (34 words > 25-30 words): 'All **four synthetic scorer counterexamples reproduced** aga...'",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "03-architecture.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (36 words > 25-30 words): 'Potential pilot predicates are limited to an already-authori...'",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "03-architecture.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (31 words > 25-30 words): 'A checkpoint is due before an intentional interruption, afte...'",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "03-architecture.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (31 words > 25-30 words): 'For ad hoc subagents outside that system, use EM-09’s existi...'",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "03-architecture.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (40 words > 25-30 words): 'Proposed bounded extensions are: resolve selected roots from...'",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "03-architecture.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (35 words > 25-30 words): 'A source change triggers a targeted maintenance transaction:...'",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "03-architecture.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (37 words > 25-30 words): 'Adoption and remaining limits\n\nThe proposed order is S0 revi...'",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "evidence/empirical-findings.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (38 words > 25-30 words): 'Conclusion and evidence standard\n\n**Use a small persistent c...'",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "evidence/empirical-findings.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (33 words > 25-30 words): 'Primary evidence appraisal\n\n### EEMP-01 — Instruction densit...'",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "evidence/empirical-findings.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (34 words > 25-30 words): '[Source: , same directory.]\n\n### 4.2 Round-2 result and caus...'",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "evaluation/evaluation-plan.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (32 words > 25-30 words): 'What is established and what remains to run\n\n**This package ...'",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "evaluation/evaluation-plan.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (31 words > 25-30 words): 'After a later approved scorer repair, retain these as tests ...'",
+        "line": null
+      },
+      {
+        "severity": "APEX_PROFILE_ERROR",
+        "path": "evaluation/evaluation-plan.md",
+        "rule": "GS-12",
+        "message": "decision matrix is missing required field 'Grounding'",
+        "line": null
+      },
+      {
+        "severity": "APEX_PROFILE_ERROR",
+        "path": "evaluation/evaluation-plan.md",
+        "rule": "GS-12",
+        "message": "decision matrix is missing required field 'Recommendation'",
+        "line": null
+      },
+      {
+        "severity": "APEX_PROFILE_ERROR",
+        "path": "evaluation/evaluation-plan.md",
+        "rule": "GS-12",
+        "message": "decision matrix has no raw (I/E/R) tag on any option -- required by GS-12",
+        "line": null
+      },
+      {
+        "severity": "APEX_PROFILE_ERROR",
+        "path": "evaluation/evaluation-plan.md",
+        "rule": "GS-12",
+        "message": "decision matrix names 0 option(s); GS-12 requires >=2",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "compatibility/compatibility.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (31 words > 25-30 words): 'The fallback for a critical mutation is existing host permis...'",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "examples/architecture-comparison.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (42 words > 25-30 words): 'The below model-facing action is an illustrative task proced...'",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "examples/end-to-end-flows.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (36 words > 25-30 words): 'B-AGY's reported 31/33 versus A's 18/33 is combined reminder...'",
+        "line": null
+      },
+      {
+        "severity": "ADVISORY_WARNING",
+        "path": "examples/end-to-end-flows.md",
+        "rule": "STE-SENTENCE-LENGTH",
+        "message": "Sentence exceeds recommended limit (31 words > 25-30 words): 'Typo, source lookup and misleading trigger negatives\n\n**Actu...'",
+        "line": null
+      }
+    ]
+  },
+  "interpretation": "Raw retained diagnostics. Review errors against actual owner semantics; table-aware independent checks and human review remain necessary. Do not silently convert this report into a zero-error pass."
+}

@@ -1,0 +1,124 @@
+{
+  "status": "invented_offline_fixtures",
+  "runtime_execution": false,
+  "source_ids": [
+    "EXT-OAI-01",
+    "EXT-OAI-13"
+  ],
+  "cases": [
+    {
+      "case": "prompt_delivery",
+      "event": "UserPromptSubmit",
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "UserPromptSubmit",
+          "additionalContext": "APEX_PROBE_CONTEXT: fixture"
+        }
+      },
+      "expected_schema_valid": true,
+      "expected_semantic_valid": true
+    },
+    {
+      "case": "recovery_delivery",
+      "event": "SessionStart",
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "SessionStart",
+          "additionalContext": "APEX_PROBE_CONTEXT: checkpoint pointer fixture"
+        }
+      },
+      "expected_schema_valid": true,
+      "expected_semantic_valid": true
+    },
+    {
+      "case": "pretool_deny",
+      "event": "PreToolUse",
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Fixture denial"
+        }
+      },
+      "expected_schema_valid": true,
+      "expected_semantic_valid": true
+    },
+    {
+      "case": "pretool_context",
+      "event": "PreToolUse",
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "additionalContext": "APEX_PROBE_CONTEXT: selected rule IDs fixture"
+        }
+      },
+      "expected_schema_valid": true,
+      "expected_semantic_valid": true
+    },
+    {
+      "case": "ask_schema_valid_runtime_unsupported",
+      "event": "PreToolUse",
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "ask"
+        }
+      },
+      "expected_schema_valid": true,
+      "expected_semantic_valid": false
+    },
+    {
+      "case": "continue_false_schema_valid_runtime_unsupported",
+      "event": "PreToolUse",
+      "output": {
+        "continue": false
+      },
+      "expected_schema_valid": true,
+      "expected_semantic_valid": false
+    },
+    {
+      "case": "legacy_approve_schema_valid_runtime_unsupported",
+      "event": "PreToolUse",
+      "output": {
+        "decision": "approve"
+      },
+      "expected_schema_valid": true,
+      "expected_semantic_valid": false
+    },
+    {
+      "case": "rewrite_without_allow",
+      "event": "PreToolUse",
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "updatedInput": {
+            "command": "harmless fixture"
+          }
+        }
+      },
+      "expected_schema_valid": true,
+      "expected_semantic_valid": false
+    },
+    {
+      "case": "unknown_field_shape_invalid",
+      "event": "PreToolUse",
+      "output": {
+        "allowEverything": true
+      },
+      "expected_schema_valid": false,
+      "expected_semantic_valid": true
+    },
+    {
+      "case": "wrong_event_shape_invalid",
+      "event": "UserPromptSubmit",
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "additionalContext": "fixture"
+        }
+      },
+      "expected_schema_valid": false,
+      "expected_semantic_valid": false
+    }
+  ]
+}

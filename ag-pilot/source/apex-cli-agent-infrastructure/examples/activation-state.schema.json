@@ -1,0 +1,230 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:apex:activation-state:proposal:v1",
+  "title": "Optional proposed Apex activation observation sidecar",
+  "description": "New proposal only. This is not a handoff_packet, authority-state or native hook payload and cannot grant authorization or verified status.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "execution_status",
+    "task_id",
+    "task_state_path",
+    "authorization_boundary",
+    "source_revision",
+    "context_epoch",
+    "profile",
+    "active_rule_ids",
+    "delivery_receipts",
+    "coverage",
+    "next_action"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "apex_activation_state.proposal.v1"
+    },
+    "execution_status": {
+      "enum": [
+        "illustrative_unexecuted",
+        "observed_runtime",
+        "executed_synthetic_fixture"
+      ]
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task_state_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authorization_boundary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_revision": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "context_epoch": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "platform",
+        "surface",
+        "version",
+        "installed_probe_status"
+      ],
+      "properties": {
+        "platform": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "surface": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "installed_probe_status": {
+          "enum": [
+            "unexecuted",
+            "passed_for_named_conditions",
+            "failed",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "active_rule_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "delivery_receipts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_path",
+          "source_sha256",
+          "section",
+          "delivery_kind",
+          "result",
+          "task_id",
+          "context_epoch",
+          "evidence_locator"
+        ],
+        "properties": {
+          "source_path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "section": {
+            "type": "string",
+            "minLength": 1
+          },
+          "delivery_kind": {
+            "enum": [
+              "native_observed_load",
+              "successful_content_read",
+              "supported_injection",
+              "synthetic_fixture"
+            ]
+          },
+          "result": {
+            "enum": [
+              "delivered",
+              "failed",
+              "unknown"
+            ]
+          },
+          "task_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "context_epoch": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "evidence_locator": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "coverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rule_id",
+          "event_or_action",
+          "status"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string"
+          },
+          "event_or_action": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "covered_verified",
+              "disabled",
+              "untrusted",
+              "unsupported",
+              "error",
+              "unknown"
+            ]
+          }
+        }
+      }
+    },
+    "next_action": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "execution_status": {
+            "const": "illustrative_unexecuted"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "delivery_receipts": {
+            "maxItems": 0
+          },
+          "profile": {
+            "properties": {
+              "installed_probe_status": {
+                "const": "unexecuted"
+              }
+            }
+          },
+          "coverage": {
+            "items": {
+              "properties": {
+                "status": {
+                  "enum": [
+                    "unknown",
+                    "disabled",
+                    "unsupported"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

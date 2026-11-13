@@ -1,0 +1,999 @@
+{
+  "schema_version": "apex_external_sources.v1",
+  "research_date": "2026-11-12",
+  "status": "primary_sources_opened_and_relevant_sections_reviewed",
+  "scope": "Vendor capabilities and original studies that change this design. Version/surface and study limits remain in each record and appraisal. No source proves installation on the operator workstation.",
+  "sources": [
+    {
+      "title": "Claude instruction discovery and memory",
+      "url": "https://code.claude.com/docs/en/memory",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "CLAUDE.md loading; AGENTS.md; compaction",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-01",
+        "P-CLA-02"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-CLAUDE-01"
+    },
+    {
+      "title": "Claude skills",
+      "url": "https://code.claude.com/docs/en/skills",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Locations; invocation; lifecycle; allowed-tools",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-03",
+        "P-CLA-04"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-CLAUDE-02"
+    },
+    {
+      "title": "Claude hooks reference",
+      "url": "https://code.claude.com/docs/en/hooks",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Configuration; failure; SessionStart; prompt/tool/model events",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-05",
+        "P-CLA-06"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-CLAUDE-03"
+    },
+    {
+      "title": "Claude custom subagents",
+      "url": "https://code.claude.com/docs/en/sub-agents",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Scopes; frontmatter; plugin limits; startup; resume",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-07"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-CLAUDE-04"
+    },
+    {
+      "title": "Claude settings and precedence",
+      "url": "https://code.claude.com/docs/en/settings",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Scopes; strict JSON; precedence; cloud scope differences",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-08",
+        "P-CLA-12"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-CLAUDE-05"
+    },
+    {
+      "title": "Claude permissions",
+      "url": "https://code.claude.com/docs/en/permissions",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Host enforcement; modes; deny/ask/allow; MCP parameters",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-10"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-CLAUDE-06"
+    },
+    {
+      "title": "Claude complete settings reference",
+      "url": "https://code.claude.com/docs/en/settings-reference",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "permissions.defaultMode; versions and scope restrictions",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-09"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-CLAUDE-07"
+    },
+    {
+      "title": "Claude changelog",
+      "url": "https://code.claude.com/docs/en/changelog",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Latest visible 2.1.322, 2026-11-10; version-specific migration",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-15"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-CLAUDE-08"
+    },
+    {
+      "title": "Claude programmatic CLI",
+      "url": "https://code.claude.com/docs/en/headless",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "-p; --bare; discovery; auth; results",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-11"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-CLAUDE-09"
+    },
+    {
+      "title": "Claude desktop",
+      "url": "https://code.claude.com/docs/en/desktop",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Local/remote surfaces and managed hook restrictions",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-CLAUDE-10"
+    },
+    {
+      "title": "Claude cloud",
+      "url": "https://code.claude.com/docs/en/claude-code-on-the-web",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Context commands; agent loading; repository settings",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-12"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-CLAUDE-11"
+    },
+    {
+      "title": "Claude Agent SDK overview",
+      "url": "https://code.claude.com/docs/en/agent-sdk/overview",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "CLI versus Python/TypeScript SDK versus hosted",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-14"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-CLAUDE-12"
+    },
+    {
+      "title": "Claude SDK skills",
+      "url": "https://code.claude.com/docs/en/agent-sdk/skills",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "settingSources; skills allowlist; init stream",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-13"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-CLAUDE-13"
+    },
+    {
+      "title": "Claude SDK hooks",
+      "url": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Callback hooks and control; dedicated SDK surface",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-14"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-CLAUDE-14"
+    },
+    {
+      "title": "Antigravity rules",
+      "url": "https://antigravity.google/docs/rules",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Discovery; trigger values; includes; limits",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-02",
+        "P-AG-03"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-AGY-01"
+    },
+    {
+      "title": "Antigravity customization discovery",
+      "url": "https://antigravity.google/docs/customization-discovery",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Workspace/ancestors; shared layout; legacy paths",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-01"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-AGY-02"
+    },
+    {
+      "title": "Antigravity skills",
+      "url": "https://antigravity.google/docs/skills",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Bundle schema; surface-specific paths; invocation",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-04",
+        "P-AG-05"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-AGY-03"
+    },
+    {
+      "title": "Antigravity hooks",
+      "url": "https://antigravity.google/docs/hooks",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "All six events; config roots; named-hook schema; payloads",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-06",
+        "P-AG-07"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-AGY-04"
+    },
+    {
+      "title": "Antigravity custom subagents",
+      "url": "https://antigravity.google/docs/subagents/",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "App/CLI; frontmatter; tools; clean context; known hangs",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-08",
+        "P-AG-09"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-AGY-05"
+    },
+    {
+      "title": "Antigravity permissions",
+      "url": "https://antigravity.google/docs/permissions/",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "App/CLI scopes; deny/ask/allow; Windows; defaults",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-10"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-AGY-06"
+    },
+    {
+      "title": "Antigravity headless CLI",
+      "url": "https://antigravity.google/docs/cli/headless/",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Print mode; model selection; soft denials; output status",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-11"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-AGY-07"
+    },
+    {
+      "title": "Gemini to Antigravity migration",
+      "url": "https://antigravity.google/docs/cli/gcli-migration/",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Extensions; rules; skill paths; MCP schemas",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-12"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-AGY-08"
+    },
+    {
+      "title": "Antigravity workflows migration",
+      "url": "https://antigravity.google/docs/migration/workflows-to-skills/",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Deprecation; App-only automatic migration; manual path",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-13"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-AGY-09"
+    },
+    {
+      "title": "Antigravity plugins (canonical redirect target)",
+      "url": "https://antigravity.google/docs/plugins?tab=cli",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Plugin contents; current shared paths; validation; generic hook wording",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "discovery_note": "Old /docs/cli/plugins search excerpt had superseded paths; direct open redirects here. Dedicated hooks reference governs supported handler types.",
+      "id": "EXT-AGY-10"
+    },
+    {
+      "title": "Antigravity changelog",
+      "url": "https://antigravity.google/docs/changelog/",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "App 2.31.0; CLI 1.5.5; rollouts; distinct releases",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-14"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-AGY-11"
+    },
+    {
+      "title": "Antigravity SDK overview",
+      "url": "https://antigravity.google/docs/sdk/overview/",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Python local runtime versus managed cloud API",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-15"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-AGY-12"
+    },
+    {
+      "title": "Antigravity SDK lifecycle",
+      "url": "https://antigravity.google/docs/sdk/lifecycle/",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Decorators; persistence; event model",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-15"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-AGY-13"
+    },
+    {
+      "title": "Gemini CLI memory",
+      "url": "https://geminicli.com/docs/cli/gemini-md/",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Global/workspace/JIT discovery; /memory",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-GEM-01"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-GEMINI-01"
+    },
+    {
+      "title": "Gemini CLI skills",
+      "url": "https://geminicli.com/docs/cli/skills/",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Discovery tiers; activate_skill; consent",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-GEM-02"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-GEMINI-02"
+    },
+    {
+      "title": "Gemini CLI hook reference",
+      "url": "https://geminicli.com/docs/hooks/reference/",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Settings JSON; event-specific outputs; exit codes; timeouts",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-GEM-03"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-GEMINI-03"
+    },
+    {
+      "title": "Gemini CLI subagents",
+      "url": "https://geminicli.com/docs/core/subagents/",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Agent paths; schema; defaults; independent context",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-GEM-04"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-GEMINI-04"
+    },
+    {
+      "title": "Gemini CLI configuration",
+      "url": "https://geminicli.com/docs/reference/configuration/",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Settings scopes; schema; hook/skill enable flags",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-GEM-05"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-GEMINI-05"
+    },
+    {
+      "title": "Gemini CLI release notes",
+      "url": "https://geminicli.com/docs/changelogs/",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "v0.64.0 state persistence; v0.63.0; 0.61.0; 0.59.0",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-GEM-06"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "id": "EXT-GEMINI-06"
+    },
+    {
+      "title": "Antigravity IDE workflows",
+      "url": "https://antigravity.google/docs/ide/workflows/",
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "evidence_status": "opened_primary",
+      "section": "Changes to workflows",
+      "version_scope": "Current opened page, not installed behavior",
+      "installed_verification": false,
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-AG-13"
+      ],
+      "id": "EXT-AGY-14"
+    },
+    {
+      "title": "Codex Hooks",
+      "url": "https://learn.chatgpt.com/docs/hooks",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Configuration; trust; events; tool coverage; cloud orchestration",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-03",
+        "P-OAI-04",
+        "P-OAI-05",
+        "P-OAI-06"
+      ],
+      "id": "EXT-OAI-01"
+    },
+    {
+      "title": "Codex Build skills",
+      "url": "https://learn.chatgpt.com/docs/build-skills",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Initial metadata budget; invocation; discovery paths",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-02"
+      ],
+      "id": "EXT-OAI-02"
+    },
+    {
+      "title": "Codex AGENTS.md",
+      "url": "https://learn.chatgpt.com/docs/agent-configuration/agents-md",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "How Codex discovers guidance",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-01"
+      ],
+      "id": "EXT-OAI-03"
+    },
+    {
+      "title": "Codex Subagents",
+      "url": "https://learn.chatgpt.com/docs/agent-configuration/subagents",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Custom agent files and inherited permissions",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-09"
+      ],
+      "id": "EXT-OAI-04"
+    },
+    {
+      "title": "Codex Config basics",
+      "url": "https://learn.chatgpt.com/docs/config-file/config-basic",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Configuration precedence and project trust",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-07"
+      ],
+      "id": "EXT-OAI-05"
+    },
+    {
+      "title": "Codex Advanced configuration",
+      "url": "https://learn.chatgpt.com/docs/config-file/config-advanced",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Profiles migration from 0.134.0",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-07"
+      ],
+      "id": "EXT-OAI-06"
+    },
+    {
+      "title": "Codex Configuration reference",
+      "url": "https://learn.chatgpt.com/docs/config-file/config-reference",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Approval policy; capabilities; field-specific execution scope",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-08"
+      ],
+      "id": "EXT-OAI-07"
+    },
+    {
+      "title": "Codex Non-interactive mode",
+      "url": "https://learn.chatgpt.com/docs/non-interactive-mode",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Sandbox flags; obsolete full-auto; required MCP",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-10"
+      ],
+      "id": "EXT-OAI-08"
+    },
+    {
+      "title": "Codex Agent approvals and security",
+      "url": "https://learn.chatgpt.com/docs/agent-approvals-security",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Retired untrusted policy; sandbox and approvals",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-08"
+      ],
+      "id": "EXT-OAI-09"
+    },
+    {
+      "title": "Codex Codex SDK",
+      "url": "https://learn.chatgpt.com/docs/codex-sdk",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "TypeScript threads; app-server migration",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-11"
+      ],
+      "id": "EXT-OAI-10"
+    },
+    {
+      "title": "Codex Execution rules",
+      "url": "https://learn.chatgpt.com/docs/agent-configuration/rules",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Prefix rules; local versus Work Cloud; Starlark",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-12"
+      ],
+      "id": "EXT-OAI-11"
+    },
+    {
+      "title": "Codex Changelog",
+      "url": "https://learn.chatgpt.com/docs/changelog",
+      "evidence_status": "opened_primary",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "2026-11-11 Codex CLI 0.167.2",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-13"
+      ],
+      "id": "EXT-OAI-12"
+    },
+    {
+      "title": "Codex pinned hook wire schemas",
+      "url": "https://github.com/openai/codex/tree/rust-v0.167.2/codex-rs/hooks/schema/generated",
+      "evidence_status": "pinned_release_files_read",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_release_schema",
+      "section": "Five copied schemas; per-file blob SHA and SHA-256 in native-schemas/codex/provenance.json",
+      "version_scope": "rust-v0.167.2",
+      "short_claim": "Wire shapes are broader than documented runtime semantics.",
+      "claim_ids": [
+        "P-OAI-05"
+      ],
+      "id": "EXT-OAI-13"
+    },
+    {
+      "id": "EEMP-01",
+      "title": "How Many Instructions Can LLMs Follow at Once?",
+      "url": "https://arxiv.org/html/2507.11538v1",
+      "publication_or_revision_date": "2025-07-15",
+      "version": "v1",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "3 IFScale",
+        "4 Experiments",
+        "6 Conclusion and Limitations"
+      ],
+      "supports_findings_section": "EEMP-01",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-02",
+      "title": "SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks",
+      "url": "https://arxiv.org/html/2602.12670v1",
+      "publication_or_revision_date": "2026-02-13",
+      "version": "v1",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "3 Experimental Setup",
+        "4 Results",
+        "5.1 Limitations",
+        "Appendix C"
+      ],
+      "supports_findings_section": "EEMP-02",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-03",
+      "title": "How Well Do Agentic Skills Work in the Wild",
+      "url": "https://arxiv.org/html/2604.04323v1",
+      "publication_or_revision_date": "2026-04-06",
+      "version": "v1",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "3 Skill Usage in Realistic Settings",
+        "4 Refinement",
+        "Appendix B"
+      ],
+      "supports_findings_section": "EEMP-03",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-04",
+      "title": "SkillRouter: Retrieve-and-Rerank Skill Selection for LLM Agents at Scale",
+      "url": "https://arxiv.org/html/2603.22455v1",
+      "publication_or_revision_date": "2026-03-23",
+      "version": "v1",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "2 Benchmark",
+        "3 Signals",
+        "5 Evaluation",
+        "Limitations"
+      ],
+      "supports_findings_section": "EEMP-04",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-05",
+      "title": "Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents?",
+      "url": "https://arxiv.org/html/2602.11988v1",
+      "publication_or_revision_date": "2026-02-12",
+      "version": "v1",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "3 AGENTbench",
+        "4 Evaluation",
+        "5 Limitations"
+      ],
+      "supports_findings_section": "EEMP-05",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-06",
+      "title": "Do Context Files Help Coding Agents? A Two-Agent Ablation Study on Real Repositories",
+      "url": "https://arxiv.org/html/2607.27250v1",
+      "publication_or_revision_date": "2026-07-28",
+      "version": "v1",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "3 Method",
+        "4.5 Power",
+        "5 Discussion",
+        "Limitations"
+      ],
+      "supports_findings_section": "EEMP-06",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-07",
+      "title": "Scanning the Harness: Configuration Exposures in AI Coding-Agent Supply Chains",
+      "url": "https://arxiv.org/html/2609.07360v3",
+      "publication_or_revision_date": "2026-09-25",
+      "version": "v3",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "3 Study Design",
+        "3.5 Semantic Correction",
+        "4 Results",
+        "6 Threats to Validity"
+      ],
+      "supports_findings_section": "EEMP-07",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-08",
+      "title": "Towards Reliable Context Compression for Long-Horizon Agents: An Empirical Study of Execution Instability",
+      "url": "https://arxiv.org/html/2608.06503v2",
+      "publication_or_revision_date": "2026-10-14",
+      "version": "v2",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "3 Behavioral Effects",
+        "4 TRACE",
+        "5 Preliminary Experiments",
+        "7 Conclusion"
+      ],
+      "supports_findings_section": "EEMP-08",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-09",
+      "title": "AutoCompact: Learning When to Compact Context in Long-Horizon Coding Agents",
+      "url": "https://arxiv.org/pdf/2610.02163",
+      "publication_or_revision_date": "2026-10-01",
+      "version": "paper retrieved 2026-11-12",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "2 Method",
+        "3.1 Experimental Setup",
+        "3.3 Ablations",
+        "Conclusion"
+      ],
+      "supports_findings_section": "EEMP-09",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-10",
+      "title": "Instruction-Following Evaluation for Large Language Models",
+      "url": "https://arxiv.org/html/2311.07911v1",
+      "publication_or_revision_date": "2023-11-14",
+      "version": "v1",
+      "source_type": "original_empirical_preprint",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "2 Verifiable instructions",
+        "2.2 Metrics",
+        "4 Discussion"
+      ],
+      "supports_findings_section": "EEMP-10",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-11",
+      "title": "LIFBench: Evaluating the Instruction Following Performance and Stability of Large Language Models in Long-Context Scenarios",
+      "url": "https://aclanthology.org/2025.acl-long.803.pdf",
+      "publication_or_revision_date": "2025-07",
+      "version": "ACL 2025",
+      "source_type": "original_peer_reviewed_study",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "3 Benchmark",
+        "4 Evaluation",
+        "5 Analysis"
+      ],
+      "supports_findings_section": "EEMP-11",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-12",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "url": "https://arxiv.org/html/2307.03172v3",
+      "publication_or_revision_date": "2023-11-20",
+      "version": "v3",
+      "source_type": "original_peer_reviewed_study",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "2 Multi-document QA",
+        "3 Retrieval",
+        "4 Position sensitivity",
+        "5 More context"
+      ],
+      "supports_findings_section": "EEMP-12",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-13",
+      "title": "Agent Skills Specification",
+      "url": "https://agentskills.io/specification",
+      "publication_or_revision_date": null,
+      "version": "unversioned live specification retrieved 2026-11-12",
+      "source_type": "open_specification",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "Frontmatter",
+        "allowed-tools",
+        "Progressive disclosure",
+        "Validation"
+      ],
+      "supports_findings_section": "EEMP-13",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-14",
+      "title": "Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/research/demystifying-evals-for-ai-agents",
+      "publication_or_revision_date": "2026-01-09",
+      "version": "live document retrieved 2026-11-12",
+      "source_type": "vendor_engineering_guidance",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "Structure of an evaluation",
+        "Non-determinism",
+        "Check the transcripts"
+      ],
+      "supports_findings_section": "EEMP-14",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    },
+    {
+      "id": "EEMP-15",
+      "title": "Effective context engineering for AI agents",
+      "url": "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents",
+      "publication_or_revision_date": "2025-09-29",
+      "version": "live document retrieved 2026-11-12",
+      "source_type": "vendor_engineering_guidance",
+      "retrieved_on": "2026-11-12",
+      "review_status": "primary_full_text_opened_relevant_sections_reviewed",
+      "reviewed_sections": [
+        "Context engineering",
+        "Anatomy of context",
+        "Context retrieval"
+      ],
+      "supports_findings_section": "EEMP-15",
+      "local_reproduction": "not_run",
+      "supports_artifact": "evidence/empirical-findings.md"
+    }
+  ]
+}

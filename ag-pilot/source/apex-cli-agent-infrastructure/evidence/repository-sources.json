@@ -1,0 +1,1718 @@
+{
+  "schema_version": "apex_repository_evidence.v1",
+  "repository": "leela-spec/apexai-os-meta",
+  "requested_ref": "main",
+  "resolved_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+  "run_date": "2026-11-12",
+  "sources": [
+    {
+      "source_id": "REPO-001",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": ".agents/skills/qmd/SKILL.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "39cb5d8eef67404061fe81afb8ca724d8d4d7d20",
+      "reported_blob_sha1": [
+        "39cb5d8eef67404061fe81afb8ca724d8d4d7d20"
+      ],
+      "sha256": "f12c774d704149fcd7047ac66e36e17d04ff50af15c26f7a829bca01d246d359",
+      "bytes": 3027,
+      "line_count": 60,
+      "snapshot": "evidence/repository/.agents/skills/qmd/SKILL.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-002",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": ".claude/CLAUDE.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "3bd7cd5d75275c5bdeebdbac3a49a390e4fd3c66",
+      "reported_blob_sha1": [
+        "3bd7cd5d75275c5bdeebdbac3a49a390e4fd3c66"
+      ],
+      "sha256": "9583973b6f008980ac19ea05536792add5082d00eac50ef2f0bc2f5a7c7b5d0e",
+      "bytes": 4119,
+      "line_count": 53,
+      "snapshot": "evidence/repository/.claude/CLAUDE.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-003",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": ".claude/agents/meta-detective.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "34b0b51be78d8218c5a4db03eb9a22a141d8f7f0",
+      "reported_blob_sha1": [
+        "34b0b51be78d8218c5a4db03eb9a22a141d8f7f0"
+      ],
+      "sha256": "92e24f1c02de8ad0792161bc72ab0b7f35ceb20e9b2923c45ee3161af9a0ec27",
+      "bytes": 2775,
+      "line_count": 26,
+      "snapshot": "evidence/repository/.claude/agents/meta-detective.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-004",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": ".claude/settings.json",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "1ee037d67ca8c77ce337c7389d06b41469c4b9b1",
+      "reported_blob_sha1": [
+        "1ee037d67ca8c77ce337c7389d06b41469c4b9b1"
+      ],
+      "sha256": "e9934a08984fdb61256c92b3e211addf8b4da16cbfc7170a890e8d56eb17ecc2",
+      "bytes": 41,
+      "line_count": 3,
+      "snapshot": "evidence/repository/.claude/settings.json",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "observed_implementation_or_configuration",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-005",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": ".claude/skills/AIRouting/SKILL.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "b3a3aee0f33cbb3c5859ecea54bca5bb32a9bfcb",
+      "reported_blob_sha1": [
+        "b3a3aee0f33cbb3c5859ecea54bca5bb32a9bfcb"
+      ],
+      "sha256": "06b52efc17705116b5684f424ed147076eb12e4bc6efa2be6bda308ab115ce5e",
+      "bytes": 10590,
+      "line_count": 310,
+      "snapshot": "evidence/repository/.claude/skills/AIRouting/SKILL.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-006",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": ".claude/skills/apex-plan/SKILL.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "ff184524dd9d4f21b24b790d68e931de8db6f41c",
+      "reported_blob_sha1": [
+        "ff184524dd9d4f21b24b790d68e931de8db6f41c"
+      ],
+      "sha256": "7bc00a5af4fa3de68f58e86335f44f36eae2ae262f7cb9d0b656c65202d1d318",
+      "bytes": 9562,
+      "line_count": 269,
+      "snapshot": "evidence/repository/.claude/skills/apex-plan/SKILL.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-007",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": ".claude/skills/apex-session/SKILL.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "4678ec8abd06f4809514fae3a672eff8310f363f",
+      "reported_blob_sha1": [
+        "4678ec8abd06f4809514fae3a672eff8310f363f"
+      ],
+      "sha256": "3e745ca2f27759ef734f72551cdc1f4f5dd371403c541a7e7338beb6614b8809",
+      "bytes": 11801,
+      "line_count": 323,
+      "snapshot": "evidence/repository/.claude/skills/apex-session/SKILL.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-008",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": ".claude/skills/apex-sync/SKILL.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "64ae7e7ba6980aa8e578a9f1286df485eab8bd44",
+      "reported_blob_sha1": [
+        "64ae7e7ba6980aa8e578a9f1286df485eab8bd44"
+      ],
+      "sha256": "bdb443aa4b3c4ab60d2221ee43f40e4ca9b26f529ed20e6728dbfdccc825ce00",
+      "bytes": 9127,
+      "line_count": 214,
+      "snapshot": "evidence/repository/.claude/skills/apex-sync/SKILL.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-009",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": ".claude/skills/deterministic-markdown-patcher2/references/patch-intent-schema.json",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "d027ff87902d29b6e07ab201ebd18a6bdf8cc020",
+      "reported_blob_sha1": [
+        "d027ff87902d29b6e07ab201ebd18a6bdf8cc020"
+      ],
+      "sha256": "8053def79a5579240e59cc2a5e728ada4dd092277bebbbef4f66505f4b33884b",
+      "bytes": 6881,
+      "line_count": 321,
+      "snapshot": "evidence/repository/.claude/skills/deterministic-markdown-patcher2/references/patch-intent-schema.json",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "observed_implementation_or_configuration",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-010",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": ".claude/skills/weekly-orchestrator/SKILL.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "b46ad037dd3aee84e64ce046541ceeaf7ae5f58e",
+      "reported_blob_sha1": [
+        "b46ad037dd3aee84e64ce046541ceeaf7ae5f58e"
+      ],
+      "sha256": "f887e5821e51cc6140fa1c267dba92b1cd2459309062d7475bb3fecd9677db29",
+      "bytes": 8815,
+      "line_count": 99,
+      "snapshot": "evidence/repository/.claude/skills/weekly-orchestrator/SKILL.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-011",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": ".github/copilot-instructions.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "b7705c343c2a23a515bd012c91459e278b31d0a9",
+      "reported_blob_sha1": [
+        "b7705c343c2a23a515bd012c91459e278b31d0a9"
+      ],
+      "sha256": "158f2768ce5b2c5b46ffceb1f6cf6634113c59d4e1c407d7b73b3ec92bf30558",
+      "bytes": 1039,
+      "line_count": 18,
+      "snapshot": "evidence/repository/.github/copilot-instructions.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-012",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "AGENTS.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "d458ccc8443aa799a5f71c281c786719ffae2fc7",
+      "reported_blob_sha1": [
+        "d458ccc8443aa799a5f71c281c786719ffae2fc7"
+      ],
+      "sha256": "c7f660b441ba3ecbcb767e2997fa2c08b33c02c5eaa0fb8206e991a4e8124c39",
+      "bytes": 4121,
+      "line_count": 51,
+      "snapshot": "evidence/repository/AGENTS.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-013",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "CLAUDE.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "a6120067c99f7159aec36ea9a4a13389ac6d0514",
+      "reported_blob_sha1": [
+        "a6120067c99f7159aec36ea9a4a13389ac6d0514"
+      ],
+      "sha256": "9d5653d8631689545406d2e14fb45e776c76a5d3a82d495c9fe5d4e4b0583c8b",
+      "bytes": 4028,
+      "line_count": 50,
+      "snapshot": "evidence/repository/CLAUDE.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-014",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "GEMINI.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "eaf8ad1d31be8e3b7c645026c9bd97b509d24495",
+      "reported_blob_sha1": [
+        "eaf8ad1d31be8e3b7c645026c9bd97b509d24495"
+      ],
+      "sha256": "1ac5f8485d53c20cc40d1b1ed1a70009022503bd8f867160809a5d8fa43699b5",
+      "bytes": 3015,
+      "line_count": 38,
+      "snapshot": "evidence/repository/GEMINI.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-015",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/SmallSkills/OKF_Format/conformance-rules.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "e1f3260121c968f270dfa0680dc881d7dd45ebaf",
+      "reported_blob_sha1": [
+        "e1f3260121c968f270dfa0680dc881d7dd45ebaf"
+      ],
+      "sha256": "6f8e316b20981dfde7410315f33c67ffcd1b914b206c6e282e964ce93f735b0f",
+      "bytes": 1698,
+      "line_count": 43,
+      "snapshot": "evidence/repository/apex-meta/SmallSkills/OKF_Format/conformance-rules.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-016",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/epics/hermes-multi-repo-orchestration-v2/DECISIONS.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "7e258ccf06807908a16a5fbc629b7d886c35b758",
+      "reported_blob_sha1": [
+        "7e258ccf06807908a16a5fbc629b7d886c35b758"
+      ],
+      "sha256": "c981d4545da0f3fabf3fbc02030056521d33a4b5173c6c4117c0b8f97db2f2de",
+      "bytes": 4700,
+      "line_count": 78,
+      "snapshot": "evidence/repository/apex-meta/epics/hermes-multi-repo-orchestration-v2/DECISIONS.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-017",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/epics/hermes-multi-repo-orchestration-v2/decisions/D05-SHARED-SKILL-SOURCE.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "41c205ad2469b5b3ca97402ad09328420e492f2d",
+      "reported_blob_sha1": [
+        "41c205ad2469b5b3ca97402ad09328420e492f2d"
+      ],
+      "sha256": "db8af86da67c54e9c76ce966128eb184cf9c53b2430f35541b406452c30fa8d8",
+      "bytes": 3141,
+      "line_count": 74,
+      "snapshot": "evidence/repository/apex-meta/epics/hermes-multi-repo-orchestration-v2/decisions/D05-SHARED-SKILL-SOURCE.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-018",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "4a488566f7402bae12ef2a9942a749d9dee6b849",
+      "reported_blob_sha1": [
+        "4a488566f7402bae12ef2a9942a749d9dee6b849"
+      ],
+      "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+      "bytes": 33561,
+      "line_count": 431,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/candidates/01-decision-register.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-019",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/index.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "e64e8c7aa64f92acf6c4476779cfdbfc43e5a9a5",
+      "reported_blob_sha1": [
+        "e64e8c7aa64f92acf6c4476779cfdbfc43e5a9a5"
+      ],
+      "sha256": "ddec5dc24de305a22ae25092eea10eaa93931c7d65c8eae05ae575d27a702c3b",
+      "bytes": 19887,
+      "line_count": 111,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/index.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-020",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/operations/07-INTEGRATION-PLAN-AND-OPERATIONAL-DECISIONS.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "8ca4971a526e391f32bd885aabae20a7640bf4b3",
+      "reported_blob_sha1": [
+        "8ca4971a526e391f32bd885aabae20a7640bf4b3"
+      ],
+      "sha256": "0ba4710d034f06e109deae0f796366096b6011ec8e14e4f8002db28bf8456692",
+      "bytes": 10471,
+      "line_count": 120,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/operations/07-INTEGRATION-PLAN-AND-OPERATIONAL-DECISIONS.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-021",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/operations/17-READ-TRACE-PILOT-AND-BASE-REF-FRAGILITY-FINDINGS.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "b728400f13e94a02c4387fe55b6a3ba38957074d",
+      "reported_blob_sha1": [
+        "b728400f13e94a02c4387fe55b6a3ba38957074d"
+      ],
+      "sha256": "149f236b6a4e1ac32f78f6bf2f65d3c9ea41ed09c1cd38622caa4f532f0752d4",
+      "bytes": 17977,
+      "line_count": 208,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/operations/17-READ-TRACE-PILOT-AND-BASE-REF-FRAGILITY-FINDINGS.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-022",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/operations/18-APEX-CARRIER-MAP.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "495b0daf9c8d9330767d3af5800d1a8688fafbb8",
+      "reported_blob_sha1": [
+        "495b0daf9c8d9330767d3af5800d1a8688fafbb8"
+      ],
+      "sha256": "a8a380f6424e9d90d0846a1f49adbad2a215763fc7a79ef7b58244ddd0e4ddb9",
+      "bytes": 9400,
+      "line_count": 102,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/operations/18-APEX-CARRIER-MAP.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-023",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/operations/handovers/HANDOVER-13-CROSS-CLI-HOOK-ARCHITECTURE-AND-REPOSITORY-ORGANIZATION.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "07a749644a7b8fc5c6c0ab0c1b29f557b7448f83",
+      "reported_blob_sha1": [
+        "07a749644a7b8fc5c6c0ab0c1b29f557b7448f83"
+      ],
+      "sha256": "3b05335cb4a3d3c8f2cbfbfb0cc800535c2ec72079a12b4b2314438f011653e6",
+      "bytes": 8097,
+      "line_count": 124,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/operations/handovers/HANDOVER-13-CROSS-CLI-HOOK-ARCHITECTURE-AND-REPOSITORY-ORGANIZATION.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-024",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/operations/migration.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "ae80915246b8a67ce6cc9de443d2d8264afd4d23",
+      "reported_blob_sha1": [
+        "ae80915246b8a67ce6cc9de443d2d8264afd4d23"
+      ],
+      "sha256": "1031f0d42dfdfc0891bc6443d12433260adf10399ce9a8d8ca90a6d49645282f",
+      "bytes": 1975,
+      "line_count": 30,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/operations/migration.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-025",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/01-universal-instruction-research/04-FRAMEWORK-LANDSCAPE-MATRIX.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "4773f15b1f6a005995bc540a8ade7bf31cc1ca00",
+      "reported_blob_sha1": [
+        "4773f15b1f6a005995bc540a8ade7bf31cc1ca00"
+      ],
+      "sha256": "3dcedec89ad73b81f253e13c6b769c61e506cf83af3604a7e40e51431461882b",
+      "bytes": 13225,
+      "line_count": 182,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/01-universal-instruction-research/04-FRAMEWORK-LANDSCAPE-MATRIX.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-026",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/01-universal-instruction-research/05-INSTRUCTION-ACCESS-AND-SERIALIZATION-MATRIX.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "3c0c601778271b057d01700640762fada2f0d84d",
+      "reported_blob_sha1": [
+        "3c0c601778271b057d01700640762fada2f0d84d"
+      ],
+      "sha256": "bae470850b258b2fc2a2cb323ffb439391b8f0b8e6ce11ab4d24c4900ef22c21",
+      "bytes": 10437,
+      "line_count": 155,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/01-universal-instruction-research/05-INSTRUCTION-ACCESS-AND-SERIALIZATION-MATRIX.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-027",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/01-universal-instruction-research/07-TIER-A-COVERAGE-AND-LIVE-AGENT-AUDIT.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "80375ea4fb8a61cf9d93c9aebc3bcbd0016d1e7e",
+      "reported_blob_sha1": [
+        "80375ea4fb8a61cf9d93c9aebc3bcbd0016d1e7e"
+      ],
+      "sha256": "06c6c0e356e71a18d310c74a2649a55e42a5f9f7f9f7b0ebb21716fb53f8c949",
+      "bytes": 17650,
+      "line_count": 250,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/01-universal-instruction-research/07-TIER-A-COVERAGE-AND-LIVE-AGENT-AUDIT.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-028",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/01-universal-instruction-research/module-deepening/A06-context-engineering-progressive-disclosure/README.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "d3fa7c3ef2e949ecb819037e94b84720f86f16dd",
+      "reported_blob_sha1": [
+        "d3fa7c3ef2e949ecb819037e94b84720f86f16dd"
+      ],
+      "sha256": "9ad30c58e0a3336c0ca9cf5835fc7f52601a780fd7ce6baddb83a383a07e1c89",
+      "bytes": 34483,
+      "line_count": 585,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/01-universal-instruction-research/module-deepening/A06-context-engineering-progressive-disclosure/README.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-029",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/02-deep-reasoning/06-how-the-routing-actually-works.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "b0db64d717cdcfc8d479e5564543600d742baab5",
+      "reported_blob_sha1": [
+        "b0db64d717cdcfc8d479e5564543600d742baab5"
+      ],
+      "sha256": "661c39b781f85c54bb97640e02eded5ac45905f502a03a6332020ea673e46b20",
+      "bytes": 18114,
+      "line_count": 362,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/02-deep-reasoning/06-how-the-routing-actually-works.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-030",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "4ef5cfcb0a2ca979eee8ea10d72fc6096c83788c",
+      "reported_blob_sha1": [
+        "4ef5cfcb0a2ca979eee8ea10d72fc6096c83788c"
+      ],
+      "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+      "bytes": 45106,
+      "line_count": 171,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-031",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "ca5bc57f80b93c46b93757a3940476e8f3a808c4",
+      "reported_blob_sha1": [
+        "ca5bc57f80b93c46b93757a3940476e8f3a808c4"
+      ],
+      "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+      "bytes": 13506,
+      "line_count": 102,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-032",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/08-read-trace-routing-experiments/01-findings-and-protocol.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "bddad3e3a947aaea909ce6695474dfba888f54c4",
+      "reported_blob_sha1": [
+        "bddad3e3a947aaea909ce6695474dfba888f54c4"
+      ],
+      "sha256": "0af42bbc5202abdf650d81f6895c68c391e02299df792c5f69d8ab21fba63707",
+      "bytes": 19659,
+      "line_count": 208,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/08-read-trace-routing-experiments/01-findings-and-protocol.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-033",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/08-read-trace-routing-experiments/03-design-review-routing-carriers.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "0ca6491b0331cdc4ec7f43cfd72eaeaf27909143",
+      "reported_blob_sha1": [
+        "0ca6491b0331cdc4ec7f43cfd72eaeaf27909143"
+      ],
+      "sha256": "32912e1ad88d3ea9db8df1ddc78ce0e119807ecf338dd761e9260dbfe43e9d32",
+      "bytes": 3875,
+      "line_count": 51,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/08-read-trace-routing-experiments/03-design-review-routing-carriers.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-034",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/08-read-trace-routing-experiments/artifacts/stage1/score_stage1_corrected.py",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "5ea9aabee6b3d1782d8e38731c8928eecee29107",
+      "reported_blob_sha1": [
+        "5ea9aabee6b3d1782d8e38731c8928eecee29107"
+      ],
+      "sha256": "e575f5a2fb135244d65b250bbe0308fc0a72ddcfafb11fc8ede86af6db387c1f",
+      "bytes": 11901,
+      "line_count": 252,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/08-read-trace-routing-experiments/artifacts/stage1/score_stage1_corrected.py",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-035",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "4991329c8e18bd1252dd4258f8b89e9a7e847357",
+      "reported_blob_sha1": [
+        "4991329c8e18bd1252dd4258f8b89e9a7e847357"
+      ],
+      "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+      "bytes": 48113,
+      "line_count": 478,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-036",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/index.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "ab6c26d51d10301dce91d46024c59a5069030096",
+      "reported_blob_sha1": [
+        "ab6c26d51d10301dce91d46024c59a5069030096"
+      ],
+      "sha256": "af6b5903ab60ce53b8c4ec71375366bc7459548308bf2cca4829e61a574fb151",
+      "bytes": 62267,
+      "line_count": 583,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/index.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-037",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/01-results-and-verdict.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "227fc36692f34525d0c8b411953c12b7f09c8030",
+      "reported_blob_sha1": [
+        "227fc36692f34525d0c8b411953c12b7f09c8030"
+      ],
+      "sha256": "ee34d49c6d8513a8d91854fe45dd7e9b1f27f43cde403bef839a5c634f4bfecb",
+      "bytes": 8233,
+      "line_count": 83,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/10-ultra-upgrade-validation/01-results-and-verdict.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-038",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/fixtures/armB_hook_agy.py",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "3c8d6ee2c8ee82c1a19e7a047c37bb970c0bed25",
+      "reported_blob_sha1": [
+        "3c8d6ee2c8ee82c1a19e7a047c37bb970c0bed25"
+      ],
+      "sha256": "88a0fda3b2b98aaa4e220ecdd843753bdaa7c9aa1ba0c8ac1cb94b4032e869a9",
+      "bytes": 20948,
+      "line_count": 484,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/10-ultra-upgrade-validation/fixtures/armB_hook_agy.py",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-039",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/index.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "9288df7f85c77cafe7e4cf9708c371377e83b87c",
+      "reported_blob_sha1": [
+        "9288df7f85c77cafe7e4cf9708c371377e83b87c"
+      ],
+      "sha256": "ed859317d7de66d41eb5d410beaae4a640f5f4cb5dcf5fdb24cdec38a85fcd4c",
+      "bytes": 3486,
+      "line_count": 30,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/10-ultra-upgrade-validation/index.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-040",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/preregistration.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "6efee3b756608d32d0fb0e4ecc2391cf843c69ab",
+      "reported_blob_sha1": [
+        "6efee3b756608d32d0fb0e4ecc2391cf843c69ab"
+      ],
+      "sha256": "ad835707475b0a223baae70053e4d66de0e87f0cdd79b4a1ad7d63997006802a",
+      "bytes": 9338,
+      "line_count": 78,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/10-ultra-upgrade-validation/preregistration.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-041",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/score_eval.py",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "db1f8b2caf993f765f46e4555930c62eba0b0dc8",
+      "reported_blob_sha1": [
+        "db1f8b2caf993f765f46e4555930c62eba0b0dc8"
+      ],
+      "sha256": "b83fa8c011301df065937dece0b9fd202a185a1f862699001ea982ee85f839ea",
+      "bytes": 40718,
+      "line_count": 837,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/10-ultra-upgrade-validation/score_eval.py",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-042",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/01-research-and-decision-map.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "a848dd372834a42eaf965c9b84dc9f8a66ec5c5b",
+      "reported_blob_sha1": [
+        "a848dd372834a42eaf965c9b84dc9f8a66ec5c5b"
+      ],
+      "sha256": "7d167c2cbc70b6d6bc829dd27cedca8128b33546e7004152df15e3c08cb8446b",
+      "bytes": 19932,
+      "line_count": 87,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/01-research-and-decision-map.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-043",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/03-retrieval-and-gaps.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "4536d5f74453b153c87ec0b2ecc87bc19fbd78a5",
+      "reported_blob_sha1": [
+        "4536d5f74453b153c87ec0b2ecc87bc19fbd78a5"
+      ],
+      "sha256": "8b9176deea367d1870119ae252eb67639bd64eb217c082c12b7b0ab13247ab64",
+      "bytes": 9983,
+      "line_count": 76,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/03-retrieval-and-gaps.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-044",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/06-ranked-reading-guide.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "6282feabd8985392906754ddc351426818a2fffd",
+      "reported_blob_sha1": [
+        "6282feabd8985392906754ddc351426818a2fffd"
+      ],
+      "sha256": "238db6c4f7c4f83196dbdff0dc4c34a5b689c1bd3d6c212d3a25bd461e4ec706",
+      "bytes": 22552,
+      "line_count": 81,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/06-ranked-reading-guide.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-045",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/07-current-web-research.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "db7c4b5ad21b5a7f69e6cccdbb1b35e87a02b0bb",
+      "reported_blob_sha1": [
+        "db7c4b5ad21b5a7f69e6cccdbb1b35e87a02b0bb"
+      ],
+      "sha256": "72ce534c1283ee246f7a6a621c3849affc93c858b3fb5fd62e5209beb77c0823",
+      "bytes": 8399,
+      "line_count": 56,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/07-current-web-research.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-046",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/HANDOVER-14-APEX-RULE-REGISTRY-AND-ACTIVATION-INTEGRATION.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "0d722e5524cc733f63bbc9257c1bcd57a038967a",
+      "reported_blob_sha1": [
+        "0d722e5524cc733f63bbc9257c1bcd57a038967a"
+      ],
+      "sha256": "cbb478aeaf1f5b001e3fa3ae8eac31ca1add673186b117259b1e45f553ded683",
+      "bytes": 16833,
+      "line_count": 138,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/HANDOVER-14-APEX-RULE-REGISTRY-AND-ACTIVATION-INTEGRATION.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-047",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/HANDOVER-15-PRO-THINKING-APEX-RULE-REGISTRY-RESEARCH-PROMPT.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "b0c88c0d1f7c8bd9155a18f7ace138c1b0fd5270",
+      "reported_blob_sha1": [
+        "b0c88c0d1f7c8bd9155a18f7ace138c1b0fd5270"
+      ],
+      "sha256": "db9bdc97a06a1e5750916990f7afcef4c63be89ccab16183aa2c1f31fcea157e",
+      "bytes": 19196,
+      "line_count": 147,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/HANDOVER-15-PRO-THINKING-APEX-RULE-REGISTRY-RESEARCH-PROMPT.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-048",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/cross-cli-hook-architecture.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "a6b980d3905673e0f13a80291f3364676c5aa969",
+      "reported_blob_sha1": [
+        "a6b980d3905673e0f13a80291f3364676c5aa969"
+      ],
+      "sha256": "69213f89257483f3153242d1fd36f570488d290f69330e598b367711126aef5d",
+      "bytes": 23562,
+      "line_count": 296,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/cross-cli-hook-architecture.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-049",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/sources/infrastructure-activation-research-brief.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "68c593412f9af7da0fb67f1e4cbdd9ab5fceac96",
+      "reported_blob_sha1": [
+        "68c593412f9af7da0fb67f1e4cbdd9ab5fceac96"
+      ],
+      "sha256": "2f032e7f1779ac281eab73ad6ca6d33307df77173738114b3fcbdd2892604508",
+      "bytes": 6489,
+      "line_count": 108,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/sources/infrastructure-activation-research-brief.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-050",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/top50-reading-plan.json",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "fd70119375cc1f1d1259d9f3aef035d520f84df5",
+      "reported_blob_sha1": [
+        "fd70119375cc1f1d1259d9f3aef035d520f84df5"
+      ],
+      "sha256": "9fd2876ba5d5195c88336a9923aeccd05dcd6d5b633909943176eb8c2450ad67",
+      "bytes": 62583,
+      "line_count": 1392,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/top50-reading-plan.json",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-051",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/web-research-sources.json",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "eb45158d64da0196ae47637e622cc310f6dd9eea",
+      "reported_blob_sha1": [
+        "eb45158d64da0196ae47637e622cc310f6dd9eea"
+      ],
+      "sha256": "d8f227ac0250686a94ae83ca4c254d88ff7aec5ceb1e5b706432e7f5df45c1fd",
+      "bytes": 6302,
+      "line_count": 166,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/web-research-sources.json",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-052",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/specs/anti-drift-rules.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "cfea6c047acf46fdc1e8129e2d0b4c8a491fbb6c",
+      "reported_blob_sha1": [
+        "cfea6c047acf46fdc1e8129e2d0b4c8a491fbb6c"
+      ],
+      "sha256": "9f429c36a53b9c0276053afcaf20741460c881c1613418ed60881f0f85d73229",
+      "bytes": 10313,
+      "line_count": 75,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/specs/anti-drift-rules.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-053",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "4181fccf9e65a853a80856e89a385a51d79fb6c7",
+      "reported_blob_sha1": [
+        "4181fccf9e65a853a80856e89a385a51d79fb6c7"
+      ],
+      "sha256": "0cbaa3e994b5ff0ba2e489623ae6ee3b58d63988a2a225b11df9b5cdee132b0b",
+      "bytes": 7687,
+      "line_count": 76,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-054",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/specs/carrier-layer2-shared.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "b67120d26125598d69446088d236e461f3365b38",
+      "reported_blob_sha1": [
+        "b67120d26125598d69446088d236e461f3365b38"
+      ],
+      "sha256": "8a7fe4858fcc4accd4ebd1e58f44e5b581e47cbe0c79d031b281cdcd66ae41d8",
+      "bytes": 2419,
+      "line_count": 35,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/specs/carrier-layer2-shared.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-055",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/specs/execution-modes.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "2c313add363d39736215574b7198f171e14ff541",
+      "reported_blob_sha1": [
+        "2c313add363d39736215574b7198f171e14ff541"
+      ],
+      "sha256": "ea534dbfa53216412513a7fddebea2289a3599ed6e065f26d1689bb99e416f34",
+      "bytes": 11401,
+      "line_count": 135,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/specs/execution-modes.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-056",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/specs/execution-modes/bake-off.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "acd9e87ff022c5880369120dc89fbb457842aa41",
+      "reported_blob_sha1": [
+        "acd9e87ff022c5880369120dc89fbb457842aa41"
+      ],
+      "sha256": "00a10c860c72e19f5c264ace38ffaad970be5c15c82243d454c37bf449dfcd0a",
+      "bytes": 2130,
+      "line_count": 39,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/specs/execution-modes/bake-off.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-057",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/specs/execution-modes/git-sync.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "809d809775653f4b845b1431a21edf6ec4b13ddc",
+      "reported_blob_sha1": [
+        "809d809775653f4b845b1431a21edf6ec4b13ddc"
+      ],
+      "sha256": "20dce790417b853c7a46387b6c5edddb2141a98ad5a8c31a926f42d5cd5782b7",
+      "bytes": 1165,
+      "line_count": 17,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/specs/execution-modes/git-sync.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-058",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/specs/execution-modes/handover.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "45b6fc3dd2513b7c3bf157f573ff036b5d7740a8",
+      "reported_blob_sha1": [
+        "45b6fc3dd2513b7c3bf157f573ff036b5d7740a8"
+      ],
+      "sha256": "00b3e0b40e7cb67dced95657de8bc936292138fdf16524ed778e26f8a51518f7",
+      "bytes": 4556,
+      "line_count": 51,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/specs/execution-modes/handover.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-059",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/specs/execution-modes/iterative-execution.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "389c0dcd5cf580cae2e59f29ed54337d74fdd9d5",
+      "reported_blob_sha1": [
+        "389c0dcd5cf580cae2e59f29ed54337d74fdd9d5"
+      ],
+      "sha256": "583133b554a67d215c168b09dac07f71220ac9e7a0131b5d3def883da46d76d9",
+      "bytes": 4796,
+      "line_count": 52,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/specs/execution-modes/iterative-execution.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-060",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/specs/execution-modes/patch-discipline.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "44dfc5aaf238afe1ab8974037f3e166710a55e1e",
+      "reported_blob_sha1": [
+        "44dfc5aaf238afe1ab8974037f3e166710a55e1e"
+      ],
+      "sha256": "6951891dffe343c7dd8f20252a922d5fc7d54de5d65a20d4f37b6d139ee0dbf2",
+      "bytes": 3165,
+      "line_count": 72,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/specs/execution-modes/patch-discipline.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-061",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/specs/execution-modes/qa-decision-matrix.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "236b0a7a4e09c086bc38e82cc77603d5afbce3b0",
+      "reported_blob_sha1": [
+        "236b0a7a4e09c086bc38e82cc77603d5afbce3b0"
+      ],
+      "sha256": "a16b0226570883a45e5fb247cce8fc4c9ee76c2498d043b0475960ef1102ba2e",
+      "bytes": 4511,
+      "line_count": 60,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/specs/execution-modes/qa-decision-matrix.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-062",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/specs/execution-modes/task-specification.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "1b4a49fcdaabbf4a1bafae411f471dfbe5f4c0fc",
+      "reported_blob_sha1": [
+        "1b4a49fcdaabbf4a1bafae411f471dfbe5f4c0fc"
+      ],
+      "sha256": "85484fe3bff8a4ae92f32f2a77b9d5ba851421221c8274c9379932b322e4e65a",
+      "bytes": 6300,
+      "line_count": 65,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/specs/execution-modes/task-specification.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-063",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/specs/file-architecture.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "362b2a7fcf527998bade0cf6834b2518fe82b52f",
+      "reported_blob_sha1": [
+        "362b2a7fcf527998bade0cf6834b2518fe82b52f"
+      ],
+      "sha256": "0ac27e4741819fd3c3785f4e2ce35d85f477c9439695cb466bee20ff1d8ea8f0",
+      "bytes": 11476,
+      "line_count": 165,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/specs/file-architecture.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-064",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/specs/general-informatics-router.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "6a3cd70252dbfe78098c81aa5efc0a9ee703c7d2",
+      "reported_blob_sha1": [
+        "6a3cd70252dbfe78098c81aa5efc0a9ee703c7d2"
+      ],
+      "sha256": "d24c8479a7ba73ba7f78464cfda42009f02ff4b9d8dde21e1f06eb4af3f71567",
+      "bytes": 2000,
+      "line_count": 43,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/specs/general-informatics-router.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-065",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/specs/governance-schemas.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "cfaab66916b7261ff141f686ef3867dfd540c7c7",
+      "reported_blob_sha1": [
+        "cfaab66916b7261ff141f686ef3867dfd540c7c7"
+      ],
+      "sha256": "e4fc66bb8f0818e12a8dbe3916b28990e29ee6ae32165a059c4e2bde8e367ba1",
+      "bytes": 10918,
+      "line_count": 134,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/specs/governance-schemas.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-066",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/specs/standard.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "761077c14beac7acb8cffe3d00b8aacff1966102",
+      "reported_blob_sha1": [
+        "761077c14beac7acb8cffe3d00b8aacff1966102"
+      ],
+      "sha256": "6a25eaf2ecc4dcfb3dd2ab2fecf28e3c767f698cadaecd3171aa3fddbc8de553",
+      "bytes": 9531,
+      "line_count": 170,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/specs/standard.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-067",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/specs/writing-profile.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "7e8e4affc3651166055c7d30f543fb21b7f2e2f3",
+      "reported_blob_sha1": [
+        "7e8e4affc3651166055c7d30f543fb21b7f2e2f3"
+      ],
+      "sha256": "ff354300a39c873de0c51322f8f4f579ce54f8bd3f1bbb5541b911274244c6c9",
+      "bytes": 11641,
+      "line_count": 93,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/specs/writing-profile.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-068",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/tools/agent_eval_runner.py",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "da904d17439d0d2e5afae310d2c85dad7ecedcc1",
+      "reported_blob_sha1": [
+        "da904d17439d0d2e5afae310d2c85dad7ecedcc1"
+      ],
+      "sha256": "e99ad844212421a1ef610e1643451d0bb92fcf5dae79b93fb4afaea84bd62cc0",
+      "bytes": 19485,
+      "line_count": 373,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/tools/agent_eval_runner.py",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "observed_implementation_or_configuration",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-069",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/tools/apex_carrier_sync.py",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "3cf620df4f127fee86c8f451335471b8a88457b6",
+      "reported_blob_sha1": [
+        "3cf620df4f127fee86c8f451335471b8a88457b6"
+      ],
+      "sha256": "1f4bf20caff55533ce0446429990ebb3e7c7dd62c3f36448cadf694319e0b64d",
+      "bytes": 12876,
+      "line_count": 237,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/tools/apex_carrier_sync.py",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "observed_implementation_or_configuration",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-070",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/tools/check_decision_bakeoff_shape.py",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "47ffe18c61405ade6992cbce867b39d166699ab8",
+      "reported_blob_sha1": [
+        "47ffe18c61405ade6992cbce867b39d166699ab8"
+      ],
+      "sha256": "527957bc39b6a8f94bba4f5049f8f571771c1c05ced46d9ba392a65ed3beae25",
+      "bytes": 8475,
+      "line_count": 231,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/tools/check_decision_bakeoff_shape.py",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "observed_implementation_or_configuration",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-071",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/tools/check_vendor_drift.py",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "5552e8a866eae5015ff6a24412c5417c8c4969ea",
+      "reported_blob_sha1": [
+        "5552e8a866eae5015ff6a24412c5417c8c4969ea"
+      ],
+      "sha256": "4ea61059eecca812936db0b1f5e573b89a5cc598c7d16ae987b140b75e41ecb7",
+      "bytes": 4031,
+      "line_count": 107,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/tools/check_vendor_drift.py",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "observed_implementation_or_configuration",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-072",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/final/tools/okf_validator.py",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "b339700d6360c4d8d3f66005c556a7c36b4e7fb5",
+      "reported_blob_sha1": [
+        "b339700d6360c4d8d3f66005c556a7c36b4e7fb5"
+      ],
+      "sha256": "5ae9899f20df5a44327b9aa7b0c7522fa5efc7934cac89e27f88ee7612ac9dc2",
+      "bytes": 12602,
+      "line_count": 344,
+      "snapshot": "evidence/repository/apex-meta/informatics/final/tools/okf_validator.py",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "observed_implementation_or_configuration",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-073",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/informatics/index.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "82c1de27a0e7b58aba7d50a2d81d57bb098aff22",
+      "reported_blob_sha1": [
+        "82c1de27a0e7b58aba7d50a2d81d57bb098aff22"
+      ],
+      "sha256": "26cbb99fd7c6c48281736edb7fab26ec6007c26751d9d29d15f6b289325fd1c3",
+      "bytes": 4023,
+      "line_count": 73,
+      "snapshot": "evidence/repository/apex-meta/informatics/index.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-074",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/kb/claude-code-orchestration-design/log/operator-phase1-review-decisions-20260702.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "34d9c16967d2f7f49b716d75c8bb1a2a10eb96a7",
+      "reported_blob_sha1": [
+        "34d9c16967d2f7f49b716d75c8bb1a2a10eb96a7"
+      ],
+      "sha256": "c411e68bbdaa3a7529e53bd4e3c72703e1a935378434f2143decb87f01588119",
+      "bytes": 4934,
+      "line_count": 151,
+      "snapshot": "evidence/repository/apex-meta/kb/claude-code-orchestration-design/log/operator-phase1-review-decisions-20260702.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "retained_research_or_historical_decision_evidence",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-075",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/kb/claude-code-orchestration-design/wiki/summaries/claude-mechanism-decision-model.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "a6c6b833a802d2a3e1e8d394809d4b36799a4ce2",
+      "reported_blob_sha1": [
+        "a6c6b833a802d2a3e1e8d394809d4b36799a4ce2"
+      ],
+      "sha256": "3235aca48aa227cc85e707a9e70ae0cd7e3f7b5e06b7781ed6e47a3beec031ab",
+      "bytes": 10564,
+      "line_count": 144,
+      "snapshot": "evidence/repository/apex-meta/kb/claude-code-orchestration-design/wiki/summaries/claude-mechanism-decision-model.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-076",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/local-orchestration-engine/OPERATOR-DECISION-LOCK-2026-08-08-R3-LOCAL-MODEL.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "6cb0ee672aeba3f6ec41d8e7e0a51a1fea29fc51",
+      "reported_blob_sha1": [
+        "6cb0ee672aeba3f6ec41d8e7e0a51a1fea29fc51"
+      ],
+      "sha256": "c1519f6eb933d030d6f948e95742a0ff52e4a9332b862f546f1051255361bb64",
+      "bytes": 16341,
+      "line_count": 295,
+      "snapshot": "evidence/repository/apex-meta/local-orchestration-engine/OPERATOR-DECISION-LOCK-2026-08-08-R3-LOCAL-MODEL.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-077",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/orchestration/ARCHITECTURE.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "a1d60e69c3594b93eca1ceed73a8caf18e5e5146",
+      "reported_blob_sha1": [
+        "a1d60e69c3594b93eca1ceed73a8caf18e5e5146"
+      ],
+      "sha256": "e3bd6e3ad87fea9b32d8fb612356d1f6f2893fb9dde5db7a928a3c572660c44c",
+      "bytes": 8722,
+      "line_count": 89,
+      "snapshot": "evidence/repository/apex-meta/orchestration/ARCHITECTURE.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-078",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/orchestration/CURRENT-SYSTEM-MANIFEST.yaml",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "15e6e46c073acd54c5f7d50fb30473d66490df1f",
+      "reported_blob_sha1": [
+        "15e6e46c073acd54c5f7d50fb30473d66490df1f"
+      ],
+      "sha256": "b83a25a0a6d2a06a91f0c95cade1b1847522905a66fe64d09ba4d0b5ff354b39",
+      "bytes": 4468,
+      "line_count": 83,
+      "snapshot": "evidence/repository/apex-meta/orchestration/CURRENT-SYSTEM-MANIFEST.yaml",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-079",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/orchestration/agents/meta-ops/INTEGRATION-apex-plan-sync-session.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "9fc9e007570998130f2c7c0b126df679e6e6a9dd",
+      "reported_blob_sha1": [
+        "9fc9e007570998130f2c7c0b126df679e6e6a9dd"
+      ],
+      "sha256": "cc92da648dd2d40d31c38c2a37d71ed990bac7cf48658a927961a572e660c95f",
+      "bytes": 5080,
+      "line_count": 56,
+      "snapshot": "evidence/repository/apex-meta/orchestration/agents/meta-ops/INTEGRATION-apex-plan-sync-session.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-080",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/orchestration/schemas/authority-state.schema.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "f87f6b42b7409fe73a4c9ec9e5178ffefe55a5bd",
+      "reported_blob_sha1": [
+        "f87f6b42b7409fe73a4c9ec9e5178ffefe55a5bd"
+      ],
+      "sha256": "ef22ac27eaac0428ca92cfcc0e00958ddb182d2424118c77d7d0ba20d093fcc3",
+      "bytes": 4650,
+      "line_count": 92,
+      "snapshot": "evidence/repository/apex-meta/orchestration/schemas/authority-state.schema.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-081",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/orchestration/schemas/handoff-packet.schema.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "e46376417fd5c372a121fde345e6c9b001881be5",
+      "reported_blob_sha1": [
+        "e46376417fd5c372a121fde345e6c9b001881be5"
+      ],
+      "sha256": "2e50e1a87b4af47a43d9fc608622145dfd928c43d6c6e09e32b5467212bfa915",
+      "bytes": 5517,
+      "line_count": 90,
+      "snapshot": "evidence/repository/apex-meta/orchestration/schemas/handoff-packet.schema.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-082",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/orchestration/schemas/review-verdict.schema.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "2ea7cbd6668cc343e474c57b81b15562e15f6643",
+      "reported_blob_sha1": [
+        "2ea7cbd6668cc343e474c57b81b15562e15f6643"
+      ],
+      "sha256": "d39ac36f425e2beee010f21125decd259583d3b5252d24d9356f63798eb69d10",
+      "bytes": 4934,
+      "line_count": 96,
+      "snapshot": "evidence/repository/apex-meta/orchestration/schemas/review-verdict.schema.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "current_operating_owner_or_carrier",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    },
+    {
+      "source_id": "REPO-083",
+      "repository": "leela-spec/apexai-os-meta",
+      "path": "apex-meta/orchestration/workflows/detective-review.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "git_blob_sha1": "6bebc8b0730f2f8c12f23f96fd3a10dddcc4d82f",
+      "reported_blob_sha1": [
+        "6bebc8b0730f2f8c12f23f96fd3a10dddcc4d82f"
+      ],
+      "sha256": "4feedf512b264b82313e4f4218d7e1963594170403a1815497d351814908bfea",
+      "bytes": 3796,
+      "line_count": 38,
+      "snapshot": "evidence/repository/apex-meta/orchestration/workflows/detective-review.md",
+      "retrieval": "authenticated_GitHub_full_file",
+      "retrieved_on": "2026-11-12",
+      "review_scope": "Targeted substantive sections and source-dependent extraction; full byte retrieval does not mean every line was semantically reviewed.",
+      "source_role": "scoped_operating_or_decision_source",
+      "evidence_class": "repository_observed",
+      "authority_limit": "Classify current versus accepted-scoped versus retained-proposal using the actual source and findings; a filename/status label alone does not grant authority."
+    }
+  ],
+  "exact_path_access_gaps": [
+    {
+      "path": "apex-meta/informatics/final/specs/index.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "status": "authenticated_exact_path_fetch_returned_404",
+      "limit": "Does not establish absence from the operator workstation, another branch, or another path."
+    },
+    {
+      "path": "apex-meta/informatics/final/specs/migration.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "status": "authenticated_exact_path_fetch_returned_404",
+      "limit": "Does not establish absence from the operator workstation, another branch, or another path."
+    },
+    {
+      "path": "apex-meta/informatics/standard.md",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "status": "authenticated_exact_path_fetch_returned_404",
+      "limit": "Does not establish absence from the operator workstation, another branch, or another path."
+    },
+    {
+      "path": ".codex/config.toml",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "status": "authenticated_exact_path_fetch_returned_404",
+      "limit": "Does not establish absence from the operator workstation, another branch, or another path."
+    },
+    {
+      "path": ".agents/hooks.json",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "status": "authenticated_exact_path_fetch_returned_404",
+      "limit": "Does not establish absence from the operator workstation, another branch, or another path."
+    },
+    {
+      "path": ".codex/hooks.json",
+      "revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "status": "authenticated_exact_path_fetch_returned_404",
+      "limit": "Does not establish absence from the operator workstation, another branch, or another path."
+    }
+  ],
+  "scope_limits": [
+    "No indiscriminate repository scan.",
+    "No workstation/global-account/cross-repository runtime audit.",
+    "Original C:/tmp/apex-eval traces are not available in this run.",
+    "Retained source snapshots may contain stale links and instructions; they are frozen evidence, not execution authorization."
+  ],
+  "integrity": {
+    "all_retrieved_bytes_match_reported_git_blobs": true,
+    "source_count": 83
+  },
+  "guide_comparison_file": "evidence/reading-guide-comparison.json"
+}

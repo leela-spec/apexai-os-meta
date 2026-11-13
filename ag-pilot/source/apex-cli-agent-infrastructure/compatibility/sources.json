@@ -1,0 +1,764 @@
+{
+  "retrieved_on": "2026-11-12",
+  "sources": [
+    {
+      "source_id": "EXT-CLAUDE-01",
+      "title": "Claude instruction discovery and memory",
+      "url": "https://code.claude.com/docs/en/memory",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn1view0",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "CLAUDE.md loading; AGENTS.md; compaction",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-01",
+        "P-CLA-02"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-CLAUDE-02",
+      "title": "Claude skills",
+      "url": "https://code.claude.com/docs/en/skills",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn1view1",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Locations; invocation; lifecycle; allowed-tools",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-03",
+        "P-CLA-04"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-CLAUDE-03",
+      "title": "Claude hooks reference",
+      "url": "https://code.claude.com/docs/en/hooks",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn1view2",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Configuration; failure; SessionStart; prompt/tool/model events",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-05",
+        "P-CLA-06"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-CLAUDE-04",
+      "title": "Claude custom subagents",
+      "url": "https://code.claude.com/docs/en/sub-agents",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn1view3",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Scopes; frontmatter; plugin limits; startup; resume",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-07"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-CLAUDE-05",
+      "title": "Claude settings and precedence",
+      "url": "https://code.claude.com/docs/en/settings",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn3view1",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Scopes; strict JSON; precedence; cloud scope differences",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-08",
+        "P-CLA-12"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-CLAUDE-06",
+      "title": "Claude permissions",
+      "url": "https://code.claude.com/docs/en/permissions",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn3view2",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Host enforcement; modes; deny/ask/allow; MCP parameters",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-10"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-CLAUDE-07",
+      "title": "Claude complete settings reference",
+      "url": "https://code.claude.com/docs/en/settings-reference",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn26view0",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "permissions.defaultMode; versions and scope restrictions",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-09"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-CLAUDE-08",
+      "title": "Claude changelog",
+      "url": "https://code.claude.com/docs/en/changelog",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn14view4",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Latest visible 2.1.322, 2026-11-10; version-specific migration",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-15"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-CLAUDE-09",
+      "title": "Claude programmatic CLI",
+      "url": "https://code.claude.com/docs/en/headless",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn17view0",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "-p; --bare; discovery; auth; results",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-11"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-CLAUDE-10",
+      "title": "Claude desktop",
+      "url": "https://code.claude.com/docs/en/desktop",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn17view1",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Local/remote surfaces and managed hook restrictions",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-CLAUDE-11",
+      "title": "Claude cloud",
+      "url": "https://code.claude.com/docs/en/claude-code-on-the-web",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn17view2",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Context commands; agent loading; repository settings",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-12"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-CLAUDE-12",
+      "title": "Claude Agent SDK overview",
+      "url": "https://code.claude.com/docs/en/agent-sdk/overview",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn24view7",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "CLI versus Python/TypeScript SDK versus hosted",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-14"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-CLAUDE-13",
+      "title": "Claude SDK skills",
+      "url": "https://code.claude.com/docs/en/agent-sdk/skills",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn26view1",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "settingSources; skills allowlist; init stream",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-13"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-CLAUDE-14",
+      "title": "Claude SDK hooks",
+      "url": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn26view2",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Callback hooks and control; dedicated SDK surface",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-CLA-14"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-AGY-01",
+      "title": "Antigravity rules",
+      "url": "https://antigravity.google/docs/rules",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn3view0",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Discovery; trigger values; includes; limits",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-02",
+        "P-AG-03"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-AGY-02",
+      "title": "Antigravity customization discovery",
+      "url": "https://antigravity.google/docs/customization-discovery",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn8view3",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Workspace/ancestors; shared layout; legacy paths",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-01"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-AGY-03",
+      "title": "Antigravity skills",
+      "url": "https://antigravity.google/docs/skills",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn1view6",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Bundle schema; surface-specific paths; invocation",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-04",
+        "P-AG-05"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-AGY-04",
+      "title": "Antigravity hooks",
+      "url": "https://antigravity.google/docs/hooks",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn1view5",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "All six events; config roots; named-hook schema; payloads",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-06",
+        "P-AG-07"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-AGY-05",
+      "title": "Antigravity custom subagents",
+      "url": "https://antigravity.google/docs/subagents/",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn8view6",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "App/CLI; frontmatter; tools; clean context; known hangs",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-08",
+        "P-AG-09"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-AGY-06",
+      "title": "Antigravity permissions",
+      "url": "https://antigravity.google/docs/permissions/",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn8view7",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "App/CLI scopes; deny/ask/allow; Windows; defaults",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-10"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-AGY-07",
+      "title": "Antigravity headless CLI",
+      "url": "https://antigravity.google/docs/cli/headless/",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn8view8",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Print mode; model selection; soft denials; output status",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-11"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-AGY-08",
+      "title": "Gemini to Antigravity migration",
+      "url": "https://antigravity.google/docs/cli/gcli-migration/",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn8view4",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Extensions; rules; skill paths; MCP schemas",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-12"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-AGY-09",
+      "title": "Antigravity workflows migration",
+      "url": "https://antigravity.google/docs/migration/workflows-to-skills/",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn8view5",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Deprecation; App-only automatic migration; manual path",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-13"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-AGY-10",
+      "title": "Antigravity plugins (canonical redirect target)",
+      "url": "https://antigravity.google/docs/plugins?tab=cli",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn39view0",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Plugin contents; current shared paths; validation; generic hook wording",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [],
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "discovery_note": "Old /docs/cli/plugins search excerpt had superseded paths; direct open redirects here. Dedicated hooks reference governs supported handler types."
+    },
+    {
+      "source_id": "EXT-AGY-11",
+      "title": "Antigravity changelog",
+      "url": "https://antigravity.google/docs/changelog/",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn8view10",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "App 2.31.0; CLI 1.5.5; rollouts; distinct releases",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-14"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-AGY-12",
+      "title": "Antigravity SDK overview",
+      "url": "https://antigravity.google/docs/sdk/overview/",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn8view9",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Python local runtime versus managed cloud API",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-15"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-AGY-13",
+      "title": "Antigravity SDK lifecycle",
+      "url": "https://antigravity.google/docs/sdk/lifecycle/",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn24view9",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Decorators; persistence; event model",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-AG-15"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-GEMINI-01",
+      "title": "Gemini CLI memory",
+      "url": "https://geminicli.com/docs/cli/gemini-md/",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn14view0",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Global/workspace/JIT discovery; /memory",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-GEM-01"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-GEMINI-02",
+      "title": "Gemini CLI skills",
+      "url": "https://geminicli.com/docs/cli/skills/",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn14view2",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Discovery tiers; activate_skill; consent",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-GEM-02"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-GEMINI-03",
+      "title": "Gemini CLI hook reference",
+      "url": "https://geminicli.com/docs/hooks/reference/",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn17view3",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Settings JSON; event-specific outputs; exit codes; timeouts",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-GEM-03"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-GEMINI-04",
+      "title": "Gemini CLI subagents",
+      "url": "https://geminicli.com/docs/core/subagents/",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn14view3",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Agent paths; schema; defaults; independent context",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-GEM-04"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-GEMINI-05",
+      "title": "Gemini CLI configuration",
+      "url": "https://geminicli.com/docs/reference/configuration/",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn17view5",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Settings scopes; schema; hook/skill enable flags",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-GEM-05"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-GEMINI-06",
+      "title": "Gemini CLI release notes",
+      "url": "https://geminicli.com/docs/changelogs/",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn24view8",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "v0.64.0 state persistence; v0.63.0; 0.61.0; 0.59.0",
+      "version_scope": "Current documentation as retrieved; exact installed version unverified; see linked claims",
+      "claim_ids": [
+        "P-GEM-06"
+      ],
+      "short_claim": "Capability details are owned by linked claim IDs."
+    },
+    {
+      "source_id": "EXT-AGY-14",
+      "title": "Antigravity IDE workflows",
+      "url": "https://antigravity.google/docs/ide/workflows/",
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn38view1",
+      "section": "Changes to workflows",
+      "version_scope": "Current opened page, not installed behavior",
+      "installed_verification": false,
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-AG-13"
+      ]
+    },
+    {
+      "source_id": "EXT-OAI-01",
+      "title": "Codex Hooks",
+      "url": "https://learn.chatgpt.com/docs/hooks",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn42view0",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Configuration; trust; events; tool coverage; cloud orchestration",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-03",
+        "P-OAI-04",
+        "P-OAI-05",
+        "P-OAI-06"
+      ]
+    },
+    {
+      "source_id": "EXT-OAI-02",
+      "title": "Codex Build skills",
+      "url": "https://learn.chatgpt.com/docs/build-skills",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn42view3",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Initial metadata budget; invocation; discovery paths",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-02"
+      ]
+    },
+    {
+      "source_id": "EXT-OAI-03",
+      "title": "Codex AGENTS.md",
+      "url": "https://learn.chatgpt.com/docs/agent-configuration/agents-md",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn44view1",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "How Codex discovers guidance",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-01"
+      ]
+    },
+    {
+      "source_id": "EXT-OAI-04",
+      "title": "Codex Subagents",
+      "url": "https://learn.chatgpt.com/docs/agent-configuration/subagents",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn42view2",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Custom agent files and inherited permissions",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-09"
+      ]
+    },
+    {
+      "source_id": "EXT-OAI-05",
+      "title": "Codex Config basics",
+      "url": "https://learn.chatgpt.com/docs/config-file/config-basic",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn42view1",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Configuration precedence and project trust",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-07"
+      ]
+    },
+    {
+      "source_id": "EXT-OAI-06",
+      "title": "Codex Advanced configuration",
+      "url": "https://learn.chatgpt.com/docs/config-file/config-advanced",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn44view0",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Profiles migration from 0.134.0",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-07"
+      ]
+    },
+    {
+      "source_id": "EXT-OAI-07",
+      "title": "Codex Configuration reference",
+      "url": "https://learn.chatgpt.com/docs/config-file/config-reference",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn44view2",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Approval policy; capabilities; field-specific execution scope",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-08"
+      ]
+    },
+    {
+      "source_id": "EXT-OAI-08",
+      "title": "Codex Non-interactive mode",
+      "url": "https://learn.chatgpt.com/docs/non-interactive-mode",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn44view3",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Sandbox flags; obsolete full-auto; required MCP",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-10"
+      ]
+    },
+    {
+      "source_id": "EXT-OAI-09",
+      "title": "Codex Agent approvals and security",
+      "url": "https://learn.chatgpt.com/docs/agent-approvals-security",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn44view4",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Retired untrusted policy; sandbox and approvals",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-08"
+      ]
+    },
+    {
+      "source_id": "EXT-OAI-10",
+      "title": "Codex Codex SDK",
+      "url": "https://learn.chatgpt.com/docs/codex-sdk",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn44view5",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "TypeScript threads; app-server migration",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-11"
+      ]
+    },
+    {
+      "source_id": "EXT-OAI-11",
+      "title": "Codex Execution rules",
+      "url": "https://learn.chatgpt.com/docs/agent-configuration/rules",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn44view6",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "Prefix rules; local versus Work Cloud; Starlark",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-12"
+      ]
+    },
+    {
+      "source_id": "EXT-OAI-12",
+      "title": "Codex Changelog",
+      "url": "https://learn.chatgpt.com/docs/changelog",
+      "evidence_status": "opened_primary",
+      "tool_ref": "turn44view7",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_vendor_documentation",
+      "section": "2026-11-11 Codex CLI 0.167.2",
+      "version_scope": "Current documentation as retrieved; see claim version conditions",
+      "short_claim": "Capability details are owned by linked claim IDs.",
+      "claim_ids": [
+        "P-OAI-13"
+      ]
+    },
+    {
+      "source_id": "EXT-OAI-13",
+      "title": "Codex pinned hook wire schemas",
+      "url": "https://github.com/openai/codex/tree/rust-v0.167.2/codex-rs/hooks/schema/generated",
+      "evidence_status": "pinned_release_files_read",
+      "installed_verification": false,
+      "retrieved": "2026-11-12",
+      "evidence_kind": "official_release_schema",
+      "section": "Five copied schemas; per-file blob SHA and SHA-256 in native-schemas/codex/provenance.json",
+      "version_scope": "rust-v0.167.2",
+      "short_claim": "Wire shapes are broader than documented runtime semantics.",
+      "claim_ids": [
+        "P-OAI-05"
+      ]
+    }
+  ]
+}

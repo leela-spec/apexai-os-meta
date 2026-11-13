@@ -1,0 +1,181 @@
+{
+  "schema_version": "apex_architecture_bakeoff.proposal.v1",
+  "owner": "apex-meta/informatics/final/specs/execution-modes/bake-off.md EM-07; governance-schemas.md GS-13",
+  "status": "paper_comparison_unexecuted_native_trials",
+  "scores_are_not_IER": true,
+  "estimate_warning": "Criterion values and weights are new uncalibrated design judgments, not measurements. They support review and do not establish empirical reliability, acceptance or source authority.",
+  "criteria": [
+    {
+      "id": "coverage",
+      "label": "Task coverage by design",
+      "weight": 0.3
+    },
+    {
+      "id": "maintainability",
+      "label": "Maintenance and owner clarity",
+      "weight": 0.25
+    },
+    {
+      "id": "selectivity",
+      "label": "Context selectivity",
+      "weight": 0.2
+    },
+    {
+      "id": "portability",
+      "label": "Native portability",
+      "weight": 0.15
+    },
+    {
+      "id": "inspectability",
+      "label": "Inspectability and recovery",
+      "weight": 0.1
+    }
+  ],
+  "candidates": [
+    {
+      "option_id": "B",
+      "label": "Incremental native composition",
+      "criterion_scores": {
+        "coverage": 95,
+        "maintainability": 80,
+        "selectivity": 85,
+        "portability": 80,
+        "inspectability": 90
+      },
+      "weighted_criterion_total": 86.5,
+      "primary_failure_mode": "Wrong or skipped skill; missing hook coverage.",
+      "task_family_walkthrough": "Chat: native intent selects the decision workflow and its actual owners. Spec: authoring workflow plus tested path/operation constraints.",
+      "recovery_walkthrough": "Research: current state and source hashes recover through a supported boundary; receipt remains separate from correctness.",
+      "decision_trigger": "Select when P1 misses material cases and a bounded workflow improves outcomes. Avoid expanding if it adds no useful benefit.",
+      "status": "new_design_estimate_not_experiment",
+      "estimated_placement": 1
+    },
+    {
+      "option_id": "A",
+      "label": "Improve existing native files only",
+      "criterion_scores": {
+        "coverage": 75,
+        "maintainability": 95,
+        "selectivity": 80,
+        "portability": 85,
+        "inspectability": 70
+      },
+      "weighted_criterion_total": 82.0,
+      "primary_failure_mode": "Judgment reference omitted despite a correct pointer.",
+      "task_family_walkthrough": "Chat: current XML prompts the model to open the owner directly. Spec: repaired routing/pointers guide the same direct read.",
+      "recovery_walkthrough": "Research: existing iterative/handover files preserve state; no new receipts or runtime layer.",
+      "decision_trigger": "Select when existing mechanisms meet the same cases. Keep as fallback. Avoid claiming it mechanically enforces missed semantic routes.",
+      "status": "new_design_estimate_not_experiment",
+      "estimated_placement": 2
+    },
+    {
+      "option_id": "D",
+      "label": "All references as independent skills",
+      "criterion_scores": {
+        "coverage": 85,
+        "maintainability": 60,
+        "selectivity": 70,
+        "portability": 80,
+        "inspectability": 85
+      },
+      "weighted_criterion_total": 75.0,
+      "primary_failure_mode": "Conflicting descriptions or selection of a definition fragment.",
+      "task_family_walkthrough": "Chat: the model chooses QA and bake-off skills separately. Spec: it must choose authoring, task fields and schemas without double-loading.",
+      "recovery_walkthrough": "Research: many metadata entries compete; source bodies remain authoritative references.",
+      "decision_trigger": "Select if same-content tests show improved routing with tolerable metadata cost. Avoid when irrelevant selection or source drift increases.",
+      "status": "new_design_estimate_not_experiment",
+      "estimated_placement": 3
+    },
+    {
+      "option_id": "G",
+      "label": "Native scoped rules/direct refs",
+      "criterion_scores": {
+        "coverage": 65,
+        "maintainability": 85,
+        "selectivity": 85,
+        "portability": 60,
+        "inspectability": 75
+      },
+      "weighted_criterion_total": 74.25,
+      "primary_failure_mode": "No path event for a chat-only decision; divergent descendant behavior.",
+      "task_family_walkthrough": "Chat: depends on core/direct-reference recognition. Spec: verified native path scope supplies the appropriate rule.",
+      "recovery_walkthrough": "Research: recovery relies on existing current-state files; scope does not choose evidence by task meaning.",
+      "decision_trigger": "Select for stable file families with proven loaders. Avoid as the sole mechanism for conversational activation.",
+      "status": "new_design_estimate_not_experiment",
+      "estimated_placement": 4
+    },
+    {
+      "option_id": "E",
+      "label": "One multi-task Apex skill",
+      "criterion_scores": {
+        "coverage": 75,
+        "maintainability": 65,
+        "selectivity": 55,
+        "portability": 85,
+        "inspectability": 65
+      },
+      "weighted_criterion_total": 69.0,
+      "primary_failure_mode": "The monolith is chosen but a branch is skipped or irrelevant detail loaded.",
+      "task_family_walkthrough": "Chat and spec both invoke the same entrypoint, which branches into existing owner references.",
+      "recovery_walkthrough": "Research: the entrypoint can restore state, but broad scope makes selection and retention harder to diagnose.",
+      "decision_trigger": "Select only as a thin orientation entrypoint if useful. Avoid making it the normative owner of every workflow.",
+      "status": "new_design_estimate_not_experiment",
+      "estimated_placement": 5
+    },
+    {
+      "option_id": "C",
+      "label": "Registry semantic router service",
+      "criterion_scores": {
+        "coverage": 90,
+        "maintainability": 35,
+        "selectivity": 90,
+        "portability": 35,
+        "inspectability": 90
+      },
+      "weighted_criterion_total": 68.0,
+      "primary_failure_mode": "Router/service failure or another unverified policy authority.",
+      "task_family_walkthrough": "Chat: an external classifier selects EM-06. Spec: it selects file/authoring constraints before native execution.",
+      "recovery_walkthrough": "Research: the service must preserve task/epoch identity and handle outage/recovery; new operational dependencies appear.",
+      "decision_trigger": "Select only after measured scale/selection failures defeat simpler repairs. Avoid without an approved service boundary and maintenance owner.",
+      "status": "new_design_estimate_not_experiment",
+      "estimated_placement": 6
+    },
+    {
+      "option_id": "F",
+      "label": "All detailed rules always on",
+      "criterion_scores": {
+        "coverage": 90,
+        "maintainability": 40,
+        "selectivity": 15,
+        "portability": 70,
+        "inspectability": 55
+      },
+      "weighted_criterion_total": 56.0,
+      "primary_failure_mode": "Context competition, irrelevant ceremony and duplicated projection drift.",
+      "task_family_walkthrough": "Chat and spec both receive the whole detailed corpus before either needs it.",
+      "recovery_walkthrough": "Research: early details can still be lost or compete after long context; full loading does not prove adherence.",
+      "decision_trigger": "Select only a bounded critical slice supported by evidence. Avoid universal owner-corpus inlining.",
+      "status": "new_design_estimate_not_experiment",
+      "estimated_placement": 7
+    }
+  ],
+  "sensitivity": {
+    "weights": {
+      "coverage": 0.15,
+      "maintainability": 0.5,
+      "selectivity": 0.15,
+      "portability": 0.1,
+      "inspectability": 0.1
+    },
+    "totals": {
+      "B": 84.0,
+      "A": 86.25,
+      "D": 69.75,
+      "G": 78.5,
+      "E": 67.0,
+      "C": 57.0,
+      "F": 48.25
+    },
+    "interpretation": "This alternate stated preference reverses A and B. This is arithmetic over estimates, not an experiment."
+  }
+}

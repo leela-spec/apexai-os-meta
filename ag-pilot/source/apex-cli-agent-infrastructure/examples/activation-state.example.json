@@ -1,0 +1,30 @@
+{
+  "schema_version": "apex_activation_state.proposal.v1",
+  "execution_status": "illustrative_unexecuted",
+  "task_id": "illustrative-ranking-case",
+  "task_state_path": "<existing-run-dir>/current-state.md",
+  "authorization_boundary": "Illustrative read-only conversational ranking. No installation, repository write or authority promotion.",
+  "source_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+  "context_epoch": 0,
+  "profile": {
+    "platform": null,
+    "surface": null,
+    "version": null,
+    "installed_probe_status": "unexecuted"
+  },
+  "active_rule_ids": [
+    "XML.target",
+    "XML.trade_off",
+    "XML.ground",
+    "XML.scope"
+  ],
+  "delivery_receipts": [],
+  "coverage": [
+    {
+      "rule_id": "XML.trade_off",
+      "event_or_action": "conversational_final_answer",
+      "status": "unknown"
+    }
+  ],
+  "next_action": "In a separately authorized trial, establish the exact profile and deliver the applicable current owners before answering."
+}

@@ -1,0 +1,7 @@
+# Inert proposal. This file is outside every active configuration directory.
+# Review the operator's policy before choosing any real profile.
+sandbox_mode = "read-only"
+approval_policy = "on-request"
+
+[features]
+hooks = false

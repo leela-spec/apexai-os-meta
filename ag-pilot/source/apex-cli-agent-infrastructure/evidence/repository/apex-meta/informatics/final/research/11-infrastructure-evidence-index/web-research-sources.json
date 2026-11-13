@@ -1,0 +1,166 @@
+{
+  "scope": "Verified starting sources for the processing prompt; not an exhaustive platform capability audit.",
+  "refresh_required_at_execution": true,
+  "sources": [
+    {
+      "id": "W01",
+      "publisher": "OpenAI",
+      "title": "Hooks",
+      "url": "https://learn.chatgpt.com/docs/hooks",
+      "source_type": "official-documentation",
+      "retrieved_date": "2026-11-12",
+      "reviewed_scope": "Tool coverage; PreToolUse; event/matcher tables",
+      "installed_behavior_verified": false
+    },
+    {
+      "id": "W02",
+      "publisher": "OpenAI",
+      "title": "Build skills",
+      "url": "https://learn.chatgpt.com/docs/build-skills",
+      "source_type": "official-documentation",
+      "retrieved_date": "2026-11-12",
+      "reviewed_scope": "Progressive disclosure; explicit/implicit invocation; invocation policy",
+      "installed_behavior_verified": false
+    },
+    {
+      "id": "W03",
+      "publisher": "OpenAI",
+      "title": "Custom instructions with AGENTS.md",
+      "url": "https://learn.chatgpt.com/docs/agent-configuration/agents-md",
+      "source_type": "official-documentation",
+      "retrieved_date": "2026-11-12",
+      "reviewed_scope": "Instruction discovery; overrides; merge order; byte limits",
+      "installed_behavior_verified": false
+    },
+    {
+      "id": "W04",
+      "publisher": "OpenAI",
+      "title": "Subagents",
+      "url": "https://learn.chatgpt.com/docs/agent-configuration/subagents",
+      "source_type": "official-documentation",
+      "retrieved_date": "2026-11-12",
+      "reviewed_scope": "Custom agent files and scopes",
+      "installed_behavior_verified": false
+    },
+    {
+      "id": "W05",
+      "publisher": "OpenAI",
+      "title": "Plugin architecture",
+      "url": "https://developers.openai.com/plugins/concepts/plugins",
+      "source_type": "official-documentation",
+      "retrieved_date": "2026-11-12",
+      "reviewed_scope": "Capability packaging; execution-environment limitations",
+      "installed_behavior_verified": false
+    },
+    {
+      "id": "W06",
+      "publisher": "Anthropic",
+      "title": "Hooks reference",
+      "url": "https://code.claude.com/docs/en/hooks",
+      "source_type": "official-documentation",
+      "retrieved_date": "2026-11-12",
+      "reviewed_scope": "Event index; prompt submission; compaction; event-specific decision controls",
+      "installed_behavior_verified": false
+    },
+    {
+      "id": "W07",
+      "publisher": "Anthropic",
+      "title": "Extend Claude with skills",
+      "url": "https://code.claude.com/docs/en/skills",
+      "source_type": "official-documentation",
+      "retrieved_date": "2026-11-12",
+      "reviewed_scope": "Invocation controls; skill lifetime; subagent execution",
+      "installed_behavior_verified": false
+    },
+    {
+      "id": "W08",
+      "publisher": "Anthropic",
+      "title": "Create custom subagents",
+      "url": "https://code.claude.com/docs/en/sub-agents",
+      "source_type": "official-documentation",
+      "retrieved_date": "2026-11-12",
+      "reviewed_scope": "Context isolation; startup inheritance; permissions",
+      "installed_behavior_verified": false
+    },
+    {
+      "id": "W09",
+      "publisher": "Google",
+      "title": "Antigravity hooks",
+      "url": "https://antigravity.google/docs/hooks",
+      "source_type": "official-documentation",
+      "retrieved_date": "2026-11-12",
+      "reviewed_scope": "App/CLI/IDE locations; event schemas; invocation events",
+      "installed_behavior_verified": false
+    },
+    {
+      "id": "W10",
+      "publisher": "Google",
+      "title": "Antigravity agent skills",
+      "url": "https://antigravity.google/docs/skills/",
+      "source_type": "official-documentation",
+      "retrieved_date": "2026-11-12",
+      "reviewed_scope": "Skill structure and surface distinctions",
+      "installed_behavior_verified": false
+    },
+    {
+      "id": "W11",
+      "publisher": "Google",
+      "title": "Antigravity custom subagents",
+      "url": "https://antigravity.google/docs/subagents/",
+      "source_type": "official-documentation",
+      "retrieved_date": "2026-11-12",
+      "reviewed_scope": "Agent definition roots; CLI discovery and delegation",
+      "installed_behavior_verified": false
+    },
+    {
+      "id": "W12",
+      "publisher": "Google",
+      "title": "Gemini CLI migration",
+      "url": "https://antigravity.google/docs/cli/gcli-migration/",
+      "source_type": "official-documentation",
+      "retrieved_date": "2026-11-12",
+      "reviewed_scope": "Context documents; changed skill paths; extension/plugin and MCP migration",
+      "installed_behavior_verified": false
+    },
+    {
+      "id": "W13",
+      "publisher": "Agent Skills",
+      "title": "Specification",
+      "url": "https://agentskills.io/specification",
+      "source_type": "open-specification",
+      "retrieved_date": "2026-11-12",
+      "reviewed_scope": "Package structure; metadata; progressive disclosure; reference conventions",
+      "installed_behavior_verified": false
+    },
+    {
+      "id": "W14",
+      "publisher": "Model Context Protocol",
+      "title": "Specification",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28",
+      "source_type": "open-specification",
+      "retrieved_date": "2026-11-12",
+      "reviewed_scope": "Overview; host/client/server distinctions; resources/prompts/tools; latest redirected here",
+      "installed_behavior_verified": false
+    },
+    {
+      "id": "W15",
+      "publisher": "Prakhar Khatri",
+      "title": "Do Context Files Help Coding Agents?",
+      "url": "https://arxiv.org/abs/2607.27250",
+      "source_type": "preprint",
+      "retrieved_date": "2026-11-12",
+      "reviewed_scope": "Abstract and bibliographic record only; full methods and released data not reviewed",
+      "installed_behavior_verified": false
+    },
+    {
+      "id": "W16",
+      "publisher": "Kapner et al.",
+      "title": "Scanning the Harness: Configuration Exposures in AI Coding-Agent Supply Chains",
+      "url": "https://arxiv.org/abs/2609.07360v3",
+      "source_type": "preprint",
+      "retrieved_date": "2026-11-12",
+      "reviewed_scope": "Abstract and revision record only; methods and runtime transfer not independently validated",
+      "installed_behavior_verified": false
+    }
+  ]
+}

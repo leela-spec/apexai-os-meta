@@ -1,0 +1,508 @@
+{
+  "guide_revision": "2bdf9887a020c03732f619d9a5bf7b8a22e4f48c",
+  "used_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+  "hash_basis": "Canonical Git blob bytes at source_revision. Local checkout line endings can differ; slice hashes normalize line endings.",
+  "note": "Reading priority is not empirical reliability. Different hash means citations must be refreshed; unavailable retrieval is not inferred from not selecting a file.",
+  "entries": [
+    {
+      "rank": 1,
+      "reading_priority": "Read now",
+      "path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/sources/infrastructure-activation-research-brief.md",
+      "guide_file_sha256": "2f032e7f1779ac281eab73ad6ca6d33307df77173738114b3fcbdd2892604508",
+      "retrieved_for_this_run": true,
+      "current_sha256": "2f032e7f1779ac281eab73ad6ca6d33307df77173738114b3fcbdd2892604508",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 2,
+      "reading_priority": "Read now",
+      "path": "apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml",
+      "guide_file_sha256": "0cbaa3e994b5ff0ba2e489623ae6ee3b58d63988a2a225b11df9b5cdee132b0b",
+      "retrieved_for_this_run": true,
+      "current_sha256": "0cbaa3e994b5ff0ba2e489623ae6ee3b58d63988a2a225b11df9b5cdee132b0b",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 3,
+      "reading_priority": "Read now",
+      "path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/01-results-and-verdict.md",
+      "guide_file_sha256": "ee34d49c6d8513a8d91854fe45dd7e9b1f27f43cde403bef839a5c634f4bfecb",
+      "retrieved_for_this_run": true,
+      "current_sha256": "ee34d49c6d8513a8d91854fe45dd7e9b1f27f43cde403bef839a5c634f4bfecb",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 4,
+      "reading_priority": "Read before design",
+      "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/index.md",
+      "guide_file_sha256": "af6b5903ab60ce53b8c4ec71375366bc7459548308bf2cca4829e61a574fb151",
+      "retrieved_for_this_run": true,
+      "current_sha256": "af6b5903ab60ce53b8c4ec71375366bc7459548308bf2cca4829e61a574fb151",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 5,
+      "reading_priority": "Read now",
+      "path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+      "guide_file_sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+      "retrieved_for_this_run": true,
+      "current_sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 6,
+      "reading_priority": "Read before design",
+      "path": "apex-meta/informatics/final/operations/18-APEX-CARRIER-MAP.md",
+      "guide_file_sha256": "a8a380f6424e9d90d0846a1f49adbad2a215763fc7a79ef7b58244ddd0e4ddb9",
+      "retrieved_for_this_run": true,
+      "current_sha256": "a8a380f6424e9d90d0846a1f49adbad2a215763fc7a79ef7b58244ddd0e4ddb9",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 7,
+      "reading_priority": "Read before design",
+      "path": "AGENTS.md",
+      "guide_file_sha256": "c7f660b441ba3ecbcb767e2997fa2c08b33c02c5eaa0fb8206e991a4e8124c39",
+      "retrieved_for_this_run": true,
+      "current_sha256": "c7f660b441ba3ecbcb767e2997fa2c08b33c02c5eaa0fb8206e991a4e8124c39",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 8,
+      "reading_priority": "Read before design",
+      "path": ".claude/CLAUDE.md",
+      "guide_file_sha256": "9583973b6f008980ac19ea05536792add5082d00eac50ef2f0bc2f5a7c7b5d0e",
+      "retrieved_for_this_run": true,
+      "current_sha256": "9583973b6f008980ac19ea05536792add5082d00eac50ef2f0bc2f5a7c7b5d0e",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 9,
+      "reading_priority": "Read now",
+      "path": "apex-meta/orchestration/CURRENT-SYSTEM-MANIFEST.yaml",
+      "guide_file_sha256": "b83a25a0a6d2a06a91f0c95cade1b1847522905a66fe64d09ba4d0b5ff354b39",
+      "retrieved_for_this_run": true,
+      "current_sha256": "b83a25a0a6d2a06a91f0c95cade1b1847522905a66fe64d09ba4d0b5ff354b39",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 10,
+      "reading_priority": "Read before design",
+      "path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/cross-cli-hook-architecture.md",
+      "guide_file_sha256": "69213f89257483f3153242d1fd36f570488d290f69330e598b367711126aef5d",
+      "retrieved_for_this_run": true,
+      "current_sha256": "69213f89257483f3153242d1fd36f570488d290f69330e598b367711126aef5d",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 11,
+      "reading_priority": "Read before design",
+      "path": "apex-meta/informatics/final/research/01-universal-instruction-research/05-INSTRUCTION-ACCESS-AND-SERIALIZATION-MATRIX.md",
+      "guide_file_sha256": "bae470850b258b2fc2a2cb323ffb439391b8f0b8e6ce11ab4d24c4900ef22c21",
+      "retrieved_for_this_run": true,
+      "current_sha256": "bae470850b258b2fc2a2cb323ffb439391b8f0b8e6ce11ab4d24c4900ef22c21",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 12,
+      "reading_priority": "Read before design",
+      "path": "apex-meta/informatics/final/operations/17-READ-TRACE-PILOT-AND-BASE-REF-FRAGILITY-FINDINGS.md",
+      "guide_file_sha256": "149f236b6a4e1ac32f78f6bf2f65d3c9ea41ed09c1cd38622caa4f532f0752d4",
+      "retrieved_for_this_run": true,
+      "current_sha256": "149f236b6a4e1ac32f78f6bf2f65d3c9ea41ed09c1cd38622caa4f532f0752d4",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 13,
+      "reading_priority": "Read before design",
+      "path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/HANDOVER-14-APEX-RULE-REGISTRY-AND-ACTIVATION-INTEGRATION.md",
+      "guide_file_sha256": "cbb478aeaf1f5b001e3fa3ae8eac31ca1add673186b117259b1e45f553ded683",
+      "retrieved_for_this_run": true,
+      "current_sha256": "cbb478aeaf1f5b001e3fa3ae8eac31ca1add673186b117259b1e45f553ded683",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 14,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/specs/standard.md",
+      "guide_file_sha256": "6a25eaf2ecc4dcfb3dd2ab2fecf28e3c767f698cadaecd3171aa3fddbc8de553",
+      "retrieved_for_this_run": true,
+      "current_sha256": "6a25eaf2ecc4dcfb3dd2ab2fecf28e3c767f698cadaecd3171aa3fddbc8de553",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 15,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/specs/file-architecture.md",
+      "guide_file_sha256": "0ac27e4741819fd3c3785f4e2ce35d85f477c9439695cb466bee20ff1d8ea8f0",
+      "retrieved_for_this_run": true,
+      "current_sha256": "0ac27e4741819fd3c3785f4e2ce35d85f477c9439695cb466bee20ff1d8ea8f0",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 16,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/specs/writing-profile.md",
+      "guide_file_sha256": "ff354300a39c873de0c51322f8f4f579ce54f8bd3f1bbb5541b911274244c6c9",
+      "retrieved_for_this_run": true,
+      "current_sha256": "ff354300a39c873de0c51322f8f4f579ce54f8bd3f1bbb5541b911274244c6c9",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 17,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/specs/anti-drift-rules.md",
+      "guide_file_sha256": "9f429c36a53b9c0276053afcaf20741460c881c1613418ed60881f0f85d73229",
+      "retrieved_for_this_run": true,
+      "current_sha256": "9f429c36a53b9c0276053afcaf20741460c881c1613418ed60881f0f85d73229",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 18,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/specs/governance-schemas.md",
+      "guide_file_sha256": "e4fc66bb8f0818e12a8dbe3916b28990e29ee6ae32165a059c4e2bde8e367ba1",
+      "retrieved_for_this_run": true,
+      "current_sha256": "e4fc66bb8f0818e12a8dbe3916b28990e29ee6ae32165a059c4e2bde8e367ba1",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 19,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/specs/execution-modes/task-specification.md",
+      "guide_file_sha256": "85484fe3bff8a4ae92f32f2a77b9d5ba851421221c8274c9379932b322e4e65a",
+      "retrieved_for_this_run": true,
+      "current_sha256": "85484fe3bff8a4ae92f32f2a77b9d5ba851421221c8274c9379932b322e4e65a",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 20,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/specs/execution-modes/iterative-execution.md",
+      "guide_file_sha256": "583133b554a67d215c168b09dac07f71220ac9e7a0131b5d3def883da46d76d9",
+      "retrieved_for_this_run": true,
+      "current_sha256": "583133b554a67d215c168b09dac07f71220ac9e7a0131b5d3def883da46d76d9",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 21,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/specs/execution-modes/handover.md",
+      "guide_file_sha256": "00b3e0b40e7cb67dced95657de8bc936292138fdf16524ed778e26f8a51518f7",
+      "retrieved_for_this_run": true,
+      "current_sha256": "00b3e0b40e7cb67dced95657de8bc936292138fdf16524ed778e26f8a51518f7",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 22,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/specs/execution-modes/qa-decision-matrix.md",
+      "guide_file_sha256": "a16b0226570883a45e5fb247cce8fc4c9ee76c2498d043b0475960ef1102ba2e",
+      "retrieved_for_this_run": true,
+      "current_sha256": "a16b0226570883a45e5fb247cce8fc4c9ee76c2498d043b0475960ef1102ba2e",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 23,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/specs/execution-modes/bake-off.md",
+      "guide_file_sha256": "00a10c860c72e19f5c264ace38ffaad970be5c15c82243d454c37bf449dfcd0a",
+      "retrieved_for_this_run": true,
+      "current_sha256": "00a10c860c72e19f5c264ace38ffaad970be5c15c82243d454c37bf449dfcd0a",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 24,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/specs/execution-modes/patch-discipline.md",
+      "guide_file_sha256": "6951891dffe343c7dd8f20252a922d5fc7d54de5d65a20d4f37b6d139ee0dbf2",
+      "retrieved_for_this_run": true,
+      "current_sha256": "6951891dffe343c7dd8f20252a922d5fc7d54de5d65a20d4f37b6d139ee0dbf2",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 25,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/index.md",
+      "guide_file_sha256": "ddec5dc24de305a22ae25092eea10eaa93931c7d65c8eae05ae575d27a702c3b",
+      "retrieved_for_this_run": true,
+      "current_sha256": "ddec5dc24de305a22ae25092eea10eaa93931c7d65c8eae05ae575d27a702c3b",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 26,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/specs/carrier-layer2-shared.md",
+      "guide_file_sha256": "8a7fe4858fcc4accd4ebd1e58f44e5b581e47cbe0c79d031b281cdcd66ae41d8",
+      "retrieved_for_this_run": true,
+      "current_sha256": "8a7fe4858fcc4accd4ebd1e58f44e5b581e47cbe0c79d031b281cdcd66ae41d8",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 27,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/preregistration.md",
+      "guide_file_sha256": "ad835707475b0a223baae70053e4d66de0e87f0cdd79b4a1ad7d63997006802a",
+      "retrieved_for_this_run": true,
+      "current_sha256": "ad835707475b0a223baae70053e4d66de0e87f0cdd79b4a1ad7d63997006802a",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 28,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/fixtures/armB_hook_agy.py",
+      "guide_file_sha256": "88a0fda3b2b98aaa4e220ecdd843753bdaa7c9aa1ba0c8ac1cb94b4032e869a9",
+      "retrieved_for_this_run": true,
+      "current_sha256": "88a0fda3b2b98aaa4e220ecdd843753bdaa7c9aa1ba0c8ac1cb94b4032e869a9",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 29,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/score_eval.py",
+      "guide_file_sha256": "b83fa8c011301df065937dece0b9fd202a185a1f862699001ea982ee85f839ea",
+      "retrieved_for_this_run": true,
+      "current_sha256": "b83fa8c011301df065937dece0b9fd202a185a1f862699001ea982ee85f839ea",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 30,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/tools/agent_eval_runner.py",
+      "guide_file_sha256": "e99ad844212421a1ef610e1643451d0bb92fcf5dae79b93fb4afaea84bd62cc0",
+      "retrieved_for_this_run": true,
+      "current_sha256": "e99ad844212421a1ef610e1643451d0bb92fcf5dae79b93fb4afaea84bd62cc0",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 31,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/research/08-read-trace-routing-experiments/01-findings-and-protocol.md",
+      "guide_file_sha256": "0af42bbc5202abdf650d81f6895c68c391e02299df792c5f69d8ab21fba63707",
+      "retrieved_for_this_run": true,
+      "current_sha256": "0af42bbc5202abdf650d81f6895c68c391e02299df792c5f69d8ab21fba63707",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 32,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/research/08-read-trace-routing-experiments/03-design-review-routing-carriers.md",
+      "guide_file_sha256": "32912e1ad88d3ea9db8df1ddc78ce0e119807ecf338dd761e9260dbfe43e9d32",
+      "retrieved_for_this_run": true,
+      "current_sha256": "32912e1ad88d3ea9db8df1ddc78ce0e119807ecf338dd761e9260dbfe43e9d32",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 33,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/research/08-read-trace-routing-experiments/artifacts/stage1/score_stage1_corrected.py",
+      "guide_file_sha256": "e575f5a2fb135244d65b250bbe0308fc0a72ddcfafb11fc8ede86af6db387c1f",
+      "retrieved_for_this_run": true,
+      "current_sha256": "e575f5a2fb135244d65b250bbe0308fc0a72ddcfafb11fc8ede86af6db387c1f",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 34,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/research/01-universal-instruction-research/04-FRAMEWORK-LANDSCAPE-MATRIX.md",
+      "guide_file_sha256": "3dcedec89ad73b81f253e13c6b769c61e506cf83af3604a7e40e51431461882b",
+      "retrieved_for_this_run": true,
+      "current_sha256": "3dcedec89ad73b81f253e13c6b769c61e506cf83af3604a7e40e51431461882b",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 35,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/research/01-universal-instruction-research/07-TIER-A-COVERAGE-AND-LIVE-AGENT-AUDIT.md",
+      "guide_file_sha256": "06c6c0e356e71a18d310c74a2649a55e42a5f9f7f9f7b0ebb21716fb53f8c949",
+      "retrieved_for_this_run": true,
+      "current_sha256": "06c6c0e356e71a18d310c74a2649a55e42a5f9f7f9f7b0ebb21716fb53f8c949",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 36,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/research/01-universal-instruction-research/module-deepening/A06-context-engineering-progressive-disclosure/README.md",
+      "guide_file_sha256": "9ad30c58e0a3336c0ca9cf5835fc7f52601a780fd7ce6baddb83a383a07e1c89",
+      "retrieved_for_this_run": true,
+      "current_sha256": "9ad30c58e0a3336c0ca9cf5835fc7f52601a780fd7ce6baddb83a383a07e1c89",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 37,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/research/02-deep-reasoning/06-how-the-routing-actually-works.md",
+      "guide_file_sha256": "661c39b781f85c54bb97640e02eded5ac45905f502a03a6332020ea673e46b20",
+      "retrieved_for_this_run": true,
+      "current_sha256": "661c39b781f85c54bb97640e02eded5ac45905f502a03a6332020ea673e46b20",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 38,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+      "guide_file_sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+      "retrieved_for_this_run": true,
+      "current_sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 39,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+      "guide_file_sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+      "retrieved_for_this_run": true,
+      "current_sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 40,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+      "guide_file_sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+      "retrieved_for_this_run": true,
+      "current_sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 41,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/orchestration/ARCHITECTURE.md",
+      "guide_file_sha256": "e3bd6e3ad87fea9b32d8fb612356d1f6f2893fb9dde5db7a928a3c572660c44c",
+      "retrieved_for_this_run": true,
+      "current_sha256": "e3bd6e3ad87fea9b32d8fb612356d1f6f2893fb9dde5db7a928a3c572660c44c",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 42,
+      "reading_priority": "Read by topic",
+      "path": ".claude/skills/AIRouting/SKILL.md",
+      "guide_file_sha256": "06b52efc17705116b5684f424ed147076eb12e4bc6efa2be6bda308ab115ce5e",
+      "retrieved_for_this_run": true,
+      "current_sha256": "06b52efc17705116b5684f424ed147076eb12e4bc6efa2be6bda308ab115ce5e",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 43,
+      "reading_priority": "Read by topic",
+      "path": ".agents/skills/qmd/SKILL.md",
+      "guide_file_sha256": "f12c774d704149fcd7047ac66e36e17d04ff50af15c26f7a829bca01d246d359",
+      "retrieved_for_this_run": true,
+      "current_sha256": "f12c774d704149fcd7047ac66e36e17d04ff50af15c26f7a829bca01d246d359",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 44,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/kb/claude-code-orchestration-design/wiki/summaries/claude-mechanism-decision-model.md",
+      "guide_file_sha256": "3235aca48aa227cc85e707a9e70ae0cd7e3f7b5e06b7781ed6e47a3beec031ab",
+      "retrieved_for_this_run": true,
+      "current_sha256": "3235aca48aa227cc85e707a9e70ae0cd7e3f7b5e06b7781ed6e47a3beec031ab",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 45,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/kb/claude-code-orchestration-design/log/operator-phase1-review-decisions-20260702.md",
+      "guide_file_sha256": "c411e68bbdaa3a7529e53bd4e3c72703e1a935378434f2143decb87f01588119",
+      "retrieved_for_this_run": true,
+      "current_sha256": "c411e68bbdaa3a7529e53bd4e3c72703e1a935378434f2143decb87f01588119",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 46,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/epics/hermes-multi-repo-orchestration-v2/DECISIONS.md",
+      "guide_file_sha256": "c981d4545da0f3fabf3fbc02030056521d33a4b5173c6c4117c0b8f97db2f2de",
+      "retrieved_for_this_run": true,
+      "current_sha256": "c981d4545da0f3fabf3fbc02030056521d33a4b5173c6c4117c0b8f97db2f2de",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 47,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/local-orchestration-engine/OPERATOR-DECISION-LOCK-2026-08-08-R3-LOCAL-MODEL.md",
+      "guide_file_sha256": "c1519f6eb933d030d6f948e95742a0ff52e4a9332b862f546f1051255361bb64",
+      "retrieved_for_this_run": true,
+      "current_sha256": "c1519f6eb933d030d6f948e95742a0ff52e4a9332b862f546f1051255361bb64",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 48,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/tools/apex_carrier_sync.py",
+      "guide_file_sha256": "1f4bf20caff55533ce0446429990ebb3e7c7dd62c3f36448cadf694319e0b64d",
+      "retrieved_for_this_run": true,
+      "current_sha256": "1f4bf20caff55533ce0446429990ebb3e7c7dd62c3f36448cadf694319e0b64d",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 49,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/informatics/final/tools/check_vendor_drift.py",
+      "guide_file_sha256": "4ea61059eecca812936db0b1f5e573b89a5cc598c7d16ae987b140b75e41ecb7",
+      "retrieved_for_this_run": true,
+      "current_sha256": "4ea61059eecca812936db0b1f5e573b89a5cc598c7d16ae987b140b75e41ecb7",
+      "hash_relation": "unchanged",
+      "reason_if_not_retrieved": null
+    },
+    {
+      "rank": 50,
+      "reading_priority": "Read by topic",
+      "path": "apex-meta/SmallSkills/Prompting/ProThinkingPrompt/01_PRO_THINKING_PROMPT_DESIGN_STANDARD.md",
+      "guide_file_sha256": "f5cdb1b8e5af2d157f1e8e46d03cf38cc2799a220caca9d8d576a8e8ff77f606",
+      "retrieved_for_this_run": false,
+      "current_sha256": null,
+      "hash_relation": "not_retrieved_not_a_missing_file_claim",
+      "reason_if_not_retrieved": "Prompt-design methodology is not needed to redesign this already explicit task; source is a retained guide, not a mandatory sequence."
+    }
+  ]
+}

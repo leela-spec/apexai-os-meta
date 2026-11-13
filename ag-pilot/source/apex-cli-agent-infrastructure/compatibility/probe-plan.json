@@ -1,0 +1,424 @@
+{
+  "status": "unexecuted",
+  "probes": [
+    {
+      "probe_id": "PROBE-00",
+      "status": "not_executed",
+      "method_kind": "planned_native_surface_probe",
+      "authorization_boundary": "Run only after separate operator approval for a disposable test workspace; never modify live Apex configuration in this research run.",
+      "purpose": "Identify actual runtime before claiming support",
+      "preconditions": [
+        "Read-only inventory access to the intended Windows host"
+      ],
+      "procedure": [
+        "Record installed claude/agy/gemini versions from each executable actually launched.",
+        "Record App and IDE versions separately, account class without credentials, native tool IDs, enabled customizations and relevant config scopes.",
+        "Record release/source claim and compare with feature-specific minimum.",
+        "Distinguish the research-container Codex 0.167.0-alpha.4 observation from the operator workstation; obtain the latter independently."
+      ],
+      "expected_observation": [
+        "A capability fingerprint with unknowns explicit; different executables/surfaces have separate records."
+      ],
+      "failure_implication": "Without fingerprint, all native capability claims remain documented-only.",
+      "capture": [
+        "UTC time and surface",
+        "binary/app/SDK version",
+        "cwd/workspace roots",
+        "config hashes and effective settings sources",
+        "invocation flags and model identifier",
+        "hook stdout/stderr or native trace",
+        "source-read evidence where observable",
+        "final artifact/answer and independent score"
+      ]
+    },
+    {
+      "probe_id": "PROBE-01",
+      "status": "not_executed",
+      "method_kind": "planned_native_surface_probe",
+      "authorization_boundary": "Run only after separate operator approval for a disposable test workspace; never modify live Apex configuration in this research run.",
+      "purpose": "Instruction discovery and scope",
+      "preconditions": [
+        "Disposable fixture repository, short distinct canaries in root/descendant/ancestor carriers; no contradictory real rules"
+      ],
+      "procedure": [
+        "Start each surface from root and then from a child directory.",
+        "Ask a harmless question without file access, then ask to read one descendant fixture.",
+        "For Claude repeat with CLAUDE.md present/absent and native AGENTS option.",
+        "For Antigravity inspect discovered customizations; do not infer from model recollection alone.",
+        "For Gemini capture /memory show and JIT behavior."
+      ],
+      "expected_observation": [
+        "Canary delivery matches documented scope; absent descendant loading is recorded rather than counted as rule violation."
+      ],
+      "failure_implication": "Use root-scoped routes or explicit imports where native scope discovery fails.",
+      "capture": [
+        "UTC time and surface",
+        "binary/app/SDK version",
+        "cwd/workspace roots",
+        "config hashes and effective settings sources",
+        "invocation flags and model identifier",
+        "hook stdout/stderr or native trace",
+        "source-read evidence where observable",
+        "final artifact/answer and independent score"
+      ]
+    },
+    {
+      "probe_id": "PROBE-02",
+      "status": "not_executed",
+      "method_kind": "planned_native_surface_probe",
+      "authorization_boundary": "Run only after separate operator approval for a disposable test workspace; never modify live Apex configuration in this research run.",
+      "purpose": "Skill discovery, activation and consent are separate",
+      "preconditions": [
+        "One intended skill, one semantically similar distractor, one manual-only skill in a disposable profile"
+      ],
+      "procedure": [
+        "Ask task implicitly and repeat by explicit native invocation.",
+        "Capture catalog visibility, activation event, full-body read and supporting reference read separately.",
+        "Disable the skill and repeat; capture fallback.",
+        "For Gemini record consent behavior and resulting bundled-resource access.",
+        "For Codex use a deliberately crowded disposable skill catalog; detect metadata shortening/omission and test an explicit missing-skill invocation."
+      ],
+      "expected_observation": [
+        "Correct skill/source selection with no invented invocation claims; disabled state is visible."
+      ],
+      "failure_implication": "Improve trigger and native projection before increasing the number of skills.",
+      "capture": [
+        "UTC time and surface",
+        "binary/app/SDK version",
+        "cwd/workspace roots",
+        "config hashes and effective settings sources",
+        "invocation flags and model identifier",
+        "hook stdout/stderr or native trace",
+        "source-read evidence where observable",
+        "final artifact/answer and independent score"
+      ]
+    },
+    {
+      "probe_id": "PROBE-03",
+      "status": "not_executed",
+      "method_kind": "planned_native_surface_probe",
+      "authorization_boundary": "Run only after separate operator approval for a disposable test workspace; never modify live Apex configuration in this research run.",
+      "purpose": "Chat-only routing without tool dependence",
+      "preconditions": [
+        "Isolated test hook that returns a marker and no permissions; route examples for comparison and test-spec tasks"
+      ],
+      "procedure": [
+        "Ask an information-only options ranking with no requested file operations.",
+        "Record prompt/model event and injected marker; inspect delivery trace.",
+        "Repeat with hook disabled, wrong configuration location, and a deliberately unmatched tool matcher.",
+        "Verify native always-on fallback remains sufficient to request the required procedure."
+      ],
+      "expected_observation": [
+        "Tool-free answers receive applicable guidance when supported; hook absence is not silently scored as delivery success."
+      ],
+      "failure_implication": "Tool hooks alone cannot provide universal rule activation.",
+      "capture": [
+        "UTC time and surface",
+        "binary/app/SDK version",
+        "cwd/workspace roots",
+        "config hashes and effective settings sources",
+        "invocation flags and model identifier",
+        "hook stdout/stderr or native trace",
+        "source-read evidence where observable",
+        "final artifact/answer and independent score"
+      ]
+    },
+    {
+      "probe_id": "PROBE-04",
+      "status": "not_executed",
+      "method_kind": "planned_native_surface_probe",
+      "authorization_boundary": "Run only after separate operator approval for a disposable test workspace; never modify live Apex configuration in this research run.",
+      "purpose": "Compaction, interruption and task recovery",
+      "preconditions": [
+        "Synthetic task checkpoint with objective, selected rules, source hashes, progress and unresolved decisions"
+      ],
+      "procedure": [
+        "Invoke workflow, perform bounded source reading, then compact/resume through a supported native operation.",
+        "Restart after a checkpoint and compare recovered state with expected facts.",
+        "Change one source hash between sessions; verify stale source is re-read.",
+        "Antigravity repeated pre-invocation calls must not duplicate static content indefinitely."
+      ],
+      "expected_observation": [
+        "Recovery preserves goal, boundaries and evidence without treating old proposals as approval."
+      ],
+      "failure_implication": "Add explicit checkpoint consumption and idempotency; do not rely on full skill text retention.",
+      "capture": [
+        "UTC time and surface",
+        "binary/app/SDK version",
+        "cwd/workspace roots",
+        "config hashes and effective settings sources",
+        "invocation flags and model identifier",
+        "hook stdout/stderr or native trace",
+        "source-read evidence where observable",
+        "final artifact/answer and independent score"
+      ]
+    },
+    {
+      "probe_id": "PROBE-05",
+      "status": "not_executed",
+      "method_kind": "planned_native_surface_probe",
+      "authorization_boundary": "Run only after separate operator approval for a disposable test workspace; never modify live Apex configuration in this research run.",
+      "purpose": "Hook failure and control semantics",
+      "preconditions": [
+        "No live resources; disposable forbidden-output fixture; host permission configuration left under operator control"
+      ],
+      "procedure": [
+        "Test matching benign action, deny response, disabled hook, missing script, malformed stdout, timeout and nonzero exit.",
+        "Record whether action happened and whether run noticed the missing control.",
+        "Use event-specific schemas and exact tool IDs; test a tool requiring no permission prompt too."
+      ],
+      "expected_observation": [
+        "Observed host behavior agrees with the capability record; critical profiles cannot call an absent gate enforced."
+      ],
+      "failure_implication": "Retain native permission backstop; disable mutation profile when required coverage is unavailable.",
+      "capture": [
+        "UTC time and surface",
+        "binary/app/SDK version",
+        "cwd/workspace roots",
+        "config hashes and effective settings sources",
+        "invocation flags and model identifier",
+        "hook stdout/stderr or native trace",
+        "source-read evidence where observable",
+        "final artifact/answer and independent score"
+      ]
+    },
+    {
+      "probe_id": "PROBE-06",
+      "status": "not_executed",
+      "method_kind": "planned_native_surface_probe",
+      "authorization_boundary": "Run only after separate operator approval for a disposable test workspace; never modify live Apex configuration in this research run.",
+      "purpose": "Delegation boundaries and independent verification",
+      "preconditions": [
+        "Read-only verifier definition in disposable profile; parent task includes explicit small evidence packet"
+      ],
+      "procedure": [
+        "Delegate review with source revision, rule IDs, scope exclusions, expected output and writable paths set to none.",
+        "Attempt harmless fixture read through allowed tool; ask for an edit and observe refusal.",
+        "Verify child did not assume parent history or wrong canonical owner.",
+        "Test misspelled tool configuration with a short timeout; capture load/hang behavior."
+      ],
+      "expected_observation": [
+        "Verifier uses its own source reads and reports evidence; no writes, branches or unrequested implementation."
+      ],
+      "failure_implication": "Repair native role metadata; do not confuse a persona with a restricted tool boundary.",
+      "capture": [
+        "UTC time and surface",
+        "binary/app/SDK version",
+        "cwd/workspace roots",
+        "config hashes and effective settings sources",
+        "invocation flags and model identifier",
+        "hook stdout/stderr or native trace",
+        "source-read evidence where observable",
+        "final artifact/answer and independent score"
+      ]
+    },
+    {
+      "probe_id": "PROBE-07",
+      "status": "not_executed",
+      "method_kind": "planned_native_surface_probe",
+      "authorization_boundary": "Run only after separate operator approval for a disposable test workspace; never modify live Apex configuration in this research run.",
+      "purpose": "Effective settings rather than repository text",
+      "preconditions": [
+        "Read-only access to relevant runtime settings; omit credentials from captured evidence"
+      ],
+      "procedure": [
+        "Record every setting source and effective permission mode from native status/diagnostics.",
+        "Compare the repository defaultMode key with documented nesting and scope; do not activate bypass.",
+        "Test invalid JSON only in a disposable profile; see whether headless skips it.",
+        "Inspect disabled hooks/skills and managed policy restrictions.",
+        "For Codex inspect selected separate profile file, project trust, exact hook trust and inherited child permissions; reject obsolete profiles/untrusted/full-auto assumptions."
+      ],
+      "expected_observation": [
+        "Declared, loaded and effective settings are separate fields."
+      ],
+      "failure_implication": "Report ineffective/unknown configuration; do not propose an automatic permission broadening fix.",
+      "capture": [
+        "UTC time and surface",
+        "binary/app/SDK version",
+        "cwd/workspace roots",
+        "config hashes and effective settings sources",
+        "invocation flags and model identifier",
+        "hook stdout/stderr or native trace",
+        "source-read evidence where observable",
+        "final artifact/answer and independent score"
+      ]
+    },
+    {
+      "probe_id": "PROBE-08",
+      "status": "not_executed",
+      "method_kind": "planned_native_surface_probe",
+      "authorization_boundary": "Run only after separate operator approval for a disposable test workspace; never modify live Apex configuration in this research run.",
+      "purpose": "Headless outcomes and SDK discovery",
+      "preconditions": [
+        "Disposable profile with a harmless request needing a known allowed read; second request deliberately lacks permission"
+      ],
+      "procedure": [
+        "Run normal print mode and compare configured explicit-input/bare profile where applicable.",
+        "Capture stdout, stderr, result status and promised artifact.",
+        "For SDK capture init skills, setting sources, callback outcomes and underlying CLI version.",
+        "Verify an unavailable requested action cannot be scored successful solely from exit code."
+      ],
+      "expected_observation": [
+        "Every result includes outcome evidence and denials; no environment assumption leaks between modes."
+      ],
+      "failure_implication": "Headless automation must evaluate task completion and installed capabilities separately.",
+      "capture": [
+        "UTC time and surface",
+        "binary/app/SDK version",
+        "cwd/workspace roots",
+        "config hashes and effective settings sources",
+        "invocation flags and model identifier",
+        "hook stdout/stderr or native trace",
+        "source-read evidence where observable",
+        "final artifact/answer and independent score"
+      ]
+    },
+    {
+      "probe_id": "PROBE-09",
+      "status": "not_executed",
+      "method_kind": "planned_native_surface_probe",
+      "authorization_boundary": "Run only after separate operator approval for a disposable test workspace; never modify live Apex configuration in this research run.",
+      "purpose": "Windows path and tool-coverage edge cases",
+      "preconditions": [
+        "Disposable files with spaces and both slash styles; shell commands perform only harmless test actions"
+      ],
+      "procedure": [
+        "Exercise native file tools, Bash/PowerShell where offered, relative/absolute paths and file references.",
+        "Record which actions emit hook events and which native context-loading actions bypass them.",
+        "Check command matcher behavior across shell wrappers and path separators."
+      ],
+      "expected_observation": [
+        "Coverage table identifies unobserved/unsupported paths rather than claiming complete enforcement."
+      ],
+      "failure_implication": "Use native policy plus narrower action contracts; string matching is not an execution sandbox.",
+      "capture": [
+        "UTC time and surface",
+        "binary/app/SDK version",
+        "cwd/workspace roots",
+        "config hashes and effective settings sources",
+        "invocation flags and model identifier",
+        "hook stdout/stderr or native trace",
+        "source-read evidence where observable",
+        "final artifact/answer and independent score"
+      ]
+    },
+    {
+      "probe_id": "PROBE-10",
+      "status": "not_executed",
+      "method_kind": "planned_native_surface_probe",
+      "authorization_boundary": "Run only after separate operator approval for a disposable test workspace; never modify live Apex configuration in this research run.",
+      "purpose": "Desktop, IDE, cloud and SDK are distinct profiles",
+      "preconditions": [
+        "Authorized test access to each intended surface"
+      ],
+      "procedure": [
+        "Run the minimal discovery, prompt-injection and denial canaries on each surface separately.",
+        "For hosted sessions record single/multi-repo and project-thread topology.",
+        "For remote Antigravity identify remote filesystem and effective configuration roots."
+      ],
+      "expected_observation": [
+        "Only observed surface profiles are promoted to installed_verified."
+      ],
+      "failure_implication": "Leave unsupported surfaces at explicit manual/fallback support; never inherit CLI certification.",
+      "capture": [
+        "UTC time and surface",
+        "binary/app/SDK version",
+        "cwd/workspace roots",
+        "config hashes and effective settings sources",
+        "invocation flags and model identifier",
+        "hook stdout/stderr or native trace",
+        "source-read evidence where observable",
+        "final artifact/answer and independent score"
+      ]
+    },
+    {
+      "probe_id": "PROBE-11",
+      "status": "not_executed",
+      "method_kind": "planned_native_surface_probe",
+      "authorization_boundary": "Run only after separate operator approval for a disposable test workspace; never modify live Apex configuration in this research run.",
+      "purpose": "Migration preserves behavior without premature removal",
+      "preconditions": [
+        "Read-only source manifest plus disposable target copies; accepted instruction meanings frozen"
+      ],
+      "procedure": [
+        "Map old workflow/skill/extension/MCP asset to proposed target.",
+        "Validate metadata shape and confirm native discovery.",
+        "Run positive, negative, correction and recovery canaries.",
+        "Compare source/target content hashes and preserved constraints; retain originals until reviewed."
+      ],
+      "expected_observation": [
+        "Migration proposal shows old source, target, reason, required transformations and reversibility."
+      ],
+      "failure_implication": "Do not rename live folders or run auto-migration as an evidence-gathering shortcut.",
+      "capture": [
+        "UTC time and surface",
+        "binary/app/SDK version",
+        "cwd/workspace roots",
+        "config hashes and effective settings sources",
+        "invocation flags and model identifier",
+        "hook stdout/stderr or native trace",
+        "source-read evidence where observable",
+        "final artifact/answer and independent score"
+      ]
+    },
+    {
+      "probe_id": "PROBE-12",
+      "status": "not_executed",
+      "method_kind": "planned_native_surface_probe",
+      "authorization_boundary": "Run only after separate operator approval for a disposable test workspace; never modify live Apex configuration in this research run.",
+      "purpose": "False triggers and narrow corrections",
+      "preconditions": [
+        "Predeclared expected applicability for five prompt fixtures"
+      ],
+      "procedure": [
+        "Use prompts: greeting; define the word ranking; quote a test-spec keyword without requesting a test; rank actual alternatives; correct only option B wording after a ranking.",
+        "Compare selected rule IDs and references against the predeclared oracle.",
+        "Verify no irrelevant full workflow, no file creation on chat-only prompts, and no broader rerun for the narrow correction."
+      ],
+      "expected_observation": [
+        "Necessary activation is high, false triggers low, narrow corrections stay narrow; final answer useful and faithful."
+      ],
+      "failure_implication": "Change applicability/exclusions; a keyword router is insufficient even if all schema tests pass.",
+      "capture": [
+        "UTC time and surface",
+        "binary/app/SDK version",
+        "cwd/workspace roots",
+        "config hashes and effective settings sources",
+        "invocation flags and model identifier",
+        "hook stdout/stderr or native trace",
+        "source-read evidence where observable",
+        "final artifact/answer and independent score"
+      ]
+    },
+    {
+      "probe_id": "PROBE-13",
+      "status": "not_executed",
+      "method_kind": "planned_native_surface_probe",
+      "authorization_boundary": "Run only after separate operator approval in a disposable host profile; never modify live Apex configuration in this research run.",
+      "purpose": "Codex wire-schema and runtime semantics divergence",
+      "preconditions": [
+        "Version fingerprint; harmless canary; approved disposable profile; hook definition trust reviewed"
+      ],
+      "procedure": [
+        "Observe a documented UserPromptSubmit context canary and PreToolUse deny against a harmless test action.",
+        "In an isolated negative test only, return schema-valid ask and continue:false; capture the failed-hook indication and whether execution proceeds.",
+        "Disable hooks and alter the trusted hook hash; verify detection of missing delivery rather than claiming enforcement.",
+        "Exercise a supported local path and hosted path separately; do not assume equal coverage."
+      ],
+      "expected_observation": [
+        "Schema acceptance is recorded separately from runtime support, activation and result adherence."
+      ],
+      "failure_implication": "Do not deploy a guard that relies on unsupported fields or opaque hook availability.",
+      "capture": [
+        "UTC time",
+        "binary and surface version",
+        "invocation flags",
+        "hook hash/trust state",
+        "event/tool names",
+        "stdout/stderr",
+        "artifact existence",
+        "independent task score"
+      ]
+    }
+  ]
+}

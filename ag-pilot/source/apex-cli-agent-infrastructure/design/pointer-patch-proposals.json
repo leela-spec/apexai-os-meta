@@ -1,0 +1,122 @@
+{
+  "schema_version": "apex_pointer_patch_review.proposal.v1",
+  "status": "unapplied_review_only",
+  "not_a_domain_patch_intent": "This review container is not patch_intent.v1. It supplies the allowed exact-match alternative from EM-01; any AST implementation must use the actual authoritative schema. Multiple entries for one file share the same original hash and must be planned/validated together, never applied as independent stale-hash steps.",
+  "source_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+  "proposals": [
+    {
+      "id": "PP-01",
+      "path": "AGENTS.md",
+      "source_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "source_sha256": "c7f660b441ba3ecbcb767e2997fa2c08b33c02c5eaa0fb8206e991a4e8124c39",
+      "mode": "exact_match_text_replacement_proposal",
+      "old_text": "`apex-meta/informatics/standard.md`",
+      "new_text": "`apex-meta/informatics/final/specs/standard.md`",
+      "required_match_count": 1,
+      "reason": "Resolve the actual current standard owner confirmed through authenticated source retrieval.",
+      "applied": false,
+      "safety": {
+        "require_unique_match": true,
+        "fail_on_ambiguity": true,
+        "allow_full_file_rewrite": false,
+        "max_files_touched": 1
+      },
+      "validation": "Re-fetch source at the approved revision; require matching hash and one exact match; inspect only this resulting delta and resolve the destination. Do not apply on hash mismatch."
+    },
+    {
+      "id": "PP-02",
+      "path": "apex-meta/informatics/final/specs/standard.md",
+      "source_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "source_sha256": "6a25eaf2ecc4dcfb3dd2ab2fecf28e3c767f698cadaecd3171aa3fddbc8de553",
+      "mode": "exact_match_text_replacement_proposal",
+      "old_text": "Enter the suite at [index.md](index.md).",
+      "new_text": "Enter the suite at [index.md](../index.md).",
+      "required_match_count": 1,
+      "reason": "Resolve final/index.md from the specs directory.",
+      "applied": false,
+      "safety": {
+        "require_unique_match": true,
+        "fail_on_ambiguity": true,
+        "allow_full_file_rewrite": false,
+        "max_files_touched": 1
+      },
+      "validation": "Re-fetch source at the approved revision; require matching hash and one exact match; inspect only this resulting delta and resolve the destination. Do not apply on hash mismatch."
+    },
+    {
+      "id": "PP-03",
+      "path": "apex-meta/informatics/final/specs/standard.md",
+      "source_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "source_sha256": "6a25eaf2ecc4dcfb3dd2ab2fecf28e3c767f698cadaecd3171aa3fddbc8de553",
+      "mode": "exact_match_text_replacement_proposal",
+      "old_text": "Follow [migration.md](migration.md) before validating legacy zones.",
+      "new_text": "Follow [migration.md](../operations/migration.md) before validating legacy zones.",
+      "required_match_count": 1,
+      "reason": "Resolve the existing operations owner.",
+      "applied": false,
+      "safety": {
+        "require_unique_match": true,
+        "fail_on_ambiguity": true,
+        "allow_full_file_rewrite": false,
+        "max_files_touched": 1
+      },
+      "validation": "Re-fetch source at the approved revision; require matching hash and one exact match; inspect only this resulting delta and resolve the destination. Do not apply on hash mismatch."
+    },
+    {
+      "id": "PP-04",
+      "path": "apex-meta/informatics/final/specs/standard.md",
+      "source_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "source_sha256": "6a25eaf2ecc4dcfb3dd2ab2fecf28e3c767f698cadaecd3171aa3fddbc8de553",
+      "mode": "exact_match_text_replacement_proposal",
+      "old_text": "Keep OKF and APEX_PROFILE errors separate (GS-03).",
+      "new_text": "Keep OKF and APEX_PROFILE errors separate (GS-20).",
+      "required_match_count": 1,
+      "reason": "GS-03 now owns top-loaded primacy; GS-20 owns tri-class diagnostics. Reference-only correction.",
+      "applied": false,
+      "safety": {
+        "require_unique_match": true,
+        "fail_on_ambiguity": true,
+        "allow_full_file_rewrite": false,
+        "max_files_touched": 1
+      },
+      "validation": "Re-fetch source at the approved revision; require matching hash and one exact match; inspect only this resulting delta and resolve the destination. Do not apply on hash mismatch."
+    },
+    {
+      "id": "PP-05",
+      "path": "apex-meta/informatics/final/specs/execution-modes/patch-discipline.md",
+      "source_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "source_sha256": "6951891dffe343c7dd8f20252a922d5fc7d54de5d65a20d4f37b6d139ee0dbf2",
+      "mode": "exact_match_text_replacement_proposal",
+      "old_text": "[governance-schemas.md](governance-schemas.md) §2.2",
+      "new_text": "[governance-schemas.md](../governance-schemas.md) §2.2",
+      "required_match_count": 1,
+      "reason": "Resolve the owning specs sibling from execution-modes.",
+      "applied": false,
+      "safety": {
+        "require_unique_match": true,
+        "fail_on_ambiguity": true,
+        "allow_full_file_rewrite": false,
+        "max_files_touched": 1
+      },
+      "validation": "Re-fetch source at the approved revision; require matching hash and one exact match; inspect only this resulting delta and resolve the destination. Do not apply on hash mismatch."
+    },
+    {
+      "id": "PP-06",
+      "path": "apex-meta/informatics/final/specs/execution-modes/patch-discipline.md",
+      "source_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "source_sha256": "6951891dffe343c7dd8f20252a922d5fc7d54de5d65a20d4f37b6d139ee0dbf2",
+      "mode": "exact_match_text_replacement_proposal",
+      "old_text": "[patch-intent-schema.json](../../../../.claude/skills/deterministic-markdown-patcher2/references/patch-intent-schema.json)",
+      "new_text": "[patch-intent-schema.json](../../../../../.claude/skills/deterministic-markdown-patcher2/references/patch-intent-schema.json)",
+      "required_match_count": 1,
+      "reason": "Five parent traversals are required from execution-modes; governance-schemas.md already has the correct four.",
+      "applied": false,
+      "safety": {
+        "require_unique_match": true,
+        "fail_on_ambiguity": true,
+        "allow_full_file_rewrite": false,
+        "max_files_touched": 1
+      },
+      "validation": "Re-fetch source at the approved revision; require matching hash and one exact match; inspect only this resulting delta and resolve the destination. Do not apply on hash mismatch."
+    }
+  ]
+}

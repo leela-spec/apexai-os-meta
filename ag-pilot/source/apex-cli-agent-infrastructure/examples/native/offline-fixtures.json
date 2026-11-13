@@ -1,0 +1,35 @@
+[
+  {
+    "platform": "claude",
+    "event": "UserPromptSubmit",
+    "input": {
+      "hook_event_name": "UserPromptSubmit",
+      "session_id": "fixture-1",
+      "cwd": "C:\\fixture",
+      "prompt": "Rank alternatives without creating files."
+    }
+  },
+  {
+    "platform": "antigravity",
+    "event": "PreInvocation",
+    "input": {
+      "conversationId": "fixture-1",
+      "workspacePaths": [
+        "C:\\fixture"
+      ],
+      "invocationNum": 0,
+      "initialNumSteps": 0,
+      "lastUserInput": "Rank alternatives without creating files."
+    }
+  },
+  {
+    "platform": "gemini",
+    "event": "BeforeAgent",
+    "input": {
+      "hook_event_name": "BeforeAgent",
+      "session_id": "fixture-1",
+      "cwd": "C:\\fixture",
+      "prompt": "Rank alternatives without creating files."
+    }
+  }
+]

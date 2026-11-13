@@ -1,0 +1,224 @@
+{
+  "execution_status": "executed_offline_simulation",
+  "native_platform_execution": false,
+  "semantic_adherence_measured": false,
+  "runtime_version_tested": null,
+  "schema_release": "rust-v0.167.2",
+  "test_runtime": {
+    "python": "3.12.14",
+    "jsonschema": "4.26.0"
+  },
+  "purpose": "Validate copied schema definitions, fixed response envelopes and proposed semantic allowlist. Unsupported native output fields are negative fixtures; no actual native invocation is claimed.",
+  "results": [
+    {
+      "case": "schema_definition_pre-tool-use.command.input.schema.json",
+      "passed": true,
+      "kind": "schema_meta_validation"
+    },
+    {
+      "case": "schema_definition_pre-tool-use.command.output.schema.json",
+      "passed": true,
+      "kind": "schema_meta_validation"
+    },
+    {
+      "case": "schema_definition_session-start.command.output.schema.json",
+      "passed": true,
+      "kind": "schema_meta_validation"
+    },
+    {
+      "case": "schema_definition_stop.command.output.schema.json",
+      "passed": true,
+      "kind": "schema_meta_validation"
+    },
+    {
+      "case": "schema_definition_user-prompt-submit.command.output.schema.json",
+      "passed": true,
+      "kind": "schema_meta_validation"
+    },
+    {
+      "case": "prompt_delivery",
+      "passed": true,
+      "schema_valid": true,
+      "semantic_valid": true,
+      "adapter_accepted": true,
+      "semantic_errors": [],
+      "kind": "wire_and_semantic_fixture"
+    },
+    {
+      "case": "recovery_delivery",
+      "passed": true,
+      "schema_valid": true,
+      "semantic_valid": true,
+      "adapter_accepted": true,
+      "semantic_errors": [],
+      "kind": "wire_and_semantic_fixture"
+    },
+    {
+      "case": "pretool_deny",
+      "passed": true,
+      "schema_valid": true,
+      "semantic_valid": true,
+      "adapter_accepted": true,
+      "semantic_errors": [],
+      "kind": "wire_and_semantic_fixture"
+    },
+    {
+      "case": "pretool_context",
+      "passed": true,
+      "schema_valid": true,
+      "semantic_valid": true,
+      "adapter_accepted": true,
+      "semantic_errors": [],
+      "kind": "wire_and_semantic_fixture"
+    },
+    {
+      "case": "ask_schema_valid_runtime_unsupported",
+      "passed": true,
+      "schema_valid": true,
+      "semantic_valid": false,
+      "adapter_accepted": false,
+      "semantic_errors": [
+        "ask is parsed but unsupported"
+      ],
+      "kind": "wire_and_semantic_fixture"
+    },
+    {
+      "case": "continue_false_schema_valid_runtime_unsupported",
+      "passed": true,
+      "schema_valid": true,
+      "semantic_valid": false,
+      "adapter_accepted": false,
+      "semantic_errors": [
+        "continue:false is unsupported"
+      ],
+      "kind": "wire_and_semantic_fixture"
+    },
+    {
+      "case": "legacy_approve_schema_valid_runtime_unsupported",
+      "passed": true,
+      "schema_valid": true,
+      "semantic_valid": false,
+      "adapter_accepted": false,
+      "semantic_errors": [
+        "legacy approve is unsupported"
+      ],
+      "kind": "wire_and_semantic_fixture"
+    },
+    {
+      "case": "rewrite_without_allow",
+      "passed": true,
+      "schema_valid": true,
+      "semantic_valid": false,
+      "adapter_accepted": false,
+      "semantic_errors": [
+        "updatedInput requires allow"
+      ],
+      "kind": "wire_and_semantic_fixture"
+    },
+    {
+      "case": "unknown_field_shape_invalid",
+      "passed": true,
+      "schema_valid": false,
+      "semantic_valid": true,
+      "adapter_accepted": false,
+      "semantic_errors": [],
+      "kind": "wire_and_semantic_fixture"
+    },
+    {
+      "case": "wrong_event_shape_invalid",
+      "passed": true,
+      "schema_valid": false,
+      "semantic_valid": false,
+      "adapter_accepted": false,
+      "semantic_errors": [
+        "Output event mismatch"
+      ],
+      "kind": "wire_and_semantic_fixture"
+    },
+    {
+      "case": "encoder_UserPromptSubmit",
+      "passed": true,
+      "kind": "offline_canary_encoding",
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "UserPromptSubmit",
+          "additionalContext": "APEX_PROBE_CONTEXT: delivery only; no authorization or compliance claim."
+        }
+      }
+    },
+    {
+      "case": "encoder_SessionStart",
+      "passed": true,
+      "kind": "offline_canary_encoding",
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "SessionStart",
+          "additionalContext": "APEX_PROBE_CONTEXT: delivery only; no authorization or compliance claim."
+        }
+      }
+    },
+    {
+      "case": "encoder_PreToolUse",
+      "passed": true,
+      "kind": "offline_canary_encoding",
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Offline canary denial; no operation was executed."
+        }
+      }
+    },
+    {
+      "case": "diagnostic_event_rejected",
+      "passed": true,
+      "kind": "semantic_negative"
+    },
+    {
+      "case": "pretool_input_shape",
+      "passed": true,
+      "kind": "wire_fixture"
+    },
+    {
+      "case": "codex-config.example.toml",
+      "passed": true,
+      "kind": "toml_parse_and_narrow_contract"
+    },
+    {
+      "case": "codex-verifier.example.toml",
+      "passed": true,
+      "kind": "toml_parse_and_narrow_contract"
+    },
+    {
+      "case": "codex_hook_container",
+      "passed": true,
+      "kind": "json_parse_and_narrow_contract"
+    },
+    {
+      "case": "digest_pre-tool-use.command.input.schema.json",
+      "passed": true,
+      "kind": "release_copy_integrity"
+    },
+    {
+      "case": "digest_pre-tool-use.command.output.schema.json",
+      "passed": true,
+      "kind": "release_copy_integrity"
+    },
+    {
+      "case": "digest_user-prompt-submit.command.output.schema.json",
+      "passed": true,
+      "kind": "release_copy_integrity"
+    },
+    {
+      "case": "digest_session-start.command.output.schema.json",
+      "passed": true,
+      "kind": "release_copy_integrity"
+    },
+    {
+      "case": "digest_stop.command.output.schema.json",
+      "passed": true,
+      "kind": "release_copy_integrity"
+    }
+  ],
+  "passed": true
+}

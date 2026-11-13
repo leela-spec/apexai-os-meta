@@ -1,0 +1,39 @@
+{
+  "executed": "2026-11-12",
+  "scope": "Local proposed registry schema, uniqueness, source quote fidelity and reference coverage only",
+  "counts": {
+    "downstream_rule": 100,
+    "xml_rule": 23,
+    "supplemental_rule": 22
+  },
+  "downstream_families": {
+    "AD": 28,
+    "EM": 15,
+    "FA": 13,
+    "GS": 19,
+    "WP": 25
+  },
+  "errors": [],
+  "semantic_status": "Manual rule-specific triggers/exclusions/observable checks authored from opened owners. No CLI adherence benchmark or installed loader/hook probe executed.",
+  "artifact_paths": {
+    "registry": "registry/rules.json",
+    "schema": "registry/rule-registry.schema.json",
+    "history": "registry/history.json"
+  },
+  "capability_binding": "All platform conditions point to compatibility/compatibility.md and explicitly exclude universal before-model assumptions; Codex PreModelRequest remains diagnostic-only.",
+  "additional_executed_checks": [
+    "Canonical-owner alias chains terminate",
+    "All 23 XML identities and seven explicit refs mapped",
+    "Required matched refs separated from conditional detail reads",
+    "Recorded metrics require actual raw/tier/dimensions; unrecorded metrics require nulls",
+    "Relative patch-schema paths deterministically resolved; governance link retained; patch-discipline defects isolated",
+    "All recorded raw priority tags re-matched to source excerpts",
+    "All delivery references resolve to inspected snapshots after EM-12 adapter discovery"
+  ],
+  "history_counts": {
+    "change_proposals": 12,
+    "change_options": 24,
+    "finalization_dispositions": 27
+  },
+  "conflict_count": 11
+}

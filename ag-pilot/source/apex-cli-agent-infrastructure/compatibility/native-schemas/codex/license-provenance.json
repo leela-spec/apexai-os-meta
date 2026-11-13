@@ -1,0 +1,22 @@
+[
+  {
+    "name": "LICENSE",
+    "source": "https://github.com/openai/codex/blob/rust-v0.167.2/LICENSE",
+    "blob_sha": "4606e72e042564097e8780d66c1d4dcb611869bd",
+    "sha256": "d17f227e4df5da1600391338865ce0f3055211760a36688f816941d58232d8dc",
+    "retrieved": "2026-11-12",
+    "method": "authenticated_github_fetch_file",
+    "git_blob_sha_verified": true,
+    "copy_status": "byte_identical_to_fetched_upstream_blob"
+  },
+  {
+    "name": "NOTICE",
+    "source": "https://github.com/openai/codex/blob/rust-v0.167.2/NOTICE",
+    "blob_sha": "2805899d56d0332d175cfc613c67d45d6f006db7",
+    "sha256": "9d71575ecfd9a843fc1677b0efb08053c6ba9fd686a0de1a6f5382fd3c220915",
+    "retrieved": "2026-11-12",
+    "method": "authenticated_github_fetch_file",
+    "git_blob_sha_verified": true,
+    "copy_status": "byte_identical_to_fetched_upstream_blob"
+  }
+]

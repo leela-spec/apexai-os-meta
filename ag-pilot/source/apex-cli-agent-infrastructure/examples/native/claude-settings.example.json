@@ -1,0 +1,23 @@
+{
+  "disableAllHooks": true,
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "<PYTHON_EXECUTABLE>",
+            "args": [
+              "<ABSOLUTE_NATIVE_EXAMPLES_DIR>/hook_envelope_probe.py",
+              "--platform",
+              "claude",
+              "--event",
+              "UserPromptSubmit"
+            ],
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

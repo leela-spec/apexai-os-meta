@@ -1,0 +1,634 @@
+{
+  "id": "APEX-AGY-FIRST-PILOT-20261113",
+  "base_source_zip_sha256": "0c81558fa4d72df7d1681fe29bf1794cea429dbc872b4f8cf901aeefd5e6cdd9",
+  "files_excluding_manifest": {
+    "01-CLI-EXECUTION-HANDOVER.md": {
+      "sha256": "29af8c476de1b6497743a5372152fd5b7a0cb75a249751d0a8e114097e80d2c9",
+      "bytes": 25284
+    },
+    "00-START-HERE.md": {
+      "sha256": "e075b8c17436aa0967c7e8525da97f589dc491fa7f24daaa49a518b73ce42dd9",
+      "bytes": 2172
+    },
+    "source/apex-cli-agent-infrastructure/02-decisions.md": {
+      "sha256": "3f8641673b39ce6283c8ae46a1c45f1a1614457b58e039bd5dc0d924a42f7bd2",
+      "bytes": 75019
+    },
+    "source/apex-cli-agent-infrastructure/manifest.json": {
+      "sha256": "68c363b1762f1cb03433eeb9b1e2bc484b2cf7ac3013c5267a36954fb882f3e7",
+      "bytes": 42352
+    },
+    "source/apex-cli-agent-infrastructure/04-integration-map.md": {
+      "sha256": "46a66ba30e5ae0d66994c9d33422f52567bf3597e10a3e5bd9ad428489a4467e",
+      "bytes": 11818
+    },
+    "source/apex-cli-agent-infrastructure/01-findings.md": {
+      "sha256": "68b4133407b481a6aaffea8cca6899788927c2fd4ebaf84a95c3e6ce99235583",
+      "bytes": 33479
+    },
+    "source/apex-cli-agent-infrastructure/index.md": {
+      "sha256": "1c9117a950473b667d756004a6f9bb2de17b6aed2a9591426e2d33a570394739",
+      "bytes": 3578
+    },
+    "source/apex-cli-agent-infrastructure/03-architecture.md": {
+      "sha256": "d6c1602bea9b3e93a4251a4e01a5078813965654395a869204a05906426ebb0e",
+      "bytes": 25826
+    },
+    "source/apex-cli-agent-infrastructure/00-START-HERE.md": {
+      "sha256": "94adce70021612db2fceb0a2f5dcce5104950dbb60cd796184dcb5de52c9f168",
+      "bytes": 8770
+    },
+    "source/apex-cli-agent-infrastructure/07-validation-report.md": {
+      "sha256": "759fb5f2050d5bedcc298fb573ef8bb6c5b29a3c4c948932dbde2719cd2922b9",
+      "bytes": 16445
+    },
+    "source/apex-cli-agent-infrastructure/evaluation/validation.json": {
+      "sha256": "85605f66107aaa73f5d38ff11092cf1ca230cd0aa2688f84d2988f3b50373e06",
+      "bytes": 3271
+    },
+    "source/apex-cli-agent-infrastructure/evaluation/cases.json": {
+      "sha256": "914a6d902076224e77a694dac9585a81b27f704be59d473ed3d9159fb4420fbe",
+      "bytes": 66015
+    },
+    "source/apex-cli-agent-infrastructure/evaluation/scorer_probe.py": {
+      "sha256": "6aff741f5b25323db2a5890a2eb1835b7ffdbd0e8a1745ec9f42e956ced5522e",
+      "bytes": 6655
+    },
+    "source/apex-cli-agent-infrastructure/evaluation/evaluation-plan.md": {
+      "sha256": "1744cc582fa50aa55d90bf761512edaebfb622db21901e2851e376037a985f77",
+      "bytes": 27960
+    },
+    "source/apex-cli-agent-infrastructure/evaluation/scorer-probe-results.json": {
+      "sha256": "bd0d808bf13e7f043cac8b17f873600e8187fed65cd6e22ea994b11ef311c0c4",
+      "bytes": 1631
+    },
+    "source/apex-cli-agent-infrastructure/registry/validation.json": {
+      "sha256": "f3bcdfab707116ab41c26823e65298e54a114ce1df9a5ac2d80c5a1f2f4c3e81",
+      "bytes": 1615
+    },
+    "source/apex-cli-agent-infrastructure/registry/coverage.md": {
+      "sha256": "bcd344f80ec3fa632e3b5ef7b2aa4dc9c7b169c62fe6efa0ac708797be750bc8",
+      "bytes": 8275
+    },
+    "source/apex-cli-agent-infrastructure/registry/rule-registry.schema.json": {
+      "sha256": "5a963dfb0fcad35e7c28ceb462d4902d4449930e71e31575439f712726952619",
+      "bytes": 28170
+    },
+    "source/apex-cli-agent-infrastructure/registry/history.json": {
+      "sha256": "edde606ebdf89ada87281f446f0058429a2f522dbff8b7d1bd0baacfdbf815c8",
+      "bytes": 154630
+    },
+    "source/apex-cli-agent-infrastructure/registry/rules.json": {
+      "sha256": "9f1e2f04c0b6bd4e9bd8e14060c9fd91f9c05db032fe4316849b6c87418ea4e2",
+      "bytes": 961784
+    },
+    "source/apex-cli-agent-infrastructure/validation/results.json": {
+      "sha256": "fde5ba8ea0f47e238af9a5effa2b2797f0b70bc53b104d73b720da461f059498",
+      "bytes": 4684
+    },
+    "source/apex-cli-agent-infrastructure/validation/retained-validator-results.json": {
+      "sha256": "2cc368ba2d3c35183b4f13b9d3471a6a3818a0c6f5d92ce54b66c81dd704bebe",
+      "bytes": 9699
+    },
+    "source/apex-cli-agent-infrastructure/validation/retained_validator_probe.py": {
+      "sha256": "e36fd916af3f2a5754f314d356f0aaf4ac089767688e362c7cb28c7ecacdd28b",
+      "bytes": 2923
+    },
+    "source/apex-cli-agent-infrastructure/validation/validate_package.py": {
+      "sha256": "349252e169428341d5711d030215713a3a41e93ba14e1ea87939beeb4a1d745a",
+      "bytes": 21425
+    },
+    "source/apex-cli-agent-infrastructure/compatibility/environment-observation.json": {
+      "sha256": "fd80773e93feabb0cd51af0fcac33b371532d4fe784f0a4cbf438ae939026aee",
+      "bytes": 446
+    },
+    "source/apex-cli-agent-infrastructure/compatibility/sources.json": {
+      "sha256": "16d4462979c26ac8a9f44c1b040af574dc7e8b48665773a4f654e0b04fbe6fce",
+      "bytes": 31150
+    },
+    "source/apex-cli-agent-infrastructure/compatibility/validation.json": {
+      "sha256": "32b5984b258f41de5fead73dce49629372124791fb917c24028ccadb83507038",
+      "bytes": 2094
+    },
+    "source/apex-cli-agent-infrastructure/compatibility/compatibility.md": {
+      "sha256": "dc4dd21be8a1a38d1e0f5ab048563d50859c898418a0a42ace545ee4893dc793",
+      "bytes": 18146
+    },
+    "source/apex-cli-agent-infrastructure/compatibility/probe-plan.json": {
+      "sha256": "1ca1749700d916a458f9e921f6efd8b8249345f7acbfa5687667e91256ad5641",
+      "bytes": 22008
+    },
+    "source/apex-cli-agent-infrastructure/compatibility/claims.json": {
+      "sha256": "3e55e3747e04709962c2d4615778b3b15ae24fc8436c4fb54fdb2dc3f7878e98",
+      "bytes": 35473
+    },
+    "source/apex-cli-agent-infrastructure/examples/activation-state.example.json": {
+      "sha256": "bb7fc10476292691a8d15e7f006c5011f3f3fffaec5fff6442d7befb60f6d53c",
+      "bytes": 980
+    },
+    "source/apex-cli-agent-infrastructure/examples/activation-state.schema.json": {
+      "sha256": "f4cde7b603340c355737347c9616fd61f54fba9397d6017fa2a97cbb335d3772",
+      "bytes": 5112
+    },
+    "source/apex-cli-agent-infrastructure/examples/end-to-end-flows.md": {
+      "sha256": "d1e5a8b81b44655894f137b7d64c17109e9265beae45b01361a2e0e8ac1e774b",
+      "bytes": 22054
+    },
+    "source/apex-cli-agent-infrastructure/examples/architecture-comparison.md": {
+      "sha256": "b1f9a4cc00c0c45c5b438b33333a25dc2b094172804ef986cb2c116356a71b17",
+      "bytes": 12408
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository-sources.json": {
+      "sha256": "bb58ac3c53c0e1a02b0c6ff51a834098fb42a94ae89d5df3d45c08e1e78aa3b7",
+      "bytes": 101286
+    },
+    "source/apex-cli-agent-infrastructure/evidence/empirical-findings.md": {
+      "sha256": "0780815a6bc9c3a87ac200b55eceb5b031362b061ee0ca5ae11e9e54d5dec2ef",
+      "bytes": 27132
+    },
+    "source/apex-cli-agent-infrastructure/evidence/external-sources.json": {
+      "sha256": "4039542fb08746fd45bab2efc17e83cd65667942feeb4a6424f9501ca9f9fd4c",
+      "bytes": 40223
+    },
+    "source/apex-cli-agent-infrastructure/evidence/source-guide.md": {
+      "sha256": "0c4692d612576e48aba626fcf97b5123a17f07e1d1a9edcfd4d4934dfebffbc6",
+      "bytes": 7138
+    },
+    "source/apex-cli-agent-infrastructure/evidence/empirical-sources.json": {
+      "sha256": "6194135984589a541e978158881d20d9accf3ee4f73f881e90e54b2dfca1a744",
+      "bytes": 11197
+    },
+    "source/apex-cli-agent-infrastructure/evidence/reading-guide-comparison.json": {
+      "sha256": "6eac5f25ac67cedcba5953de4b2a1d074d7418b63a1ffb4117f3af4161551231",
+      "bytes": 23902
+    },
+    "source/apex-cli-agent-infrastructure/design/integration-map.json": {
+      "sha256": "ce43c032bddb9ed19ac6e335e874d1854563dca3c42c79eddfd6b2a97d227d38",
+      "bytes": 124174
+    },
+    "source/apex-cli-agent-infrastructure/design/pointer-patch-proposals.json": {
+      "sha256": "f940805576dca8d2fc526ea3727a4795b2eeb171cc73e44b95c89f67b6edd084",
+      "bytes": 6594
+    },
+    "source/apex-cli-agent-infrastructure/design/decisions.json": {
+      "sha256": "9ed943a49a66bf96a515d6d9f781f632d3ede0ae3c5e3a9f02928f6204771261",
+      "bytes": 168430
+    },
+    "source/apex-cli-agent-infrastructure/design/architecture-bakeoff.json": {
+      "sha256": "52707fd3e8fb5af2235052ce1ff979973cc52407bfe65dad370864cccd88e3f2",
+      "bytes": 7979
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/CLAUDE.md": {
+      "sha256": "9d5653d8631689545406d2e14fb45e776c76a5d3a82d495c9fe5d4e4b0583c8b",
+      "bytes": 4028
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/AGENTS.md": {
+      "sha256": "c7f660b441ba3ecbcb767e2997fa2c08b33c02c5eaa0fb8206e991a4e8124c39",
+      "bytes": 4121
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/GEMINI.md": {
+      "sha256": "1ac5f8485d53c20cc40d1b1ed1a70009022503bd8f867160809a5d8fa43699b5",
+      "bytes": 3015
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/.claude/CLAUDE.md": {
+      "sha256": "9583973b6f008980ac19ea05536792add5082d00eac50ef2f0bc2f5a7c7b5d0e",
+      "bytes": 4119
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/.claude/settings.json": {
+      "sha256": "e9934a08984fdb61256c92b3e211addf8b4da16cbfc7170a890e8d56eb17ecc2",
+      "bytes": 41
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/.github/copilot-instructions.md": {
+      "sha256": "158f2768ce5b2c5b46ffceb1f6cf6634113c59d4e1c407d7b73b3ec92bf30558",
+      "bytes": 1039
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/.agents/skills/qmd/SKILL.md": {
+      "sha256": "f12c774d704149fcd7047ac66e36e17d04ff50af15c26f7a829bca01d246d359",
+      "bytes": 3027
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/orchestration/ARCHITECTURE.md": {
+      "sha256": "e3bd6e3ad87fea9b32d8fb612356d1f6f2893fb9dde5db7a928a3c572660c44c",
+      "bytes": 8722
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/orchestration/CURRENT-SYSTEM-MANIFEST.yaml": {
+      "sha256": "b83a25a0a6d2a06a91f0c95cade1b1847522905a66fe64d09ba4d0b5ff354b39",
+      "bytes": 4468
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/index.md": {
+      "sha256": "26cbb99fd7c6c48281736edb7fab26ec6007c26751d9d29d15f6b289325fd1c3",
+      "bytes": 4023
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/local-orchestration-engine/OPERATOR-DECISION-LOCK-2026-08-08-R3-LOCAL-MODEL.md": {
+      "sha256": "c1519f6eb933d030d6f948e95742a0ff52e4a9332b862f546f1051255361bb64",
+      "bytes": 16341
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/kb/claude-code-orchestration-design/log/operator-phase1-review-decisions-20260702.md": {
+      "sha256": "c411e68bbdaa3a7529e53bd4e3c72703e1a935378434f2143decb87f01588119",
+      "bytes": 4934
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/kb/claude-code-orchestration-design/wiki/summaries/claude-mechanism-decision-model.md": {
+      "sha256": "3235aca48aa227cc85e707a9e70ae0cd7e3f7b5e06b7781ed6e47a3beec031ab",
+      "bytes": 10564
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/SmallSkills/OKF_Format/conformance-rules.md": {
+      "sha256": "6f8e316b20981dfde7410315f33c67ffcd1b914b206c6e282e964ce93f735b0f",
+      "bytes": 1698
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/index.md": {
+      "sha256": "ddec5dc24de305a22ae25092eea10eaa93931c7d65c8eae05ae575d27a702c3b",
+      "bytes": 19887
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/tools/apex_carrier_sync.py": {
+      "sha256": "1f4bf20caff55533ce0446429990ebb3e7c7dd62c3f36448cadf694319e0b64d",
+      "bytes": 12876
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/tools/check_vendor_drift.py": {
+      "sha256": "4ea61059eecca812936db0b1f5e573b89a5cc598c7d16ae987b140b75e41ecb7",
+      "bytes": 4031
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/tools/okf_validator.py": {
+      "sha256": "5ae9899f20df5a44327b9aa7b0c7522fa5efc7934cac89e27f88ee7612ac9dc2",
+      "bytes": 12602
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/tools/check_decision_bakeoff_shape.py": {
+      "sha256": "527957bc39b6a8f94bba4f5049f8f571771c1c05ced46d9ba392a65ed3beae25",
+      "bytes": 8475
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/tools/agent_eval_runner.py": {
+      "sha256": "e99ad844212421a1ef610e1643451d0bb92fcf5dae79b93fb4afaea84bd62cc0",
+      "bytes": 19485
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/candidates/01-decision-register.md": {
+      "sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+      "bytes": 33561
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/operations/migration.md": {
+      "sha256": "1031f0d42dfdfc0891bc6443d12433260adf10399ce9a8d8ca90a6d49645282f",
+      "bytes": 1975
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/operations/18-APEX-CARRIER-MAP.md": {
+      "sha256": "a8a380f6424e9d90d0846a1f49adbad2a215763fc7a79ef7b58244ddd0e4ddb9",
+      "bytes": 9400
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/operations/07-INTEGRATION-PLAN-AND-OPERATIONAL-DECISIONS.md": {
+      "sha256": "0ba4710d034f06e109deae0f796366096b6011ec8e14e4f8002db28bf8456692",
+      "bytes": 10471
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/operations/17-READ-TRACE-PILOT-AND-BASE-REF-FRAGILITY-FINDINGS.md": {
+      "sha256": "149f236b6a4e1ac32f78f6bf2f65d3c9ea41ed09c1cd38622caa4f532f0752d4",
+      "bytes": 17977
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/specs/execution-modes.md": {
+      "sha256": "ea534dbfa53216412513a7fddebea2289a3599ed6e065f26d1689bb99e416f34",
+      "bytes": 11401
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/specs/carrier-layer2-shared.md": {
+      "sha256": "8a7fe4858fcc4accd4ebd1e58f44e5b581e47cbe0c79d031b281cdcd66ae41d8",
+      "bytes": 2419
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/specs/anti-drift-rules.md": {
+      "sha256": "9f429c36a53b9c0276053afcaf20741460c881c1613418ed60881f0f85d73229",
+      "bytes": 10313
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/specs/governance-schemas.md": {
+      "sha256": "e4fc66bb8f0818e12a8dbe3916b28990e29ee6ae32165a059c4e2bde8e367ba1",
+      "bytes": 10918
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/specs/file-architecture.md": {
+      "sha256": "0ac27e4741819fd3c3785f4e2ce35d85f477c9439695cb466bee20ff1d8ea8f0",
+      "bytes": 11476
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/specs/general-informatics-router.md": {
+      "sha256": "d24c8479a7ba73ba7f78464cfda42009f02ff4b9d8dde21e1f06eb4af3f71567",
+      "bytes": 2000
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml": {
+      "sha256": "0cbaa3e994b5ff0ba2e489623ae6ee3b58d63988a2a225b11df9b5cdee132b0b",
+      "bytes": 7687
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/specs/standard.md": {
+      "sha256": "6a25eaf2ecc4dcfb3dd2ab2fecf28e3c767f698cadaecd3171aa3fddbc8de553",
+      "bytes": 9531
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/specs/writing-profile.md": {
+      "sha256": "ff354300a39c873de0c51322f8f4f579ce54f8bd3f1bbb5541b911274244c6c9",
+      "bytes": 11641
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/specs/execution-modes/task-specification.md": {
+      "sha256": "85484fe3bff8a4ae92f32f2a77b9d5ba851421221c8274c9379932b322e4e65a",
+      "bytes": 6300
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/specs/execution-modes/qa-decision-matrix.md": {
+      "sha256": "a16b0226570883a45e5fb247cce8fc4c9ee76c2498d043b0475960ef1102ba2e",
+      "bytes": 4511
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/specs/execution-modes/iterative-execution.md": {
+      "sha256": "583133b554a67d215c168b09dac07f71220ac9e7a0131b5d3def883da46d76d9",
+      "bytes": 4796
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/specs/execution-modes/bake-off.md": {
+      "sha256": "00a10c860c72e19f5c264ace38ffaad970be5c15c82243d454c37bf449dfcd0a",
+      "bytes": 2130
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/specs/execution-modes/patch-discipline.md": {
+      "sha256": "6951891dffe343c7dd8f20252a922d5fc7d54de5d65a20d4f37b6d139ee0dbf2",
+      "bytes": 3165
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/specs/execution-modes/handover.md": {
+      "sha256": "00b3e0b40e7cb67dced95657de8bc936292138fdf16524ed778e26f8a51518f7",
+      "bytes": 4556
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/specs/execution-modes/git-sync.md": {
+      "sha256": "20dce790417b853c7a46387b6c5edddb2141a98ad5a8c31a926f42d5cd5782b7",
+      "bytes": 1165
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/08-read-trace-routing-experiments/03-design-review-routing-carriers.md": {
+      "sha256": "32912e1ad88d3ea9db8df1ddc78ce0e119807ecf338dd761e9260dbfe43e9d32",
+      "bytes": 3875
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/08-read-trace-routing-experiments/01-findings-and-protocol.md": {
+      "sha256": "0af42bbc5202abdf650d81f6895c68c391e02299df792c5f69d8ab21fba63707",
+      "bytes": 19659
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/01-universal-instruction-research/07-TIER-A-COVERAGE-AND-LIVE-AGENT-AUDIT.md": {
+      "sha256": "06c6c0e356e71a18d310c74a2649a55e42a5f9f7f9f7b0ebb21716fb53f8c949",
+      "bytes": 17650
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/01-universal-instruction-research/04-FRAMEWORK-LANDSCAPE-MATRIX.md": {
+      "sha256": "3dcedec89ad73b81f253e13c6b769c61e506cf83af3604a7e40e51431461882b",
+      "bytes": 13225
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/01-universal-instruction-research/05-INSTRUCTION-ACCESS-AND-SERIALIZATION-MATRIX.md": {
+      "sha256": "bae470850b258b2fc2a2cb323ffb439391b8f0b8e6ce11ab4d24c4900ef22c21",
+      "bytes": 10437
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/10-ultra-upgrade-validation/score_eval.py": {
+      "sha256": "b83fa8c011301df065937dece0b9fd202a185a1f862699001ea982ee85f839ea",
+      "bytes": 40718
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/10-ultra-upgrade-validation/index.md": {
+      "sha256": "ed859317d7de66d41eb5d410beaae4a640f5f4cb5dcf5fdb24cdec38a85fcd4c",
+      "bytes": 3486
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/10-ultra-upgrade-validation/preregistration.md": {
+      "sha256": "ad835707475b0a223baae70053e4d66de0e87f0cdd79b4a1ad7d63997006802a",
+      "bytes": 9338
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/10-ultra-upgrade-validation/01-results-and-verdict.md": {
+      "sha256": "ee34d49c6d8513a8d91854fe45dd7e9b1f27f43cde403bef839a5c634f4bfecb",
+      "bytes": 8233
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/index.md": {
+      "sha256": "af6b5903ab60ce53b8c4ec71375366bc7459548308bf2cca4829e61a574fb151",
+      "bytes": 62267
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md": {
+      "sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+      "bytes": 48113
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/01-research-and-decision-map.md": {
+      "sha256": "7d167c2cbc70b6d6bc829dd27cedca8128b33546e7004152df15e3c08cb8446b",
+      "bytes": 19932
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/web-research-sources.json": {
+      "sha256": "d8f227ac0250686a94ae83ca4c254d88ff7aec5ceb1e5b706432e7f5df45c1fd",
+      "bytes": 6302
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/07-current-web-research.md": {
+      "sha256": "72ce534c1283ee246f7a6a621c3849affc93c858b3fb5fd62e5209beb77c0823",
+      "bytes": 8399
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/03-retrieval-and-gaps.md": {
+      "sha256": "8b9176deea367d1870119ae252eb67639bd64eb217c082c12b7b0ab13247ab64",
+      "bytes": 9983
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/06-ranked-reading-guide.md": {
+      "sha256": "238db6c4f7c4f83196dbdff0dc4c34a5b689c1bd3d6c212d3a25bd461e4ec706",
+      "bytes": 22552
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/top50-reading-plan.json": {
+      "sha256": "9fd2876ba5d5195c88336a9923aeccd05dcd6d5b633909943176eb8c2450ad67",
+      "bytes": 62583
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md": {
+      "sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+      "bytes": 45106
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/02-deep-reasoning/06-how-the-routing-actually-works.md": {
+      "sha256": "661c39b781f85c54bb97640e02eded5ac45905f502a03a6332020ea673e46b20",
+      "bytes": 18114
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/06-layered-rule-kb/index.md": {
+      "sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+      "bytes": 13506
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/sources/infrastructure-activation-research-brief.md": {
+      "sha256": "2f032e7f1779ac281eab73ad6ca6d33307df77173738114b3fcbdd2892604508",
+      "bytes": 6489
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/HANDOVER-14-APEX-RULE-REGISTRY-AND-ACTIVATION-INTEGRATION.md": {
+      "sha256": "cbb478aeaf1f5b001e3fa3ae8eac31ca1add673186b117259b1e45f553ded683",
+      "bytes": 16833
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/HANDOVER-15-PRO-THINKING-APEX-RULE-REGISTRY-RESEARCH-PROMPT.md": {
+      "sha256": "db9bdc97a06a1e5750916990f7afcef4c63be89ccab16183aa2c1f31fcea157e",
+      "bytes": 19196
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/cross-cli-hook-architecture.md": {
+      "sha256": "69213f89257483f3153242d1fd36f570488d290f69330e598b367711126aef5d",
+      "bytes": 23562
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/10-ultra-upgrade-validation/fixtures/armB_hook_agy.py": {
+      "sha256": "88a0fda3b2b98aaa4e220ecdd843753bdaa7c9aa1ba0c8ac1cb94b4032e869a9",
+      "bytes": 20948
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/01-universal-instruction-research/module-deepening/A06-context-engineering-progressive-disclosure/README.md": {
+      "sha256": "9ad30c58e0a3336c0ca9cf5835fc7f52601a780fd7ce6baddb83a383a07e1c89",
+      "bytes": 34483
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/research/08-read-trace-routing-experiments/artifacts/stage1/score_stage1_corrected.py": {
+      "sha256": "e575f5a2fb135244d65b250bbe0308fc0a72ddcfafb11fc8ede86af6db387c1f",
+      "bytes": 11901
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/informatics/final/operations/handovers/HANDOVER-13-CROSS-CLI-HOOK-ARCHITECTURE-AND-REPOSITORY-ORGANIZATION.md": {
+      "sha256": "3b05335cb4a3d3c8f2cbfbfb0cc800535c2ec72079a12b4b2314438f011653e6",
+      "bytes": 8097
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/orchestration/workflows/detective-review.md": {
+      "sha256": "4feedf512b264b82313e4f4218d7e1963594170403a1815497d351814908bfea",
+      "bytes": 3796
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/orchestration/schemas/authority-state.schema.md": {
+      "sha256": "ef22ac27eaac0428ca92cfcc0e00958ddb182d2424118c77d7d0ba20d093fcc3",
+      "bytes": 4650
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/orchestration/schemas/review-verdict.schema.md": {
+      "sha256": "d39ac36f425e2beee010f21125decd259583d3b5252d24d9356f63798eb69d10",
+      "bytes": 4934
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/orchestration/schemas/handoff-packet.schema.md": {
+      "sha256": "2e50e1a87b4af47a43d9fc608622145dfd928c43d6c6e09e32b5467212bfa915",
+      "bytes": 5517
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/orchestration/agents/meta-ops/INTEGRATION-apex-plan-sync-session.md": {
+      "sha256": "cc92da648dd2d40d31c38c2a37d71ed990bac7cf48658a927961a572e660c95f",
+      "bytes": 5080
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/epics/hermes-multi-repo-orchestration-v2/DECISIONS.md": {
+      "sha256": "c981d4545da0f3fabf3fbc02030056521d33a4b5173c6c4117c0b8f97db2f2de",
+      "bytes": 4700
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/apex-meta/epics/hermes-multi-repo-orchestration-v2/decisions/D05-SHARED-SKILL-SOURCE.md": {
+      "sha256": "db8af86da67c54e9c76ce966128eb184cf9c53b2430f35541b406452c30fa8d8",
+      "bytes": 3141
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/.claude/agents/meta-detective.md": {
+      "sha256": "92e24f1c02de8ad0792161bc72ab0b7f35ceb20e9b2923c45ee3161af9a0ec27",
+      "bytes": 2775
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/.claude/skills/apex-sync/SKILL.md": {
+      "sha256": "bdb443aa4b3c4ab60d2221ee43f40e4ca9b26f529ed20e6728dbfdccc825ce00",
+      "bytes": 9127
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/.claude/skills/apex-plan/SKILL.md": {
+      "sha256": "7bc00a5af4fa3de68f58e86335f44f36eae2ae262f7cb9d0b656c65202d1d318",
+      "bytes": 9562
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/.claude/skills/apex-session/SKILL.md": {
+      "sha256": "3e745ca2f27759ef734f72551cdc1f4f5dd371403c541a7e7338beb6614b8809",
+      "bytes": 11801
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/.claude/skills/weekly-orchestrator/SKILL.md": {
+      "sha256": "f887e5821e51cc6140fa1c267dba92b1cd2459309062d7475bb3fecd9677db29",
+      "bytes": 8815
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/.claude/skills/AIRouting/SKILL.md": {
+      "sha256": "06b52efc17705116b5684f424ed147076eb12e4bc6efa2be6bda308ab115ce5e",
+      "bytes": 10590
+    },
+    "source/apex-cli-agent-infrastructure/evidence/repository/.claude/skills/deterministic-markdown-patcher2/references/patch-intent-schema.json": {
+      "sha256": "8053def79a5579240e59cc2a5e728ada4dd092277bebbbef4f66505f4b33884b",
+      "bytes": 6881
+    },
+    "source/apex-cli-agent-infrastructure/examples/native/offline-results.json": {
+      "sha256": "1d4f6cf71d31037623e3cdea1f9abb602406cedfd44b85a96fb153924715c5ba",
+      "bytes": 2063
+    },
+    "source/apex-cli-agent-infrastructure/examples/native/codex-hooks.example.json": {
+      "sha256": "5aa0890f8dfa5ea2443e66f505d146222bcbf75fdba38b6595506ecdcb3c7798",
+      "bytes": 1105
+    },
+    "source/apex-cli-agent-infrastructure/examples/native/claude-verifier.example.md": {
+      "sha256": "42e0956040f7dfffb37cdc6e20b3b18a536ae0c0d4e372a24c3b80a99ab06913",
+      "bytes": 734
+    },
+    "source/apex-cli-agent-infrastructure/examples/native/hook_envelope_probe.py": {
+      "sha256": "5f3fa1c782e71e56b61711abed3a4de427c34aaa8d48fde7480321e61262c126",
+      "bytes": 1662
+    },
+    "source/apex-cli-agent-infrastructure/examples/native/codex_offline_check.py": {
+      "sha256": "2df1282f0469915653669e03df30dabff93f37cacdee9cd36eb7d27d57ff8565",
+      "bytes": 4400
+    },
+    "source/apex-cli-agent-infrastructure/examples/native/codex-hook-fixtures.json": {
+      "sha256": "d90bbaed4618f779587ac1df2b941bb83c126499e87c447697e02ee5f5534ddd",
+      "bytes": 3205
+    },
+    "source/apex-cli-agent-infrastructure/examples/native/antigravity-verifier.example.md": {
+      "sha256": "f6a2ff2bae6423b9781d6c449799ad2304f7c980b51c8b3836fee5a806fad547",
+      "bytes": 707
+    },
+    "source/apex-cli-agent-infrastructure/examples/native/codex_hook_probe.py": {
+      "sha256": "e4d1093bd5270afab714be1277206c4593656c5792577386175f0189d238f8af",
+      "bytes": 2453
+    },
+    "source/apex-cli-agent-infrastructure/examples/native/codex-offline-results.json": {
+      "sha256": "669bc7b72107ccb56cd330456d5243b229b1ef5714e4dc672d15dea95a230c84",
+      "bytes": 6202
+    },
+    "source/apex-cli-agent-infrastructure/examples/native/codex-config.example.toml": {
+      "sha256": "f7f10804a9e2c0fa627d4d108b1aa952c4d80fd0e451eee72db16e7479f6d834",
+      "bytes": 226
+    },
+    "source/apex-cli-agent-infrastructure/examples/native/offline_check.py": {
+      "sha256": "f2c44cfa9af5b942ba7c7f55555280e9a39e6b2fdb6528201fc3de2a397d10a8",
+      "bytes": 2288
+    },
+    "source/apex-cli-agent-infrastructure/examples/native/offline-fixtures.json": {
+      "sha256": "ffaac690cf2d9acb3c671e448c21eaa415348a199a277539d8cd73655ed80bca",
+      "bytes": 809
+    },
+    "source/apex-cli-agent-infrastructure/examples/native/README.md": {
+      "sha256": "38f035d54229766ecbc8da2fabd1483ef184e426f40f485db85126dfb2709903",
+      "bytes": 3170
+    },
+    "source/apex-cli-agent-infrastructure/examples/native/antigravity-hooks.example.json": {
+      "sha256": "ed9b175e438c5059d38755c95271ab0548c38c17885f5ddc596ccb2ee6603e4b",
+      "bytes": 299
+    },
+    "source/apex-cli-agent-infrastructure/examples/native/codex-verifier.example.toml": {
+      "sha256": "8bfd5157c971846bfd465a585514dfc00c93881b4b9911685050ef24d619b481",
+      "bytes": 683
+    },
+    "source/apex-cli-agent-infrastructure/examples/native/claude-settings.example.json": {
+      "sha256": "71a19bc9904127dc6d68d423628a25a0fa53e6108b23d7bb5e4b23db405a7fd3",
+      "bytes": 469
+    },
+    "source/apex-cli-agent-infrastructure/examples/native/gemini-settings.example.json": {
+      "sha256": "0d2fbc8db0e1b0a8eb5c6e7e08cf446741252d11088b0d18424c27b4f52d22a7",
+      "bytes": 410
+    },
+    "source/apex-cli-agent-infrastructure/examples/workflows/apex-governed-authoring/SKILL.md.example": {
+      "sha256": "b1165141d401e0301dfb4aabaf90239c9be9f316ae6e708e0b1c288c1924a47f",
+      "bytes": 6770
+    },
+    "source/apex-cli-agent-infrastructure/examples/workflows/apex-decision-support/SKILL.md.example": {
+      "sha256": "4948398340e78c2dad306d9468ffe7d47c1d2b0d6315a0b96494dd6d977b9d26",
+      "bytes": 6518
+    },
+    "source/apex-cli-agent-infrastructure/examples/workflows/apex-research-cycle/SKILL.md.example": {
+      "sha256": "a38e24c615d208042f218e5cb4955a9c7dc24058f5c7d511e288fb164780f758",
+      "bytes": 7307
+    },
+    "source/apex-cli-agent-infrastructure/compatibility/native-schemas/codex/stop.command.output.schema.json": {
+      "sha256": "dc2b30e84c97beca5825aa64ca46e1337e402781dc5a9142b67111d10523f15c",
+      "bytes": 963
+    },
+    "source/apex-cli-agent-infrastructure/compatibility/native-schemas/codex/provenance.json": {
+      "sha256": "4c0f6a96065032c202df1248a1ec7faae9434efeb3cd541e84345fbc06a220cb",
+      "bytes": 2904
+    },
+    "source/apex-cli-agent-infrastructure/compatibility/native-schemas/codex/user-prompt-submit.command.output.schema.json": {
+      "sha256": "5e290303db710f3ccc12f4a2744e8586e7749b3ca2b6bf9f57781ed75bf17b2b",
+      "bytes": 1390
+    },
+    "source/apex-cli-agent-infrastructure/compatibility/native-schemas/codex/LICENSE": {
+      "sha256": "d17f227e4df5da1600391338865ce0f3055211760a36688f816941d58232d8dc",
+      "bytes": 10926
+    },
+    "source/apex-cli-agent-infrastructure/compatibility/native-schemas/codex/NOTICE": {
+      "sha256": "9d71575ecfd9a843fc1677b0efb08053c6ba9fd686a0de1a6f5382fd3c220915",
+      "bytes": 242
+    },
+    "source/apex-cli-agent-infrastructure/compatibility/native-schemas/codex/README.md": {
+      "sha256": "0524f9ca59ad9ed95c3684010dd247926f16d30d095dc32b56b9b609ed2bea9a",
+      "bytes": 822
+    },
+    "source/apex-cli-agent-infrastructure/compatibility/native-schemas/codex/license-provenance.json": {
+      "sha256": "e1c54f97466cf80632a62961030c1ad4df79001225ae5bd821ad88ffddb65a7f",
+      "bytes": 853
+    },
+    "source/apex-cli-agent-infrastructure/compatibility/native-schemas/codex/pre-tool-use.command.input.schema.json": {
+      "sha256": "fabed428f0fe75767c5700208b166da5faef4e031d601dfc8bff2f96d340c682",
+      "bytes": 1336
+    },
+    "source/apex-cli-agent-infrastructure/compatibility/native-schemas/codex/session-start.command.output.schema.json": {
+      "sha256": "f375e6de1c59ecbabd8c1aff05a67976d0f3aa2ef061808838de4c7c20be1c71",
+      "bytes": 1061
+    },
+    "source/apex-cli-agent-infrastructure/compatibility/native-schemas/codex/pre-tool-use.command.output.schema.json": {
+      "sha256": "e684f81c63fbb5972892f6a848b49fec68c8ce137931651093d2dd1da56a1dd6",
+      "bytes": 1907
+    }
+  }
+}

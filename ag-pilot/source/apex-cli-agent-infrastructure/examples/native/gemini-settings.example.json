@@ -1,0 +1,19 @@
+{
+  "hooksConfig": {
+    "enabled": false
+  },
+  "hooks": {
+    "BeforeAgent": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "name": "apex-context-canary",
+            "command": "\"<PYTHON_EXECUTABLE>\" \"<ABSOLUTE_NATIVE_EXAMPLES_DIR>/hook_envelope_probe.py\" --platform gemini --event BeforeAgent",
+            "timeout": 5000
+          }
+        ]
+      }
+    ]
+  }
+}

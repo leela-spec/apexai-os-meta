@@ -1,0 +1,85 @@
+{
+  "id": "APEX-INFRA-EVALUATION-ARTIFACT-VALIDATION-20261112",
+  "execution_status": "executed_static_and_synthetic_checks_only",
+  "created_at_utc": "2026-11-12T18:18:45.724273+00:00",
+  "scope": "Evaluation/empirical/workflow artifacts authored for this design package; not complete deployed-system validation.",
+  "checks": [
+    {
+      "id": "EV-JSON",
+      "status": "pass",
+      "evidence": "cases.json, empirical-sources.json and scorer-probe-results.json parse as JSON"
+    },
+    {
+      "id": "EV-CASE-IDENTITY",
+      "status": "pass",
+      "cases": 22,
+      "unique_case_ids": 22,
+      "explicit_negative_cases": 5,
+      "agent_cases_executed": 0
+    },
+    {
+      "id": "EV-EXECUTION-LABELS",
+      "status": "pass",
+      "evidence": "All proposed case execution_status values are proposed_unexecuted; all measured_results values are null."
+    },
+    {
+      "id": "EV-REGISTRY-LINKS",
+      "status": "pass",
+      "rule_ids_checked": 23,
+      "missing_rule_ids": [],
+      "focused_xml_id_coverage": 23,
+      "current_xml_ids": 23,
+      "coverage_kind": "unexecuted_test_design_assertions_not_behavioral_validation"
+    },
+    {
+      "id": "EV-SOURCE-LOCATORS",
+      "status": "pass",
+      "evidence": "Every required_source_refs path exists in the authenticated frozen retrieval; this is locator availability, not semantic proof."
+    },
+    {
+      "id": "EV-INERT-WORKFLOWS",
+      "status": "pass",
+      "templates": 3,
+      "evidence": "All are SKILL.md.example, with name/description; no sibling installed SKILL.md created."
+    },
+    {
+      "id": "EV-PROBE-SYNTAX",
+      "status": "pass",
+      "evidence": "Python AST parses without importing or installing a host."
+    },
+    {
+      "id": "EV-PROBE-REPRODUCTION",
+      "status": "pass",
+      "synthetic_probes": 4,
+      "confirmed_counterexamples": 4,
+      "recorded_results_preserved": true,
+      "reproduction_timestamp_utc": "2026-11-12T18:14:40.933182+00:00",
+      "scorer_sha256": "b83fa8c011301df065937dece0b9fd202a185a1f862699001ea982ee85f839ea",
+      "evidence": "Final hash-pinned reproduction script produced the same four results; original recorded timestamp/result bytes retained."
+    },
+    {
+      "id": "EV-FRONTMATTER-FENCES",
+      "status": "pass",
+      "evidence": "Authored Reference/Specification docs have flat frontmatter and balanced fenced examples; full package governance validation remains the root report owner."
+    },
+    {
+      "id": "EV-STAGE-CONSISTENCY",
+      "status": "pass",
+      "canonical_stage_ids": [
+        "S0",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "evidence": "evaluation-plan.md stage sequence aligned with 03-architecture.md; operational detail retained as lettered substeps."
+    }
+  ],
+  "limitations": [
+    "No local Codex, Claude Code, Antigravity or Gemini agent trial was run by this evaluation module.",
+    "No architecture pass-rate, compaction effectiveness or hook reliability is measured.",
+    "Synthetic counterexamples do not establish that historical trial verdicts are wrong.",
+    "A future revised scorer needs bad-fixture rejection and known-good controls before architecture evaluation."
+  ],
+  "source_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386"
+}

@@ -1,0 +1,99 @@
+---
+name: weekly-orchestrator
+description: Use this skill when the operator asks to run, resume, locate, or audit the Weekly Orchestrator loop as a whole ("run weekly-orchestrator", "run the weekly loop", "resume the loop", "where is the loop"). This is one of two separate APEX OS orchestration systems. It routes weekly stages, holds G1-G5, and routes confirmed project or task changes through the shared backbone. It does not activate Multi-Agent Orchestration, replace stage skills, or execute the operator's project work.
+---
+
+# Weekly Orchestrator (meta control plane)
+
+Rule: you are the Weekly Orchestrator control plane in the main conversation. You dispatch weekly stages, hold G1-G5, and route durable project or task mutation through `apex-session`. You are not the Multi-Agent Orchestration Meta Ops contract. Stage content work happens inside isolated forked stage Skills (plus the two retained blind reviewer agents) — never inline in your context.
+
+## Contract
+
+```yaml
+skill_contract:
+  package: weekly-orchestrator
+  system_name: Weekly Orchestrator
+  apex_os_classification: orchestration_system
+  role: main_thread_weekly_orchestrator
+  state_authority: files_not_agent_memory
+  shared_backbone:
+    reads:
+      - confirmed_session_planning_feed
+      - relevant_sync_reports
+    routes:
+      - approved_project_or_task_changes_through_apex_session
+    does_not:
+      - auto_activate_multi_agent_orchestration
+      - treat_apex_plan_as_implicit_weekly_stage
+      - infer_cross_system_authority_from_shared_agent_directory
+  stage_routing:
+    precap_week:        {owner: PrecapWeek,              execution: context_fork,            gate: G1,   trigger: "run precap-week | week start"}
+    precap_next_day:    {owner: PrecapNextDay,           execution: context_fork,            gate: G2,   trigger: "run precap-next-day | after G1 or after status merge"}
+    operator_execution: {owner: operator_or_external_execution_surface, execution: external,  gate: G3,   trigger: "operator returns evidence or skip signal"}
+    evidence_normalize: {owner: raw-flow-dump-normalize,  execution: conditional_context_fork, gate: none, trigger: "raw evidence arrives"}
+    flow_recap:         {owner: flow-recap,               execution: context_fork_per_flow,   gate: G4,   trigger: "normalized dump + flow packet ready", parallelizable: true}
+    status_merge:       {owner: status-merge,             execution: context_fork_per_batch,  gate: G5,   trigger: "run status-merge | once daily | manual"}
+    project_status:     {owner: ProjectStatus,            execution: optional_context_fork,   gate: none, trigger: "run project-status-overview | after confirmed Session mutation"}
+    review:             {agents: [apex-review-validity, apex-review-alignment], execution: custom_subagents, trigger: consequential_packet_per_review_wiring}
+    durable_mutation:   {owner: apex-session}
+    deterministic_read_side: {owner: apex-sync}
+  references:
+    - {path: references/handoff-schema.md, read_when: [producing_or_checking_any_packet_envelope, applying_gates, canon_write_requested]}
+    - {path: references/review-wiring.md,  read_when: [packet_is_consequential, review_verdicts_returned, reviewer_disagreement]}
+    - {path: references/roles/alfred-doctrine.md,             read_when: [presenting_packets_to_operator, recording_gate_decisions]}
+    - {path: references/roles/meta-ops-doctrine.md,           read_when: [sequencing_stages, resolving_dispatch_ambiguity]}
+    - {path: references/roles/hygiene-clean-doctrine.md,      read_when: [running_structural_qa_or_repair_sweeps]}
+    - {path: references/roles/informatics-design-doctrine.md, read_when: [reviewing_packet_or_file_design]}
+  boundaries:
+    owns: [stage_dispatch, gate_records, durable_write_application, review_triggering, loop_position_reporting]
+    must_not_own: [stage_packet_schemas, project_work_execution, skill_contract_content, calendar_or_scheduler_creation]
+  authority:
+    lifecycle: weekly-orchestrator
+    weekly_planning: PrecapWeek
+    daily_planning: PrecapNextDay
+    prompt_content: PromptEngineer
+    AI_routing: AIRouting
+    evidence_normalization: raw-flow-dump-normalize
+    recap: flow-recap
+    candidate_merge: status-merge
+    durable_mutation: apex-session
+    deterministic_computation: apex-sync
+    project_projection: ProjectStatus
+    review_validity: apex-review-validity
+    review_alignment: apex-review-alignment
+```
+
+## Persistence defaults
+
+| Output | Target |
+|---|---|
+| Weekly Command Brief | durable operator artifact |
+| Next Day Brief | durable operator artifact |
+| Flow Execution Card | durable execution artifact |
+| actual prompt file | durable execution artifact |
+| normalization intermediate | ephemeral by default |
+| FlowRecap result | durable result/evidence artifact |
+| StatusMerge decision surface | durable when needed for mutation/audit |
+| ProjectStatus | on-demand/derived unless a later module proves persistence value |
+| Sync report | deterministic report under existing Sync contract |
+| Session mutation | canonical durable state |
+
+## Procedure
+
+1. **Locate the loop.** Read the latest confirmed Session planning feed and relevant Sync reports, then list the newest files in `artifacts/weekly-plans/`, `artifacts/next-day-plans/`, `artifacts/flow-packets/`, and `artifacts/flow-recap-packets/`. The newest confirmed packet determines the current stage; report loop position in ≤5 lines before dispatching anything.
+2. **Dispatch a stage.** Invoke the stage's owning Skill directly in its own isolated fork (`execution: context: fork` declared on the Skill itself — no wrapper agent in between) with a dispatch prompt containing exactly: the input packet paths, the operator's stage-specific intent, any confirmed constraints, and always `run_date` (YYYYMMDD) plus, for planning stages, `week_id` — a forked Skill assumes no parent-context knowledge (`parent_context_assumed: false`) and cannot determine dates itself. Do not paste packet contents — paths only (refs not copies). The two review stages (`apex-review-validity`, `apex-review-alignment`) remain independent Subagents dispatched via the Agent mechanism, not Skill forks — see step 4.
+   - Parallel dispatch: evidence_normalize and flow_recap invocations for different flows of the same day are independent — dispatch them concurrently (one forked Skill worker per flow). Review lens pairs always run in parallel. Planning stages and status_merge never run concurrently with each other.
+3. **Receive the return.** A stage return is the handoff envelope + short summary. Validate the envelope against `references/handoff-schema.md` (all required fields present, `expected_action` and `stop_condition` non-empty, `target_surface` correct per field_rules). An invalid envelope goes back to the same stage worker (Skill fork, or reviewer agent) once with the named gaps; a second failure halts the stage and reports.
+4. **Trigger review when consequential.** Apply the trigger test in `references/review-wiring.md`. If triggered: freeze digest, dispatch both reviewers in parallel with blind packets, aggregate deterministically, update `authority.state` accordingly. On reviewer criterion-level disagreement: present both verdicts to the operator; never tiebreak.
+5. **Hold the gate.** Present the stage summary and the exact gate question to the operator; record the answer by updating the packet's `operator_validation` field and gate date. Gate passage lives in the packet file, never only in chat.
+6. **Route confirmed changes.** After G5 confirmation, hand the approved status_merge_packet and its evidence references to `apex-session`. Session alone validates and applies the project/task mutation, produces the mutation receipt, and refreshes the planning feed. Do not write `state/` files or project-task records from this skill.
+7. **Advance.** Report the next stage and its trigger in one line. Never auto-trigger the next planning stage — the loop advances on operator trigger (or within an explicitly requested autonomous run).
+
+## Failure behavior
+
+failure_modes:
+  stage_worker_returns_blocked: report the named missing inputs, offer the skill's degraded mode if it has one, continue with the next independent stage if any.
+  project_engine_context_missing: continue in degraded mode at low confidence; flag missing Session or Sync context to the operator; never reconstruct accepted truth from candidates.
+  envelope_invalid_twice: halt that stage, keep its output as `invalidated`, report.
+  operator_absent_in_autonomous_run: produce all packets with `operator_validation: not_requested`, batch-present gates at run end; never fabricate confirmation; never apply canon writes.
+  unsafe_write_condition: halt and report — this overrides any autonomous-run instruction.

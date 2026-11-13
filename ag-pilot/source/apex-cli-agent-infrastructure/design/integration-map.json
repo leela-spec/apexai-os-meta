@@ -1,0 +1,2527 @@
+{
+  "schema_version": "apex_integration_map.proposal.v1",
+  "source_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+  "status": "proposed_unapplied",
+  "owner_note": "Target paths are proposals for later review. Existing sources retain normative ownership. An entry never authorizes writes.",
+  "entries": [
+    {
+      "id": "IM-001",
+      "existing_path": ".agents/skills/qmd/SKILL.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "f12c774d704149fcd7047ac66e36e17d04ff50af15c26f7a829bca01d246d359",
+      "action": "adapt_after_owner_resolution",
+      "target_path": ".agents/skills/qmd/SKILL.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Align the conceptual-query exception with the owner’s keyword-zero-result rule for the current profile; do not reindex or change daemon settings.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-19"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/.agents/skills/qmd/SKILL.md"
+      ],
+      "prerequisites": [
+        "Explicit approval for any live mutation.",
+        "Fresh source/version comparison before applying a proposed change."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-002",
+      "existing_path": ".claude/CLAUDE.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "9583973b6f008980ac19ea05536792add5082d00eac50ef2f0bc2f5a7c7b5d0e",
+      "action": "retain_and_reference",
+      "target_path": ".claude/CLAUDE.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Preserve explicit system activation, Weekly separation and Plan-Sync-Session ownership.",
+      "rule_ids": [
+        "SCOPE.backbone",
+        "SCOPE.cross-system-transfer",
+        "SCOPE.intent-permission",
+        "SCOPE.orchestration-separation"
+      ],
+      "decision_ids": [
+        "D-14"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/.claude/CLAUDE.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-003",
+      "existing_path": ".claude/agents/meta-detective.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "92e24f1c02de8ad0792161bc72ab0b7f35ceb20e9b2923c45ee3161af9a0ec27",
+      "action": "retain_and_reference",
+      "target_path": ".claude/agents/meta-detective.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Reuse role doctrine when that system is explicitly active; native illustrative verifier wrappers are not a replacement.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-12"
+      ],
+      "adoption_stage": "S2",
+      "package_material": [
+        "evidence/repository/.claude/agents/meta-detective.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-004",
+      "existing_path": ".claude/settings.json",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "e9934a08984fdb61256c92b3e211addf8b4da16cbfc7170a890e8d56eb17ecc2",
+      "action": "inspect_effective_policy_before_any_change",
+      "target_path": ".claude/settings.json",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Top-level defaultMode is not proof of effective bypass. No automatic permission expansion or config rewrite is proposed. After S1 profile inspection, a separately approved S3 change may add only the tested hook entries, preserving permission fields and unrelated settings.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-15",
+        "D-09"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/.claude/settings.json",
+        "examples/native/claude-settings.example.json"
+      ],
+      "prerequisites": [
+        "Explicit approval for any live mutation.",
+        "Fresh source/version comparison before applying a proposed change."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted",
+      "conditional_adaptation": {
+        "stage": "S3",
+        "target": ".claude/settings.json",
+        "example": "examples/native/claude-settings.example.json",
+        "depends_on": [
+          "S1 effective-policy and native-event probes",
+          "Explicit bounded hook-integration approval"
+        ],
+        "change_boundary": "Add only the reviewed native hook entries; do not enable bypass or rewrite existing permission/unrelated fields."
+      }
+    },
+    {
+      "id": "IM-005",
+      "existing_path": ".claude/skills/AIRouting/SKILL.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "06b52efc17705116b5684f424ed147076eb12e4bc6efa2be6bda308ab115ce5e",
+      "action": "retain_and_reference",
+      "target_path": ".claude/skills/AIRouting/SKILL.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Existing source owner retained; link it from registry/workflows without relocating or redefining its meaning.",
+      "rule_ids": [
+        "SCOPE.ai-routing"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/.claude/skills/AIRouting/SKILL.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-006",
+      "existing_path": ".claude/skills/apex-plan/SKILL.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "7bc00a5af4fa3de68f58e86335f44f36eae2ae262f7cb9d0b656c65202d1d318",
+      "action": "retain_and_reference",
+      "target_path": ".claude/skills/apex-plan/SKILL.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Existing source owner retained; link it from registry/workflows without relocating or redefining its meaning.",
+      "rule_ids": [
+        "SCOPE.backbone-plan"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/.claude/skills/apex-plan/SKILL.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-007",
+      "existing_path": ".claude/skills/apex-session/SKILL.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "3e745ca2f27759ef734f72551cdc1f4f5dd371403c541a7e7338beb6614b8809",
+      "action": "retain_and_reference",
+      "target_path": ".claude/skills/apex-session/SKILL.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Existing source owner retained; link it from registry/workflows without relocating or redefining its meaning.",
+      "rule_ids": [
+        "SCOPE.backbone-session"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/.claude/skills/apex-session/SKILL.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-008",
+      "existing_path": ".claude/skills/apex-sync/SKILL.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "bdb443aa4b3c4ab60d2221ee43f40e4ca9b26f529ed20e6728dbfdccc825ce00",
+      "action": "retain_and_reference",
+      "target_path": ".claude/skills/apex-sync/SKILL.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Existing source owner retained; link it from registry/workflows without relocating or redefining its meaning.",
+      "rule_ids": [
+        "SCOPE.backbone-sync"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/.claude/skills/apex-sync/SKILL.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-009",
+      "existing_path": ".claude/skills/deterministic-markdown-patcher2/references/patch-intent-schema.json",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "8053def79a5579240e59cc2a5e728ada4dd092277bebbbef4f66505f4b33884b",
+      "action": "retain_and_reference",
+      "target_path": ".claude/skills/deterministic-markdown-patcher2/references/patch-intent-schema.json",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain the actual canonical patch_intent.v1 schema; exact-match proposals do not replace or restate this machine owner.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-18"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/.claude/skills/deterministic-markdown-patcher2/references/patch-intent-schema.json"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-010",
+      "existing_path": ".claude/skills/weekly-orchestrator/SKILL.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "f887e5821e51cc6140fa1c267dba92b1cd2459309062d7475bb3fecd9677db29",
+      "action": "retain_and_reference",
+      "target_path": ".claude/skills/weekly-orchestrator/SKILL.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Existing source owner retained; link it from registry/workflows without relocating or redefining its meaning.",
+      "rule_ids": [
+        "SCOPE.weekly-isolation",
+        "SCOPE.weekly-mutation"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/.claude/skills/weekly-orchestrator/SKILL.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-011",
+      "existing_path": ".github/copilot-instructions.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "158f2768ce5b2c5b46ffceb1f6cf6634113c59d4e1c407d7b73b3ec92bf30558",
+      "action": "retain_and_reference",
+      "target_path": ".github/copilot-instructions.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain observed carrier; Copilot runtime parity was not audited. Expansion requires an explicit separate supported-profile probe.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-07"
+      ],
+      "adoption_stage": "S4",
+      "package_material": [
+        "evidence/repository/.github/copilot-instructions.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-012",
+      "existing_path": "AGENTS.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "c7f660b441ba3ecbcb767e2997fa2c08b33c02c5eaa0fb8206e991a4e8124c39",
+      "action": "adapt_after_approval",
+      "target_path": "AGENTS.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Correct the verified standard pointer only; preserve Git Dispatch and the live core. Further carrier simplification needs D-07 probes.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-18"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/AGENTS.md"
+      ],
+      "prerequisites": [
+        "Explicit approval for any live mutation.",
+        "Fresh source/version comparison before applying a proposed change."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-013",
+      "existing_path": "CLAUDE.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "9d5653d8631689545406d2e14fb45e776c76a5d3a82d495c9fe5d4e4b0583c8b",
+      "action": "retain_then_conditional_adapter",
+      "target_path": "CLAUDE.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Keep the current carrier; test native AGENTS/CLAUDE precedence and one-copy loading before any exact projection replacement.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-07"
+      ],
+      "adoption_stage": "S3",
+      "package_material": [
+        "evidence/repository/CLAUDE.md"
+      ],
+      "prerequisites": [
+        "Explicit approval for any live mutation.",
+        "Fresh source/version comparison before applying a proposed change."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-014",
+      "existing_path": "GEMINI.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "1ac5f8485d53c20cc40d1b1ed1a70009022503bd8f867160809a5d8fa43699b5",
+      "action": "retain_then_conditional_adapter",
+      "target_path": "GEMINI.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Keep the carrier while actual Gemini versus Antigravity profile use is resolved; migration is not inferred.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-07"
+      ],
+      "adoption_stage": "S3",
+      "package_material": [
+        "evidence/repository/GEMINI.md"
+      ],
+      "prerequisites": [
+        "Explicit approval for any live mutation.",
+        "Fresh source/version comparison before applying a proposed change."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-015",
+      "existing_path": "apex-meta/SmallSkills/OKF_Format/conformance-rules.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "6f8e316b20981dfde7410315f33c67ffcd1b914b206c6e282e964ce93f735b0f",
+      "action": "reference_only",
+      "target_path": "apex-meta/SmallSkills/OKF_Format/conformance-rules.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/SmallSkills/OKF_Format/conformance-rules.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-016",
+      "existing_path": "apex-meta/epics/hermes-multi-repo-orchestration-v2/DECISIONS.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "c981d4545da0f3fabf3fbc02030056521d33a4b5173c6c4117c0b8f97db2f2de",
+      "action": "reference_only",
+      "target_path": "apex-meta/epics/hermes-multi-repo-orchestration-v2/DECISIONS.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/epics/hermes-multi-repo-orchestration-v2/DECISIONS.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-017",
+      "existing_path": "apex-meta/epics/hermes-multi-repo-orchestration-v2/decisions/D05-SHARED-SKILL-SOURCE.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "db8af86da67c54e9c76ce966128eb184cf9c53b2430f35541b406452c30fa8d8",
+      "action": "reference_only",
+      "target_path": "apex-meta/epics/hermes-multi-repo-orchestration-v2/decisions/D05-SHARED-SKILL-SOURCE.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/epics/hermes-multi-repo-orchestration-v2/decisions/D05-SHARED-SKILL-SOURCE.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-018",
+      "existing_path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "a430772c197c2db35505e9aa7afde5aa7563d7f4b932f7d8cdbbe29e7b6a47a2",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/candidates/01-decision-register.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/candidates/01-decision-register.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-019",
+      "existing_path": "apex-meta/informatics/final/index.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "ddec5dc24de305a22ae25092eea10eaa93931c7d65c8eae05ae575d27a702c3b",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/index.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/index.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-020",
+      "existing_path": "apex-meta/informatics/final/operations/07-INTEGRATION-PLAN-AND-OPERATIONAL-DECISIONS.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "0ba4710d034f06e109deae0f796366096b6011ec8e14e4f8002db28bf8456692",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/informatics/final/operations/07-INTEGRATION-PLAN-AND-OPERATIONAL-DECISIONS.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Existing source owner retained; link it from registry/workflows without relocating or redefining its meaning.",
+      "rule_ids": [
+        "SCOPE.qmd-policy"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/operations/07-INTEGRATION-PLAN-AND-OPERATIONAL-DECISIONS.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-021",
+      "existing_path": "apex-meta/informatics/final/operations/17-READ-TRACE-PILOT-AND-BASE-REF-FRAGILITY-FINDINGS.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "149f236b6a4e1ac32f78f6bf2f65d3c9ea41ed09c1cd38622caa4f532f0752d4",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/operations/17-READ-TRACE-PILOT-AND-BASE-REF-FRAGILITY-FINDINGS.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/operations/17-READ-TRACE-PILOT-AND-BASE-REF-FRAGILITY-FINDINGS.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-022",
+      "existing_path": "apex-meta/informatics/final/operations/18-APEX-CARRIER-MAP.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "a8a380f6424e9d90d0846a1f49adbad2a215763fc7a79ef7b58244ddd0e4ddb9",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/operations/18-APEX-CARRIER-MAP.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/operations/18-APEX-CARRIER-MAP.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-023",
+      "existing_path": "apex-meta/informatics/final/operations/handovers/HANDOVER-13-CROSS-CLI-HOOK-ARCHITECTURE-AND-REPOSITORY-ORGANIZATION.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "3b05335cb4a3d3c8f2cbfbfb0cc800535c2ec72079a12b4b2314438f011653e6",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/operations/handovers/HANDOVER-13-CROSS-CLI-HOOK-ARCHITECTURE-AND-REPOSITORY-ORGANIZATION.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/operations/handovers/HANDOVER-13-CROSS-CLI-HOOK-ARCHITECTURE-AND-REPOSITORY-ORGANIZATION.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-024",
+      "existing_path": "apex-meta/informatics/final/operations/migration.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "1031f0d42dfdfc0891bc6443d12433260adf10399ce9a8d8ca90a6d49645282f",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/informatics/final/operations/migration.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Existing source owner retained; link it from registry/workflows without relocating or redefining its meaning.",
+      "rule_ids": [
+        "SCOPE.migration"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/operations/migration.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-025",
+      "existing_path": "apex-meta/informatics/final/research/01-universal-instruction-research/04-FRAMEWORK-LANDSCAPE-MATRIX.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "3dcedec89ad73b81f253e13c6b769c61e506cf83af3604a7e40e51431461882b",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/01-universal-instruction-research/04-FRAMEWORK-LANDSCAPE-MATRIX.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/01-universal-instruction-research/04-FRAMEWORK-LANDSCAPE-MATRIX.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-026",
+      "existing_path": "apex-meta/informatics/final/research/01-universal-instruction-research/05-INSTRUCTION-ACCESS-AND-SERIALIZATION-MATRIX.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "bae470850b258b2fc2a2cb323ffb439391b8f0b8e6ce11ab4d24c4900ef22c21",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/01-universal-instruction-research/05-INSTRUCTION-ACCESS-AND-SERIALIZATION-MATRIX.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/01-universal-instruction-research/05-INSTRUCTION-ACCESS-AND-SERIALIZATION-MATRIX.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-027",
+      "existing_path": "apex-meta/informatics/final/research/01-universal-instruction-research/07-TIER-A-COVERAGE-AND-LIVE-AGENT-AUDIT.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "06c6c0e356e71a18d310c74a2649a55e42a5f9f7f9f7b0ebb21716fb53f8c949",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/01-universal-instruction-research/07-TIER-A-COVERAGE-AND-LIVE-AGENT-AUDIT.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/01-universal-instruction-research/07-TIER-A-COVERAGE-AND-LIVE-AGENT-AUDIT.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-028",
+      "existing_path": "apex-meta/informatics/final/research/01-universal-instruction-research/module-deepening/A06-context-engineering-progressive-disclosure/README.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "9ad30c58e0a3336c0ca9cf5835fc7f52601a780fd7ce6baddb83a383a07e1c89",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/01-universal-instruction-research/module-deepening/A06-context-engineering-progressive-disclosure/README.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/01-universal-instruction-research/module-deepening/A06-context-engineering-progressive-disclosure/README.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-029",
+      "existing_path": "apex-meta/informatics/final/research/02-deep-reasoning/06-how-the-routing-actually-works.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "661c39b781f85c54bb97640e02eded5ac45905f502a03a6332020ea673e46b20",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/02-deep-reasoning/06-how-the-routing-actually-works.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/02-deep-reasoning/06-how-the-routing-actually-works.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-030",
+      "existing_path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "d0fe25cd94d5b06ddd1a8b166d5bcc8d4189b8160e21470ec96a01b915ed3f47",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/04-finalization-dossier/08-complete-rule-and-decision-comparison.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-031",
+      "existing_path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "3940e158bb9510bdd84efbb7e545227957168018fea6e7211b7276b2c742079d",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/06-layered-rule-kb/index.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/06-layered-rule-kb/index.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-032",
+      "existing_path": "apex-meta/informatics/final/research/08-read-trace-routing-experiments/01-findings-and-protocol.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "0af42bbc5202abdf650d81f6895c68c391e02299df792c5f69d8ab21fba63707",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/08-read-trace-routing-experiments/01-findings-and-protocol.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/08-read-trace-routing-experiments/01-findings-and-protocol.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-033",
+      "existing_path": "apex-meta/informatics/final/research/08-read-trace-routing-experiments/03-design-review-routing-carriers.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "32912e1ad88d3ea9db8df1ddc78ce0e119807ecf338dd761e9260dbfe43e9d32",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/08-read-trace-routing-experiments/03-design-review-routing-carriers.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/08-read-trace-routing-experiments/03-design-review-routing-carriers.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-034",
+      "existing_path": "apex-meta/informatics/final/research/08-read-trace-routing-experiments/artifacts/stage1/score_stage1_corrected.py",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "e575f5a2fb135244d65b250bbe0308fc0a72ddcfafb11fc8ede86af6db387c1f",
+      "action": "reference_and_selective_reuse",
+      "target_path": "apex-meta/informatics/final/research/08-read-trace-routing-experiments/artifacts/stage1/score_stage1_corrected.py",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain historical semantics and mixed results. Reuse exact mutation-scope check; replace attempted-read and invalid-validator proxies.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-20"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/08-read-trace-routing-experiments/artifacts/stage1/score_stage1_corrected.py"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-035",
+      "existing_path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "60ceba699244363fa4cfa9f43afe55fbb14b756327f7d54fe115e6fa8b39b0a1",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/01-step-by-step-change-ledger.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-036",
+      "existing_path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/index.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "af6b5903ab60ce53b8c4ec71375366bc7459548308bf2cca4829e61a574fb151",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/index.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/09-ultra-contract-and-layers-synthesis/index.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-037",
+      "existing_path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/01-results-and-verdict.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "ee34d49c6d8513a8d91854fe45dd7e9b1f27f43cde403bef839a5c634f4bfecb",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/01-results-and-verdict.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/10-ultra-upgrade-validation/01-results-and-verdict.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-038",
+      "existing_path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/fixtures/armB_hook_agy.py",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "88a0fda3b2b98aaa4e220ecdd843753bdaa7c9aa1ba0c8ac1cb94b4032e869a9",
+      "action": "reference_only_do_not_install",
+      "target_path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/fixtures/armB_hook_agy.py",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Benchmark-specific hooks inform failure cases and payload leads; do not promote them to production policy.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-09"
+      ],
+      "adoption_stage": "S3",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/10-ultra-upgrade-validation/fixtures/armB_hook_agy.py"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-039",
+      "existing_path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/index.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "ed859317d7de66d41eb5d410beaae4a640f5f4cb5dcf5fdb24cdec38a85fcd4c",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/index.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/10-ultra-upgrade-validation/index.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-040",
+      "existing_path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/preregistration.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "ad835707475b0a223baae70053e4d66de0e87f0cdd79b4a1ad7d63997006802a",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/preregistration.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/10-ultra-upgrade-validation/preregistration.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-041",
+      "existing_path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/score_eval.py",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "b83fa8c011301df065937dece0b9fd202a185a1f862699001ea982ee85f839ea",
+      "action": "retain_frozen_then_new_scoring_revision",
+      "target_path": "apex-meta/informatics/final/research/10-ultra-upgrade-validation/score_eval.py",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Keep historical scorer exact. An approved future revised scorer must reject demonstrated counterexamples and retain reproducible version identity.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-20"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/10-ultra-upgrade-validation/score_eval.py"
+      ],
+      "prerequisites": [
+        "Explicit approval for any live mutation.",
+        "Fresh source/version comparison before applying a proposed change."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-042",
+      "existing_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/01-research-and-decision-map.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "7d167c2cbc70b6d6bc829dd27cedca8128b33546e7004152df15e3c08cb8446b",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/01-research-and-decision-map.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/01-research-and-decision-map.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-043",
+      "existing_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/03-retrieval-and-gaps.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "8b9176deea367d1870119ae252eb67639bd64eb217c082c12b7b0ab13247ab64",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/03-retrieval-and-gaps.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/03-retrieval-and-gaps.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-044",
+      "existing_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/06-ranked-reading-guide.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "238db6c4f7c4f83196dbdff0dc4c34a5b689c1bd3d6c212d3a25bd461e4ec706",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/06-ranked-reading-guide.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/06-ranked-reading-guide.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-045",
+      "existing_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/07-current-web-research.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "72ce534c1283ee246f7a6a621c3849affc93c858b3fb5fd62e5209beb77c0823",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/07-current-web-research.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/07-current-web-research.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-046",
+      "existing_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/HANDOVER-14-APEX-RULE-REGISTRY-AND-ACTIVATION-INTEGRATION.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "cbb478aeaf1f5b001e3fa3ae8eac31ca1add673186b117259b1e45f553ded683",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/HANDOVER-14-APEX-RULE-REGISTRY-AND-ACTIVATION-INTEGRATION.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/HANDOVER-14-APEX-RULE-REGISTRY-AND-ACTIVATION-INTEGRATION.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-047",
+      "existing_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/HANDOVER-15-PRO-THINKING-APEX-RULE-REGISTRY-RESEARCH-PROMPT.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "db9bdc97a06a1e5750916990f7afcef4c63be89ccab16183aa2c1f31fcea157e",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/HANDOVER-15-PRO-THINKING-APEX-RULE-REGISTRY-RESEARCH-PROMPT.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/HANDOVER-15-PRO-THINKING-APEX-RULE-REGISTRY-RESEARCH-PROMPT.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-048",
+      "existing_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/cross-cli-hook-architecture.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "69213f89257483f3153242d1fd36f570488d290f69330e598b367711126aef5d",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/cross-cli-hook-architecture.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/remote-snapshots/cross-cli-hook-architecture.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-049",
+      "existing_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/sources/infrastructure-activation-research-brief.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "2f032e7f1779ac281eab73ad6ca6d33307df77173738114b3fcbdd2892604508",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/sources/infrastructure-activation-research-brief.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/sources/infrastructure-activation-research-brief.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-050",
+      "existing_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/top50-reading-plan.json",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "9fd2876ba5d5195c88336a9923aeccd05dcd6d5b633909943176eb8c2450ad67",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/top50-reading-plan.json",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/top50-reading-plan.json"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-051",
+      "existing_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/web-research-sources.json",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "d8f227ac0250686a94ae83ca4c254d88ff7aec5ceb1e5b706432e7f5df45c1fd",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/research/11-infrastructure-evidence-index/web-research-sources.json",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/research/11-infrastructure-evidence-index/web-research-sources.json"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-052",
+      "existing_path": "apex-meta/informatics/final/specs/anti-drift-rules.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "9f429c36a53b9c0276053afcaf20741460c881c1613418ed60881f0f85d73229",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/informatics/final/specs/anti-drift-rules.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Existing source owner retained; link it from registry/workflows without relocating or redefining its meaning.",
+      "rule_ids": [
+        "AD-01",
+        "AD-02",
+        "AD-03",
+        "AD-04",
+        "AD-05",
+        "AD-06",
+        "AD-07",
+        "AD-08",
+        "AD-09",
+        "AD-10",
+        "AD-11",
+        "AD-12",
+        "AD-13",
+        "AD-14",
+        "AD-15",
+        "AD-16",
+        "AD-17",
+        "AD-18",
+        "AD-19",
+        "AD-20",
+        "AD-21",
+        "AD-22",
+        "AD-23",
+        "AD-24",
+        "AD-25",
+        "AD-26",
+        "AD-27",
+        "AD-28",
+        "EM-04",
+        "EM-05",
+        "FA-09",
+        "WP-04",
+        "WP-08",
+        "WP-16"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/specs/anti-drift-rules.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-053",
+      "existing_path": "apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "0cbaa3e994b5ff0ba2e489623ae6ee3b58d63988a2a225b11df9b5cdee132b0b",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Keep all 23 tags and seven explicit refs. A new sync ref or wording reconciliation is an owner-level proposal requiring separate review.",
+      "rule_ids": [
+        "XML.align",
+        "XML.authoring",
+        "XML.communication",
+        "XML.context",
+        "XML.current_truth",
+        "XML.detour",
+        "XML.editing",
+        "XML.ground",
+        "XML.handover",
+        "XML.hold_position",
+        "XML.iterative",
+        "XML.new_machinery",
+        "XML.pointers",
+        "XML.product_first",
+        "XML.recovery",
+        "XML.reuse",
+        "XML.schemas",
+        "XML.scope",
+        "XML.stop_repairing",
+        "XML.surgical",
+        "XML.sync",
+        "XML.target",
+        "XML.trade_off"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-054",
+      "existing_path": "apex-meta/informatics/final/specs/carrier-layer2-shared.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "8a7fe4858fcc4accd4ebd1e58f44e5b581e47cbe0c79d031b281cdcd66ae41d8",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/informatics/final/specs/carrier-layer2-shared.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Existing source owner retained; link it from registry/workflows without relocating or redefining its meaning.",
+      "rule_ids": [
+        "HOST.completion",
+        "HOST.environment",
+        "HOST.qmd",
+        "HOST.windows-defaults"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/specs/carrier-layer2-shared.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-055",
+      "existing_path": "apex-meta/informatics/final/specs/execution-modes.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "ea534dbfa53216412513a7fddebea2289a3599ed6e065f26d1689bb99e416f34",
+      "action": "retain_pending_owner_resolution",
+      "target_path": "apex-meta/informatics/final/specs/execution-modes.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Preserve current aggregate definitions. Do not silently delete EM-12 or other delegated views; record ownership consolidation separately.",
+      "rule_ids": [
+        "AD-03",
+        "AD-06",
+        "EM-01",
+        "EM-02",
+        "EM-03",
+        "EM-04",
+        "EM-05",
+        "GS-02"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/specs/execution-modes.md"
+      ],
+      "prerequisites": [
+        "Explicit approval for any live mutation.",
+        "Fresh source/version comparison before applying a proposed change."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-056",
+      "existing_path": "apex-meta/informatics/final/specs/execution-modes/bake-off.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "00a10c860c72e19f5c264ace38ffaad970be5c15c82243d454c37bf449dfcd0a",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/informatics/final/specs/execution-modes/bake-off.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Existing source owner retained; link it from registry/workflows without relocating or redefining its meaning.",
+      "rule_ids": [
+        "EM-07"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/specs/execution-modes/bake-off.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-057",
+      "existing_path": "apex-meta/informatics/final/specs/execution-modes/git-sync.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "20dce790417b853c7a46387b6c5edddb2141a98ad5a8c31a926f42d5cd5782b7",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/informatics/final/specs/execution-modes/git-sync.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Existing standalone EM-12 adapter; no file creation needed. Its relation to the duplicate general EM-12 owner is RC-11.",
+      "rule_ids": [
+        "EM-12"
+      ],
+      "decision_ids": [
+        "D-23"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/specs/execution-modes/git-sync.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-058",
+      "existing_path": "apex-meta/informatics/final/specs/execution-modes/handover.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "00b3e0b40e7cb67dced95657de8bc936292138fdf16524ed778e26f8a51518f7",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/informatics/final/specs/execution-modes/handover.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Existing source owner retained; link it from registry/workflows without relocating or redefining its meaning.",
+      "rule_ids": [
+        "EM-09",
+        "EM-14"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/specs/execution-modes/handover.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-059",
+      "existing_path": "apex-meta/informatics/final/specs/execution-modes/iterative-execution.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "583133b554a67d215c168b09dac07f71220ac9e7a0131b5d3def883da46d76d9",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/informatics/final/specs/execution-modes/iterative-execution.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Existing source owner retained; link it from registry/workflows without relocating or redefining its meaning.",
+      "rule_ids": [
+        "EM-10",
+        "EM-11"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/specs/execution-modes/iterative-execution.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-060",
+      "existing_path": "apex-meta/informatics/final/specs/execution-modes/patch-discipline.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "6951891dffe343c7dd8f20252a922d5fc7d54de5d65a20d4f37b6d139ee0dbf2",
+      "action": "adapt_after_approval",
+      "target_path": "apex-meta/informatics/final/specs/execution-modes/patch-discipline.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Correct two too-shallow relative links; retain the actual authoritative patch schema and worked example.",
+      "rule_ids": [
+        "EM-08"
+      ],
+      "decision_ids": [
+        "D-18"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/specs/execution-modes/patch-discipline.md"
+      ],
+      "prerequisites": [
+        "Explicit approval for any live mutation.",
+        "Fresh source/version comparison before applying a proposed change."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-061",
+      "existing_path": "apex-meta/informatics/final/specs/execution-modes/qa-decision-matrix.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "a16b0226570883a45e5fb247cce8fc4c9ee76c2498d043b0475960ef1102ba2e",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/informatics/final/specs/execution-modes/qa-decision-matrix.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Existing source owner retained; link it from registry/workflows without relocating or redefining its meaning.",
+      "rule_ids": [
+        "EM-06",
+        "EM-06a"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/specs/execution-modes/qa-decision-matrix.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-062",
+      "existing_path": "apex-meta/informatics/final/specs/execution-modes/task-specification.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "85484fe3bff8a4ae92f32f2a77b9d5ba851421221c8274c9379932b322e4e65a",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/informatics/final/specs/execution-modes/task-specification.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Existing source owner retained; link it from registry/workflows without relocating or redefining its meaning.",
+      "rule_ids": [
+        "EM-13"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/specs/execution-modes/task-specification.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-063",
+      "existing_path": "apex-meta/informatics/final/specs/file-architecture.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "0ac27e4741819fd3c3785f4e2ce35d85f477c9439695cb466bee20ff1d8ea8f0",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/informatics/final/specs/file-architecture.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Existing source owner retained; link it from registry/workflows without relocating or redefining its meaning.",
+      "rule_ids": [
+        "FA-01",
+        "FA-02",
+        "FA-03",
+        "FA-04",
+        "FA-05",
+        "FA-06",
+        "FA-07",
+        "FA-08",
+        "FA-09",
+        "FA-10",
+        "FA-11",
+        "FA-12",
+        "FA-13",
+        "GS-05",
+        "GS-22"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/specs/file-architecture.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-064",
+      "existing_path": "apex-meta/informatics/final/specs/general-informatics-router.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "d24c8479a7ba73ba7f78464cfda42009f02ff4b9d8dde21e1f06eb4af3f71567",
+      "action": "retain_as_portable_artifact",
+      "target_path": "apex-meta/informatics/final/specs/general-informatics-router.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Preserve the source-owned portable artifact; do not introduce it as another mandatory runtime hop.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/specs/general-informatics-router.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-065",
+      "existing_path": "apex-meta/informatics/final/specs/governance-schemas.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "e4fc66bb8f0818e12a8dbe3916b28990e29ee6ae32165a059c4e2bde8e367ba1",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/informatics/final/specs/governance-schemas.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Correct patch-schema relative link already resolves; do not apply the initially suspected unnecessary correction.",
+      "rule_ids": [
+        "GS-01",
+        "GS-02",
+        "GS-03",
+        "GS-04",
+        "GS-05",
+        "GS-06",
+        "GS-07",
+        "GS-08",
+        "GS-09",
+        "GS-10",
+        "GS-11",
+        "GS-12",
+        "GS-13",
+        "GS-14",
+        "GS-15",
+        "GS-17",
+        "GS-20",
+        "GS-21",
+        "GS-22"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/specs/governance-schemas.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-066",
+      "existing_path": "apex-meta/informatics/final/specs/standard.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "6a25eaf2ecc4dcfb3dd2ab2fecf28e3c767f698cadaecd3171aa3fddbc8de553",
+      "action": "adapt_after_approval",
+      "target_path": "apex-meta/informatics/final/specs/standard.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Correct unique index/migration links and the diagnostic rule locator; preserve substantive text.",
+      "rule_ids": [
+        "SCOPE.skill-knowledge-boundary",
+        "SCOPE.standard-precedence"
+      ],
+      "decision_ids": [
+        "D-18"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/specs/standard.md"
+      ],
+      "prerequisites": [
+        "Explicit approval for any live mutation.",
+        "Fresh source/version comparison before applying a proposed change."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-067",
+      "existing_path": "apex-meta/informatics/final/specs/writing-profile.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "ff354300a39c873de0c51322f8f4f579ce54f8bd3f1bbb5541b911274244c6c9",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/informatics/final/specs/writing-profile.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Existing source owner retained; link it from registry/workflows without relocating or redefining its meaning.",
+      "rule_ids": [
+        "AD-08",
+        "AD-17",
+        "AD-26",
+        "FA-02",
+        "FA-04",
+        "FA-07",
+        "FA-12",
+        "GS-03",
+        "GS-04",
+        "GS-08",
+        "GS-14",
+        "WP-01",
+        "WP-02",
+        "WP-03",
+        "WP-04",
+        "WP-05",
+        "WP-06",
+        "WP-07",
+        "WP-08",
+        "WP-09",
+        "WP-10",
+        "WP-11",
+        "WP-12",
+        "WP-13",
+        "WP-14",
+        "WP-15",
+        "WP-16",
+        "WP-17",
+        "WP-18",
+        "WP-19",
+        "WP-20",
+        "WP-21",
+        "WP-22",
+        "WP-23",
+        "WP-24",
+        "WP-25"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/specs/writing-profile.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-068",
+      "existing_path": "apex-meta/informatics/final/tools/agent_eval_runner.py",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "e99ad844212421a1ef610e1643451d0bb92fcf5dae79b93fb4afaea84bd62cc0",
+      "action": "retain_as_simulation_evidence",
+      "target_path": "apex-meta/informatics/final/tools/agent_eval_runner.py",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Do not use assigned outcomes as agent measurements. Preserve historical script; reuse only source-grounded fixture ideas.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-20"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/tools/agent_eval_runner.py"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-069",
+      "existing_path": "apex-meta/informatics/final/tools/apex_carrier_sync.py",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "1f4bf20caff55533ce0446429990ebb3e7c7dd62c3f36448cadf694319e0b64d",
+      "action": "adapt_after_approval",
+      "target_path": "apex-meta/informatics/final/tools/apex_carrier_sync.py",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Reuse block comparison. Parameterize selected roots and explicit preview; retain backups and avoid uncontrolled cross-repository writes.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-17"
+      ],
+      "adoption_stage": "S3",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/tools/apex_carrier_sync.py"
+      ],
+      "prerequisites": [
+        "Explicit approval for any live mutation.",
+        "Fresh source/version comparison before applying a proposed change."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-070",
+      "existing_path": "apex-meta/informatics/final/tools/check_decision_bakeoff_shape.py",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "527957bc39b6a8f94bba4f5049f8f571771c1c05ced46d9ba392a65ed3beae25",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/final/tools/check_decision_bakeoff_shape.py",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/tools/check_decision_bakeoff_shape.py"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-071",
+      "existing_path": "apex-meta/informatics/final/tools/check_vendor_drift.py",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "4ea61059eecca812936db0b1f5e573b89a5cc598c7d16ae987b140b75e41ecb7",
+      "action": "adapt_after_approval",
+      "target_path": "apex-meta/informatics/final/tools/check_vendor_drift.py",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Separate unknown/skipped from in-sync, include selected non-Markdown adapter assets, and separate manifest refresh from comparison.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-17"
+      ],
+      "adoption_stage": "S3",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/tools/check_vendor_drift.py"
+      ],
+      "prerequisites": [
+        "Explicit approval for any live mutation.",
+        "Fresh source/version comparison before applying a proposed change."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-072",
+      "existing_path": "apex-meta/informatics/final/tools/okf_validator.py",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "5ae9899f20df5a44327b9aa7b0c7522fa5efc7934cac89e27f88ee7612ac9dc2",
+      "action": "reuse_with_bounded_validation",
+      "target_path": "apex-meta/informatics/final/tools/okf_validator.py",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Use existing supported structural diagnostics; add independent rule identity/semantic checks outside its current coverage.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-20"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/final/tools/okf_validator.py"
+      ],
+      "prerequisites": [
+        "Explicit approval for any live mutation.",
+        "Fresh source/version comparison before applying a proposed change."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-073",
+      "existing_path": "apex-meta/informatics/index.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "26cbb99fd7c6c48281736edb7fab26ec6007c26751d9d29d15f6b289325fd1c3",
+      "action": "reference_only",
+      "target_path": "apex-meta/informatics/index.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/informatics/index.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-074",
+      "existing_path": "apex-meta/kb/claude-code-orchestration-design/log/operator-phase1-review-decisions-20260702.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "c411e68bbdaa3a7529e53bd4e3c72703e1a935378434f2143decb87f01588119",
+      "action": "reference_only",
+      "target_path": "apex-meta/kb/claude-code-orchestration-design/log/operator-phase1-review-decisions-20260702.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/kb/claude-code-orchestration-design/log/operator-phase1-review-decisions-20260702.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-075",
+      "existing_path": "apex-meta/kb/claude-code-orchestration-design/wiki/summaries/claude-mechanism-decision-model.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "3235aca48aa227cc85e707a9e70ae0cd7e3f7b5e06b7781ed6e47a3beec031ab",
+      "action": "reference_only",
+      "target_path": "apex-meta/kb/claude-code-orchestration-design/wiki/summaries/claude-mechanism-decision-model.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/kb/claude-code-orchestration-design/wiki/summaries/claude-mechanism-decision-model.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-076",
+      "existing_path": "apex-meta/local-orchestration-engine/OPERATOR-DECISION-LOCK-2026-08-08-R3-LOCAL-MODEL.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "c1519f6eb933d030d6f948e95742a0ff52e4a9332b862f546f1051255361bb64",
+      "action": "reference_only",
+      "target_path": "apex-meta/local-orchestration-engine/OPERATOR-DECISION-LOCK-2026-08-08-R3-LOCAL-MODEL.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain as source-grounded evidence for this design; no live edit or new runtime load is proposed.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-01"
+      ],
+      "adoption_stage": "S0",
+      "package_material": [
+        "evidence/repository/apex-meta/local-orchestration-engine/OPERATOR-DECISION-LOCK-2026-08-08-R3-LOCAL-MODEL.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-077",
+      "existing_path": "apex-meta/orchestration/ARCHITECTURE.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "e3bd6e3ad87fea9b32d8fb612356d1f6f2893fb9dde5db7a928a3c572660c44c",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/orchestration/ARCHITECTURE.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Existing source owner retained; link it from registry/workflows without relocating or redefining its meaning.",
+      "rule_ids": [
+        "SCOPE.ma-enforcement-limit",
+        "SCOPE.ma-review",
+        "SCOPE.ma-roles",
+        "SCOPE.ma-state-authority"
+      ],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/orchestration/ARCHITECTURE.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-078",
+      "existing_path": "apex-meta/orchestration/CURRENT-SYSTEM-MANIFEST.yaml",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "b83a25a0a6d2a06a91f0c95cade1b1847522905a66fe64d09ba4d0b5ff354b39",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/orchestration/CURRENT-SYSTEM-MANIFEST.yaml",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain the live manifest of system, role and skill boundaries; infrastructure does not create a new orchestration system.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-14"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/orchestration/CURRENT-SYSTEM-MANIFEST.yaml"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-079",
+      "existing_path": "apex-meta/orchestration/agents/meta-ops/INTEGRATION-apex-plan-sync-session.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "cc92da648dd2d40d31c38c2a37d71ed990bac7cf48658a927961a572e660c95f",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/orchestration/agents/meta-ops/INTEGRATION-apex-plan-sync-session.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain the scoped Meta Ops/backbone integration contract, with Plan, Sync and Session responsibilities distinct.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-14"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/orchestration/agents/meta-ops/INTEGRATION-apex-plan-sync-session.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-080",
+      "existing_path": "apex-meta/orchestration/schemas/authority-state.schema.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "ef22ac27eaac0428ca92cfcc0e00958ddb182d2424118c77d7d0ba20d093fcc3",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/orchestration/schemas/authority-state.schema.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain candidate/verified/invalidated authority, basis digest and confirmation boundaries. Automatic digest enforcement remains an open code item.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-12"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/orchestration/schemas/authority-state.schema.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-081",
+      "existing_path": "apex-meta/orchestration/schemas/handoff-packet.schema.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "2e50e1a87b4af47a43d9fc608622145dfd928c43d6c6e09e32b5467212bfa915",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/orchestration/schemas/handoff-packet.schema.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain the named-system handoff_packet owner; activation and evaluation sidecars do not add fields to it.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-14"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/orchestration/schemas/handoff-packet.schema.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-082",
+      "existing_path": "apex-meta/orchestration/schemas/review-verdict.schema.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "d39ac36f425e2beee010f21125decd259583d3b5252d24d9356f63798eb69d10",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/orchestration/schemas/review-verdict.schema.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Retain the scoped independent-review verdict owner. This package does not claim that the live Detective workflow ran.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-12"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/orchestration/schemas/review-verdict.schema.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-083",
+      "existing_path": "apex-meta/orchestration/workflows/detective-review.md",
+      "observed_revision": "6c93ad31e42a72de74119218b9365bdd9d6ee386",
+      "observed_sha256": "4feedf512b264b82313e4f4218d7e1963594170403a1815497d351814908bfea",
+      "action": "retain_and_reference",
+      "target_path": "apex-meta/orchestration/workflows/detective-review.md",
+      "target_state": "existing_retained_or_conditionally_adapted",
+      "reason": "Reuse independent validity/alignment lenses inside the explicitly activated named system; no new reviewer fleet or automatic promotion.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-12"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "evidence/repository/apex-meta/orchestration/workflows/detective-review.md"
+      ],
+      "prerequisites": [
+        "No live mutation authorized by this entry."
+      ],
+      "validation": "Compare exact owning source and scope; run affected positive/negative cases if behavior or delivery changes.",
+      "rollback": "No mutation in this run. For an approved change, preserve prior exact bytes and restore only that scoped change.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-084",
+      "existing_path": null,
+      "observed_revision": null,
+      "observed_sha256": null,
+      "action": "add_after_approval",
+      "target_path": "apex-meta/informatics/final/activation/rules.json",
+      "target_state": "proposed_not_installed",
+      "reason": "Add the proposed activation metadata index. It does not become the semantic owner.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "registry/rules.json"
+      ],
+      "prerequisites": [
+        "Approve the bounded target and scope.",
+        "Resolve actual native profile/discovery and existing collisions.",
+        "Pass relevant source, schema, negative and outcome checks."
+      ],
+      "validation": "Use the owning stage and compatibility probes; record observed versus documented results.",
+      "rollback": "Remove only the approved pilot artifact or restore captured prior bytes; do not touch unrelated configuration.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-085",
+      "existing_path": null,
+      "observed_revision": null,
+      "observed_sha256": null,
+      "action": "add_after_approval",
+      "target_path": "apex-meta/informatics/final/activation/rule-registry.schema.json",
+      "target_state": "proposed_not_installed",
+      "reason": "Add the exact proposed metadata schema with registry.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "registry/rule-registry.schema.json"
+      ],
+      "prerequisites": [
+        "Approve the bounded target and scope.",
+        "Resolve actual native profile/discovery and existing collisions.",
+        "Pass relevant source, schema, negative and outcome checks."
+      ],
+      "validation": "Use the owning stage and compatibility probes; record observed versus documented results.",
+      "rollback": "Remove only the approved pilot artifact or restore captured prior bytes; do not touch unrelated configuration.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-086",
+      "existing_path": null,
+      "observed_revision": null,
+      "observed_sha256": null,
+      "action": "add_after_approval",
+      "target_path": "apex-meta/informatics/final/activation/history.json",
+      "target_state": "proposed_not_installed",
+      "reason": "Keep historical crosswalks and candidate decisions outside the active view.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-02"
+      ],
+      "adoption_stage": "S1",
+      "package_material": [
+        "registry/history.json"
+      ],
+      "prerequisites": [
+        "Approve the bounded target and scope.",
+        "Resolve actual native profile/discovery and existing collisions.",
+        "Pass relevant source, schema, negative and outcome checks."
+      ],
+      "validation": "Use the owning stage and compatibility probes; record observed versus documented results.",
+      "rollback": "Remove only the approved pilot artifact or restore captured prior bytes; do not touch unrelated configuration.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-087",
+      "existing_path": null,
+      "observed_revision": null,
+      "observed_sha256": null,
+      "action": "add_after_approval",
+      "target_path": ".agents/skills/apex-decision-support/SKILL.md",
+      "target_state": "proposed_not_installed",
+      "reason": "Pilot a task-centered decision procedure with source references; target root is conditional on D05/native discovery.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-04"
+      ],
+      "adoption_stage": "S2",
+      "package_material": [
+        "examples/workflows/apex-decision-support/SKILL.md.example"
+      ],
+      "prerequisites": [
+        "Approve the bounded target and scope.",
+        "Resolve actual native profile/discovery and existing collisions.",
+        "Pass relevant source, schema, negative and outcome checks."
+      ],
+      "validation": "Use the owning stage and compatibility probes; record observed versus documented results.",
+      "rollback": "Remove only the approved pilot artifact or restore captured prior bytes; do not touch unrelated configuration.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-088",
+      "existing_path": null,
+      "observed_revision": null,
+      "observed_sha256": null,
+      "action": "add_after_approval",
+      "target_path": ".agents/skills/apex-governed-authoring/SKILL.md",
+      "target_state": "proposed_not_installed",
+      "reason": "Pilot governed artifact authoring with actual FA/EM owners.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-04"
+      ],
+      "adoption_stage": "S2",
+      "package_material": [
+        "examples/workflows/apex-governed-authoring/SKILL.md.example"
+      ],
+      "prerequisites": [
+        "Approve the bounded target and scope.",
+        "Resolve actual native profile/discovery and existing collisions.",
+        "Pass relevant source, schema, negative and outcome checks."
+      ],
+      "validation": "Use the owning stage and compatibility probes; record observed versus documented results.",
+      "rollback": "Remove only the approved pilot artifact or restore captured prior bytes; do not touch unrelated configuration.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-089",
+      "existing_path": null,
+      "observed_revision": null,
+      "observed_sha256": null,
+      "action": "add_after_approval",
+      "target_path": ".agents/skills/apex-research-cycle/SKILL.md",
+      "target_state": "proposed_not_installed",
+      "reason": "Pilot sustained research/recovery; current state remains in existing run files.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-13"
+      ],
+      "adoption_stage": "S2",
+      "package_material": [
+        "examples/workflows/apex-research-cycle/SKILL.md.example"
+      ],
+      "prerequisites": [
+        "Approve the bounded target and scope.",
+        "Resolve actual native profile/discovery and existing collisions.",
+        "Pass relevant source, schema, negative and outcome checks."
+      ],
+      "validation": "Use the owning stage and compatibility probes; record observed versus documented results.",
+      "rollback": "Remove only the approved pilot artifact or restore captured prior bytes; do not touch unrelated configuration.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-090",
+      "existing_path": null,
+      "observed_revision": null,
+      "observed_sha256": null,
+      "action": "add_after_approval",
+      "target_path": ".agents/hooks/apex_hook.py",
+      "target_state": "proposed_not_installed",
+      "reason": "Conditional production predicate interface from retained design. Canary scripts are not a completed production enforcement engine.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-09"
+      ],
+      "adoption_stage": "S3",
+      "package_material": [
+        "03-architecture.md"
+      ],
+      "prerequisites": [
+        "Approve the bounded target and scope.",
+        "Resolve actual native profile/discovery and existing collisions.",
+        "Pass relevant source, schema, negative and outcome checks."
+      ],
+      "validation": "Use the owning stage and compatibility probes; record observed versus documented results.",
+      "rollback": "Remove only the approved pilot artifact or restore captured prior bytes; do not touch unrelated configuration.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-091",
+      "existing_path": null,
+      "observed_revision": null,
+      "observed_sha256": null,
+      "action": "add_after_approval",
+      "target_path": ".codex/hooks.json",
+      "target_state": "proposed_not_installed",
+      "reason": "Proposed native Codex configuration; exact-path fetch at pinned Apex revision returned 404; workstation remains unknown.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-09"
+      ],
+      "adoption_stage": "S3",
+      "package_material": [
+        "examples/native/codex-hooks.example.json"
+      ],
+      "prerequisites": [
+        "Approve the bounded target and scope.",
+        "Resolve actual native profile/discovery and existing collisions.",
+        "Pass relevant source, schema, negative and outcome checks."
+      ],
+      "validation": "Use the owning stage and compatibility probes; record observed versus documented results.",
+      "rollback": "Remove only the approved pilot artifact or restore captured prior bytes; do not touch unrelated configuration.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-092",
+      "existing_path": null,
+      "observed_revision": null,
+      "observed_sha256": null,
+      "action": "add_after_approval",
+      "target_path": ".agents/hooks.json",
+      "target_state": "proposed_not_installed",
+      "reason": "Proposed native Antigravity configuration; exact-path fetch at pinned Apex revision returned 404; workstation remains unknown.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-09"
+      ],
+      "adoption_stage": "S3",
+      "package_material": [
+        "examples/native/antigravity-hooks.example.json"
+      ],
+      "prerequisites": [
+        "Approve the bounded target and scope.",
+        "Resolve actual native profile/discovery and existing collisions.",
+        "Pass relevant source, schema, negative and outcome checks."
+      ],
+      "validation": "Use the owning stage and compatibility probes; record observed versus documented results.",
+      "rollback": "Remove only the approved pilot artifact or restore captured prior bytes; do not touch unrelated configuration.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-093",
+      "existing_path": null,
+      "observed_revision": null,
+      "observed_sha256": null,
+      "action": "add_after_approval",
+      "target_path": ".codex/agents/apex-verifier.toml",
+      "target_state": "proposed_not_installed",
+      "reason": "Optional bounded native role wrapper only when useful; inherited permissions are not a new sandbox.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-12"
+      ],
+      "adoption_stage": "S2",
+      "package_material": [
+        "examples/native/codex-verifier.example.toml"
+      ],
+      "prerequisites": [
+        "Approve the bounded target and scope.",
+        "Resolve actual native profile/discovery and existing collisions.",
+        "Pass relevant source, schema, negative and outcome checks."
+      ],
+      "validation": "Use the owning stage and compatibility probes; record observed versus documented results.",
+      "rollback": "Remove only the approved pilot artifact or restore captured prior bytes; do not touch unrelated configuration.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-094",
+      "existing_path": null,
+      "observed_revision": null,
+      "observed_sha256": null,
+      "action": "add_after_approval",
+      "target_path": "<existing-run-dir>/activation-state.json",
+      "target_state": "proposed_not_installed",
+      "reason": "Optional proposed coverage/receipt sidecar. It grants no authority and is not an existing domain schema.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-11"
+      ],
+      "adoption_stage": "S2",
+      "package_material": [
+        "examples/activation-state.example.json"
+      ],
+      "prerequisites": [
+        "Approve the bounded target and scope.",
+        "Resolve actual native profile/discovery and existing collisions.",
+        "Pass relevant source, schema, negative and outcome checks."
+      ],
+      "validation": "Use the owning stage and compatibility probes; record observed versus documented results.",
+      "rollback": "Remove only the approved pilot artifact or restore captured prior bytes; do not touch unrelated configuration.",
+      "approval_status": "not_requested_not_granted"
+    },
+    {
+      "id": "IM-095",
+      "existing_path": null,
+      "observed_revision": null,
+      "observed_sha256": null,
+      "action": "add_after_approval",
+      "target_path": "<approved-profile>/native-adapter-configuration",
+      "target_state": "proposed_not_installed",
+      "reason": "Host-specific configuration projection; choose one actual scope after the read-only probe. No universal global path is asserted.",
+      "rule_ids": [],
+      "decision_ids": [
+        "D-24"
+      ],
+      "adoption_stage": "S3",
+      "package_material": [
+        "examples/native/README.md"
+      ],
+      "prerequisites": [
+        "Approve the bounded target and scope.",
+        "Resolve actual native profile/discovery and existing collisions.",
+        "Pass relevant source, schema, negative and outcome checks."
+      ],
+      "validation": "Use the owning stage and compatibility probes; record observed versus documented results.",
+      "rollback": "Remove only the approved pilot artifact or restore captured prior bytes; do not touch unrelated configuration.",
+      "approval_status": "not_requested_not_granted"
+    }
+  ]
+}
